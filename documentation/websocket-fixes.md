@@ -20,6 +20,11 @@ This document describes the fixes implemented to resolve WebSocket connection is
    - Inconsistent handling of connection lifecycle
    - Missing proper error handling and recovery
 
+5. **JSON Parsing Errors (NEW)**
+   - "Unexpected non-whitespace character after JSON at position 175"
+   - Multiple JSON objects concatenated together due to race conditions
+   - Excessive message frequency causing queue overflow
+
 ## Implemented Solutions
 
 ### Client-Side Fixes (ProgressContext.tsx)
@@ -73,6 +78,15 @@ This document describes the fixes implemented to resolve WebSocket connection is
    - Server tracks last ping time
    - Automatic disconnection of stale clients
    - Bidirectional ping/pong support
+   ```
+
+4. **JSON Parsing Error Prevention (NEW)**
+   ```python
+   - Message queue system with sequential processing
+   - Rate limiting to prevent excessive message frequency
+   - Thread-safe message handling to prevent concatenation
+   - Queue size limiting to prevent memory issues
+   - Unique message IDs for debugging
    ```
 
 ### Browser Extension Fix (browserExtensionFix.ts)
@@ -133,14 +147,17 @@ console.log(results);
 
 ### Server-Side Monitoring
 
-1. **Status Endpoint**
+1. **Status Endpoint (Enhanced)**
    ```bash
    curl http://localhost:8000/ws/status
+   # Returns: active_connections, has_current_progress, queue_size, queue_processor_running
    ```
 
 2. **Server Logs**
    - Connection/disconnection events
    - Error details with timestamps
+   - Message queue processing status
+   - Rate limiting information
 
 ## Troubleshooting
 
@@ -162,6 +179,13 @@ console.log(results);
 2. Try in incognito/private mode
 3. Clear browser cache and cookies
 
+### JSON Parsing Errors (NEW)
+
+1. Check server logs for message queue status
+2. Monitor the `/ws/status` endpoint for queue size
+3. Verify that rate limiting is working properly
+4. Look for message_id duplicates in console logs
+
 ## Performance Considerations
 
 1. **Reconnection Attempts**
@@ -175,6 +199,8 @@ console.log(results);
 3. **Network Usage**
    - Ping/pong messages are minimal (< 50 bytes)
    - Only active progress data is transmitted
+   - Rate limiting reduces unnecessary message traffic
+   - Message queue prevents duplicate/redundant messages
 
 ## Future Improvements
 

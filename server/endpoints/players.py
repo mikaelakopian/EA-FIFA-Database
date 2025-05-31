@@ -521,12 +521,13 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "message": "Generating player attributes..."
             }
             
+            # Send initial progress for this player
             send_progress_sync({
                 "type": "progress",
                 "function_name": "add_teams",
                 "operation": "add_teams",
                 "current_team": team_name,
-                "current_processing_player": player_key,
+                "current_player": player_name,
                 "message": f"Saving player {i+1}/{len(players_data)}: {player_name}",
                 "players_processing_progress": players_processing_progress,
                 "player_index": i,
@@ -550,17 +551,6 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
             
             players_processing_progress[player_key]["progress"] = 40
             players_processing_progress[player_key]["message"] = "Generating physical attributes..."
-            
-            send_progress_sync({
-                "type": "progress",
-                "function_name": "add_teams",
-                "operation": "add_teams",
-                "current_team": team_name,
-                "current_processing_player": player_key,
-                "players_processing_progress": players_processing_progress,
-                "player_index": i,
-                "total_players": len(players_data)
-            })
             
             player_full_name = tm_player.get('player_name', f'Player {i+1}')
             name_parts = player_full_name.split(' ', 1)
@@ -770,12 +760,12 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
             players_processing_progress[player_key]["potential"] = potential_rating
             players_processing_progress[player_key]["position"] = tm_player.get('player_position', 'CM')
             
+            # Send main progress update with all player details
             send_progress_sync({
                 "type": "progress",
                 "function_name": "add_teams",
                 "operation": "add_teams",
                 "current_team": team_name,
-                "current_processing_player": player_key,
                 "current_player": player_name,
                 "player_index": i,
                 "total_players": len(players_data),
@@ -797,16 +787,17 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 players_processing_progress[player_key]["progress"] = 80
                 players_processing_progress[player_key]["message"] = "Downloading player photo..."
                 
-                send_progress_sync({
-                    "type": "progress",
-                    "function_name": "add_teams",
-                    "operation": "add_teams",
-                    "current_team": team_name,
-                    "current_processing_player": player_key,
-                    "current_player": player_name,
-                    "message": f"Downloading photo for {player_name}",
-                    "players_processing_progress": players_processing_progress
-                })
+                # Only send photo download progress for every 3rd player to reduce messages
+                if i % 3 == 0:
+                    send_progress_sync({
+                        "type": "progress",
+                        "function_name": "add_teams",
+                        "operation": "add_teams",
+                        "current_team": team_name,
+                        "current_player": player_name,
+                        "message": f"Downloading photo for {player_name}",
+                        "players_processing_progress": players_processing_progress
+                    })
                 
                 try:
                     photo_success = await download_player_image(player_photo_url, project_name, str(new_player_id))
@@ -817,16 +808,17 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                         players_processing_progress[player_key]["progress"] = 85
                         players_processing_progress[player_key]["message"] = "Applying ML predictions..."
                         
-                        send_progress_sync({
-                            "type": "progress",
-                            "function_name": "add_teams",
-                            "operation": "add_teams",
-                            "current_team": team_name,
-                            "current_processing_player": player_key,
-                            "current_player": player_name,
-                            "message": f"Analyzing photo for {player_name} with AI...",
-                            "players_processing_progress": players_processing_progress
-                        })
+                        # Only send ML analysis progress for every 5th player to reduce messages
+                        if i % 5 == 0:
+                            send_progress_sync({
+                                "type": "progress",
+                                "function_name": "add_teams",
+                                "operation": "add_teams",
+                                "current_team": team_name,
+                                "current_player": player_name,
+                                "message": f"Analyzing photo for {player_name} with AI...",
+                                "players_processing_progress": players_processing_progress
+                            })
                         
                         # Check if downloaded image exists and apply ML
                         heads_dir = Path("projects") / project_name / "images" / "heads"
@@ -855,12 +847,12 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
             players_processing_progress[player_key]["status"] = "completed"
             players_processing_progress[player_key]["message"] = f"Player saved (OVR: {overall_rating})"
             
+            # Send final player completion status
             send_progress_sync({
                 "type": "progress",
                 "function_name": "add_teams",
                 "operation": "add_teams",
                 "current_team": team_name,
-                "current_processing_player": player_key,
                 "current_player": player_name,
                 "player_index": i,
                 "total_players": len(players_data),
