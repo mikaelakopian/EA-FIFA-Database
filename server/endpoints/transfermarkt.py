@@ -1933,6 +1933,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
         # Send initial progress
         send_progress_sync({
             "type": "progress",
+            "function_name": "parse_league_teams",
             "message": "Starting to parse teams from Transfermarkt...",
             "details": "Connecting to Transfermarkt",
             "current": 0,
@@ -1945,6 +1946,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
             # Send progress for fetching page
             send_progress_sync({
                 "type": "progress",
+                "function_name": "parse_league_teams",
                 "message": "Fetching league page...",
                 "details": f"Loading {league_url}",
                 "current": 0,
@@ -1957,6 +1959,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                 logger.error(f"Failed to fetch league page: {league_url}")
                 send_progress_sync({
                     "status": "error",
+                    "function_name": "parse_league_teams",
                     "message": "Failed to fetch league page",
                     "details": f"Could not load {league_url}"
                 })
@@ -1965,6 +1968,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
             # Send progress for parsing HTML
             send_progress_sync({
                 "type": "progress",
+                "function_name": "parse_league_teams",
                 "message": "Parsing league page...",
                 "details": "Analyzing HTML structure",
                 "current": 0,
@@ -1983,6 +1987,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                 logger.error(f"Teams table not found on page: {league_url}")
                 send_progress_sync({
                     "status": "error",
+                    "function_name": "parse_league_teams",
                     "message": "Teams table not found",
                     "details": "Could not find teams data on the page"
                 })
@@ -1994,6 +1999,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                 logger.error(f"Table body not found on page: {league_url}")
                 send_progress_sync({
                     "status": "error",
+                    "function_name": "parse_league_teams",
                     "message": "Table structure error",
                     "details": "Could not find table body"
                 })
@@ -2006,6 +2012,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
             # Send progress with total count
             send_progress_sync({
                 "type": "progress",
+                "function_name": "parse_league_teams",
                 "message": f"Found {total_rows} teams to parse",
                 "details": "Starting team data extraction",
                 "current": 0,
@@ -2019,6 +2026,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                     progress_percentage = 30 + (row_idx / total_rows) * 60  # 30% to 90%
                     send_progress_sync({
                         "type": "progress",
+                        "function_name": "parse_league_teams",
                         "message": f"Parsing team {row_idx + 1} of {total_rows}",
                         "details": f"Extracting team data...",
                         "current": row_idx + 1,
@@ -2117,6 +2125,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                         # Send progress with team name
                         send_progress_sync({
                             "type": "progress",
+                            "function_name": "parse_league_teams",
                             "message": f"Parsed {team_name}",
                             "details": f"Team {row_idx + 1} of {total_rows} completed",
                             "current": row_idx + 1,
@@ -2131,6 +2140,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
             # Send completion progress
             send_progress_sync({
                 "type": "progress",
+                "function_name": "parse_league_teams",
                 "message": f"Successfully parsed {len(teams)} teams!",
                 "details": "Team parsing completed",
                 "current": len(teams),
@@ -2141,6 +2151,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
             # Send completion status
             send_progress_sync({
                 "status": "completed",
+                "function_name": "parse_league_teams",
                 "message": f"Found {len(teams)} teams from Transfermarkt",
                 "teams_count": len(teams)
             })
@@ -2155,6 +2166,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
         logger.error(f"Error parsing league teams from {league_url}: {e}")
         send_progress_sync({
             "status": "error",
+            "function_name": "parse_league_teams",
             "message": "Failed to parse teams",
             "details": f"Error: {str(e)}"
         })

@@ -645,6 +645,9 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
                 if (onDataRefresh) { // Notify parent page (ProjectLeaguesPage)
                   onDataRefresh();
                 }
+              } else if (data.function_name === 'parse_league_teams') { // Check if it's from parsing teams
+                console.log('[LeagueDivider] Transfermarkt team parsing completed via WebSocket');
+                // Note: setLoadingTeamsFromTransfermarkt(false) is already handled in the fetchTransfermarktTeams finally block
               }
             } else if (data.type === 'ping') {
               ws.send(JSON.stringify({ type: 'pong' }));
