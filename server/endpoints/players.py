@@ -16,6 +16,8 @@ from .teamplayerlinks import save_teamplayerlinks_with_jersey_numbers as save_tp
 from .playernames import initialize_playernames_file
 # Import ML prediction functionality
 from .PlayerParametersPredictionsModel import enhance_player_data_with_predictions
+# Import player attributes calculation functionality  
+from .PlayerAttributesCalculationModel import generate_player_attributes
 
 router = APIRouter()
 
@@ -578,10 +580,20 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
             players_processing_progress[player_key]["progress"] = 70
             players_processing_progress[player_key]["message"] = "Calculating skill attributes..."
             
+            # Generate target overall rating for player
             overall_rating = random.randint(60, 75)
             potential_rating = random.randint(overall_rating + 5, 85)
             
+            # Use our calculation model to generate attributes based on position and overall rating
+            calculated_attributes = generate_player_attributes(
+                preferred_position=position_data["preferredposition1"],
+                target_overall=overall_rating,
+                international_reputation=random.randint(1, 3)
+            )
+            
+            # Create base player data with calculated attributes
             player_data = {
+                # Physical appearance attributes
                 "haircolorcode": str(random.randint(1, 10)),
                 "facialhairtypecode": str(random.randint(0, 300)),
                 "hairtypecode": str(random.randint(1, 1100)),
@@ -605,6 +617,8 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "emotion": str(random.randint(1, 5)),
                 "height": str(random.randint(165, 195) if not is_goalkeeper else random.randint(180, 200)),
                 "weight": str(random.randint(60, 90) if not is_goalkeeper else random.randint(70, 95)),
+                
+                # Basic player information
                 "birthdate": birthdate,
                 "playerid": new_player_id,
                 "firstnameid": str(firstname_id),
@@ -614,49 +628,61 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "contractvaliduntil": str(datetime.now().year + random.randint(1, 5)),
                 "playerjointeamdate": f"{random.randint(1, 365)}{(datetime.now().year - random.randint(0, 5)) % 100:02d}",
                 "nationality": get_nationality_map().get(tm_player.get('player_nationality', 'England'), "21"),
+                
+                # Position data (will be updated from calculated_attributes)
                 **position_data,
-                "overallrating": str(overall_rating),
+                
+                # Overall ratings (will be updated from calculated_attributes)
+                "overallrating": str(calculated_attributes.get('overall_rating', overall_rating)),
                 "potential": str(potential_rating),
-                "acceleration": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "sprintspeed": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "agility": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "balance": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "stamina": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "strength": str(random.randint(60, 85) if is_goalkeeper else random.randint(50, 85)),
-                "jumping": str(random.randint(60, 85) if is_goalkeeper else random.randint(50, 85)),
-                "crossing": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "finishing": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "headingaccuracy": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "shortpassing": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 80)),
-                "volleys": str(random.randint(10, 30) if is_goalkeeper else random.randint(30, 65)),
-                "dribbling": str(random.randint(10, 30) if is_goalkeeper else random.randint(45, 80)),
-                "curve": str(random.randint(10, 30) if is_goalkeeper else random.randint(35, 70)),
-                "freekickaccuracy": str(random.randint(10, 30) if is_goalkeeper else random.randint(30, 70)),
-                "longpassing": str(random.randint(30, 50) if is_goalkeeper else random.randint(45, 75)),
-                "ballcontrol": str(random.randint(20, 40) if is_goalkeeper else random.randint(50, 85)),
-                "shotpower": str(random.randint(30, 50) if is_goalkeeper else random.randint(45, 80)),
-                "longshots": str(random.randint(10, 30) if is_goalkeeper else random.randint(30, 70)),
-                "interceptions": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "positioning": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "vision": str(random.randint(30, 50) if is_goalkeeper else random.randint(40, 75)),
-                "penalties": str(random.randint(30, 50) if is_goalkeeper else random.randint(40, 70)),
-                "composure": str(random.randint(30, 50) if is_goalkeeper else random.randint(45, 75)),
-                "defensiveawareness": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "standingtackle": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "slidingtackle": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "aggression": str(random.randint(30, 60) if is_goalkeeper else random.randint(40, 80)),
-                "reactions": str(random.randint(60, 85)),
-                "gkdiving": str(random.randint(60, 85) if is_goalkeeper else random.randint(5, 15)),
-                "gkhandling": str(random.randint(60, 85) if is_goalkeeper else random.randint(5, 15)),
-                "gkkicking": str(random.randint(50, 75) if is_goalkeeper else random.randint(5, 15)),
-                "gkpositioning": str(random.randint(60, 85) if is_goalkeeper else random.randint(5, 15)),
-                "gkreflexes": str(random.randint(60, 85) if is_goalkeeper else random.randint(5, 15)),
-                "pacdiv": str(random.randint(30, 50) if is_goalkeeper else random.randint(50, 85)),
-                "shohan": str(random.randint(30, 50) if is_goalkeeper else random.randint(40, 75)),
-                "paskic": str(random.randint(30, 50) if is_goalkeeper else random.randint(45, 80)),
-                "driref": str(random.randint(20, 40) if is_goalkeeper else random.randint(50, 85)),
-                "defspe": str(random.randint(10, 30) if is_goalkeeper else random.randint(40, 75)),
-                "phypos": str(random.randint(50, 75) if is_goalkeeper else random.randint(50, 80)),
+                
+                # All skill attributes from our calculation model (convert to strings as expected by FIFA)
+                "acceleration": str(calculated_attributes.get('acceleration', 50)),
+                "sprintspeed": str(calculated_attributes.get('sprintSpeed', 50)),
+                "agility": str(calculated_attributes.get('agility', 50)),
+                "balance": str(random.randint(45, 80)),  # Not in our model, use random
+                "stamina": str(calculated_attributes.get('stamina', 50)),
+                "strength": str(calculated_attributes.get('strength', 50)),
+                "jumping": str(calculated_attributes.get('jumping', 50)),
+                "crossing": str(calculated_attributes.get('crossing', 50)),
+                "finishing": str(calculated_attributes.get('finishing', 50)),
+                "headingaccuracy": str(calculated_attributes.get('heading', 50)),
+                "shortpassing": str(calculated_attributes.get('shortPassing', 50)),
+                "volleys": str(calculated_attributes.get('volleys', 50)),
+                "dribbling": str(calculated_attributes.get('dribbling', 50)),
+                "curve": str(calculated_attributes.get('curve', 50)),
+                "freekickaccuracy": str(calculated_attributes.get('fkAccuracy', 50)),
+                "longpassing": str(calculated_attributes.get('longPassing', 50)),
+                "ballcontrol": str(calculated_attributes.get('ballControl', 50)),
+                "shotpower": str(calculated_attributes.get('shotPower', 50)),
+                "longshots": str(calculated_attributes.get('longShots', 50)),
+                "interceptions": str(calculated_attributes.get('interceptions', 50)),
+                "positioning": str(calculated_attributes.get('positioning', 50)),
+                "vision": str(calculated_attributes.get('vision', 50)),
+                "penalties": str(calculated_attributes.get('penalties', 50)),
+                "composure": str(calculated_attributes.get('composure', 50)),
+                "defensiveawareness": str(calculated_attributes.get('marking', 50)),
+                "standingtackle": str(calculated_attributes.get('standingTackle', 50)),
+                "slidingtackle": str(calculated_attributes.get('slidingTackle', 50)),
+                "aggression": str(calculated_attributes.get('aggression', 50)),
+                "reactions": str(calculated_attributes.get('reactions', 50)),
+                
+                # Goalkeeper attributes
+                "gkdiving": str(calculated_attributes.get('gkDiving', 10)),
+                "gkhandling": str(calculated_attributes.get('gkHandling', 10)),
+                "gkkicking": str(calculated_attributes.get('gkKicking', 10)),
+                "gkpositioning": str(calculated_attributes.get('gkPositioning', 10)),
+                "gkreflexes": str(calculated_attributes.get('gkReflexes', 10)),
+                
+                # Calculated composite attributes
+                "pacdiv": str((calculated_attributes.get('acceleration', 50) + calculated_attributes.get('sprintSpeed', 50)) // 2),
+                "shohan": str((calculated_attributes.get('finishing', 50) + calculated_attributes.get('shotPower', 50)) // 2),
+                "paskic": str((calculated_attributes.get('shortPassing', 50) + calculated_attributes.get('longPassing', 50)) // 2),
+                "driref": str((calculated_attributes.get('dribbling', 50) + calculated_attributes.get('ballControl', 50)) // 2),
+                "defspe": str((calculated_attributes.get('marking', 50) + calculated_attributes.get('standingTackle', 50)) // 2),
+                "phypos": str((calculated_attributes.get('strength', 50) + calculated_attributes.get('positioning', 50)) // 2),
+                
+                # Player traits and preferences
                 "trait1": str(random.choice([0, 1024, 2048, 4096, 8192])),
                 "trait2": "0",
                 "icontrait1": "0",
@@ -665,6 +691,8 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "weakfootabilitytypecode": str(random.randint(2, 4)),
                 "skillmoveslikelihood": "1",
                 "preferredfoot": str(random.randint(1, 2)),
+                
+                # Kit and appearance
                 "jerseyfit": "0",
                 "jerseystylecode": str(random.randint(0, 1)),
                 "jerseysleevelengthcode": "0",
@@ -676,6 +704,8 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "shoecolorcode2": str(random.randint(1, 50)),
                 "shoedesigncode": "0",
                 "gkglovetypecode": str(random.randint(1, 10) if is_goalkeeper else "0"),
+                
+                # Animation codes
                 "gksavetype": "0",
                 "gkkickstyle": "0",
                 "runstylecode": "0",
@@ -685,6 +715,8 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "finishingcode2": "0",
                 "animfreekickstartposcode": "0",
                 "animpenaltiesstartposcode": "0",
+                
+                # Accessories and tattoos
                 "accessorycode1": "0",
                 "accessorycode2": "0", 
                 "accessorycode3": "0",
@@ -702,6 +734,8 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "tattoofront": "0",
                 "sideburnscode": "0",
                 "facialhaircolorcode": str(random.randint(1, 10)),
+                
+                # Misc attributes
                 "modifier": "0",
                 "gender": "0",
                 "hashighqualityhead": "0",
@@ -711,12 +745,15 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "iscustomized": "0",
                 "usercaneditname": "0",
                 "avatarpomid": "0",
-                "internationalrep": str(random.randint(1, 3)),
+                "internationalrep": str(calculated_attributes.get('international_reputation', 1)),
                 "role1": str(random.randint(1, 50)),
                 "role2": str(random.randint(1, 50)),
                 "role3": str(random.randint(1, 50)),
                 "smallsidedshoetypecode": str(random.randint(400, 600)),
             }
+            
+            # Update the actual overall rating from our calculation
+            overall_rating = calculated_attributes.get('overall_rating', overall_rating)
             
             
             players_processing_progress[player_key]["progress"] = 75
