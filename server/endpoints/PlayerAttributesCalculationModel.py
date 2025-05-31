@@ -52,7 +52,8 @@ class PlayerAttributesCalculator:
             'rwb': {
                 'acceleration': 0.04,
                 'sprintSpeed': 0.06,
-                'stamina': 0.10,
+                'stamina': 0.09,
+                'balance': 0.01,
                 'reactions': 0.08,
                 'interceptions': 0.12,
                 'ballControl': 0.08,
@@ -194,7 +195,7 @@ class PlayerAttributesCalculator:
         
         # All possible attributes
         self.all_attributes = [
-            'acceleration', 'sprintSpeed', 'agility', 'reactions', 'ballControl', 'dribbling',
+            'acceleration', 'sprintSpeed', 'agility', 'balance', 'reactions', 'ballControl', 'dribbling',
             'finishing', 'heading', 'shortPassing', 'volleys', 'curve', 'fkAccuracy',
             'longPassing', 'shotPower', 'longShots', 'crossing', 'jumping', 'stamina',
             'strength', 'aggression', 'interceptions', 'positioning', 'vision', 'penalties',
