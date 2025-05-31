@@ -2038,28 +2038,67 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                     if len(cells) < 7:  # Need at least 7 columns
                         continue
                     
-                    # Extract team logo (first cell)
-                    logo_cell = cells[0]
-                    logo_img = logo_cell.find("img", class_="tiny_wappen")
-                    team_logo = ""
-                    if logo_img and logo_img.get("src"):
-                        # Convert tiny logo to head logo format
-                        tiny_logo = logo_img["src"]
-                        if "tiny" in tiny_logo:
-                            team_logo = tiny_logo.replace("/tiny/", "/head/")
-                        else:
-                            team_logo = tiny_logo
-                    
-                    # Extract team name and link (second cell)
+                    # Extract team name and link (second cell) first to get team_id
                     name_cell = cells[1]
                     team_link = name_cell.find("a")
                     team_name = ""
                     team_url = ""
+                    team_id = ""
+                    
                     if team_link:
                         team_name = team_link.get_text(strip=True)
                         team_url = team_link.get("href", "")
                         if team_url and not team_url.startswith("http"):
                             team_url = f"{BASE_URL}{team_url}"
+                        
+                        # Extract team ID from URL immediately
+                        if team_url:
+                            match = re.search(r'/verein/(\d+)', team_url)
+                            if match:
+                                team_id = match.group(1)
+                    
+                    # Extract team logo (first cell)
+                    logo_cell = cells[0]
+                    team_logo = ""
+                    
+                    # Method 1: Try class="tiny_wappen"
+                    logo_img = logo_cell.find("img", class_="tiny_wappen")
+                    if logo_img and logo_img.get("src"):
+                        tiny_logo = logo_img["src"]
+                        logger.info(f"Method 1 - Found logo with tiny_wappen class: {tiny_logo}")
+                        team_logo = tiny_logo.replace("/tiny/", "/head/") if "tiny" in tiny_logo else tiny_logo
+                    
+                    # Method 2: Try any img with wappen in src
+                    if not team_logo:
+                        all_imgs = logo_cell.find_all("img")
+                        logger.info(f"Method 2 - Found {len(all_imgs)} img tags in logo cell")
+                        for i, img in enumerate(all_imgs):
+                            src = img.get("src", "")
+                            classes = img.get("class", [])
+                            logger.info(f"  Img {i}: src={src}, class={classes}")
+                            if src and "wappen" in src:
+                                team_logo = src.replace("/tiny/", "/head/") if "tiny" in src else src
+                                logger.info(f"Method 2 - Using logo with wappen in src: {team_logo}")
+                                break
+                    
+                    # Method 3: Try first img in cell
+                    if not team_logo:
+                        first_img = logo_cell.find("img")
+                        if first_img and first_img.get("src"):
+                            src = first_img["src"]
+                            logger.info(f"Method 3 - Using first img: {src}")
+                            team_logo = src.replace("/tiny/", "/head/") if "tiny" in src else src
+                    
+                    # Method 4: Generate logo URL from team_id if found
+                    if not team_logo and team_id:
+                        generated_logo = f"https://tmssl.akamaized.net/images/wappen/head/{team_id}.png"
+                        logger.info(f"Method 4 - Generated logo URL from team_id: {generated_logo}")
+                        team_logo = generated_logo
+                    
+                    if not team_logo:
+                        logger.warning(f"No logo found for team in row {row_idx + 1}. Logo cell HTML: {str(logo_cell)[:300]}")
+                    else:
+                        logger.info(f"Final logo URL: {team_logo}")
                     
                     # Extract squad size (third cell with link)
                     squad_cell = cells[2]
@@ -2099,12 +2138,7 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                     else:
                         total_market_value = total_market_value_cell.get_text(strip=True)
                     
-                    # Extract team ID from URL
-                    team_id = ""
-                    if team_url:
-                        match = re.search(r'/verein/(\d+)', team_url)
-                        if match:
-                            team_id = match.group(1)
+                    # team_id already extracted above
                     
                     team_data = {
                         "teamname": team_name,
@@ -2134,7 +2168,9 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                         })
                 
                 except Exception as e:
-                    logger.warning(f"Error parsing team row {row_idx}: {e}")
+                    logger.error(f"Error parsing team row {row_idx}: {e}")
+                    import traceback
+                    logger.error(f"Full traceback: {traceback.format_exc()}")
                     continue
             
             # Send completion progress
@@ -2202,10 +2238,24 @@ def parse_league_teams(request: LeagueTeamsRequest):
         teams = parse_transfermarkt_league_teams(league_url)
         
         if not teams:
+            # Send error completion message
+            send_progress_sync({
+                "status": "error",
+                "function_name": "parse_league_teams",
+                "message": "No teams found or failed to parse league page"
+            })
             return JSONResponse(
                 status_code=404,
                 content={"error": "No teams found or failed to parse league page"}
             )
+        
+        # Send final completion message from endpoint
+        send_progress_sync({
+            "status": "completed",
+            "function_name": "parse_league_teams",
+            "message": f"Successfully found {len(teams)} teams from Transfermarkt",
+            "teams_count": len(teams)
+        })
         
         return {
             "status": "success",
@@ -2216,6 +2266,12 @@ def parse_league_teams(request: LeagueTeamsRequest):
         
     except Exception as e:
         logger.error(f"Error in parse_league_teams endpoint: {e}")
+        # Send error completion message
+        send_progress_sync({
+            "status": "error",
+            "function_name": "parse_league_teams",
+            "message": f"Error parsing teams: {str(e)}"
+        })
         return JSONResponse(
             status_code=500,
             content={"error": f"Internal server error: {str(e)}"}

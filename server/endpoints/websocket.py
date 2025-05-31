@@ -7,6 +7,8 @@ from typing import Set
 import time
 import threading
 import sys
+from collections import deque
+import uuid
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -23,6 +25,11 @@ progress_lock = threading.Lock()
 last_team_name = None
 last_player_count = 0
 last_operation = None
+
+# Message queue and processing flag to prevent message concatenation
+message_queue = deque()
+queue_lock = threading.Lock()
+queue_processor_running = False
 
 def _format_progress_output(progress_data):
     """Форматирует красивый вывод прогресса создания команд и игроков"""
@@ -113,8 +120,55 @@ def _format_progress_output(progress_data):
         logger.debug(f"Error formatting progress output: {e}")
         pass
 
+async def process_message_queue():
+    """Process messages from queue sequentially to prevent concatenation"""
+    global queue_processor_running
+    
+    queue_processor_running = True
+    
+    try:
+        while True:
+            message_to_send = None
+            
+            # Get next message from queue
+            with queue_lock:
+                if message_queue:
+                    message_to_send = message_queue.popleft()
+                elif not message_queue:
+                    # Queue is empty, we can stop processing
+                    break
+            
+            if message_to_send:
+                # Get current connections
+                with connections_lock:
+                    connections = active_connections.copy()
+                
+                if connections:
+                    # Send message to all connections
+                    to_remove = set()
+                    send_tasks = []
+                    
+                    for ws in connections:
+                        send_tasks.append(send_with_timeout(ws, message_to_send, to_remove))
+                    
+                    # Wait for all sends to complete
+                    await asyncio.gather(*send_tasks, return_exceptions=True)
+                    
+                    # Remove inactive connections
+                    if to_remove:
+                        with connections_lock:
+                            for ws in to_remove:
+                                active_connections.discard(ws)
+                                logger.info("Removed inactive WebSocket connection")
+                
+                # Small delay between messages to prevent overwhelming
+                await asyncio.sleep(0.01)
+    
+    finally:
+        queue_processor_running = False
+
 async def broadcast_progress(progress_data):
-    """Отправка данных прогресса всем подключенным клиентам"""
+    """Отправка данных прогресса всем подключенным клиентам через очередь"""
     global current_progress
     
     # Сохраняем текущий прогресс с блокировкой
@@ -124,29 +178,15 @@ async def broadcast_progress(progress_data):
         elif progress_data.get("status") == "completed":
             current_progress = None
     
-    # Получаем копию активных соединений с блокировкой
-    with connections_lock:
-        connections = active_connections.copy()
-    
-    if not connections:
-        return
-    
-    to_remove = set()
+    # Add message to queue instead of sending directly
     message = json.dumps(progress_data)
     
-    # Отправляем сообщения параллельно с таймаутом
-    send_tasks = []
-    for ws in connections:
-        send_tasks.append(send_with_timeout(ws, message, to_remove))
+    with queue_lock:
+        message_queue.append(message)
     
-    await asyncio.gather(*send_tasks, return_exceptions=True)
-    
-    # Удаляем неактивные соединения
-    if to_remove:
-        with connections_lock:
-            for ws in to_remove:
-                active_connections.discard(ws)
-                logger.info("Removed inactive WebSocket connection")
+    # Start queue processor if not running
+    if not queue_processor_running:
+        asyncio.create_task(process_message_queue())
 
 async def send_with_timeout(ws: WebSocket, message: str, to_remove: set, timeout: float = 5.0):
     """Отправка сообщения с таймаутом"""
@@ -208,10 +248,8 @@ async def websocket_main(websocket: WebSocket):
         # Отправляем начальное сообщение для подтверждения соединения
         await websocket.send_text(json.dumps({"type": "connected", "message": "WebSocket connected"}))
         
-        # Отправляем текущий прогресс, если есть
-        with progress_lock:
-            if current_progress:
-                await websocket.send_text(json.dumps(current_progress))
+        # Не отправляем старый прогресс новым клиентам
+        # Клиенты должны получать только новые сообщения прогресса
         
         last_ping = time.time()
         
@@ -265,13 +303,32 @@ async def websocket_main(websocket: WebSocket):
         except Exception:
             pass
 
+# Rate limiter for progress messages
+_last_progress_time = {}
+_min_progress_interval = 0.1  # Minimum 100ms between messages
+
 # Функция для безопасной отправки прогресса из синхронного кода
 def send_progress_sync(progress_data):
-    """Синхронная функция для отправки прогресса с улучшенной обработкой ошибок"""
+    """Синхронная функция для отправки прогресса с rate limiting"""
     try:
+        # Rate limiting - prevent too frequent updates
+        message_key = f"{progress_data.get('function_name', 'unknown')}_{progress_data.get('current_team', 'unknown')}"
+        current_time = time.time()
+        
+        if message_key in _last_progress_time:
+            time_since_last = current_time - _last_progress_time[message_key]
+            if time_since_last < _min_progress_interval:
+                # Skip this message to prevent overwhelming
+                return
+        
+        _last_progress_time[message_key] = current_time
+        
         # Добавляем timestamp если его нет
         if 'timestamp' not in progress_data:
-            progress_data['timestamp'] = time.time()
+            progress_data['timestamp'] = current_time
+        
+        # Add unique ID to message to help with debugging
+        progress_data['message_id'] = str(uuid.uuid4())[:8]
         
         # Красивый вывод для создания команд и игроков
         _format_progress_output(progress_data)
@@ -284,45 +341,28 @@ def send_progress_sync(progress_data):
             elif progress_data.get("status") == "completed":
                 current_progress = None
         
-        # Получаем копию активных соединений
-        with connections_lock:
-            connections = active_connections.copy()
+        # Add to message queue instead of direct sending
+        message = json.dumps(progress_data)
         
-        if not connections:
-            return
+        with queue_lock:
+            message_queue.append(message)
+            # Limit queue size to prevent memory issues
+            if len(message_queue) > 100:
+                message_queue.popleft()  # Remove oldest message
         
-        # Создаем новый event loop в отдельном потоке для отправки сообщений
-        def send_messages():
-            try:
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-                
-                async def send_to_all():
-                    message = json.dumps(progress_data)
-                    to_remove = set()
-                    
-                    for ws in connections:
-                        try:
-                            await asyncio.wait_for(ws.send_text(message), timeout=5.0)
-                        except Exception as e:
-                            logger.debug(f"Error sending to WebSocket: {e}")
-                            to_remove.add(ws)
-                    
-                    # Удаляем неактивные соединения
-                    if to_remove:
-                        with connections_lock:
-                            for ws in to_remove:
-                                active_connections.discard(ws)
-                
-                loop.run_until_complete(send_to_all())
-                loop.close()
-                
-            except Exception as e:
-                logger.debug(f"Error in send_messages thread: {e}")
-        
-        # Запускаем в отдельном потоке
-        thread = threading.Thread(target=send_messages, daemon=True)
-        thread.start()
+        # Start queue processor if not running
+        if not queue_processor_running:
+            def start_processor():
+                try:
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    loop.run_until_complete(process_message_queue())
+                    loop.close()
+                except Exception as e:
+                    logger.debug(f"Error in queue processor: {e}")
+            
+            thread = threading.Thread(target=start_processor, daemon=True)
+            thread.start()
         
     except Exception as e:
         logger.error(f"Critical error in send_progress_sync: {type(e).__name__}: {e}")
@@ -345,5 +385,7 @@ async def websocket_status():
     with connections_lock:
         return {
             "active_connections": len(active_connections),
-            "has_current_progress": current_progress is not None
+            "has_current_progress": current_progress is not None,
+            "queue_size": len(message_queue),
+            "queue_processor_running": queue_processor_running
         }

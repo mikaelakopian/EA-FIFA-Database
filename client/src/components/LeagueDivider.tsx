@@ -622,6 +622,7 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
         ws.onopen = () => {
           console.log('[LeagueDivider] WebSocket connected');
           setWsConnected(true);
+          setProgressData(null); // Clear any stale progress data when connecting
           isConnecting = false;
           reconnectAttemptsRef.current = 0;
           if (reconnectTimeout) clearTimeout(reconnectTimeout);
@@ -630,11 +631,21 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
         ws.onmessage = (event) => {
           try {
             const data = JSON.parse(event.data);
-            // console.log('[LeagueDivider] WebSocket message:', data); // Can be noisy
+            console.log('[LeagueDivider] WebSocket message:', data); // Enable logging to debug
             
             if (data.type === 'progress') {
+              console.log('[LeagueDivider] Setting progress data:', data);
               setProgressData(data);
-            } else if (data.status === 'completed') {
+              
+              // Set timeout to auto-clear progress if no completion message received
+              setTimeout(() => {
+                if (data.function_name === 'parse_league_teams' && data.percentage >= 90) {
+                  console.log('[LeagueDivider] Auto-clearing progress after timeout');
+                  setProgressData(null);
+                }
+              }, 10000); // 10 seconds timeout
+            } else if (data.status === 'completed' || data.status === 'error') {
+              console.log('[LeagueDivider] Completion/Error message received, clearing progress data');
               setProgressData(null);
               
               if (data.function_name === 'add_teams') { // Check if it's from the add_teams operation
@@ -647,6 +658,7 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
                 }
               } else if (data.function_name === 'parse_league_teams') { // Check if it's from parsing teams
                 console.log('[LeagueDivider] Transfermarkt team parsing completed via WebSocket');
+                setLoadingTeamsFromTransfermarkt(false); // Force clear loading state
                 // Note: setLoadingTeamsFromTransfermarkt(false) is already handled in the fetchTransfermarktTeams finally block
               }
             } else if (data.type === 'ping') {
@@ -775,17 +787,27 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
         if (data.status === "success" && data.teams) {
           console.log(`Found ${data.teams_count} teams:`, data.teams);
           setTransfermarktTeams(data.teams);
+          
+          // Manually clear progress since server completion message is not coming through
+          console.log('[LeagueDivider] HTTP request completed successfully, clearing progress manually');
+          setProgressData(null);
         } else {
           console.error("Failed to parse teams:", data);
+          // Also clear progress on failure
+          setProgressData(null);
         }
       } else {
         const errorData = await response.json();
         console.error("Error response:", errorData);
+        setProgressData(null); // Clear progress on error response
       }
     } catch (error) {
       console.error("Error fetching teams from Transfermarkt:", error);
+      setProgressData(null); // Clear progress on exception
     } finally {
       setLoadingTeamsFromTransfermarkt(false);
+      // Ensure progress is cleared no matter what
+      setTimeout(() => setProgressData(null), 100);
     }
   };
 
