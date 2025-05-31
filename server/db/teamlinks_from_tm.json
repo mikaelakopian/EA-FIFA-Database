@@ -1,0 +1,4037 @@
+[
+  {
+    "teamid": "1",
+    "teamname": "Arsenal",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-arsenal/startseite/verein/11"
+  },
+  {
+    "teamid": "2",
+    "teamname": "Aston Villa",
+    "transfermarkt_url": "https://www.transfermarkt.com/aston-villa/startseite/verein/405"
+  },
+  {
+    "teamid": "3",
+    "teamname": "Blackburn Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/blackburn-rovers/startseite/verein/164"
+  },
+  {
+    "teamid": "4",
+    "teamname": "Bolton Wanderers",
+    "transfermarkt_url": "https://www.transfermarkt.com/bolton-wanderers/startseite/verein/355"
+  },
+  {
+    "teamid": "5",
+    "teamname": "Chelsea",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-chelsea/startseite/verein/631"
+  },
+  {
+    "teamid": "7",
+    "teamname": "Everton",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-everton/startseite/verein/29"
+  },
+  {
+    "teamid": "8",
+    "teamname": "Leeds United",
+    "transfermarkt_url": "https://www.transfermarkt.com/leeds-united/startseite/verein/399"
+  },
+  {
+    "teamid": "9",
+    "teamname": "Liverpool",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-liverpool/startseite/verein/31"
+  },
+  {
+    "teamid": "10",
+    "teamname": "Manchester City",
+    "transfermarkt_url": "https://www.transfermarkt.com/manchester-city/startseite/verein/281"
+  },
+  {
+    "teamid": "11",
+    "teamname": "Manchester United",
+    "transfermarkt_url": "https://www.transfermarkt.com/manchester-united/startseite/verein/985"
+  },
+  {
+    "teamid": "12",
+    "teamname": "Middlesbrough",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-middlesbrough/startseite/verein/641"
+  },
+  {
+    "teamid": "13",
+    "teamname": "Newcastle United",
+    "transfermarkt_url": "https://www.transfermarkt.com/newcastle-united/startseite/verein/762"
+  },
+  {
+    "teamid": "14",
+    "teamname": "Nottingham Forest",
+    "transfermarkt_url": "https://www.transfermarkt.com/nottingham-forest/startseite/verein/703"
+  },
+  {
+    "teamid": "15",
+    "teamname": "Queens Park Rangers",
+    "transfermarkt_url": "https://www.transfermarkt.com/queens-park-rangers/startseite/verein/1039"
+  },
+  {
+    "teamid": "17",
+    "teamname": "Southampton",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-southampton/startseite/verein/180"
+  },
+  {
+    "teamid": "18",
+    "teamname": "Tottenham Hotspur",
+    "transfermarkt_url": "https://www.transfermarkt.com/tottenham-hotspur/startseite/verein/148"
+  },
+  {
+    "teamid": "19",
+    "teamname": "West Ham United",
+    "transfermarkt_url": "https://www.transfermarkt.com/west-ham-united/startseite/verein/379"
+  },
+  {
+    "teamid": "21",
+    "teamname": "Bayern München",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-bayern-munchen/startseite/verein/27"
+  },
+  {
+    "teamid": "22",
+    "teamname": "Borussia Dortmund",
+    "transfermarkt_url": "https://www.transfermarkt.com/borussia-dortmund/startseite/verein/16"
+  },
+  {
+    "teamid": "23",
+    "teamname": "Borussia M'gladbach",
+    "transfermarkt_url": "https://www.transfermarkt.com/borussia-monchengladbach/startseite/verein/18"
+  },
+  {
+    "teamid": "25",
+    "teamname": "SC Freiburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-freiburg/startseite/verein/60"
+  },
+  {
+    "teamid": "27",
+    "teamname": "Hansa Rostock",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-hansa-rostock/startseite/verein/30"
+  },
+  {
+    "teamid": "28",
+    "teamname": "Hamburger SV",
+    "transfermarkt_url": "https://www.transfermarkt.com/hamburger-sv/startseite/verein/41"
+  },
+  {
+    "teamid": "29",
+    "teamname": "1. FC Kaiserslautern",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-kaiserslautern/startseite/verein/2"
+  },
+  {
+    "teamid": "31",
+    "teamname": "1. FC Köln",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-koln/startseite/verein/3"
+  },
+  {
+    "teamid": "32",
+    "teamname": "Bayer 04 Leverkusen",
+    "transfermarkt_url": "https://www.transfermarkt.com/bayer-04-leverkusen/startseite/verein/15"
+  },
+  {
+    "teamid": "33",
+    "teamname": "TSV 1860 München",
+    "transfermarkt_url": "https://www.transfermarkt.com/tsv-1860-munchen/startseite/verein/72"
+  },
+  {
+    "teamid": "34",
+    "teamname": "FC Schalke 04",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-schalke-04/startseite/verein/33"
+  },
+  {
+    "teamid": "36",
+    "teamname": "VfB Stuttgart",
+    "transfermarkt_url": "https://www.transfermarkt.com/vfb-stuttgart/startseite/verein/79"
+  },
+  {
+    "teamid": "38",
+    "teamname": "Werder Bremen",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-werder-bremen/startseite/verein/86"
+  },
+  {
+    "teamid": "45",
+    "teamname": "Juventus",
+    "transfermarkt_url": "https://www.transfermarkt.com/juventus-turin/startseite/verein/506"
+  },
+  {
+    "teamid": "48",
+    "teamname": "Napoli",
+    "transfermarkt_url": "https://www.transfermarkt.com/ssc-neapel/startseite/verein/6195"
+  },
+  {
+    "teamid": "50",
+    "teamname": "Parma",
+    "transfermarkt_url": "https://www.transfermarkt.com/parma-calcio-1913/startseite/verein/130"
+  },
+  {
+    "teamid": "52",
+    "teamname": "Roma",
+    "transfermarkt_url": "https://www.transfermarkt.com/as-rom/startseite/verein/12"
+  },
+  {
+    "teamid": "54",
+    "teamname": "Torino",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-turin/startseite/verein/416"
+  },
+  {
+    "teamid": "55",
+    "teamname": "Udinese",
+    "transfermarkt_url": "https://www.transfermarkt.com/udinese-calcio/startseite/verein/410"
+  },
+  {
+    "teamid": "57",
+    "teamname": "AJ Auxerre",
+    "transfermarkt_url": "https://www.transfermarkt.com/aj-auxerre/startseite/verein/290"
+  },
+  {
+    "teamid": "58",
+    "teamname": "SC Bastia",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-bastia/startseite/verein/595"
+  },
+  {
+    "teamid": "62",
+    "teamname": "En Avant Guingamp",
+    "transfermarkt_url": "https://www.transfermarkt.com/ea-guingamp/startseite/verein/855"
+  },
+  {
+    "teamid": "64",
+    "teamname": "RC Lens",
+    "transfermarkt_url": "https://www.transfermarkt.com/rc-lens/startseite/verein/826"
+  },
+  {
+    "teamid": "65",
+    "teamname": "LOSC Lille",
+    "transfermarkt_url": "https://www.transfermarkt.com/losc-lille/startseite/verein/1082"
+  },
+  {
+    "teamid": "66",
+    "teamname": "Olympique Lyonnais",
+    "transfermarkt_url": "https://www.transfermarkt.com/olympique-lyon/startseite/verein/1041"
+  },
+  {
+    "teamid": "67",
+    "teamname": "FC Martigues",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-martigues/startseite/verein/1165"
+  },
+  {
+    "teamid": "68",
+    "teamname": "FC Metz",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-metz/startseite/verein/347"
+  },
+  {
+    "teamid": "69",
+    "teamname": "AS Monaco",
+    "transfermarkt_url": "https://www.transfermarkt.com/as-monaco/startseite/verein/162"
+  },
+  {
+    "teamid": "70",
+    "teamname": "Montpellier HSC",
+    "transfermarkt_url": "https://www.transfermarkt.com/montpellier-hsc/startseite/verein/969"
+  },
+  {
+    "teamid": "71",
+    "teamname": "FC Nantes",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-nantes/startseite/verein/995"
+  },
+  {
+    "teamid": "72",
+    "teamname": "OGC Nice",
+    "transfermarkt_url": "https://www.transfermarkt.com/ogc-nizza/startseite/verein/417"
+  },
+  {
+    "teamid": "73",
+    "teamname": "Paris Saint-Germain",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-paris-saint-germain/startseite/verein/583"
+  },
+  {
+    "teamid": "74",
+    "teamname": "Stade Rennais",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-stade-rennes/startseite/verein/273"
+  },
+  {
+    "teamid": "76",
+    "teamname": "RC Strasbourg",
+    "transfermarkt_url": "https://www.transfermarkt.com/rc-strassburg-alsace/startseite/verein/667"
+  },
+  {
+    "teamid": "77",
+    "teamname": "Aberdeen",
+    "transfermarkt_url": "https://www.transfermarkt.com/aberdeen-fc/startseite/verein/370"
+  },
+  {
+    "teamid": "78",
+    "teamname": "Celtic",
+    "transfermarkt_url": "https://www.transfermarkt.com/celtic-glasgow/startseite/verein/371"
+  },
+  {
+    "teamid": "80",
+    "teamname": "Heart of Midlothian",
+    "transfermarkt_url": "https://www.transfermarkt.com/heart-of-midlothian-fc/startseite/verein/43"
+  },
+  {
+    "teamid": "81",
+    "teamname": "Hibernian",
+    "transfermarkt_url": "https://www.transfermarkt.com/hibernian-fc/startseite/verein/903"
+  },
+  {
+    "teamid": "82",
+    "teamname": "Kilmarnock",
+    "transfermarkt_url": "https://www.transfermarkt.com/kilmarnock-fc/startseite/verein/2553"
+  },
+  {
+    "teamid": "83",
+    "teamname": "Motherwell",
+    "transfermarkt_url": "https://www.transfermarkt.com/motherwell-fc/startseite/verein/987"
+  },
+  {
+    "teamid": "86",
+    "teamname": "Rangers",
+    "transfermarkt_url": "https://www.transfermarkt.com/glasgow-rangers/startseite/verein/124"
+  },
+  {
+    "teamid": "88",
+    "teamname": "Birmingham City",
+    "transfermarkt_url": "https://www.transfermarkt.com/birmingham-city/startseite/verein/337"
+  },
+  {
+    "teamid": "89",
+    "teamname": "Charlton Athletic",
+    "transfermarkt_url": "https://www.transfermarkt.com/charlton-athletic/startseite/verein/358"
+  },
+  {
+    "teamid": "91",
+    "teamname": "Derby County",
+    "transfermarkt_url": "https://www.transfermarkt.com/derby-county/startseite/verein/22"
+  },
+  {
+    "teamid": "92",
+    "teamname": "Grimsby Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/grimsby-town/startseite/verein/1034"
+  },
+  {
+    "teamid": "94",
+    "teamname": "Ipswich Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/ipswich-town/startseite/verein/677"
+  },
+  {
+    "teamid": "95",
+    "teamname": "Leicester City",
+    "transfermarkt_url": "https://www.transfermarkt.com/leicester-city/startseite/verein/1003"
+  },
+  {
+    "teamid": "97",
+    "teamname": "Millwall",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-millwall/startseite/verein/1028"
+  },
+  {
+    "teamid": "106",
+    "teamname": "Sunderland",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-sunderland/startseite/verein/289"
+  },
+  {
+    "teamid": "109",
+    "teamname": "West Bromwich Albion",
+    "transfermarkt_url": "https://www.transfermarkt.com/west-bromwich-albion/startseite/verein/984"
+  },
+  {
+    "teamid": "110",
+    "teamname": "Wolverhampton Wanderers",
+    "transfermarkt_url": "https://www.transfermarkt.com/wolverhampton-wanderers/startseite/verein/543"
+  },
+  {
+    "teamid": "111",
+    "teamname": "OTP Generics",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "112",
+    "teamname": "OTP Generics",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "121",
+    "teamname": "Crewe Alexandra",
+    "transfermarkt_url": "https://www.transfermarkt.com/crewe-alexandra/startseite/verein/1042"
+  },
+  {
+    "teamid": "127",
+    "teamname": "Shrewsbury Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/shrewsbury-town/startseite/verein/3054"
+  },
+  {
+    "teamid": "142",
+    "teamname": "Doncaster Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/doncaster-rovers/startseite/verein/2454"
+  },
+  {
+    "teamid": "143",
+    "teamname": "Exeter City",
+    "transfermarkt_url": "https://www.transfermarkt.com/exeter-city/startseite/verein/6699"
+  },
+  {
+    "teamid": "144",
+    "teamname": "Fulham",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-fulham/startseite/verein/931"
+  },
+  {
+    "teamid": "149",
+    "teamname": "Lincoln City",
+    "transfermarkt_url": "https://www.transfermarkt.com/lincoln-city/startseite/verein/1198"
+  },
+  {
+    "teamid": "159",
+    "teamname": "Arminia Bielefeld",
+    "transfermarkt_url": "https://www.transfermarkt.com/arminia-bielefeld/startseite/verein/10"
+  },
+  {
+    "teamid": "160",
+    "teamname": "VfL Bochum",
+    "transfermarkt_url": "https://www.transfermarkt.com/vfl-bochum/startseite/verein/80"
+  },
+  {
+    "teamid": "162",
+    "teamname": "Energie Cottbus",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-energie-cottbus/startseite/verein/25"
+  },
+  {
+    "teamid": "165",
+    "teamname": "SpVgg Greuther Fürth",
+    "transfermarkt_url": "https://www.transfermarkt.com/spvgg-greuther-furth/startseite/verein/65"
+  },
+  {
+    "teamid": "166",
+    "teamname": "Hertha BSC",
+    "transfermarkt_url": "https://www.transfermarkt.com/hertha-bsc/startseite/verein/44"
+  },
+  {
+    "teamid": "169",
+    "teamname": "1. FSV Mainz 05",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fsv-mainz-05/startseite/verein/39"
+  },
+  {
+    "teamid": "171",
+    "teamname": "1. FC Nürnberg",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-nurnberg/startseite/verein/4"
+  },
+  {
+    "teamid": "172",
+    "teamname": "SpVgg Unterhaching",
+    "transfermarkt_url": "https://www.transfermarkt.com/spvgg-unterhaching/startseite/verein/66"
+  },
+  {
+    "teamid": "175",
+    "teamname": "VfL Wolfsburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/vfl-wolfsburg/startseite/verein/82"
+  },
+  {
+    "teamid": "180",
+    "teamname": "Dundee FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/dundee-fc/startseite/verein/511"
+  },
+  {
+    "teamid": "181",
+    "teamname": "Dundee United",
+    "transfermarkt_url": "https://www.transfermarkt.com/dundee-united-fc/startseite/verein/1519"
+  },
+  {
+    "teamid": "189",
+    "teamname": "Bologna",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-bologna/startseite/verein/1025"
+  },
+  {
+    "teamid": "191",
+    "teamname": "RB Salzburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409"
+  },
+  {
+    "teamid": "205",
+    "teamname": "Venezia",
+    "transfermarkt_url": "https://www.transfermarkt.com/venezia-fc/startseite/verein/607"
+  },
+  {
+    "teamid": "206",
+    "teamname": "Hellas Verona",
+    "transfermarkt_url": "https://www.transfermarkt.com/hellas-verona/startseite/verein/276"
+  },
+  {
+    "teamid": "209",
+    "teamname": "Sturm Graz",
+    "transfermarkt_url": "https://www.transfermarkt.com/sk-sturm-graz/startseite/verein/122"
+  },
+  {
+    "teamid": "210",
+    "teamname": "SM Caen",
+    "transfermarkt_url": "https://www.transfermarkt.com/sm-caen/startseite/verein/1162"
+  },
+  {
+    "teamid": "211",
+    "teamname": "Dinamo Zagreb",
+    "transfermarkt_url": "https://www.transfermarkt.com/gnk-dinamo-zagreb/startseite/verein/419"
+  },
+  {
+    "teamid": "217",
+    "teamname": "FC Lorient",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-lorient/startseite/verein/1158"
+  },
+  {
+    "teamid": "219",
+    "teamname": "Olympique de Marseille",
+    "transfermarkt_url": "https://www.transfermarkt.com/olympique-marseille/startseite/verein/244"
+  },
+  {
+    "teamid": "229",
+    "teamname": "Anderlecht",
+    "transfermarkt_url": "https://www.transfermarkt.com/rsc-anderlecht/startseite/verein/58"
+  },
+  {
+    "teamid": "230",
+    "teamname": "Antwerp",
+    "transfermarkt_url": "https://www.transfermarkt.com/royal-antwerpen-fc/startseite/verein/1096"
+  },
+  {
+    "teamid": "231",
+    "teamname": "Club Brugge",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-brugge/startseite/verein/2282"
+  },
+  {
+    "teamid": "232",
+    "teamname": "Standard Liège",
+    "transfermarkt_url": "https://www.transfermarkt.com/standard-luttich/startseite/verein/3057"
+  },
+  {
+    "teamid": "234",
+    "teamname": "Benfica",
+    "transfermarkt_url": "https://www.transfermarkt.com/benfica-lissabon/startseite/verein/294"
+  },
+  {
+    "teamid": "236",
+    "teamname": "FC Porto",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-porto/startseite/verein/720"
+  },
+  {
+    "teamid": "237",
+    "teamname": "Sporting CP",
+    "transfermarkt_url": "https://www.transfermarkt.com/sporting-lissabon/startseite/verein/336"
+  },
+  {
+    "teamid": "240",
+    "teamname": "Atlético de Madrid",
+    "transfermarkt_url": "https://www.transfermarkt.com/atletico-madrid/startseite/verein/13"
+  },
+  {
+    "teamid": "241",
+    "teamname": "FC Barcelona",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-barcelona/startseite/verein/131"
+  },
+  {
+    "teamid": "242",
+    "teamname": "RC Deportivo",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-la-coruna/startseite/verein/897"
+  },
+  {
+    "teamid": "243",
+    "teamname": "Real Madrid",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-madrid/startseite/verein/418"
+  },
+  {
+    "teamid": "244",
+    "teamname": "Real Zaragoza",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-saragossa/startseite/verein/142"
+  },
+  {
+    "teamid": "245",
+    "teamname": "Ajax",
+    "transfermarkt_url": "https://www.transfermarkt.com/ajax-amsterdam/startseite/verein/610"
+  },
+  {
+    "teamid": "246",
+    "teamname": "Feyenoord",
+    "transfermarkt_url": "https://www.transfermarkt.com/feyenoord-rotterdam/startseite/verein/234"
+  },
+  {
+    "teamid": "247",
+    "teamname": "PSV",
+    "transfermarkt_url": "https://www.transfermarkt.com/psv-eindhoven/startseite/verein/383"
+  },
+  {
+    "teamid": "252",
+    "teamname": "LASK",
+    "transfermarkt_url": "https://www.transfermarkt.com/lask/startseite/verein/413"
+  },
+  {
+    "teamid": "254",
+    "teamname": "SK Rapid",
+    "transfermarkt_url": "https://www.transfermarkt.com/sk-rapid-wien/startseite/verein/170"
+  },
+  {
+    "teamid": "256",
+    "teamname": "Austria Wien",
+    "transfermarkt_url": "https://www.transfermarkt.com/fk-austria-wien/startseite/verein/14"
+  },
+  {
+    "teamid": "260",
+    "teamname": "CD Tenerife",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-teneriffa/startseite/verein/648"
+  },
+  {
+    "teamid": "263",
+    "teamname": "Hajduk Split",
+    "transfermarkt_url": "https://www.transfermarkt.com/hnk-hajduk-split/startseite/verein/447"
+  },
+  {
+    "teamid": "266",
+    "teamname": "Slavia Praha",
+    "transfermarkt_url": "https://www.transfermarkt.com/sk-slavia-prag/startseite/verein/62"
+  },
+  {
+    "teamid": "267",
+    "teamname": "Sparta Praha",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-sparta-prag/startseite/verein/197"
+  },
+  {
+    "teamid": "269",
+    "teamname": "Brøndby IF",
+    "transfermarkt_url": "https://www.transfermarkt.com/brondby-if/startseite/verein/206"
+  },
+  {
+    "teamid": "270",
+    "teamname": "Silkeborg IF",
+    "transfermarkt_url": "https://www.transfermarkt.com/silkeborg-if/startseite/verein/1177"
+  },
+  {
+    "teamid": "271",
+    "teamname": "AGF",
+    "transfermarkt_url": "https://www.transfermarkt.com/aarhus-gf/startseite/verein/678"
+  },
+  {
+    "teamid": "278",
+    "teamname": "AEK",
+    "transfermarkt_url": "https://www.transfermarkt.com/aek-athen/startseite/verein/2441"
+  },
+  {
+    "teamid": "280",
+    "teamname": "Olympiacos",
+    "transfermarkt_url": "https://www.transfermarkt.com/olympiakos-piraus/startseite/verein/683"
+  },
+  {
+    "teamid": "294",
+    "teamname": "ESTAC Troyes",
+    "transfermarkt_url": "https://www.transfermarkt.com/es-troyes-ac/startseite/verein/1095"
+  },
+  {
+    "teamid": "298",
+    "teamname": "Rosenborg BK",
+    "transfermarkt_url": "https://www.transfermarkt.com/rosenborg-bk/startseite/verein/195"
+  },
+  {
+    "teamid": "299",
+    "teamname": "Lillestrøm SK",
+    "transfermarkt_url": "https://www.transfermarkt.com/lillestrom-sk/startseite/verein/353"
+  },
+  {
+    "teamid": "300",
+    "teamname": "Viking FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/viking-stavanger/startseite/verein/239"
+  },
+  {
+    "teamid": "301",
+    "teamname": "Widzew Łódź",
+    "transfermarkt_url": "https://www.transfermarkt.com/widzew-lodz/startseite/verein/88"
+  },
+  {
+    "teamid": "305",
+    "teamname": "Bohemians",
+    "transfermarkt_url": "https://www.transfermarkt.com/bohemian-football-club-dublin/startseite/verein/9211"
+  },
+  {
+    "teamid": "306",
+    "teamname": "Shamrock Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/shamrock-rovers/startseite/verein/3258"
+  },
+  {
+    "teamid": "308",
+    "teamname": "Universitatea Craiova",
+    "transfermarkt_url": "https://www.transfermarkt.com/universitatea-craiova/startseite/verein/40812"
+  },
+  {
+    "teamid": "310",
+    "teamname": "Rapid București",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-rapid-1923/startseite/verein/455"
+  },
+  {
+    "teamid": "319",
+    "teamname": "IFK Göteborg",
+    "transfermarkt_url": "https://www.transfermarkt.com/ifk-goteborg/startseite/verein/801"
+  },
+  {
+    "teamid": "320",
+    "teamname": "Malmö FF",
+    "transfermarkt_url": "https://www.transfermarkt.com/malmo-ff/startseite/verein/496"
+  },
+  {
+    "teamid": "321",
+    "teamname": "Halmstads BK",
+    "transfermarkt_url": "https://www.transfermarkt.com/halmstads-bk/startseite/verein/1011"
+  },
+  {
+    "teamid": "322",
+    "teamname": "Grasshopper Club Zürich",
+    "transfermarkt_url": "https://www.transfermarkt.com/grasshopper-club-zurich/startseite/verein/504"
+  },
+  {
+    "teamid": "324",
+    "teamname": "Servette FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/servette-fc/startseite/verein/61"
+  },
+  {
+    "teamid": "325",
+    "teamname": "Galatasaray",
+    "transfermarkt_url": "https://www.transfermarkt.com/galatasaray-istanbul/startseite/verein/141"
+  },
+  {
+    "teamid": "326",
+    "teamname": "Fenerbahçe",
+    "transfermarkt_url": "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
+  },
+  {
+    "teamid": "327",
+    "teamname": "Beşiktaş",
+    "transfermarkt_url": "https://www.transfermarkt.com/besiktas-istanbul/startseite/verein/114"
+  },
+  {
+    "teamid": "347",
+    "teamname": "Lecce",
+    "transfermarkt_url": "https://www.transfermarkt.com/us-lecce/startseite/verein/1005"
+  },
+  {
+    "teamid": "357",
+    "teamname": "Morecambe",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-morecambe/startseite/verein/3697"
+  },
+  {
+    "teamid": "361",
+    "teamname": "Stevenage",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-stevenage/startseite/verein/3684"
+  },
+  {
+    "teamid": "378",
+    "teamname": "Stade Brestois 29",
+    "transfermarkt_url": "https://www.transfermarkt.com/stade-brest-29/startseite/verein/3911"
+  },
+  {
+    "teamid": "379",
+    "teamname": "Stade de Reims",
+    "transfermarkt_url": "https://www.transfermarkt.com/stade-reims/startseite/verein/1421"
+  },
+  {
+    "teamid": "381",
+    "teamname": "Barrow",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-barrow/startseite/verein/6168"
+  },
+  {
+    "teamid": "383",
+    "teamname": "Palmeiras",
+    "transfermarkt_url": "https://www.transfermarkt.com/se-palmeiras-sao-paulo/startseite/verein/1023"
+  },
+  {
+    "teamid": "393",
+    "teamname": "PAOK",
+    "transfermarkt_url": "https://www.transfermarkt.com/paok-thessaloniki/startseite/verein/1091"
+  },
+  {
+    "teamid": "417",
+    "teamname": "Molde FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/molde-fk/startseite/verein/687"
+  },
+  {
+    "teamid": "418",
+    "teamname": "Tromsø IL",
+    "transfermarkt_url": "https://www.transfermarkt.com/tromso-il/startseite/verein/1293"
+  },
+  {
+    "teamid": "420",
+    "teamname": "Górnik Zabrze",
+    "transfermarkt_url": "https://www.transfermarkt.com/gornik-zabrze/startseite/verein/428"
+  },
+  {
+    "teamid": "423",
+    "teamname": "St Patrick's Athletic",
+    "transfermarkt_url": "https://www.transfermarkt.com/st-patricks-athletic/startseite/verein/1189"
+  },
+  {
+    "teamid": "433",
+    "teamname": "AIK",
+    "transfermarkt_url": "https://www.transfermarkt.com/aik-solna/startseite/verein/272"
+  },
+  {
+    "teamid": "436",
+    "teamname": "Trabzonspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/trabzonspor/startseite/verein/449"
+  },
+  {
+    "teamid": "445",
+    "teamname": "Derry City",
+    "transfermarkt_url": "https://www.transfermarkt.com/derry-city/startseite/verein/920"
+  },
+  {
+    "teamid": "448",
+    "teamname": "Athletic Club de Bilbao",
+    "transfermarkt_url": "https://www.transfermarkt.com/athletic-bilbao/startseite/verein/621"
+  },
+  {
+    "teamid": "449",
+    "teamname": "Real Betis Balompié",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-betis-sevilla/startseite/verein/150"
+  },
+  {
+    "teamid": "450",
+    "teamname": "RC Celta de Vigo",
+    "transfermarkt_url": "https://www.transfermarkt.com/celta-vigo/startseite/verein/940"
+  },
+  {
+    "teamid": "452",
+    "teamname": "RCD Espanyol",
+    "transfermarkt_url": "https://www.transfermarkt.com/espanyol-barcelona/startseite/verein/714"
+  },
+  {
+    "teamid": "453",
+    "teamname": "RCD Mallorca",
+    "transfermarkt_url": "https://www.transfermarkt.com/rcd-mallorca/startseite/verein/237"
+  },
+  {
+    "teamid": "456",
+    "teamname": "Racing de Santander",
+    "transfermarkt_url": "https://www.transfermarkt.com/racing-santander/startseite/verein/630"
+  },
+  {
+    "teamid": "457",
+    "teamname": "Real Sociedad",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-sociedad-san-sebastian/startseite/verein/681"
+  },
+  {
+    "teamid": "459",
+    "teamname": "Real Sporting de Gijón",
+    "transfermarkt_url": "https://www.transfermarkt.com/sporting-gijon/startseite/verein/2448"
+  },
+  {
+    "teamid": "461",
+    "teamname": "Valencia CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-valencia/startseite/verein/1049"
+  },
+  {
+    "teamid": "462",
+    "teamname": "Real Valladolid",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-valladolid/startseite/verein/366"
+  },
+  {
+    "teamid": "463",
+    "teamname": "Deportivo Alavés",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-alaves/startseite/verein/1108"
+  },
+  {
+    "teamid": "467",
+    "teamname": "SD Eibar",
+    "transfermarkt_url": "https://www.transfermarkt.com/sd-eibar/startseite/verein/1533"
+  },
+  {
+    "teamid": "468",
+    "teamname": "Elche CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-elche/startseite/verein/1531"
+  },
+  {
+    "teamid": "472",
+    "teamname": "UD Las Palmas",
+    "transfermarkt_url": "https://www.transfermarkt.com/ud-las-palmas/startseite/verein/472"
+  },
+  {
+    "teamid": "479",
+    "teamname": "CA Osasuna",
+    "transfermarkt_url": "https://www.transfermarkt.com/ca-osasuna/startseite/verein/331"
+  },
+  {
+    "teamid": "480",
+    "teamname": "Rayo Vallecano",
+    "transfermarkt_url": "https://www.transfermarkt.com/rayo-vallecano/startseite/verein/367"
+  },
+  {
+    "teamid": "481",
+    "teamname": "Sevilla FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-sevilla/startseite/verein/368"
+  },
+  {
+    "teamid": "483",
+    "teamname": "Villarreal CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-villarreal/startseite/verein/1050"
+  },
+  {
+    "teamid": "485",
+    "teamname": "Hannover 96",
+    "transfermarkt_url": "https://www.transfermarkt.com/hannover-96/startseite/verein/42"
+  },
+  {
+    "teamid": "487",
+    "teamname": "VfL Osnabrück",
+    "transfermarkt_url": "https://www.transfermarkt.com/vfl-osnabruck/startseite/verein/81"
+  },
+  {
+    "teamid": "489",
+    "teamname": "Farense",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-farense/startseite/verein/4294"
+  },
+  {
+    "teamid": "492",
+    "teamname": "SV Wehen Wiesbaden",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-wehen-wiesbaden/startseite/verein/108"
+  },
+  {
+    "teamid": "503",
+    "teamname": "Dynamo Dresden",
+    "transfermarkt_url": "https://www.transfermarkt.com/sg-dynamo-dresden/startseite/verein/129"
+  },
+  {
+    "teamid": "506",
+    "teamname": "Erzgebirge Aue",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-erzgebirge-aue/startseite/verein/94"
+  },
+  {
+    "teamid": "517",
+    "teamname": "Botafogo",
+    "transfermarkt_url": "https://www.transfermarkt.com/botafogo-rio-de-janeiro/startseite/verein/537"
+  },
+  {
+    "teamid": "523",
+    "teamname": "1. FC Saarbrücken",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-saarbrucken/startseite/verein/1"
+  },
+  {
+    "teamid": "526",
+    "teamname": "Rot-Weiß Essen",
+    "transfermarkt_url": "https://www.transfermarkt.com/rot-weiss-essen/startseite/verein/56"
+  },
+  {
+    "teamid": "531",
+    "teamname": "Preußen Münster",
+    "transfermarkt_url": "https://www.transfermarkt.com/preussen-munster/startseite/verein/91"
+  },
+  {
+    "teamid": "537",
+    "teamname": "Dender",
+    "transfermarkt_url": "https://www.transfermarkt.com/fcv-dender-eh/startseite/verein/9010"
+  },
+  {
+    "teamid": "543",
+    "teamname": "Jahn Regensburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/ssv-jahn-regensburg/startseite/verein/109"
+  },
+  {
+    "teamid": "563",
+    "teamname": "Sligo Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/sligo-rovers/startseite/verein/8780"
+  },
+  {
+    "teamid": "567",
+    "teamname": "Fluminense",
+    "transfermarkt_url": "https://www.transfermarkt.com/fluminense-rio-de-janeiro/startseite/verein/2462"
+  },
+  {
+    "teamid": "568",
+    "teamname": "Cruzeiro",
+    "transfermarkt_url": "https://www.transfermarkt.com/ec-cruzeiro-belo-horizonte/startseite/verein/609"
+  },
+  {
+    "teamid": "573",
+    "teamname": "Málaga CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-malaga/startseite/verein/1084"
+  },
+  {
+    "teamid": "576",
+    "teamname": "Holstein Kiel",
+    "transfermarkt_url": "https://www.transfermarkt.com/holstein-kiel/startseite/verein/269"
+  },
+  {
+    "teamid": "580",
+    "teamname": "SV Elversberg",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-07-elversberg/startseite/verein/64"
+  },
+  {
+    "teamid": "598",
+    "teamname": "São Paulo",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-sao-paulo/startseite/verein/585"
+  },
+  {
+    "teamid": "605",
+    "teamname": "Al Hilal",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-hilal-riad/startseite/verein/1114"
+  },
+  {
+    "teamid": "607",
+    "teamname": "Al Ittihad",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-ittihad-dschidda/startseite/verein/8023"
+  },
+  {
+    "teamid": "614",
+    "teamname": "AC Ajaccio",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-ajaccio/startseite/verein/1147"
+  },
+  {
+    "teamid": "631",
+    "teamname": "Ross County",
+    "transfermarkt_url": "https://www.transfermarkt.com/ross-county-fc/startseite/verein/2759"
+  },
+  {
+    "teamid": "634",
+    "teamname": "Fortuna Sittard",
+    "transfermarkt_url": "https://www.transfermarkt.com/fortuna-sittard/startseite/verein/385"
+  },
+  {
+    "teamid": "670",
+    "teamname": "Charleroi",
+    "transfermarkt_url": "https://www.transfermarkt.com/rsc-charleroi/startseite/verein/172"
+  },
+  {
+    "teamid": "673",
+    "teamname": "Genk",
+    "transfermarkt_url": "https://www.transfermarkt.com/krc-genk/startseite/verein/1184"
+  },
+  {
+    "teamid": "674",
+    "teamname": "Gent",
+    "transfermarkt_url": "https://www.transfermarkt.com/kaa-gent/startseite/verein/157"
+  },
+  {
+    "teamid": "675",
+    "teamname": "Beerschot",
+    "transfermarkt_url": "https://www.transfermarkt.com/beerschot-v-a-/startseite/verein/41274"
+  },
+  {
+    "teamid": "680",
+    "teamname": "Sint-Truiden",
+    "transfermarkt_url": "https://www.transfermarkt.com/vv-st-truiden/startseite/verein/475"
+  },
+  {
+    "teamid": "681",
+    "teamname": "Westerlo",
+    "transfermarkt_url": "https://www.transfermarkt.com/kvc-westerlo/startseite/verein/968"
+  },
+  {
+    "teamid": "687",
+    "teamname": "Columbus Crew",
+    "transfermarkt_url": "https://www.transfermarkt.com/columbus-crew-sc/startseite/verein/813"
+  },
+  {
+    "teamid": "688",
+    "teamname": "D.C. United",
+    "transfermarkt_url": "https://www.transfermarkt.com/d-c-united/startseite/verein/2440"
+  },
+  {
+    "teamid": "689",
+    "teamname": "New York Red Bulls",
+    "transfermarkt_url": "https://www.transfermarkt.com/new-york-red-bulls/startseite/verein/623"
+  },
+  {
+    "teamid": "691",
+    "teamname": "New England Revolution",
+    "transfermarkt_url": "https://www.transfermarkt.com/new-england-revolution/startseite/verein/626"
+  },
+  {
+    "teamid": "693",
+    "teamname": "Chicago Fire FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/chicago-fire-fc/startseite/verein/432"
+  },
+  {
+    "teamid": "694",
+    "teamname": "Colorado Rapids",
+    "transfermarkt_url": "https://www.transfermarkt.com/colorado-rapids/startseite/verein/1247"
+  },
+  {
+    "teamid": "695",
+    "teamname": "FC Dallas",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-dallas/startseite/verein/8816"
+  },
+  {
+    "teamid": "696",
+    "teamname": "Sporting KC",
+    "transfermarkt_url": "https://www.transfermarkt.com/sporting-kansas-city/startseite/verein/4284"
+  },
+  {
+    "teamid": "697",
+    "teamname": "Los Angeles Galaxy",
+    "transfermarkt_url": "https://www.transfermarkt.com/los-angeles-galaxy/startseite/verein/1061"
+  },
+  {
+    "teamid": "698",
+    "teamname": "Houston Dynamo",
+    "transfermarkt_url": "https://www.transfermarkt.com/houston-dynamo-fc/startseite/verein/9168"
+  },
+  {
+    "teamid": "700",
+    "teamname": "IF Elfsborg",
+    "transfermarkt_url": "https://www.transfermarkt.com/if-elfsborg-boras/startseite/verein/1101"
+  },
+  {
+    "teamid": "702",
+    "teamname": "IFK Norrköping",
+    "transfermarkt_url": "https://www.transfermarkt.com/ifk-norrkoping/startseite/verein/2844"
+  },
+  {
+    "teamid": "708",
+    "teamname": "Hammarby IF",
+    "transfermarkt_url": "https://www.transfermarkt.com/hammarby-if/startseite/verein/1059"
+  },
+  {
+    "teamid": "710",
+    "teamname": "Djurgårdens IF",
+    "transfermarkt_url": "https://www.transfermarkt.com/djurgardens-if/startseite/verein/1044"
+  },
+  {
+    "teamid": "711",
+    "teamname": "BK Häcken",
+    "transfermarkt_url": "https://www.transfermarkt.com/bk-hacken/startseite/verein/1109"
+  },
+  {
+    "teamid": "718",
+    "teamname": "Estrela da Amadora",
+    "transfermarkt_url": "https://www.transfermarkt.com/cf-estrela-amadora-sad/startseite/verein/2431"
+  },
+  {
+    "teamid": "741",
+    "teamname": "Antalyaspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/antalyaspor/startseite/verein/589"
+  },
+  {
+    "teamid": "744",
+    "teamname": "Rio Ave",
+    "transfermarkt_url": "https://www.transfermarkt.com/rio-ave-fc/startseite/verein/2425"
+  },
+  {
+    "teamid": "748",
+    "teamname": "Samsunspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/samsunspor/startseite/verein/152"
+  },
+  {
+    "teamid": "753",
+    "teamname": "Waterford",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-waterford/startseite/verein/7609"
+  },
+  {
+    "teamid": "819",
+    "teamname": "FC København",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-kopenhagen/startseite/verein/190"
+  },
+  {
+    "teamid": "820",
+    "teamname": "AaB",
+    "transfermarkt_url": "https://www.transfermarkt.com/aalborg-bk/startseite/verein/1053"
+  },
+  {
+    "teamid": "822",
+    "teamname": "Vejle BK",
+    "transfermarkt_url": "https://www.transfermarkt.com/vejle-boldklub/startseite/verein/443"
+  },
+  {
+    "teamid": "834",
+    "teamname": "Shelbourne",
+    "transfermarkt_url": "https://www.transfermarkt.com/shelbourne-fc/startseite/verein/3909"
+  },
+  {
+    "teamid": "837",
+    "teamname": "Dundalk",
+    "transfermarkt_url": "https://www.transfermarkt.com/dundalk-fc/startseite/verein/6066"
+  },
+  {
+    "teamid": "873",
+    "teamname": "Lech Poznań",
+    "transfermarkt_url": "https://www.transfermarkt.com/lech-posen/startseite/verein/238"
+  },
+  {
+    "teamid": "894",
+    "teamname": "FC Zürich",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-zurich/startseite/verein/260"
+  },
+  {
+    "teamid": "896",
+    "teamname": "FC Basel",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-basel-1893/startseite/verein/26"
+  },
+  {
+    "teamid": "897",
+    "teamname": "FC Luzern",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-luzern/startseite/verein/434"
+  },
+  {
+    "teamid": "898",
+    "teamname": "FC St. Gallen",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-st-gallen-1879/startseite/verein/257"
+  },
+  {
+    "teamid": "900",
+    "teamname": "BSC Young Boys",
+    "transfermarkt_url": "https://www.transfermarkt.com/bsc-young-boys/startseite/verein/452"
+  },
+  {
+    "teamid": "918",
+    "teamname": "FK Bodø/Glimt",
+    "transfermarkt_url": "https://www.transfermarkt.com/fk-bodo-glimt/startseite/verein/501"
+  },
+  {
+    "teamid": "919",
+    "teamname": "SK Brann",
+    "transfermarkt_url": "https://www.transfermarkt.com/sk-brann/startseite/verein/1100"
+  },
+  {
+    "teamid": "922",
+    "teamname": "Strømsgodset Toppfotball",
+    "transfermarkt_url": "https://www.transfermarkt.com/stromsgodset-if/startseite/verein/2817"
+  },
+  {
+    "teamid": "980",
+    "teamname": "Daejeon Hana Citizen",
+    "transfermarkt_url": "https://www.transfermarkt.com/daejeon-hana-citizen/startseite/verein/6499"
+  },
+  {
+    "teamid": "982",
+    "teamname": "FC Seoul",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-seoul/startseite/verein/6500"
+  },
+  {
+    "teamid": "1013",
+    "teamname": "San Lorenzo de Almagro",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-san-lorenzo-de-almagro/startseite/verein/1775"
+  },
+  {
+    "teamid": "1035",
+    "teamname": "Atlético Mineiro",
+    "transfermarkt_url": "https://www.transfermarkt.com/clube-atletico-mineiro/startseite/verein/330"
+  },
+  {
+    "teamid": "1039",
+    "teamname": "Athletico Paranaense",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-athletico-paranaense/startseite/verein/679"
+  },
+  {
+    "teamid": "1041",
+    "teamname": "Corinthians",
+    "transfermarkt_url": "https://www.transfermarkt.com/corinthians-sao-paulo/startseite/verein/199"
+  },
+  {
+    "teamid": "1043",
+    "teamname": "Flamengo",
+    "transfermarkt_url": "https://www.transfermarkt.com/flamengo-rio-de-janeiro/startseite/verein/614"
+  },
+  {
+    "teamid": "1048",
+    "teamname": "Internacional",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-internacional-porto-alegre/startseite/verein/6600"
+  },
+  {
+    "teamid": "1318",
+    "teamname": "England",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1328",
+    "teamname": "Croatia",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1330",
+    "teamname": "Czech Republic",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1331",
+    "teamname": "Denmark",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1334",
+    "teamname": "Finland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1335",
+    "teamname": "France",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1337",
+    "teamname": "Germany",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1341",
+    "teamname": "Iceland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1343",
+    "teamname": "Italy",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1352",
+    "teamname": "Norway",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1353",
+    "teamname": "Poland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1354",
+    "teamname": "Portugal",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1355",
+    "teamname": "Republic of Ireland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1356",
+    "teamname": "Romania",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1359",
+    "teamname": "Scotland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1362",
+    "teamname": "Spain",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1363",
+    "teamname": "Sweden",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1366",
+    "teamname": "Ukraine",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1367",
+    "teamname": "Wales",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1369",
+    "teamname": "Argentina",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1386",
+    "teamname": "Mexico",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1387",
+    "teamname": "United States",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1438",
+    "teamname": "Santa Clara",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-santa-clara/startseite/verein/2423"
+  },
+  {
+    "teamid": "1439",
+    "teamname": "Kalmar FF",
+    "transfermarkt_url": "https://www.transfermarkt.com/kalmar-ff/startseite/verein/3654"
+  },
+  {
+    "teamid": "1443",
+    "teamname": "Viborg FF",
+    "transfermarkt_url": "https://www.transfermarkt.com/viborg-ff/startseite/verein/1063"
+  },
+  {
+    "teamid": "1447",
+    "teamname": "SønderjyskE",
+    "transfermarkt_url": "https://www.transfermarkt.com/sonderjyske/startseite/verein/5817"
+  },
+  {
+    "teamid": "1456",
+    "teamname": "Odds Ballklubb",
+    "transfermarkt_url": "https://www.transfermarkt.com/odds-bk/startseite/verein/1058"
+  },
+  {
+    "teamid": "1463",
+    "teamname": "FK Haugesund",
+    "transfermarkt_url": "https://www.transfermarkt.com/fk-haugesund/startseite/verein/2761"
+  },
+  {
+    "teamid": "1473",
+    "teamname": "Ulsan HD FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/ulsan-hyundai/startseite/verein/3535"
+  },
+  {
+    "teamid": "1474",
+    "teamname": "Pohang Steelers",
+    "transfermarkt_url": "https://www.transfermarkt.com/pohang-steelers/startseite/verein/311"
+  },
+  {
+    "teamid": "1477",
+    "teamname": "Jeonbuk Hyundai Motors",
+    "transfermarkt_url": "https://www.transfermarkt.com/jeonbuk-hyundai-motors/startseite/verein/6502"
+  },
+  {
+    "teamid": "1478",
+    "teamname": "Jeju United",
+    "transfermarkt_url": "https://www.transfermarkt.com/jeju-united/startseite/verein/19684"
+  },
+  {
+    "teamid": "1480",
+    "teamname": "Carlisle United",
+    "transfermarkt_url": "https://www.transfermarkt.com/carlisle-united/startseite/verein/1220"
+  },
+  {
+    "teamid": "1516",
+    "teamname": "FC Midtjylland",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-midtjylland/startseite/verein/865"
+  },
+  {
+    "teamid": "1530",
+    "teamname": "Angers SCO",
+    "transfermarkt_url": "https://www.transfermarkt.com/sco-angers/startseite/verein/1420"
+  },
+  {
+    "teamid": "1571",
+    "teamname": "Galway United",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-galway-united/startseite/verein/42394"
+  },
+  {
+    "teamid": "1572",
+    "teamname": "Drogheda United",
+    "transfermarkt_url": "https://www.transfermarkt.com/drogheda-united-fc/startseite/verein/4277"
+  },
+  {
+    "teamid": "1629",
+    "teamname": "Grêmio",
+    "transfermarkt_url": "https://www.transfermarkt.com/gremio-porto-alegre/startseite/verein/210"
+  },
+  {
+    "teamid": "1704",
+    "teamname": "Yverdon-Sport",
+    "transfermarkt_url": "https://www.transfermarkt.com/yverdon-sport-fc/startseite/verein/322"
+  },
+  {
+    "teamid": "1713",
+    "teamname": "FC Winterthur",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-winterthur/startseite/verein/242"
+  },
+  {
+    "teamid": "1738",
+    "teamname": "Le Havre AC",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-le-havre/startseite/verein/738"
+  },
+  {
+    "teamid": "1744",
+    "teamname": "Modena",
+    "transfermarkt_url": "https://www.transfermarkt.com/modena-fc-2018/startseite/verein/1385"
+  },
+  {
+    "teamid": "1745",
+    "teamname": "Como",
+    "transfermarkt_url": "https://www.transfermarkt.com/como-1907/startseite/verein/1047"
+  },
+  {
+    "teamid": "1746",
+    "teamname": "Empoli",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-empoli/startseite/verein/749"
+  },
+  {
+    "teamid": "1750",
+    "teamname": "Cercle Brugge",
+    "transfermarkt_url": "https://www.transfermarkt.com/cercle-brugge/startseite/verein/520"
+  },
+  {
+    "teamid": "1756",
+    "teamname": "HamKam Fotball",
+    "transfermarkt_url": "https://www.transfermarkt.com/hamarkameratene/startseite/verein/4309"
+  },
+  {
+    "teamid": "1757",
+    "teamname": "Sandefjord Fotball",
+    "transfermarkt_url": "https://www.transfermarkt.com/sandefjord-fotball/startseite/verein/6399"
+  },
+  {
+    "teamid": "1786",
+    "teamname": "Randers FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/randers-fc/startseite/verein/5724"
+  },
+  {
+    "teamid": "1787",
+    "teamname": "Austria Klagenfurt",
+    "transfermarkt_url": "https://www.transfermarkt.com/sk-austria-klagenfurt/startseite/verein/28760"
+  },
+  {
+    "teamid": "1788",
+    "teamname": "FC Nordsjælland",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-nordsjaelland/startseite/verein/2778"
+  },
+  {
+    "teamid": "1790",
+    "teamname": "Portsmouth",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-portsmouth/startseite/verein/1020"
+  },
+  {
+    "teamid": "1792",
+    "teamname": "Norwich City",
+    "transfermarkt_url": "https://www.transfermarkt.com/norwich-city/startseite/verein/1123"
+  },
+  {
+    "teamid": "1793",
+    "teamname": "Reading",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-reading/startseite/verein/1032"
+  },
+  {
+    "teamid": "1794",
+    "teamname": "Sheffield United",
+    "transfermarkt_url": "https://www.transfermarkt.com/sheffield-united/startseite/verein/350"
+  },
+  {
+    "teamid": "1795",
+    "teamname": "Watford",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-watford/startseite/verein/1010"
+  },
+  {
+    "teamid": "1796",
+    "teamname": "Burnley",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-burnley/startseite/verein/1132"
+  },
+  {
+    "teamid": "1797",
+    "teamname": "Rotherham United",
+    "transfermarkt_url": "https://www.transfermarkt.com/rotherham-united/startseite/verein/1194"
+  },
+  {
+    "teamid": "1798",
+    "teamname": "Milton Keynes Dons",
+    "transfermarkt_url": "https://www.transfermarkt.com/milton-keynes-dons/startseite/verein/991"
+  },
+  {
+    "teamid": "1799",
+    "teamname": "Crystal Palace",
+    "transfermarkt_url": "https://www.transfermarkt.com/crystal-palace/startseite/verein/873"
+  },
+  {
+    "teamid": "1800",
+    "teamname": "Coventry City",
+    "transfermarkt_url": "https://www.transfermarkt.com/coventry-city/startseite/verein/990"
+  },
+  {
+    "teamid": "1801",
+    "teamname": "Preston North End",
+    "transfermarkt_url": "https://www.transfermarkt.com/preston-north-end/startseite/verein/466"
+  },
+  {
+    "teamid": "1802",
+    "teamname": "Gillingham",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-gillingham/startseite/verein/2814"
+  },
+  {
+    "teamid": "1803",
+    "teamname": "Walsall",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-walsall/startseite/verein/899"
+  },
+  {
+    "teamid": "1804",
+    "teamname": "Bradford City",
+    "transfermarkt_url": "https://www.transfermarkt.com/bradford-city/startseite/verein/1027"
+  },
+  {
+    "teamid": "1805",
+    "teamname": "Grenoble Foot 38",
+    "transfermarkt_url": "https://www.transfermarkt.com/grenoble-foot-38/startseite/verein/1290"
+  },
+  {
+    "teamid": "1806",
+    "teamname": "Stoke City",
+    "transfermarkt_url": "https://www.transfermarkt.com/stoke-city/startseite/verein/512"
+  },
+  {
+    "teamid": "1807",
+    "teamname": "Sheffield Wednesday",
+    "transfermarkt_url": "https://www.transfermarkt.com/sheffield-wednesday/startseite/verein/1035"
+  },
+  {
+    "teamid": "1808",
+    "teamname": "Brighton & Hove Albion",
+    "transfermarkt_url": "https://www.transfermarkt.com/brighton-amp-hove-albion/startseite/verein/1237"
+  },
+  {
+    "teamid": "1809",
+    "teamname": "Toulouse FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-toulouse/startseite/verein/415"
+  },
+  {
+    "teamid": "1814",
+    "teamname": "Stade Lavallois MFC",
+    "transfermarkt_url": "https://www.transfermarkt.com/stade-laval/startseite/verein/1080"
+  },
+  {
+    "teamid": "1815",
+    "teamname": "Clermont Foot",
+    "transfermarkt_url": "https://www.transfermarkt.com/clermont-foot-63/startseite/verein/3524"
+  },
+  {
+    "teamid": "1816",
+    "teamname": "Amiens SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/amiens-sc/startseite/verein/1416"
+  },
+  {
+    "teamid": "1819",
+    "teamname": "AS Saint-Étienne",
+    "transfermarkt_url": "https://www.transfermarkt.com/as-saint-etienne/startseite/verein/618"
+  },
+  {
+    "teamid": "1824",
+    "teamname": "Eintracht Frankfurt",
+    "transfermarkt_url": "https://www.transfermarkt.com/eintracht-frankfurt/startseite/verein/24"
+  },
+  {
+    "teamid": "1826",
+    "teamname": "Alemannia Aachen",
+    "transfermarkt_url": "https://www.transfermarkt.com/alemannia-aachen/startseite/verein/8"
+  },
+  {
+    "teamid": "1831",
+    "teamname": "1. FC Union Berlin",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-union-berlin/startseite/verein/89"
+  },
+  {
+    "teamid": "1832",
+    "teamname": "Karlsruher SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/karlsruher-sc/startseite/verein/48"
+  },
+  {
+    "teamid": "1837",
+    "teamname": "Sampdoria",
+    "transfermarkt_url": "https://www.transfermarkt.com/sampdoria-genua/startseite/verein/1038"
+  },
+  {
+    "teamid": "1842",
+    "teamname": "Cagliari",
+    "transfermarkt_url": "https://www.transfermarkt.com/cagliari-calcio/startseite/verein/1390"
+  },
+  {
+    "teamid": "1843",
+    "teamname": "Palermo",
+    "transfermarkt_url": "https://www.transfermarkt.com/palermo-fc/startseite/verein/458"
+  },
+  {
+    "teamid": "1848",
+    "teamname": "Bari",
+    "transfermarkt_url": "https://www.transfermarkt.com/ssc-bari/startseite/verein/332"
+  },
+  {
+    "teamid": "1853",
+    "teamname": "Levante UD",
+    "transfermarkt_url": "https://www.transfermarkt.com/ud-levante/startseite/verein/3368"
+  },
+  {
+    "teamid": "1854",
+    "teamname": "Albacete Balompié",
+    "transfermarkt_url": "https://www.transfermarkt.com/albacete-balompie/startseite/verein/1532"
+  },
+  {
+    "teamid": "1860",
+    "teamname": "Getafe CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-getafe/startseite/verein/3709"
+  },
+  {
+    "teamid": "1861",
+    "teamname": "UD Almería",
+    "transfermarkt_url": "https://www.transfermarkt.com/ud-almeria/startseite/verein/3302"
+  },
+  {
+    "teamid": "1862",
+    "teamname": "FC Lausanne-Sport",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-lausanne-sport/startseite/verein/527"
+  },
+  {
+    "teamid": "1867",
+    "teamname": "Córdoba CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-cordoba/startseite/verein/993"
+  },
+  {
+    "teamid": "1871",
+    "teamname": "Legia Warszawa",
+    "transfermarkt_url": "https://www.transfermarkt.com/legia-warschau/startseite/verein/255"
+  },
+  {
+    "teamid": "1874",
+    "teamname": "Ferencvárosi TC",
+    "transfermarkt_url": "https://www.transfermarkt.com/ferencvaros-budapest/startseite/verein/279"
+  },
+  {
+    "teamid": "1876",
+    "teamname": "River Plate",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-river-plate/startseite/verein/209"
+  },
+  {
+    "teamid": "1877",
+    "teamname": "Boca Juniors",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-boca-juniors/startseite/verein/189/saison_id/2023"
+  },
+  {
+    "teamid": "1884",
+    "teamname": "Panathinaikos",
+    "transfermarkt_url": "https://www.transfermarkt.com/panathinaikos-athen/startseite/verein/265"
+  },
+  {
+    "teamid": "1886",
+    "teamname": "Hungary",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "1887",
+    "teamname": "Vitória de Guimarães",
+    "transfermarkt_url": "https://www.transfermarkt.com/vitoria-guimaraes-sc/startseite/verein/2420"
+  },
+  {
+    "teamid": "1888",
+    "teamname": "Gil Vicente FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/gil-vicente-fc/startseite/verein/2424"
+  },
+  {
+    "teamid": "1891",
+    "teamname": "Nacional da Madeira",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-nacional/startseite/verein/982"
+  },
+  {
+    "teamid": "1896",
+    "teamname": "Braga",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-braga/startseite/verein/1075"
+  },
+  {
+    "teamid": "1898",
+    "teamname": "Boavista",
+    "transfermarkt_url": "https://www.transfermarkt.com/boavista-porto-fc/startseite/verein/2503"
+  },
+  {
+    "teamid": "1900",
+    "teamname": "Moreirense",
+    "transfermarkt_url": "https://www.transfermarkt.com/moreirense-fc/startseite/verein/979"
+  },
+  {
+    "teamid": "1903",
+    "teamname": "FC Utrecht",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-utrecht/startseite/verein/200"
+  },
+  {
+    "teamid": "1904",
+    "teamname": "NAC Breda",
+    "transfermarkt_url": "https://www.transfermarkt.com/nac-breda/startseite/verein/132"
+  },
+  {
+    "teamid": "1905",
+    "teamname": "RKC Waalwijk",
+    "transfermarkt_url": "https://www.transfermarkt.com/rkc-waalwijk/startseite/verein/235"
+  },
+  {
+    "teamid": "1906",
+    "teamname": "AZ",
+    "transfermarkt_url": "https://www.transfermarkt.com/az-alkmaar/startseite/verein/1090"
+  },
+  {
+    "teamid": "1907",
+    "teamname": "Willem II",
+    "transfermarkt_url": "https://www.transfermarkt.com/willem-ii-tilburg/startseite/verein/403"
+  },
+  {
+    "teamid": "1908",
+    "teamname": "FC Twente",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-twente-enschede/startseite/verein/317"
+  },
+  {
+    "teamid": "1910",
+    "teamname": "NEC Nijmegen",
+    "transfermarkt_url": "https://www.transfermarkt.com/nec-nijmegen/startseite/verein/467"
+  },
+  {
+    "teamid": "1913",
+    "teamname": "sc Heerenveen",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-heerenveen/startseite/verein/306"
+  },
+  {
+    "teamid": "1914",
+    "teamname": "PEC Zwolle",
+    "transfermarkt_url": "https://www.transfermarkt.com/pec-zwolle/startseite/verein/1269"
+  },
+  {
+    "teamid": "1915",
+    "teamname": "FC Groningen",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-groningen/startseite/verein/202"
+  },
+  {
+    "teamid": "1917",
+    "teamname": "Wigan Athletic",
+    "transfermarkt_url": "https://www.transfermarkt.com/wigan-athletic/startseite/verein/1071"
+  },
+  {
+    "teamid": "1919",
+    "teamname": "Bristol City",
+    "transfermarkt_url": "https://www.transfermarkt.com/bristol-city/startseite/verein/698"
+  },
+  {
+    "teamid": "1923",
+    "teamname": "Luton Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/luton-town/startseite/verein/1031"
+  },
+  {
+    "teamid": "1924",
+    "teamname": "Chesterfield",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-chesterfield/startseite/verein/1219"
+  },
+  {
+    "teamid": "1925",
+    "teamname": "Brentford",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-brentford/startseite/verein/1148"
+  },
+  {
+    "teamid": "1926",
+    "teamname": "Blackpool",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-blackpool/startseite/verein/1181"
+  },
+  {
+    "teamid": "1928",
+    "teamname": "Port Vale",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-port-vale/startseite/verein/1211"
+  },
+  {
+    "teamid": "1929",
+    "teamname": "Plymouth Argyle",
+    "transfermarkt_url": "https://www.transfermarkt.com/plymouth-argyle/startseite/verein/2262"
+  },
+  {
+    "teamid": "1930",
+    "teamname": "Northampton Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/northampton-town/startseite/verein/1302"
+  },
+  {
+    "teamid": "1931",
+    "teamname": "Stockport County",
+    "transfermarkt_url": "https://www.transfermarkt.com/stockport-county/startseite/verein/1098"
+  },
+  {
+    "teamid": "1932",
+    "teamname": "Barnsley",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-barnsley/startseite/verein/349"
+  },
+  {
+    "teamid": "1933",
+    "teamname": "Wycombe Wanderers",
+    "transfermarkt_url": "https://www.transfermarkt.com/wycombe-wanderers/startseite/verein/2805"
+  },
+  {
+    "teamid": "1934",
+    "teamname": "Swindon Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/swindon-town/startseite/verein/352"
+  },
+  {
+    "teamid": "1935",
+    "teamname": "Colchester United",
+    "transfermarkt_url": "https://www.transfermarkt.com/colchester-united/startseite/verein/1060"
+  },
+  {
+    "teamid": "1936",
+    "teamname": "Cheltenham Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/cheltenham-town/startseite/verein/3371"
+  },
+  {
+    "teamid": "1937",
+    "teamname": "Notts County",
+    "transfermarkt_url": "https://www.transfermarkt.com/notts-county/startseite/verein/1045"
+  },
+  {
+    "teamid": "1938",
+    "teamname": "Peterborough United",
+    "transfermarkt_url": "https://www.transfermarkt.com/peterborough-united/startseite/verein/1072"
+  },
+  {
+    "teamid": "1939",
+    "teamname": "Huddersfield Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/huddersfield-town/startseite/verein/1110"
+  },
+  {
+    "teamid": "1940",
+    "teamname": "Mansfield Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/mansfield-town/startseite/verein/3820"
+  },
+  {
+    "teamid": "1943",
+    "teamname": "AFC Bournemouth",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-bournemouth/startseite/verein/989"
+  },
+  {
+    "teamid": "1944",
+    "teamname": "Cambridge United",
+    "transfermarkt_url": "https://www.transfermarkt.com/cambridge-united/startseite/verein/986"
+  },
+  {
+    "teamid": "1947",
+    "teamname": "Wrexham",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-wrexham/startseite/verein/1112"
+  },
+  {
+    "teamid": "1951",
+    "teamname": "Oxford United",
+    "transfermarkt_url": "https://www.transfermarkt.com/oxford-united/startseite/verein/988"
+  },
+  {
+    "teamid": "1952",
+    "teamname": "Hull City",
+    "transfermarkt_url": "https://www.transfermarkt.com/hull-city/startseite/verein/3008"
+  },
+  {
+    "teamid": "1958",
+    "teamname": "Leyton Orient",
+    "transfermarkt_url": "https://www.transfermarkt.com/leyton-orient/startseite/verein/1150"
+  },
+  {
+    "teamid": "1960",
+    "teamname": "Swansea City",
+    "transfermarkt_url": "https://www.transfermarkt.com/swansea-city/startseite/verein/2288"
+  },
+  {
+    "teamid": "1961",
+    "teamname": "Cardiff City",
+    "transfermarkt_url": "https://www.transfermarkt.com/cardiff-city/startseite/verein/603"
+  },
+  {
+    "teamid": "1962",
+    "teamname": "Bristol Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/bristol-rovers/startseite/verein/2455"
+  },
+  {
+    "teamid": "1968",
+    "teamname": "Cádiz CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-cadiz/startseite/verein/2687"
+  },
+  {
+    "teamid": "2014",
+    "teamname": "Union Saint-Gilloise",
+    "transfermarkt_url": "https://www.transfermarkt.com/royale-union-saint-gilloise/startseite/verein/3948"
+  },
+  {
+    "teamid": "2017",
+    "teamname": "Hartberg",
+    "transfermarkt_url": "https://www.transfermarkt.com/tsv-hartberg/startseite/verein/4467"
+  },
+  {
+    "teamid": "2041",
+    "teamname": "Fredrikstad FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/fredrikstad-fk/startseite/verein/3837"
+  },
+  {
+    "teamid": "2055",
+    "teamname": "Gimcheon Sangmu",
+    "transfermarkt_url": "https://www.transfermarkt.com/gimcheon-sangmu/startseite/verein/6505"
+  },
+  {
+    "teamid": "2056",
+    "teamname": "Daegu FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/daegu-fc/startseite/verein/6504"
+  },
+  {
+    "teamid": "10020",
+    "teamname": "Estoril",
+    "transfermarkt_url": "https://www.transfermarkt.com/gd-estoril-praia/startseite/verein/1465"
+  },
+  {
+    "teamid": "10029",
+    "teamname": "TSG 1899 Hoffenheim",
+    "transfermarkt_url": "https://www.transfermarkt.com/tsg-1899-hoffenheim/startseite/verein/533"
+  },
+  {
+    "teamid": "10030",
+    "teamname": "SC Paderborn 07",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-paderborn-07/startseite/verein/127"
+  },
+  {
+    "teamid": "10032",
+    "teamname": "FC Lugano",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-lugano/startseite/verein/2790"
+  },
+  {
+    "teamid": "10846",
+    "teamname": "Burgos CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/burgos-cf/startseite/verein/1536"
+  },
+  {
+    "teamid": "15001",
+    "teamname": "Lyngby BK",
+    "transfermarkt_url": "https://www.transfermarkt.com/lyngby-bk/startseite/verein/369"
+  },
+  {
+    "teamid": "15009",
+    "teamname": "SCR Altach",
+    "transfermarkt_url": "https://www.transfermarkt.com/scr-altach/startseite/verein/3551"
+  },
+  {
+    "teamid": "15015",
+    "teamname": "Burton Albion",
+    "transfermarkt_url": "https://www.transfermarkt.com/burton-albion/startseite/verein/2963"
+  },
+  {
+    "teamid": "15040",
+    "teamname": "WSG Tirol",
+    "transfermarkt_url": "https://www.transfermarkt.com/wsg-tirol/startseite/verein/2446"
+  },
+  {
+    "teamid": "15048",
+    "teamname": "Tranmere Rovers",
+    "transfermarkt_url": "https://www.transfermarkt.com/tranmere-rovers/startseite/verein/1074"
+  },
+  {
+    "teamid": "100081",
+    "teamname": "Kortrijk",
+    "transfermarkt_url": "https://www.transfermarkt.com/kv-kortrijk/startseite/verein/601"
+  },
+  {
+    "teamid": "100087",
+    "teamname": "OH Leuven",
+    "transfermarkt_url": "https://www.transfermarkt.com/oud-heverlee-leuven/startseite/verein/2727"
+  },
+  {
+    "teamid": "100135",
+    "teamname": "APOEL Nicosia FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/apoel-nikosia/startseite/verein/2784"
+  },
+  {
+    "teamid": "100325",
+    "teamname": "HJK Helsinki",
+    "transfermarkt_url": "https://www.transfermarkt.com/hjk-helsinki/startseite/verein/1008"
+  },
+  {
+    "teamid": "100409",
+    "teamname": "FC Augsburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-augsburg/startseite/verein/167"
+  },
+  {
+    "teamid": "100632",
+    "teamname": "Go Ahead Eagles",
+    "transfermarkt_url": "https://www.transfermarkt.com/go-ahead-eagles-deventer/startseite/verein/1435"
+  },
+  {
+    "teamid": "100634",
+    "teamname": "Heracles Almelo",
+    "transfermarkt_url": "https://www.transfermarkt.com/heracles-almelo/startseite/verein/1304"
+  },
+  {
+    "teamid": "100646",
+    "teamname": "Sparta Rotterdam",
+    "transfermarkt_url": "https://www.transfermarkt.com/sparta-rotterdam/startseite/verein/468"
+  },
+  {
+    "teamid": "100757",
+    "teamname": "Dinamo București",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-dinamo/startseite/verein/312"
+  },
+  {
+    "teamid": "100761",
+    "teamname": "FCSB",
+    "transfermarkt_url": "https://www.transfermarkt.com/fcsb/startseite/verein/301"
+  },
+  {
+    "teamid": "100804",
+    "teamname": "St. Johnstone",
+    "transfermarkt_url": "https://www.transfermarkt.com/st-johnstone-fc/startseite/verein/2578"
+  },
+  {
+    "teamid": "100805",
+    "teamname": "St. Mirren",
+    "transfermarkt_url": "https://www.transfermarkt.com/st-mirren-fc/startseite/verein/465"
+  },
+  {
+    "teamid": "100851",
+    "teamname": "FC Cartagena",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-cartagena/startseite/verein/7077"
+  },
+  {
+    "teamid": "100852",
+    "teamname": "CD Castellón",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-castellon/startseite/verein/2502"
+  },
+  {
+    "teamid": "100888",
+    "teamname": "CD Leganés",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-leganes/startseite/verein/1244"
+  },
+  {
+    "teamid": "101014",
+    "teamname": "Istanbul Başakşehir FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/istanbul-basaksehir-fk/startseite/verein/6890"
+  },
+  {
+    "teamid": "101016",
+    "teamname": "Adana Demirspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/adana-demirspor/startseite/verein/3840"
+  },
+  {
+    "teamid": "101020",
+    "teamname": "Kayserispor",
+    "transfermarkt_url": "https://www.transfermarkt.com/kayserispor/startseite/verein/3205"
+  },
+  {
+    "teamid": "101026",
+    "teamname": "Göztepe",
+    "transfermarkt_url": "https://www.transfermarkt.com/goztepe/startseite/verein/1467"
+  },
+  {
+    "teamid": "101028",
+    "teamname": "Hatayspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/hatayspor/startseite/verein/7775"
+  },
+  {
+    "teamid": "101033",
+    "teamname": "Konyaspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/konyaspor/startseite/verein/2293"
+  },
+  {
+    "teamid": "101037",
+    "teamname": "Çaykur Rizespor",
+    "transfermarkt_url": "https://www.transfermarkt.com/caykur-rizespor/startseite/verein/126"
+  },
+  {
+    "teamid": "101041",
+    "teamname": "Sivasspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/sivasspor/startseite/verein/2381"
+  },
+  {
+    "teamid": "101059",
+    "teamname": "Shakhtar Donetsk",
+    "transfermarkt_url": "https://www.transfermarkt.com/shakhtar-donetsk/startseite/verein/660"
+  },
+  {
+    "teamid": "101083",
+    "teamname": "Estudiantes de La Plata",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-estudiantes-de-la-plata/startseite/verein/288"
+  },
+  {
+    "teamid": "101047",
+    "teamname": "Dynamo Kyiv",
+    "transfermarkt_url": "https://www.transfermarkt.com/dynamo-kiew/startseite/verein/338"
+  },
+  {
+    "teamid": "101084",
+    "teamname": "Gimnasia y Esgrima La Plata",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-de-gimnasia-y-esgrima-la-plata/startseite/verein/1106"
+  },
+  {
+    "teamid": "101085",
+    "teamname": "Racing Club de Avellaneda",
+    "transfermarkt_url": "https://www.transfermarkt.com/racing-club/startseite/verein/1444/saison_id/2023"
+  },
+  {
+    "teamid": "101100",
+    "teamname": "Atlético Nacional",
+    "transfermarkt_url": "https://www.transfermarkt.com/atletico-nacional/startseite/verein/8172"
+  },
+  {
+    "teamid": "101088",
+    "teamname": "Vélez Sarsfield",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-velez-sarsfield/startseite/verein/1029"
+  },
+  {
+    "teamid": "101099",
+    "teamname": "América de Cali",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-america-de-cali/startseite/verein/2352"
+  },
+  {
+    "teamid": "101101",
+    "teamname": "Junior de Barranquilla",
+    "transfermarkt_url": "https://www.transfermarkt.com/junior-fc/startseite/verein/11854"
+  },
+  {
+    "teamid": "101108",
+    "teamname": "Olimpia Asunción",
+    "transfermarkt_url": "https://www.transfermarkt.com/olimpia-asuncion/startseite/verein/629"
+  },
+  {
+    "teamid": "101103",
+    "teamname": "Independiente Medellín",
+    "transfermarkt_url": "https://www.transfermarkt.com/independiente-medellin/startseite/verein/10093"
+  },
+  {
+    "teamid": "101110",
+    "teamname": "Peñarol",
+    "transfermarkt_url": "https://www.transfermarkt.com/ca-penarol/startseite/verein/861"
+  },
+  {
+    "teamid": "101112",
+    "teamname": "Vancouver Whitecaps",
+    "transfermarkt_url": "https://www.transfermarkt.com/vancouver-whitecaps-fc/startseite/verein/6321"
+  },
+  {
+    "teamid": "101105",
+    "teamname": "Millonarios",
+    "transfermarkt_url": "https://www.transfermarkt.com/millonarios-fc/startseite/verein/2350"
+  },
+  {
+    "teamid": "110062",
+    "teamname": "Girona FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-girona/startseite/verein/12321"
+  },
+  {
+    "teamid": "105035",
+    "teamname": "Holland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "110069",
+    "teamname": "CD Mirandés",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-mirandes/startseite/verein/13222"
+  },
+  {
+    "teamid": "110072",
+    "teamname": "ASC Oțelul Galați",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-otelul-galati/startseite/verein/4959"
+  },
+  {
+    "teamid": "110075",
+    "teamname": "Farul Constanța",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-viitorul-constanta/startseite/verein/29831"
+  },
+  {
+    "teamid": "110081",
+    "teamname": "Northern Ireland",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "110093",
+    "teamname": "Independiente",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-independiente/startseite/verein/1234"
+  },
+  {
+    "teamid": "110078",
+    "teamname": "Petrolul Ploiești",
+    "transfermarkt_url": "https://www.transfermarkt.com/petrolul-ploiesti/startseite/verein/9465"
+  },
+  {
+    "teamid": "110178",
+    "teamname": "SV Sandhausen",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-sandhausen/startseite/verein/254"
+  },
+  {
+    "teamid": "110176",
+    "teamname": "SSV Ulm 1846",
+    "transfermarkt_url": "https://www.transfermarkt.com/ssv-ulm-1846/startseite/verein/69"
+  },
+  {
+    "teamid": "110206",
+    "teamname": "GKS Katowice",
+    "transfermarkt_url": "https://www.transfermarkt.com/gks-katowice/startseite/verein/6456"
+  },
+  {
+    "teamid": "110321",
+    "teamname": "Pau FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/pau-fc/startseite/verein/3166"
+  },
+  {
+    "teamid": "110313",
+    "teamname": "Accrington Stanley",
+    "transfermarkt_url": "https://www.transfermarkt.com/accrington-stanley/startseite/verein/3688"
+  },
+  {
+    "teamid": "110242",
+    "teamname": "Racing de Ferrol",
+    "transfermarkt_url": "https://www.transfermarkt.com/racing-ferrol/startseite/verein/1176"
+  },
+  {
+    "teamid": "110329",
+    "teamname": "FC St. Pauli",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-st-pauli/startseite/verein/35"
+  },
+  {
+    "teamid": "110373",
+    "teamname": "Salernitana",
+    "transfermarkt_url": "https://www.transfermarkt.com/us-salernitana-1919/startseite/verein/380"
+  },
+  {
+    "teamid": "110374",
+    "teamname": "Fiorentina",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-florenz/startseite/verein/430"
+  },
+  {
+    "teamid": "110395",
+    "teamname": "Lanús",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-lanus/startseite/verein/333"
+  },
+  {
+    "teamid": "110396",
+    "teamname": "Newell's Old Boys",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-newells-old-boys/startseite/verein/1286"
+  },
+  {
+    "teamid": "110468",
+    "teamname": "Viktoria Plzeň",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-viktoria-pilsen/startseite/verein/941"
+  },
+  {
+    "teamid": "110404",
+    "teamname": "Banfield",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-banfield/startseite/verein/830"
+  },
+  {
+    "teamid": "110500",
+    "teamname": "Eintracht Braunschweig",
+    "transfermarkt_url": "https://www.transfermarkt.com/eintracht-braunschweig/startseite/verein/23"
+  },
+  {
+    "teamid": "110501",
+    "teamname": "SC Verl",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-verl/startseite/verein/93"
+  },
+  {
+    "teamid": "110502",
+    "teamname": "SV Darmstadt 98",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-darmstadt-98/startseite/verein/105"
+  },
+  {
+    "teamid": "110532",
+    "teamname": "SV Waldhof Mannheim",
+    "transfermarkt_url": "https://www.transfermarkt.com/sv-waldhof-mannheim/startseite/verein/85"
+  },
+  {
+    "teamid": "110580",
+    "teamname": "Rosario Central",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-rosario-central/startseite/verein/1418"
+  },
+  {
+    "teamid": "110556",
+    "teamname": "Genoa",
+    "transfermarkt_url": "https://www.transfermarkt.com/genua-cfc/startseite/verein/252"
+  },
+  {
+    "teamid": "110588",
+    "teamname": "1. FC Magdeburg",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-magdeburg/startseite/verein/187"
+  },
+  {
+    "teamid": "110636",
+    "teamname": "Fortuna Düsseldorf",
+    "transfermarkt_url": "https://www.transfermarkt.com/fortuna-dusseldorf/startseite/verein/38"
+  },
+  {
+    "teamid": "110645",
+    "teamname": "Viktoria Köln",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-viktoria-koln/startseite/verein/1622"
+  },
+  {
+    "teamid": "110676",
+    "teamname": "Borussia Dortmund II",
+    "transfermarkt_url": "https://www.transfermarkt.com/borussia-dortmund-ii/startseite/verein/17"
+  },
+  {
+    "teamid": "110697",
+    "teamname": "VfB Stuttgart II",
+    "transfermarkt_url": "https://www.transfermarkt.com/vfb-stuttgart-ii/startseite/verein/102"
+  },
+  {
+    "teamid": "110683",
+    "teamname": "Hannover 96 II",
+    "transfermarkt_url": "https://www.transfermarkt.com/hannover-96-ii/startseite/verein/1065"
+  },
+  {
+    "teamid": "110720",
+    "teamname": "Blau-Weiß Linz",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-blau-weiss-linz/startseite/verein/2157"
+  },
+  {
+    "teamid": "110724",
+    "teamname": "KV Mechelen",
+    "transfermarkt_url": "https://www.transfermarkt.com/kv-mechelen/startseite/verein/354"
+  },
+  {
+    "teamid": "110738",
+    "teamname": "Pisa",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-pisa-1909/startseite/verein/4172"
+  },
+  {
+    "teamid": "110740",
+    "teamname": "Reggiana",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-reggiana-1919/startseite/verein/5621"
+  },
+  {
+    "teamid": "110745",
+    "teamname": "Jagiellonia Białystok",
+    "transfermarkt_url": "https://www.transfermarkt.com/jagiellonia-bialystok/startseite/verein/2300"
+  },
+  {
+    "teamid": "110746",
+    "teamname": "Pogoń Szczecin",
+    "transfermarkt_url": "https://www.transfermarkt.com/pogon-stettin/startseite/verein/324"
+  },
+  {
+    "teamid": "110747",
+    "teamname": "Cracovia",
+    "transfermarkt_url": "https://www.transfermarkt.com/cracovia/startseite/verein/5689"
+  },
+  {
+    "teamid": "110749",
+    "teamname": "Zagłębie Lubin",
+    "transfermarkt_url": "https://www.transfermarkt.com/zaglebie-lubin/startseite/verein/168"
+  },
+  {
+    "teamid": "110750",
+    "teamname": "UTA Arad",
+    "transfermarkt_url": "https://www.transfermarkt.com/uta-arad/startseite/verein/952"
+  },
+  {
+    "teamid": "110751",
+    "teamname": "Universitatea Cluj",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-universitatea-cluj/startseite/verein/6429"
+  },
+  {
+    "teamid": "110752",
+    "teamname": "FC Botoșani",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-botosani/startseite/verein/8818"
+  },
+  {
+    "teamid": "110765",
+    "teamname": "Incheon United",
+    "transfermarkt_url": "https://www.transfermarkt.com/incheon-united/startseite/verein/2996"
+  },
+  {
+    "teamid": "110770",
+    "teamname": "FC Sion",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-sion/startseite/verein/321"
+  },
+  {
+    "teamid": "110815",
+    "teamname": "Politehnica Iași",
+    "transfermarkt_url": "https://www.transfermarkt.com/acsm-politehnica-iasi/startseite/verein/33966"
+  },
+  {
+    "teamid": "110776",
+    "teamname": "Gaziantep FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/gaziantep-fk/startseite/verein/2832"
+  },
+  {
+    "teamid": "110839",
+    "teamname": "SD Huesca",
+    "transfermarkt_url": "https://www.transfermarkt.com/sd-huesca/startseite/verein/5358"
+  },
+  {
+    "teamid": "110832",
+    "teamname": "Granada CF",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-granada/startseite/verein/16795"
+  },
+  {
+    "teamid": "110827",
+    "teamname": "Real Oviedo",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-oviedo/startseite/verein/2497"
+  },
+  {
+    "teamid": "110908",
+    "teamname": "Catanzaro",
+    "transfermarkt_url": "https://www.transfermarkt.com/us-catanzaro/startseite/verein/4097"
+  },
+  {
+    "teamid": "110890",
+    "teamname": "Crawley Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/crawley-town/startseite/verein/3537"
+  },
+  {
+    "teamid": "110953",
+    "teamname": "Instituto de Córdoba",
+    "transfermarkt_url": "https://www.transfermarkt.com/instituto-ac-cordoba/startseite/verein/1829"
+  },
+  {
+    "teamid": "110915",
+    "teamname": "Cesena",
+    "transfermarkt_url": "https://www.transfermarkt.com/cesena-fc/startseite/verein/1429"
+  },
+  {
+    "teamid": "110955",
+    "teamname": "Shanghai Shenhua",
+    "transfermarkt_url": "https://www.transfermarkt.com/shanghai-shenhua/startseite/verein/3183"
+  },
+  {
+    "teamid": "110968",
+    "teamname": "Bolívar",
+    "transfermarkt_url": "https://www.transfermarkt.com/bolivar-la-paz/startseite/verein/6878"
+  },
+  {
+    "teamid": "110974",
+    "teamname": "Jorge Wilstermann",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-jorge-wilstermann/startseite/verein/4862"
+  },
+  {
+    "teamid": "110969",
+    "teamname": "The Strongest",
+    "transfermarkt_url": "https://www.transfermarkt.com/the-strongest-la-paz/startseite/verein/5570"
+  },
+  {
+    "teamid": "110975",
+    "teamname": "Universidad Católica",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-universidad-catolica/startseite/verein/3277"
+  },
+  {
+    "teamid": "110981",
+    "teamname": "Barcelona SC Guayaquil",
+    "transfermarkt_url": "https://www.transfermarkt.com/barcelona-sc-guayaquil/startseite/verein/3523"
+  },
+  {
+    "teamid": "110980",
+    "teamname": "Colo-Colo",
+    "transfermarkt_url": "https://www.transfermarkt.com/csd-colo-colo/startseite/verein/2433"
+  },
+  {
+    "teamid": "110978",
+    "teamname": "Cobresal",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-cobresal/startseite/verein/17482"
+  },
+  {
+    "teamid": "110982",
+    "teamname": "Deportivo Cuenca",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-cuenca/startseite/verein/8781"
+  },
+  {
+    "teamid": "110986",
+    "teamname": "LDU Quito",
+    "transfermarkt_url": "https://www.transfermarkt.com/ldu-quito/startseite/verein/9855"
+  },
+  {
+    "teamid": "110989",
+    "teamname": "Caracas FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/caracas-fc/startseite/verein/531"
+  },
+  {
+    "teamid": "110990",
+    "teamname": "Deportivo Táchira",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-tachira/startseite/verein/13297"
+  },
+  {
+    "teamid": "110991",
+    "teamname": "Carabobo FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/carabobo-fc/startseite/verein/14682"
+  },
+  {
+    "teamid": "111008",
+    "teamname": "Libertad",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-libertad-asuncion/startseite/verein/9875"
+  },
+  {
+    "teamid": "111001",
+    "teamname": "Montevideo Wanderers",
+    "transfermarkt_url": "https://www.transfermarkt.com/montevideo-wanderers/startseite/verein/2403"
+  },
+  {
+    "teamid": "110998",
+    "teamname": "Danubio FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/danubio-fc/startseite/verein/1306"
+  },
+  {
+    "teamid": "111006",
+    "teamname": "Sportivo Luqueño",
+    "transfermarkt_url": "https://www.transfermarkt.com/sportivo-luqueno/startseite/verein/7656"
+  },
+  {
+    "teamid": "111010",
+    "teamname": "Alianza Lima",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-alianza-lima/startseite/verein/184"
+  },
+  {
+    "teamid": "111019",
+    "teamname": "Argentinos Juniors",
+    "transfermarkt_url": "https://www.transfermarkt.com/argentinos-juniors/startseite/verein/1030"
+  },
+  {
+    "teamid": "111014",
+    "teamname": "Universitario de Deportes",
+    "transfermarkt_url": "https://www.transfermarkt.com/universitario-de-deportes/startseite/verein/6593"
+  },
+  {
+    "teamid": "111020",
+    "teamname": "Independiente Rivadavia",
+    "transfermarkt_url": "https://www.transfermarkt.com/independiente-rivadavia/startseite/verein/12179"
+  },
+  {
+    "teamid": "111022",
+    "teamname": "Belgrano de Córdoba",
+    "transfermarkt_url": "https://www.transfermarkt.com/ca-belgrano/startseite/verein/2417"
+  },
+  {
+    "teamid": "111065",
+    "teamname": "Real Salt Lake",
+    "transfermarkt_url": "https://www.transfermarkt.com/real-salt-lake-city/startseite/verein/6643"
+  },
+  {
+    "teamid": "111052",
+    "teamname": "Fortaleza",
+    "transfermarkt_url": "https://www.transfermarkt.com/fortaleza-esporte-clube/startseite/verein/10870"
+  },
+  {
+    "teamid": "111086",
+    "teamname": "Piast Gliwice",
+    "transfermarkt_url": "https://www.transfermarkt.com/piast-gliwice/startseite/verein/6112"
+  },
+  {
+    "teamid": "111083",
+    "teamname": "Korona Kielce",
+    "transfermarkt_url": "https://www.transfermarkt.com/korona-kielce/startseite/verein/6110"
+  },
+  {
+    "teamid": "111091",
+    "teamname": "Lechia Gdańsk",
+    "transfermarkt_url": "https://www.transfermarkt.com/lechia-gdansk/startseite/verein/4000"
+  },
+  {
+    "teamid": "111088",
+    "teamname": "Radomiak Radom",
+    "transfermarkt_url": "https://www.transfermarkt.com/radomiak-radom/startseite/verein/7154"
+  },
+  {
+    "teamid": "111097",
+    "teamname": "Motor Lublin",
+    "transfermarkt_url": "https://www.transfermarkt.com/motor-lublin/startseite/verein/3527"
+  },
+  {
+    "teamid": "111092",
+    "teamname": "Śląsk Wrocław",
+    "transfermarkt_url": "https://www.transfermarkt.com/slask-wroclaw/startseite/verein/759"
+  },
+  {
+    "teamid": "111111",
+    "teamname": "Morocco",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111138",
+    "teamname": "Minnesota United FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/minnesota-united-fc/startseite/verein/56089"
+  },
+  {
+    "teamid": "111139",
+    "teamname": "CF Montréal",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-de-foot-montreal/startseite/verein/4078"
+  },
+  {
+    "teamid": "111140",
+    "teamname": "Portland Timbers",
+    "transfermarkt_url": "https://www.transfermarkt.com/portland-timbers/startseite/verein/4291"
+  },
+  {
+    "teamid": "111144",
+    "teamname": "Seattle Sounders",
+    "transfermarkt_url": "https://www.transfermarkt.com/seattle-sounders-fc/startseite/verein/9636"
+  },
+  {
+    "teamid": "111235",
+    "teamname": "1. FC Heidenheim",
+    "transfermarkt_url": "https://www.transfermarkt.com/1-fc-heidenheim-1846/startseite/verein/2036"
+  },
+  {
+    "teamid": "111239",
+    "teamname": "FC Ingolstadt 04",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-ingolstadt-04/startseite/verein/4795"
+  },
+  {
+    "teamid": "111273",
+    "teamname": "Red Star FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/red-star-fc/startseite/verein/1154"
+  },
+  {
+    "teamid": "111276",
+    "teamname": "USL Dunkerque",
+    "transfermarkt_url": "https://www.transfermarkt.com/usl-dunkerque/startseite/verein/9202"
+  },
+  {
+    "teamid": "111325",
+    "teamname": "Nacional de Montevideo",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-nacional/startseite/verein/866"
+  },
+  {
+    "teamid": "111326",
+    "teamname": "Liverpool Fútbol Club Uruguay",
+    "transfermarkt_url": "https://www.transfermarkt.com/liverpool-fc-montevideo/startseite/verein/10663"
+  },
+  {
+    "teamid": "111327",
+    "teamname": "Huachipato",
+    "transfermarkt_url": "https://www.transfermarkt.com/huachipato-fc/startseite/verein/6368"
+  },
+  {
+    "teamid": "111328",
+    "teamname": "Palestino",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-palestino/startseite/verein/6536"
+  },
+  {
+    "teamid": "111329",
+    "teamname": "Guaraní (Paraguay)",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-guarani/startseite/verein/11855"
+  },
+  {
+    "teamid": "111339",
+    "teamname": "Kasımpaşa",
+    "transfermarkt_url": "https://www.transfermarkt.com/kasimpasa/startseite/verein/10484"
+  },
+  {
+    "teamid": "111393",
+    "teamname": "Adelaide United",
+    "transfermarkt_url": "https://www.transfermarkt.com/adelaide-united/startseite/verein/875"
+  },
+  {
+    "teamid": "111395",
+    "teamname": "Brisbane Roar",
+    "transfermarkt_url": "https://www.transfermarkt.com/brisbane-roar/startseite/verein/7831"
+  },
+  {
+    "teamid": "111380",
+    "teamname": "Almere City FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/almere-city-fc/startseite/verein/723"
+  },
+  {
+    "teamid": "111396",
+    "teamname": "Central Coast Mariners",
+    "transfermarkt_url": "https://www.transfermarkt.com/central-coast-mariners/startseite/verein/6954"
+  },
+  {
+    "teamid": "111397",
+    "teamname": "Melbourne Victory",
+    "transfermarkt_url": "https://www.transfermarkt.com/melbourne-victory/startseite/verein/7006"
+  },
+  {
+    "teamid": "111398",
+    "teamname": "Newcastle Jets",
+    "transfermarkt_url": "https://www.transfermarkt.com/newcastle-united-jets/startseite/verein/5551"
+  },
+  {
+    "teamid": "111399",
+    "teamname": "Perth Glory",
+    "transfermarkt_url": "https://www.transfermarkt.com/perth-glory/startseite/verein/970"
+  },
+  {
+    "teamid": "111433",
+    "teamname": "Mantova",
+    "transfermarkt_url": "https://www.transfermarkt.com/mantova-1911/startseite/verein/2581"
+  },
+  {
+    "teamid": "111400",
+    "teamname": "Sydney FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/sydney-fc/startseite/verein/8054"
+  },
+  {
+    "teamid": "111434",
+    "teamname": "Cremonese",
+    "transfermarkt_url": "https://www.transfermarkt.com/us-cremonese/startseite/verein/2239"
+  },
+  {
+    "teamid": "111592",
+    "teamname": "NG - FA",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111473",
+    "teamname": "New Zealand",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111462",
+    "teamname": "Ghana",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111527",
+    "teamname": "Qatar",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111594",
+    "teamname": "GAIS",
+    "transfermarkt_url": "https://www.transfermarkt.com/gais-goteborg/startseite/verein/7009"
+  },
+  {
+    "teamid": "111596",
+    "teamname": "MLS All Stars",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "111629",
+    "teamname": "East Bengal FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/sc-east-bengal/startseite/verein/14099"
+  },
+  {
+    "teamid": "111633",
+    "teamname": "Mohammedan SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/mohammedan-sc-kolkata-/startseite/verein/37893"
+  },
+  {
+    "teamid": "111657",
+    "teamname": "Frosinone",
+    "transfermarkt_url": "https://www.transfermarkt.com/frosinone-calcio/startseite/verein/8970"
+  },
+  {
+    "teamid": "111651",
+    "teamname": "Toronto FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/toronto-fc/startseite/verein/11141"
+  },
+  {
+    "teamid": "111659",
+    "teamname": "Rodez Aveyron Football",
+    "transfermarkt_url": "https://www.transfermarkt.com/rodez-af/startseite/verein/11273"
+  },
+  {
+    "teamid": "111705",
+    "teamname": "IF Brommapojkarna",
+    "transfermarkt_url": "https://www.transfermarkt.com/if-brommapojkarna/startseite/verein/1092"
+  },
+  {
+    "teamid": "111701",
+    "teamname": "Al Ain FC (UAE)",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-ain-fc/startseite/verein/2150"
+  },
+  {
+    "teamid": "111674",
+    "teamname": "Al Shabab",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-shabab-riad/startseite/verein/9840"
+  },
+  {
+    "teamid": "111706",
+    "teamname": "Godoy Cruz",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-deportivo-godoy-cruz-antonio-tomba/startseite/verein/12574"
+  },
+  {
+    "teamid": "111710",
+    "teamname": "Defensa y Justicia",
+    "transfermarkt_url": "https://www.transfermarkt.com/defensa-y-justicia/startseite/verein/2402"
+  },
+  {
+    "teamid": "111711",
+    "teamname": "Huracán",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-huracan/startseite/verein/2063"
+  },
+  {
+    "teamid": "111715",
+    "teamname": "Tigre",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-tigre/startseite/verein/11831"
+  },
+  {
+    "teamid": "111708",
+    "teamname": "Atlético Tucumán",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-tucuman/startseite/verein/14554"
+  },
+  {
+    "teamid": "111716",
+    "teamname": "Unión de Santa Fe",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-union/startseite/verein/7097"
+  },
+  {
+    "teamid": "111724",
+    "teamname": "Shandong Taishan",
+    "transfermarkt_url": "https://www.transfermarkt.com/shandong-taishan/startseite/verein/3182"
+  },
+  {
+    "teamid": "111722",
+    "teamname": "Deportes Tolima",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportes-tolima/startseite/verein/10503"
+  },
+  {
+    "teamid": "111766",
+    "teamname": "Wellington Phoenix",
+    "transfermarkt_url": "https://www.transfermarkt.com/wellington-phoenix/startseite/verein/8445"
+  },
+  {
+    "teamid": "111768",
+    "teamname": "Beijing Guoan",
+    "transfermarkt_url": "https://www.transfermarkt.com/beijing-sinobo-guoan/startseite/verein/3176"
+  },
+  {
+    "teamid": "111774",
+    "teamname": "Tianjin Jinmen Tiger",
+    "transfermarkt_url": "https://www.transfermarkt.com/tianjin-teda/startseite/verein/3187"
+  },
+  {
+    "teamid": "111779",
+    "teamname": "Henan FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/henan-songshan-longmen/startseite/verein/9982"
+  },
+  {
+    "teamid": "111811",
+    "teamname": "AC Monza",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-monza/startseite/verein/2919"
+  },
+  {
+    "teamid": "111769",
+    "teamname": "Changchun Yatai",
+    "transfermarkt_url": "https://www.transfermarkt.com/changchun-yatai/startseite/verein/4768"
+  },
+  {
+    "teamid": "111822",
+    "teamname": "Wolfsberger AC",
+    "transfermarkt_url": "https://www.transfermarkt.com/wolfsberger-ac/startseite/verein/4441"
+  },
+  {
+    "teamid": "111817",
+    "teamname": "Paris FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/paris-fc/startseite/verein/10004"
+  },
+  {
+    "teamid": "111928",
+    "teamname": "San Jose Earthquakes",
+    "transfermarkt_url": "https://www.transfermarkt.com/san-jose-earthquakes/startseite/verein/218"
+  },
+  {
+    "teamid": "111974",
+    "teamname": "Sassuolo",
+    "transfermarkt_url": "https://www.transfermarkt.com/us-sassuolo/startseite/verein/6574"
+  },
+  {
+    "teamid": "111993",
+    "teamname": "Cittadella",
+    "transfermarkt_url": "https://www.transfermarkt.com/as-cittadella/startseite/verein/4084"
+  },
+  {
+    "teamid": "112096",
+    "teamname": "Al Ettifaq",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-ettifaq/startseite/verein/7732"
+  },
+  {
+    "teamid": "112072",
+    "teamname": "Mjällby AIF",
+    "transfermarkt_url": "https://www.transfermarkt.com/mjallby-aif/startseite/verein/2719"
+  },
+  {
+    "teamid": "112126",
+    "teamname": "IFK Värnamo",
+    "transfermarkt_url": "https://www.transfermarkt.com/ifk-varnamo/startseite/verein/3622"
+  },
+  {
+    "teamid": "112124",
+    "teamname": "Juve Stabia",
+    "transfermarkt_url": "https://www.transfermarkt.com/ss-juve-stabia/startseite/verein/5587"
+  },
+  {
+    "teamid": "112115",
+    "teamname": "Gangwon FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/gangwon-fc/startseite/verein/21459"
+  },
+  {
+    "teamid": "112134",
+    "teamname": "Philadelphia Union",
+    "transfermarkt_url": "https://www.transfermarkt.com/philadelphia-union/startseite/verein/25467"
+  },
+  {
+    "teamid": "112139",
+    "teamname": "Al Nassr",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-nasr-riad/startseite/verein/18544"
+  },
+  {
+    "teamid": "112163",
+    "teamname": "Zhejiang Professional FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/zhejiang-fc/startseite/verein/17276"
+  },
+  {
+    "teamid": "112168",
+    "teamname": "Cosenza",
+    "transfermarkt_url": "https://www.transfermarkt.com/cosenza-calcio/startseite/verein/4031"
+  },
+  {
+    "teamid": "112172",
+    "teamname": "RB Leipzig",
+    "transfermarkt_url": "https://www.transfermarkt.com/rasenballsport-leipzig/startseite/verein/23826"
+  },
+  {
+    "teamid": "112180",
+    "teamname": "Västerås SK",
+    "transfermarkt_url": "https://www.transfermarkt.com/vasteras-sk/startseite/verein/5202"
+  },
+  {
+    "teamid": "112199",
+    "teamname": "Sarpsborg 08",
+    "transfermarkt_url": "https://www.transfermarkt.com/sarpsborg-08-ff/startseite/verein/10217"
+  },
+  {
+    "teamid": "112222",
+    "teamname": "Harrogate Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/harrogate-town/startseite/verein/12020"
+  },
+  {
+    "teamid": "112224",
+    "teamname": "Melbourne City",
+    "transfermarkt_url": "https://www.transfermarkt.com/melbourne-city-fc/startseite/verein/25580"
+  },
+  {
+    "teamid": "112254",
+    "teamname": "Newport County",
+    "transfermarkt_url": "https://www.transfermarkt.com/newport-county/startseite/verein/3716"
+  },
+  {
+    "teamid": "112258",
+    "teamname": "Gwangju FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/gwangju-fc/startseite/verein/30925"
+  },
+  {
+    "teamid": "112259",
+    "teamname": "AFC Wimbledon",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-wimbledon/startseite/verein/3884"
+  },
+  {
+    "teamid": "112260",
+    "teamname": "Fleetwood Town",
+    "transfermarkt_url": "https://www.transfermarkt.com/fleetwood-town/startseite/verein/11177"
+  },
+  {
+    "teamid": "112387",
+    "teamname": "Al Ahli",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-ahli-dschidda/startseite/verein/18487"
+  },
+  {
+    "teamid": "112390",
+    "teamname": "Al Fateh",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-fateh/startseite/verein/27221"
+  },
+  {
+    "teamid": "112264",
+    "teamname": "Youth Squad",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "112391",
+    "teamname": "Al Qadsiah",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-qadisiyah-fc/startseite/verein/26069"
+  },
+  {
+    "teamid": "112392",
+    "teamname": "Al Raed",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-raed/startseite/verein/22381"
+  },
+  {
+    "teamid": "112393",
+    "teamname": "Al Taawoun",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-taawoun-fc/startseite/verein/28844"
+  },
+  {
+    "teamid": "112427",
+    "teamname": "Western Sydney Wanderers",
+    "transfermarkt_url": "https://www.transfermarkt.com/western-sydney-wanderers/startseite/verein/36100"
+  },
+  {
+    "teamid": "112428",
+    "teamname": "Create Player Team",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "112408",
+    "teamname": "Al Wehda",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-wahda-mekka/startseite/verein/17209"
+  },
+  {
+    "teamid": "112493",
+    "teamname": "Carrarese",
+    "transfermarkt_url": "https://www.transfermarkt.com/carrarese-calcio-1908/startseite/verein/4159"
+  },
+  {
+    "teamid": "112494",
+    "teamname": "Südtirol",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-sudtirol/startseite/verein/4554"
+  },
+  {
+    "teamid": "112472",
+    "teamname": "RB Bragantino",
+    "transfermarkt_url": "https://www.transfermarkt.com/red-bull-bragantino/startseite/verein/8793"
+  },
+  {
+    "teamid": "112513",
+    "teamname": "Arouca",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-arouca/startseite/verein/8024"
+  },
+  {
+    "teamid": "112540",
+    "teamname": "Shanghai Port",
+    "transfermarkt_url": "https://www.transfermarkt.com/shanghai-port/startseite/verein/27190"
+  },
+  {
+    "teamid": "112558",
+    "teamname": "Suwon FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/suwon-fc/startseite/verein/31622"
+  },
+  {
+    "teamid": "112615",
+    "teamname": "Racing Club De Montevideo",
+    "transfermarkt_url": "https://www.transfermarkt.com/racing-club-de-montevideo/startseite/verein/14758"
+  },
+  {
+    "teamid": "112606",
+    "teamname": "Orlando City SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/orlando-city-sc/startseite/verein/45604"
+  },
+  {
+    "teamid": "112667",
+    "teamname": "Nacional Potosí",
+    "transfermarkt_url": "https://www.transfermarkt.com/ca-nacional-potosi/startseite/verein/23171"
+  },
+  {
+    "teamid": "112584",
+    "teamname": "Everton de Viña del Mar",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-everton/startseite/verein/7020"
+  },
+  {
+    "teamid": "112535",
+    "teamname": "Unión La Calera",
+    "transfermarkt_url": "https://www.transfermarkt.com/union-la-calera/startseite/verein/20514"
+  },
+  {
+    "teamid": "112670",
+    "teamname": "Talleres de Córdoba",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-talleres/startseite/verein/3938"
+  },
+  {
+    "teamid": "112675",
+    "teamname": "Al Orobah",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-orubah/startseite/verein/39536"
+  },
+  {
+    "teamid": "112671",
+    "teamname": "Nacional Asunción",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-nacional-asuncion/startseite/verein/7098"
+  },
+  {
+    "teamid": "112689",
+    "teamname": "Platense",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-platense/startseite/verein/928"
+  },
+  {
+    "teamid": "112713",
+    "teamname": "Sarmiento",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-sarmiento-junin-/startseite/verein/12454"
+  },
+  {
+    "teamid": "112705",
+    "teamname": "Coquimbo Unido",
+    "transfermarkt_url": "https://www.transfermarkt.com/coquimbo-unido/startseite/verein/11004"
+  },
+  {
+    "teamid": "112716",
+    "teamname": "Cerro Porteño",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-cerro-porteno/startseite/verein/1214"
+  },
+  {
+    "teamid": "112764",
+    "teamname": "Bromley",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-bromley/startseite/verein/8981"
+  },
+  {
+    "teamid": "112809",
+    "teamname": "Famalicão",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-famalicao/startseite/verein/3329"
+  },
+  {
+    "teamid": "112828",
+    "teamname": "New York City FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/new-york-city-fc/startseite/verein/40058"
+  },
+  {
+    "teamid": "112883",
+    "teamname": "Al Khaleej",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-khaleej/startseite/verein/6070"
+  },
+  {
+    "teamid": "112853",
+    "teamname": "Deportivo La Guaira",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-la-guaira/startseite/verein/26468"
+  },
+  {
+    "teamid": "112893",
+    "teamname": "Inter Miami",
+    "transfermarkt_url": "https://www.transfermarkt.com/inter-miami-cf/startseite/verein/69261"
+  },
+  {
+    "teamid": "112885",
+    "teamname": "Atlanta United FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/atlanta-united-fc/startseite/verein/51663"
+  },
+  {
+    "teamid": "112908",
+    "teamname": "Independiente del Valle",
+    "transfermarkt_url": "https://www.transfermarkt.com/independiente-del-valle/startseite/verein/19309"
+  },
+  {
+    "teamid": "112979",
+    "teamname": "Nantong Zhiyun",
+    "transfermarkt_url": "https://www.transfermarkt.com/nantong-zhiyun/startseite/verein/46487"
+  },
+  {
+    "teamid": "112985",
+    "teamname": "Cangzhou Mighty Lions",
+    "transfermarkt_url": "https://www.transfermarkt.com/cangzhou-mighty-lions/startseite/verein/35272"
+  },
+  {
+    "teamid": "112914",
+    "teamname": "Metropolitanos FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/metropolitanos-fc/startseite/verein/42918"
+  },
+  {
+    "teamid": "112965",
+    "teamname": "Central Córdoba",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-central-cordoba-sde-/startseite/verein/31284"
+  },
+  {
+    "teamid": "113002",
+    "teamname": "England Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "112996",
+    "teamname": "Los Angeles FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/los-angeles-fc/startseite/verein/51828"
+  },
+  {
+    "teamid": "113008",
+    "teamname": "Sweden Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113003",
+    "teamname": "France Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113010",
+    "teamname": "Mexico Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113009",
+    "teamname": "United States Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113007",
+    "teamname": "Norway Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113004",
+    "teamname": "Germany Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113012",
+    "teamname": "Spain Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113018",
+    "teamname": "St. Louis City SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/st-louis-city-sc/startseite/verein/82686"
+  },
+  {
+    "teamid": "113037",
+    "teamname": "Al Riyadh",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-riad/startseite/verein/31008"
+  },
+  {
+    "teamid": "113011",
+    "teamname": "Holland Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113029",
+    "teamname": "Universidad César Vallejo",
+    "transfermarkt_url": "https://www.transfermarkt.com/universidad-cesar-vallejo/startseite/verein/6889"
+  },
+  {
+    "teamid": "113040",
+    "teamname": "NorthEast United",
+    "transfermarkt_url": "https://www.transfermarkt.com/northeast-united-fc/startseite/verein/45276"
+  },
+  {
+    "teamid": "113044",
+    "teamname": "Barracas Central",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-atletico-barracas-central/startseite/verein/25184"
+  },
+  {
+    "teamid": "113060",
+    "teamname": "Al Okhdood",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-akhdoud-club/startseite/verein/71665"
+  },
+  {
+    "teamid": "113057",
+    "teamname": "Al Fayha",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-fayha-fc/startseite/verein/50531"
+  },
+  {
+    "teamid": "113142",
+    "teamname": "Alanyaspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/alanyaspor/startseite/verein/11282"
+  },
+  {
+    "teamid": "113257",
+    "teamname": "Odisha FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/odisha-fc/startseite/verein/45080"
+  },
+  {
+    "teamid": "113146",
+    "teamname": "Mohun Bagan Super Giant",
+    "transfermarkt_url": "https://www.transfermarkt.com/atk-mohun-bagan-fc/startseite/verein/83266"
+  },
+  {
+    "teamid": "113149",
+    "teamname": "FC Cincinnati",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-cincinnati/startseite/verein/51772"
+  },
+  {
+    "teamid": "113217",
+    "teamname": "Damac FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/damac-fc/startseite/verein/50532"
+  },
+  {
+    "teamid": "113297",
+    "teamname": "Chennaiyin FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/chennaiyin-fc/startseite/verein/45299"
+  },
+  {
+    "teamid": "113298",
+    "teamname": "FC Goa",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-goa/startseite/verein/45321"
+  },
+  {
+    "teamid": "113299",
+    "teamname": "Kerala Blasters FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/kerala-blasters-fc/startseite/verein/45277"
+  },
+  {
+    "teamid": "113300",
+    "teamname": "Mumbai City FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/mumbai-city-fc/startseite/verein/45274"
+  },
+  {
+    "teamid": "113301",
+    "teamname": "Hyderabad FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/hyderabad-fc/startseite/verein/76364"
+  },
+  {
+    "teamid": "113302",
+    "teamname": "Bengaluru FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/bengaluru-fc/startseite/verein/41030"
+  },
+  {
+    "teamid": "113378",
+    "teamname": "Sepsi OSK",
+    "transfermarkt_url": "https://www.transfermarkt.com/sepsi-osk-sf-gheorghe/startseite/verein/54585"
+  },
+  {
+    "teamid": "113616",
+    "teamname": "Grazer AK",
+    "transfermarkt_url": "https://www.transfermarkt.com/grazer-ak-1902/startseite/verein/316"
+  },
+  {
+    "teamid": "113459",
+    "teamname": "Kristiansund BK",
+    "transfermarkt_url": "https://www.transfermarkt.com/kristiansund-bk/startseite/verein/21101"
+  },
+  {
+    "teamid": "113458",
+    "teamname": "IK Sirius",
+    "transfermarkt_url": "https://www.transfermarkt.com/ik-sirius/startseite/verein/7945"
+  },
+  {
+    "teamid": "113888",
+    "teamname": "Qarabağ FK",
+    "transfermarkt_url": "https://www.transfermarkt.com/qarabag-fk/startseite/verein/10625"
+  },
+  {
+    "teamid": "113973",
+    "teamname": "Brescia",
+    "transfermarkt_url": "https://www.transfermarkt.com/brescia-calcio/startseite/verein/19"
+  },
+  {
+    "teamid": "113926",
+    "teamname": "Salford City",
+    "transfermarkt_url": "https://www.transfermarkt.com/salford-city/startseite/verein/34888"
+  },
+  {
+    "teamid": "113746",
+    "teamname": "Técnico Universitario",
+    "transfermarkt_url": "https://www.transfermarkt.com/tecnico-universitario/startseite/verein/19104"
+  },
+  {
+    "teamid": "113974",
+    "teamname": "Spezia",
+    "transfermarkt_url": "https://www.transfermarkt.com/spezia-calcio/startseite/verein/3522"
+  },
+  {
+    "teamid": "113984",
+    "teamname": "Scotland Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "114019",
+    "teamname": "Look Book Character Team",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "113996",
+    "teamname": "Argentina Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "114004",
+    "teamname": "Stal Mielec",
+    "transfermarkt_url": "https://www.transfermarkt.com/stal-mielec/startseite/verein/22431"
+  },
+  {
+    "teamid": "114046",
+    "teamname": "FUT Custom Team 19",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "114023",
+    "teamname": "Western United FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/western-united-fc/startseite/verein/71084"
+  },
+  {
+    "teamid": "114161",
+    "teamname": "Austin FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/austin-fc/startseite/verein/72309"
+  },
+  {
+    "teamid": "114147",
+    "teamname": "FC Hermannstadt",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-hermannstadt/startseite/verein/58049"
+  },
+  {
+    "teamid": "114162",
+    "teamname": "Nashville SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/nashville-sc/startseite/verein/63966"
+  },
+  {
+    "teamid": "114168",
+    "teamname": "Jamshedpur FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/jamshedpur-fc/startseite/verein/60816"
+  },
+  {
+    "teamid": "114393",
+    "teamname": "Puszcza Niepołomice",
+    "transfermarkt_url": "https://www.transfermarkt.com/puszcza-niepolomice/startseite/verein/28893"
+  },
+  {
+    "teamid": "114326",
+    "teamname": "Raków Częstochowa",
+    "transfermarkt_url": "https://www.transfermarkt.com/rakow-czestochowa/startseite/verein/9644"
+  },
+  {
+    "teamid": "114385",
+    "teamname": "CFR Cluj",
+    "transfermarkt_url": "https://www.transfermarkt.com/cfr-cluj/startseite/verein/7769"
+  },
+  {
+    "teamid": "114510",
+    "teamname": "Casa Pia",
+    "transfermarkt_url": "https://www.transfermarkt.com/casa-pia-ac/startseite/verein/3268"
+  },
+  {
+    "teamid": "114549",
+    "teamname": "Gloria Buzău",
+    "transfermarkt_url": "https://www.transfermarkt.com/scm-gloria-buzau/startseite/verein/11380"
+  },
+  {
+    "teamid": "114577",
+    "teamname": "Always Ready",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-always-ready/startseite/verein/42208"
+  },
+  {
+    "teamid": "114580",
+    "teamname": "Delfín SC",
+    "transfermarkt_url": "https://www.transfermarkt.com/delfin-sc/startseite/verein/19304"
+  },
+  {
+    "teamid": "114581",
+    "teamname": "Universidad Católica del Ecuador",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-universidad-catolica/startseite/verein/17584"
+  },
+  {
+    "teamid": "114604",
+    "teamname": "Macarthur FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/macarthur-fc/startseite/verein/71085"
+  },
+  {
+    "teamid": "114511",
+    "teamname": "Sport Huancayo",
+    "transfermarkt_url": "https://www.transfermarkt.com/sport-huancayo/startseite/verein/21655"
+  },
+  {
+    "teamid": "114628",
+    "teamname": "Meizhou Hakka",
+    "transfermarkt_url": "https://www.transfermarkt.com/meizhou-hakka/startseite/verein/38929"
+  },
+  {
+    "teamid": "114815",
+    "teamname": "Soccer Aid",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "114640",
+    "teamname": "Charlotte FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/charlotte-fc/startseite/verein/78435"
+  },
+  {
+    "teamid": "115486",
+    "teamname": "Create Club Team",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115472",
+    "teamname": "Deportivo Riestra",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-riestra/startseite/verein/19775/saison_id/2023"
+  },
+  {
+    "teamid": "115202",
+    "teamname": "Punjab FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/roundglass-punjab-fc/startseite/verein/85902"
+  },
+  {
+    "teamid": "115682",
+    "teamname": "Portugal Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115491",
+    "teamname": "Real Tomayapo",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-real-tomayapo/startseite/verein/75558"
+  },
+  {
+    "teamid": "115536",
+    "teamname": "Cerro Largo",
+    "transfermarkt_url": "https://www.transfermarkt.com/cerro-largo-fc/startseite/verein/20189"
+  },
+  {
+    "teamid": "115530",
+    "teamname": "Cuiabá",
+    "transfermarkt_url": "https://www.transfermarkt.com/cuiaba-ec-mt-/startseite/verein/28022"
+  },
+  {
+    "teamid": "115841",
+    "teamname": "Lazio",
+    "transfermarkt_url": "https://www.transfermarkt.com/lazio-rom/startseite/verein/398"
+  },
+  {
+    "teamid": "115845",
+    "teamname": "Atalanta",
+    "transfermarkt_url": "https://www.transfermarkt.com/atalanta-bergamo/startseite/verein/800"
+  },
+  {
+    "teamid": "115997",
+    "teamname": "Eintracht Frankfurt",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115995",
+    "teamname": "Bayern München",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115996",
+    "teamname": "Bayer 04 Leverkusen",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115998",
+    "teamname": "VfL Wolfsburg",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "115999",
+    "teamname": "TSG 1899 Hoffenheim",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116002",
+    "teamname": "SC Freiburg",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116001",
+    "teamname": "SGS Essen",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116000",
+    "teamname": "1. FFC Turbine Potsdam",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116005",
+    "teamname": "FC Carl Zeiss Jena",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116009",
+    "teamname": "Arsenal",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116003",
+    "teamname": "1. FC Köln",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116004",
+    "teamname": "Werder Bremen",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116010",
+    "teamname": "Chelsea",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116012",
+    "teamname": "Manchester United",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116013",
+    "teamname": "Brighton & Hove Albion",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116011",
+    "teamname": "Tottenham Hotspur",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116014",
+    "teamname": "West Ham United",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116015",
+    "teamname": "Aston Villa",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116017",
+    "teamname": "Manchester City",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116016",
+    "teamname": "Everton",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116020",
+    "teamname": "Leicester City",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116021",
+    "teamname": "RB Leipzig",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116035",
+    "teamname": "Paris FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116034",
+    "teamname": "Paris Saint-Germain",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116036",
+    "teamname": "FC Fleury 91",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116037",
+    "teamname": "Montpellier HSC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116033",
+    "teamname": "Olympique Lyonnais",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116039",
+    "teamname": "Dijon FCO",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116040",
+    "teamname": "Stade de Reims",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116044",
+    "teamname": "AS Saint-Étienne",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116042",
+    "teamname": "En Avant Guingamp",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116280",
+    "teamname": "Juventus",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116263",
+    "teamname": "Asociación Deportiva Tarma",
+    "transfermarkt_url": "https://www.transfermarkt.com/asociacion-deportiva-tarma/startseite/verein/35588"
+  },
+  {
+    "teamid": "116282",
+    "teamname": "Roma",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116292",
+    "teamname": "Universitario de Vinto",
+    "transfermarkt_url": "https://www.transfermarkt.com/universitario-de-vinto/startseite/verein/92977"
+  },
+  {
+    "teamid": "116302",
+    "teamname": "Portland Thorns FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116295",
+    "teamname": "Sportivo Ameliano",
+    "transfermarkt_url": "https://www.transfermarkt.com/sportivo-ameliano/startseite/verein/95571"
+  },
+  {
+    "teamid": "116300",
+    "teamname": "Seattle Reign FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116303",
+    "teamname": "North Carolina Courage",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116306",
+    "teamname": "Houston Dash",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116304",
+    "teamname": "Washington Spirit",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116307",
+    "teamname": "Orlando Pride",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116308",
+    "teamname": "Racing Louisville FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116309",
+    "teamname": "Kansas City Current",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116305",
+    "teamname": "Chicago Red Stars",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116311",
+    "teamname": "Angel City FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116310",
+    "teamname": "NJ / NY Gotham FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116312",
+    "teamname": "San Diego Wave FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116323",
+    "teamname": "Sportivo Trinidense",
+    "transfermarkt_url": "https://www.transfermarkt.com/club-sportivo-trinidense/startseite/verein/17427"
+  },
+  {
+    "teamid": "116326",
+    "teamname": "Real Madrid",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116325",
+    "teamname": "FC Barcelona",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116327",
+    "teamname": "Atlético de Madrid",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116332",
+    "teamname": "Costa Adeje Tenerife",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116330",
+    "teamname": "Real Betis Balompié",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116331",
+    "teamname": "SD Eibar",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116328",
+    "teamname": "Athletic Club de Bilbao",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116333",
+    "teamname": "Levante UD",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116334",
+    "teamname": "Madrid CFF",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116337",
+    "teamname": "Sevilla FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116336",
+    "teamname": "Real Sociedad",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116339",
+    "teamname": "Valencia CF",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116343",
+    "teamname": "Liverpool",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116360",
+    "teamname": "Chengdu Rongcheng F.C.",
+    "transfermarkt_url": "https://www.transfermarkt.com/chengdu-better-city/startseite/verein/65791"
+  },
+  {
+    "teamid": "116361",
+    "teamname": "Wuhan Three Towns",
+    "transfermarkt_url": "https://www.transfermarkt.com/wuhan-three-towns/startseite/verein/70657"
+  },
+  {
+    "teamid": "116416",
+    "teamname": "Le Havre AC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116417",
+    "teamname": "FC Nantes",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "116428",
+    "teamname": "Iceland Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131124",
+    "teamname": "Finland Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131110",
+    "teamname": "CD Eldense",
+    "transfermarkt_url": "https://www.transfermarkt.com/cd-eldense/startseite/verein/12567"
+  },
+  {
+    "teamid": "131174",
+    "teamname": "Eyüpspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/eyupspor/startseite/verein/7160"
+  },
+  {
+    "teamid": "131173",
+    "teamname": "Qingdao Hainiu FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/qingdao-jonoon/startseite/verein/8536"
+  },
+  {
+    "teamid": "131125",
+    "teamname": "FC Levante Badalona",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131161",
+    "teamname": "Deportivo Garcilaso",
+    "transfermarkt_url": "https://www.transfermarkt.com/deportivo-garcilaso/startseite/verein/76945"
+  },
+  {
+    "teamid": "131358",
+    "teamname": "Benfica",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131359",
+    "teamname": "Ajax",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131361",
+    "teamname": "FC Zürich",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131360",
+    "teamname": "Slavia Praha",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131362",
+    "teamname": "FC Rosengård",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131368",
+    "teamname": "NG - FA Women",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131363",
+    "teamname": "Glasgow City",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131388",
+    "teamname": "Bodrumspor",
+    "transfermarkt_url": "https://www.transfermarkt.com/bodrumspor/startseite/verein/44006"
+  },
+  {
+    "teamid": "131391",
+    "teamname": "Granada CF",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131447",
+    "teamname": "FC Annecy",
+    "transfermarkt_url": "https://www.transfermarkt.com/fc-annecy/startseite/verein/30204"
+  },
+  {
+    "teamid": "131459",
+    "teamname": "Unirea Slobozia",
+    "transfermarkt_url": "https://www.transfermarkt.com/afc-unirea-04-slobozia/startseite/verein/29700"
+  },
+  {
+    "teamid": "131478",
+    "teamname": "Utah Royals",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131463",
+    "teamname": "AVS Futebol SAD",
+    "transfermarkt_url": "https://www.transfermarkt.com/avs-futebol-sad/startseite/verein/110302"
+  },
+  {
+    "teamid": "131477",
+    "teamname": "Bay FC",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131474",
+    "teamname": "Rayo Zuliano",
+    "transfermarkt_url": "https://www.transfermarkt.com/dvo-rayo-zuliano/startseite/verein/93338"
+  },
+  {
+    "teamid": "131487",
+    "teamname": "Shenzhen Peng City",
+    "transfermarkt_url": "https://www.transfermarkt.com/sichuan-jiuniu/startseite/verein/51120"
+  },
+  {
+    "teamid": "131488",
+    "teamname": "Qingdao West Coast FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/qingdao-zhongchuang-hengtai/startseite/verein/70662"
+  },
+  {
+    "teamid": "131491",
+    "teamname": "KFUM-Kameratene Oslo",
+    "transfermarkt_url": "https://www.transfermarkt.com/kfum-kameratene-oslo/startseite/verein/23184"
+  },
+  {
+    "teamid": "131524",
+    "teamname": "5v5 Team1",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131527",
+    "teamname": "5v5 Team2",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131511",
+    "teamname": "Alianza FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/alianza-petrolera/startseite/verein/22902"
+  },
+  {
+    "teamid": "131680",
+    "teamname": "Free Agent Managers",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131681",
+    "teamname": "Milano FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/ac-mailand/startseite/verein/5"
+  },
+  {
+    "teamid": "131724",
+    "teamname": "RC Strasbourg",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131720",
+    "teamname": "RC Deportivo",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131682",
+    "teamname": "Lombardia FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/inter-mailand/startseite/verein/46"
+  },
+  {
+    "teamid": "131739",
+    "teamname": "Auckland FC",
+    "transfermarkt_url": "https://www.transfermarkt.com/auckland-fc/startseite/verein/118373"
+  },
+  {
+    "teamid": "131735",
+    "teamname": "Al Kholood",
+    "transfermarkt_url": "https://www.transfermarkt.com/al-kholood/startseite/verein/91427"
+  },
+  {
+    "teamid": "131725",
+    "teamname": "Crystal Palace",
+    "transfermarkt_url": "Not found"
+  },
+  {
+    "teamid": "131733",
+    "teamname": "RCD Espanyol",
+    "transfermarkt_url": "Not found"
+  }
+]

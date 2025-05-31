@@ -1,0 +1,106 @@
+{
+    "Goalkeeper": [
+        [
+            "GK",
+            "0"
+        ]
+    ],
+    "Sweeper": [
+        [
+            "CB",
+            "5"
+        ]
+    ],
+    "Centre-Back": [
+        [
+            "CB",
+            "5"
+        ]
+    ],
+    "Left-Back": [
+        [
+            "LB",
+            "7"
+        ],
+        [
+            "LWB",
+            "8"
+        ]
+    ],
+    "Right-Back": [
+        [
+            "RB",
+            "3"
+        ],
+        [
+            "RWB",
+            "2"
+        ]
+    ],
+    "Defensive Midfield": [
+        [
+            "CDM",
+            "10"
+        ]
+    ],
+    "Central Midfield": [
+        [
+            "CM",
+            "14"
+        ]
+    ],
+    "Right Midfield": [
+        [
+            "RM",
+            "12"
+        ]
+    ],
+    "Left Midfield": [
+        [
+            "LM",
+            "16"
+        ]
+    ],
+    "Attacking Midfield": [
+        [
+            "CAM",
+            "18"
+        ]
+    ],
+    "Left Winger": [
+        [
+            "LW",
+            "27"
+        ],
+        [
+            "LF",
+            "22"
+        ]
+    ],
+    "Right Winger": [
+        [
+            "RW",
+            "23"
+        ],
+        [
+            "RF",
+            "20"
+        ]
+    ],
+    "Second Striker": [
+        [
+            "CF",
+            "21"
+        ]
+    ],
+    "Centre-Forward": [
+        [
+            "ST",
+            "25"
+        ],
+        [
+            "CF",
+            "21"
+        ]
+    ]
+}

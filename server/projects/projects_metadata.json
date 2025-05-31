@@ -1,0 +1,26 @@
+{
+  "ukraine": {
+    "id": "ukraine",
+    "name": "Ukraine",
+    "description": null,
+    "path": "projects/ukraine",
+    "created_at": "2025-05-30T22:03:20.399479",
+    "updated_at": "2025-05-30T22:03:20.399479"
+  },
+  "123": {
+    "id": "123",
+    "name": "123",
+    "description": null,
+    "path": "projects/123",
+    "created_at": "2025-05-30T22:13:23.276320",
+    "updated_at": "2025-05-30T22:13:23.276320"
+  },
+  "456": {
+    "id": "456",
+    "name": "456",
+    "description": null,
+    "path": "projects/456",
+    "created_at": "2025-05-30T22:20:18.770646",
+    "updated_at": "2025-05-30T22:20:18.770646"
+  }
+}

@@ -1,0 +1,3882 @@
+{
+  "last_updated": {
+    "timestamp": 1748434620,
+    "date": "2025-05-28 14:17:00"
+  },
+  "confederations": [
+    {
+      "confederation_name": "Europe",
+      "url": "https://www.transfermarkt.com/wettbewerbe/europa/wettbewerbe?plus=1",
+      "leagues": [
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gb1.png?lm=1521104656",
+          "country": "England",
+          "clubs": 20,
+          "average_market_value": "€592.95m",
+          "total_value": "€11.86bn"
+        },
+        {
+          "tier": 1,
+          "competition": "LaLiga",
+          "competition_url": "https://www.transfermarkt.com/laliga/startseite/wettbewerb/ES1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/es1.png?lm=1725974302",
+          "country": "Spain",
+          "clubs": 20,
+          "average_market_value": "€266.24m",
+          "total_value": "€5.32bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Serie A",
+          "competition_url": "https://www.transfermarkt.com/serie-a/startseite/wettbewerb/IT1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it1.png?lm=1656073460",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€257.10m",
+          "total_value": "€5.14bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Bundesliga",
+          "competition_url": "https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/L1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/l1.png?lm=1525905518",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€254.80m",
+          "total_value": "€4.59bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Ligue 1",
+          "competition_url": "https://www.transfermarkt.com/ligue-1/startseite/wettbewerb/FR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fr1.png?lm=1732280518",
+          "country": "France",
+          "clubs": 18,
+          "average_market_value": "€203.01m",
+          "total_value": "€3.65bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Portugal",
+          "competition_url": "https://www.transfermarkt.com/liga-portugal/startseite/wettbewerb/PO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/po1.png?lm=1688630708",
+          "country": "Portugal",
+          "clubs": 18,
+          "average_market_value": "€93.07m",
+          "total_value": "€1.68bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Eredivisie",
+          "competition_url": "https://www.transfermarkt.com/eredivisie/startseite/wettbewerb/NL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nl1.png?lm=1674743474",
+          "country": "Netherlands",
+          "clubs": 18,
+          "average_market_value": "€75.46m",
+          "total_value": "€1.36bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Süper Lig",
+          "competition_url": "https://www.transfermarkt.com/super-lig/startseite/wettbewerb/TR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr1.png?lm=1723019495",
+          "country": "Türkiye",
+          "clubs": 19,
+          "average_market_value": "€58.22m",
+          "total_value": "€1.11bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Jupiler Pro League",
+          "competition_url": "https://www.transfermarkt.com/jupiler-pro-league/startseite/wettbewerb/BE1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be1.png?lm=1601478124",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€64.58m",
+          "total_value": "€1.03bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier Liga",
+          "competition_url": "https://www.transfermarkt.com/premier-liga/startseite/wettbewerb/RU1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ru1.png?lm=1674741180",
+          "country": "Russia",
+          "clubs": 16,
+          "average_market_value": "€57.79m",
+          "total_value": "€924.63m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super League 1",
+          "competition_url": "https://www.transfermarkt.com/super-league-1/startseite/wettbewerb/GR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gr1.png?lm=1717678505",
+          "country": "Greece",
+          "clubs": 14,
+          "average_market_value": "€34.76m",
+          "total_value": "€486.65m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super League",
+          "competition_url": "https://www.transfermarkt.com/super-league/startseite/wettbewerb/C1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c1.png?lm=1656407730",
+          "country": "Switzerland",
+          "clubs": 12,
+          "average_market_value": "€36.74m",
+          "total_value": "€440.93m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier Liga",
+          "competition_url": "https://www.transfermarkt.com/premier-liga/startseite/wettbewerb/UKR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ukr1.png?lm=1637135523",
+          "country": "Ukraine",
+          "clubs": 16,
+          "average_market_value": "€25.34m",
+          "total_value": "€405.50m"
+        },
+        {
+          "tier": 1,
+          "competition": "Bundesliga",
+          "competition_url": "https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a1.png?lm=1625144794",
+          "country": "Austria",
+          "clubs": 12,
+          "average_market_value": "€33.39m",
+          "total_value": "€400.70m"
+        },
+        {
+          "tier": 1,
+          "competition": "Chance Liga",
+          "competition_url": "https://www.transfermarkt.com/chance-liga/startseite/wettbewerb/TS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ts1.png?lm=1719989400",
+          "country": "Czech Republic",
+          "clubs": 16,
+          "average_market_value": "€23.63m",
+          "total_value": "€378.15m"
+        },
+        {
+          "tier": 1,
+          "competition": "Superliga",
+          "competition_url": "https://www.transfermarkt.com/superliga/startseite/wettbewerb/DK1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dk1.png?lm=1739371406",
+          "country": "Denmark",
+          "clubs": 12,
+          "average_market_value": "€28.28m",
+          "total_value": "€339.30m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premiership",
+          "competition_url": "https://www.transfermarkt.com/scottish-premiership/startseite/wettbewerb/SC1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc1.png?lm=1710947120",
+          "country": "Scotland",
+          "clubs": 12,
+          "average_market_value": "€27.84m",
+          "total_value": "€334.10m"
+        },
+        {
+          "tier": 1,
+          "competition": "Ekstraklasa",
+          "competition_url": "https://www.transfermarkt.com/pko-bp-ekstraklasa/startseite/wettbewerb/PL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl1.png?lm=1601990839",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€16.39m",
+          "total_value": "€295.08m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super liga Srbije",
+          "competition_url": "https://www.transfermarkt.com/super-liga-srbije/startseite/wettbewerb/SER1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ser1.png?lm=1659602188",
+          "country": "Serbia",
+          "clubs": 16,
+          "average_market_value": "€16.74m",
+          "total_value": "€267.84m"
+        },
+        {
+          "tier": 1,
+          "competition": "Eliteserien",
+          "competition_url": "https://www.transfermarkt.com/eliteserien/startseite/wettbewerb/NO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no1.png?lm=1481571796",
+          "country": "Norway",
+          "clubs": 16,
+          "average_market_value": "€16.66m",
+          "total_value": "€266.58m"
+        },
+        {
+          "tier": 1,
+          "competition": "Allsvenskan",
+          "competition_url": "https://www.transfermarkt.com/allsvenskan/startseite/wettbewerb/SE1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/se1.png?lm=1728093495",
+          "country": "Sweden",
+          "clubs": 16,
+          "average_market_value": "€15.64m",
+          "total_value": "€250.23m"
+        },
+        {
+          "tier": 1,
+          "competition": "SuperLiga",
+          "competition_url": "https://www.transfermarkt.com/superliga/startseite/wettbewerb/RO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ro1.png?lm=1703230805",
+          "country": "Romania",
+          "clubs": 16,
+          "average_market_value": "€15.25m",
+          "total_value": "€243.96m"
+        },
+        {
+          "tier": 1,
+          "competition": "SuperSport HNL",
+          "competition_url": "https://www.transfermarkt.com/supersport-hnl/startseite/wettbewerb/KR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kr1.png?lm=1667669232",
+          "country": "Croatia",
+          "clubs": 10,
+          "average_market_value": "€24.09m",
+          "total_value": "€240.85m"
+        },
+        {
+          "tier": 1,
+          "competition": "efbet Liga",
+          "competition_url": "https://www.transfermarkt.com/efbet-liga/startseite/wettbewerb/BU1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bu1.png?lm=1566396154",
+          "country": "Bulgaria",
+          "clubs": 16,
+          "average_market_value": "€11.39m",
+          "total_value": "€182.19m"
+        },
+        {
+          "tier": 1,
+          "competition": "NB I.",
+          "competition_url": "https://www.transfermarkt.com/nemzeti-bajnoksag/startseite/wettbewerb/UNG1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ung1.png?lm=1619448842",
+          "country": "Hungary",
+          "clubs": 12,
+          "average_market_value": "€13.27m",
+          "total_value": "€159.25m"
+        },
+        {
+          "tier": 1,
+          "competition": "Cyprus League",
+          "competition_url": "https://www.transfermarkt.com/cyprus-league/startseite/wettbewerb/ZYP1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/zyp1.png?lm=1725540736",
+          "country": "Cyprus",
+          "clubs": 14,
+          "average_market_value": "€10.62m",
+          "total_value": "€148.63m"
+        },
+        {
+          "tier": 1,
+          "competition": "Ligat ha'Al",
+          "competition_url": "https://www.transfermarkt.com/ligat-haal/startseite/wettbewerb/ISR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/isr1.png?lm=1658846140",
+          "country": "Israel",
+          "clubs": 14,
+          "average_market_value": "€10.42m",
+          "total_value": "€145.84m"
+        },
+        {
+          "tier": 1,
+          "competition": "Nike Liga",
+          "competition_url": "https://www.transfermarkt.com/nike-liga/startseite/wettbewerb/SLO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/slo1.png?lm=1688328872",
+          "country": "Slovakia",
+          "clubs": 12,
+          "average_market_value": "€8.64m",
+          "total_value": "€103.66m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premyer Liqa",
+          "competition_url": "https://www.transfermarkt.com/premyer-liqa/startseite/wettbewerb/AZ1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/az1.png?lm=1608210628",
+          "country": "Azerbaijan",
+          "clubs": 10,
+          "average_market_value": "€10.20m",
+          "total_value": "€102.03m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier Liga",
+          "competition_url": "https://www.transfermarkt.com/premier-liga/startseite/wettbewerb/KAS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kas1.png?lm=1740571933",
+          "country": "Kazakhstan",
+          "clubs": 14,
+          "average_market_value": "€5.28m",
+          "total_value": "€73.96m"
+        },
+        {
+          "tier": 1,
+          "competition": "Prva Liga",
+          "competition_url": "https://www.transfermarkt.com/prva-liga/startseite/wettbewerb/SL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sl1.png?lm=1685026467",
+          "country": "Slovenia",
+          "clubs": 10,
+          "average_market_value": "€7.17m",
+          "total_value": "€71.70m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premijer Liga BiH",
+          "competition_url": "https://www.transfermarkt.com/premijer-liga-bosne-i-hercegovine/startseite/wettbewerb/BOS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bos1.png?lm=1708359973",
+          "country": "Bosnia-Herzegovina",
+          "clubs": 12,
+          "average_market_value": "€5.10m",
+          "total_value": "€61.15m"
+        },
+        {
+          "tier": 1,
+          "competition": "Vysheyshaya Liga",
+          "competition_url": "https://www.transfermarkt.com/vysheyshaya-liga/startseite/wettbewerb/WER1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/wer1.png?lm=1741697615",
+          "country": "Belarus",
+          "clubs": 16,
+          "average_market_value": "€3.74m",
+          "total_value": "€59.88m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League Opening Round",
+          "competition_url": "https://www.transfermarkt.com/premier-league-opening-round/startseite/wettbewerb/MT1N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mt1n.png?lm=1721994591",
+          "country": "Malta",
+          "clubs": 12,
+          "average_market_value": "€3.93m",
+          "total_value": "€47.12m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League Closing Round",
+          "competition_url": "https://www.transfermarkt.com/premier-league-closing-round/startseite/wettbewerb/MT1P",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mt1p.png?lm=1721994841",
+          "country": "Malta",
+          "clubs": 12,
+          "average_market_value": "€3.93m",
+          "total_value": "€47.12m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/premier-league/startseite/wettbewerb/ARM1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/arm1.png?lm=1747515150",
+          "country": "Armenia",
+          "clubs": 11,
+          "average_market_value": "€4.27m",
+          "total_value": "€47.00m"
+        },
+        {
+          "tier": 1,
+          "competition": "Kategoria Superiore",
+          "competition_url": "https://www.transfermarkt.com/kategoria-superiore/startseite/wettbewerb/ALB1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/alb1.png?lm=1645711034",
+          "country": "Albania",
+          "clubs": 10,
+          "average_market_value": "€4.44m",
+          "total_value": "€44.40m"
+        },
+        {
+          "tier": 1,
+          "competition": "Virsliga",
+          "competition_url": "https://www.transfermarkt.com/virsliga/startseite/wettbewerb/LET1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/let1.png?lm=1713536939",
+          "country": "Latvia",
+          "clubs": 10,
+          "average_market_value": "€4.32m",
+          "total_value": "€43.25m"
+        },
+        {
+          "tier": 1,
+          "competition": "Prva liga",
+          "competition_url": "https://www.transfermarkt.com/prva-makedonska-fudbalska-liga/startseite/wettbewerb/MAZ1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/maz1.png?lm=1404085586",
+          "country": "North Macedonia",
+          "clubs": 12,
+          "average_market_value": "€3.46m",
+          "total_value": "€41.47m"
+        },
+        {
+          "tier": 1,
+          "competition": "A Lyga",
+          "competition_url": "https://www.transfermarkt.com/a-lyga/startseite/wettbewerb/LI1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/li1.png?lm=1705689268",
+          "country": "Lithuania",
+          "clubs": 10,
+          "average_market_value": "€4.09m",
+          "total_value": "€40.91m"
+        },
+        {
+          "tier": 1,
+          "competition": "Veikkausliiga",
+          "competition_url": "https://www.transfermarkt.com/veikkausliiga/startseite/wettbewerb/FI1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi1.png?lm=1743024474",
+          "country": "Finland",
+          "clubs": 12,
+          "average_market_value": "€3.32m",
+          "total_value": "€39.88m"
+        },
+        {
+          "tier": 1,
+          "competition": "Erovnuli Liga",
+          "competition_url": "https://www.transfermarkt.com/erovnuli-liga/startseite/wettbewerb/GE1N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ge1n.png?lm=1648352894",
+          "country": "Georgia",
+          "clubs": 10,
+          "average_market_value": "€3.67m",
+          "total_value": "€36.74m"
+        },
+        {
+          "tier": 1,
+          "competition": "Superliga e Kosovës",
+          "competition_url": "https://www.transfermarkt.com/superliga-e-kosoves/startseite/wettbewerb/KO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ko1.png?lm=1670408167",
+          "country": "Kosovo",
+          "clubs": 10,
+          "average_market_value": "€3.54m",
+          "total_value": "€35.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premiership",
+          "competition_url": "https://www.transfermarkt.com/premiership/startseite/wettbewerb/NIR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nir1.png?lm=1698034818",
+          "country": "Northern Ireland",
+          "clubs": 12,
+          "average_market_value": "€2.47m",
+          "total_value": "€29.67m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier Division",
+          "competition_url": "https://www.transfermarkt.com/league-of-ireland-premier-division/startseite/wettbewerb/IR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ir1.png?lm=1672532090",
+          "country": "Ireland",
+          "clubs": 10,
+          "average_market_value": "€2.86m",
+          "total_value": "€28.60m"
+        },
+        {
+          "tier": 1,
+          "competition": "Besta deild",
+          "competition_url": "https://www.transfermarkt.com/besta-deild/startseite/wettbewerb/IS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/is1.png?lm=1646579749",
+          "country": "Iceland",
+          "clubs": 12,
+          "average_market_value": "€2.36m",
+          "total_value": "€28.32m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super Liga",
+          "competition_url": "https://www.transfermarkt.com/super-liga/startseite/wettbewerb/MO1N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mo1n.png?lm=1666607427",
+          "country": "Moldova",
+          "clubs": 8,
+          "average_market_value": "€3.47m",
+          "total_value": "€27.78m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super Liga (Phase 2)",
+          "competition_url": "https://www.transfermarkt.com/super-liga-phase-2-/startseite/wettbewerb/MOP2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mop2.png?lm=1678203605",
+          "country": "Moldova",
+          "clubs": 6,
+          "average_market_value": "€4.63m",
+          "total_value": "€27.78m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera Divisió",
+          "competition_url": "https://www.transfermarkt.com/primera-divisio/startseite/wettbewerb/AND1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/and1.png?lm=1517041392",
+          "country": "Andorra",
+          "clubs": 10,
+          "average_market_value": "€2.75m",
+          "total_value": "€27.55m"
+        },
+        {
+          "tier": 1,
+          "competition": "Meridianbet 1. CFL",
+          "competition_url": "https://www.transfermarkt.com/meridianbet-1-cfl/startseite/wettbewerb/MNE1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mne1.png?lm=1658245756",
+          "country": "Montenegro",
+          "clubs": 10,
+          "average_market_value": "€2.73m",
+          "total_value": "€27.33m"
+        },
+        {
+          "tier": 1,
+          "competition": "BGL Ligue",
+          "competition_url": "https://www.transfermarkt.com/bgl-ligue/startseite/wettbewerb/LUX1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/lux1.png?lm=1404087172",
+          "country": "Luxembourg",
+          "clubs": 16,
+          "average_market_value": "€1.59m",
+          "total_value": "€25.52m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premium Liiga",
+          "competition_url": "https://www.transfermarkt.com/premium-liiga/startseite/wettbewerb/EST1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/est1.png?lm=1736840122",
+          "country": "Estonia",
+          "clubs": 10,
+          "average_market_value": "€2.40m",
+          "total_value": "€24.00m"
+        },
+        {
+          "tier": 1,
+          "competition": "Cymru Premier",
+          "competition_url": "https://www.transfermarkt.com/cymru-premier/startseite/wettbewerb/WAL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/wal1.png?lm=1564139538",
+          "country": "Wales",
+          "clubs": 12,
+          "average_market_value": "€1.18m",
+          "total_value": "€14.22m"
+        },
+        {
+          "tier": 1,
+          "competition": "Betri-deildin",
+          "competition_url": "https://www.transfermarkt.com/betri-deildin/startseite/wettbewerb/FARO",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/faro.png?lm=1525363290",
+          "country": "Faroe Islands",
+          "clubs": 10,
+          "average_market_value": "€1.25m",
+          "total_value": "€12.51m"
+        },
+        {
+          "tier": 1,
+          "competition": "Gibraltar Football League",
+          "competition_url": "https://www.transfermarkt.com/gibraltar-football-league/startseite/wettbewerb/GI1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gi1.png?lm=1657628016",
+          "country": "Gibraltar",
+          "clubs": 11,
+          "average_market_value": "€1.02m",
+          "total_value": "€11.23m"
+        },
+        {
+          "tier": 1,
+          "competition": "Camp. Sammarinese",
+          "competition_url": "https://www.transfermarkt.com/campionato-sammarinese/startseite/wettbewerb/SMR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/smr1.png?lm=1641157612",
+          "country": "San Marino",
+          "clubs": 16,
+          "average_market_value": "€569k",
+          "total_value": "€9.11m"
+        },
+        {
+          "tier": 1,
+          "competition": "Gozo League",
+          "competition_url": "https://www.transfermarkt.com/gozo-football-league-first-division/startseite/wettbewerb/GZO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gzo1.png?lm=1657194391",
+          "country": "Malta",
+          "clubs": 7,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 2,
+          "competition": "Championship",
+          "competition_url": "https://www.transfermarkt.com/championship/startseite/wettbewerb/GB2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gb2.png?lm=1692214857",
+          "country": "England",
+          "clubs": 24,
+          "average_market_value": "€77.00m",
+          "total_value": "€1.85bn"
+        },
+        {
+          "tier": 2,
+          "competition": "Serie B",
+          "competition_url": "https://www.transfermarkt.com/serie-b/startseite/wettbewerb/IT2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it2.png?lm=1720690779",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€29.23m",
+          "total_value": "€584.68m"
+        },
+        {
+          "tier": 2,
+          "competition": "2. Bundesliga",
+          "competition_url": "https://www.transfermarkt.com/2-bundesliga/startseite/wettbewerb/L2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/l2.png?lm=1525905553",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€31.95m",
+          "total_value": "€575.08m"
+        },
+        {
+          "tier": 2,
+          "competition": "LaLiga2",
+          "competition_url": "https://www.transfermarkt.com/laliga2/startseite/wettbewerb/ES2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/es2.png?lm=1725974946",
+          "country": "Spain",
+          "clubs": 22,
+          "average_market_value": "€22.48m",
+          "total_value": "€494.50m"
+        },
+        {
+          "tier": 2,
+          "competition": "Ligue 2",
+          "competition_url": "https://www.transfermarkt.com/ligue-2/startseite/wettbewerb/FR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fr2.png?lm=1732281128",
+          "country": "France",
+          "clubs": 18,
+          "average_market_value": "€18.25m",
+          "total_value": "€328.48m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga Portugal 2",
+          "competition_url": "https://www.transfermarkt.com/liga-portugal-2/startseite/wettbewerb/PO2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/po2.png?lm=1721404373",
+          "country": "Portugal",
+          "clubs": 18,
+          "average_market_value": "€8.83m",
+          "total_value": "€158.91m"
+        },
+        {
+          "tier": 2,
+          "competition": "Keuken Kampioen Divisie",
+          "competition_url": "https://www.transfermarkt.com/keuken-kampioen-divisie/startseite/wettbewerb/NL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nl2.png?lm=1688215713",
+          "country": "Netherlands",
+          "clubs": 20,
+          "average_market_value": "€7.93m",
+          "total_value": "€158.60m"
+        },
+        {
+          "tier": 2,
+          "competition": "1.Division",
+          "competition_url": "https://www.transfermarkt.com/1-division/startseite/wettbewerb/RU2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ru2.png?lm=1720944099",
+          "country": "Russia",
+          "clubs": 18,
+          "average_market_value": "€8.25m",
+          "total_value": "€148.52m"
+        },
+        {
+          "tier": 2,
+          "competition": "1.Lig",
+          "competition_url": "https://www.transfermarkt.com/1-lig/startseite/wettbewerb/TR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr2.png?lm=1691091073",
+          "country": "Türkiye",
+          "clubs": 20,
+          "average_market_value": "€7.33m",
+          "total_value": "€146.69m"
+        },
+        {
+          "tier": 2,
+          "competition": "Challenger Pro League",
+          "competition_url": "https://www.transfermarkt.com/challenger-pro-league/startseite/wettbewerb/BE2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be2.png?lm=1656930062",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€8.01m",
+          "total_value": "€128.23m"
+        },
+        {
+          "tier": 2,
+          "competition": "2. Liga",
+          "competition_url": "https://www.transfermarkt.com/2-liga/startseite/wettbewerb/A2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a2.png?lm=1641377687",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€5.24m",
+          "total_value": "€83.91m"
+        },
+        {
+          "tier": 2,
+          "competition": "Betclic 1 Liga",
+          "competition_url": "https://www.transfermarkt.com/betclic-1-liga/startseite/wettbewerb/PL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl2.png?lm=1719860125",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€4.54m",
+          "total_value": "€81.79m"
+        },
+        {
+          "tier": 2,
+          "competition": "Super League 2",
+          "competition_url": "https://www.transfermarkt.com/super-league-2/startseite/wettbewerb/GRS2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/grs2.png?lm=1635508832",
+          "country": "Greece",
+          "clubs": 20,
+          "average_market_value": "€4.07m",
+          "total_value": "€81.41m"
+        },
+        {
+          "tier": 2,
+          "competition": "1.Division",
+          "competition_url": "https://www.transfermarkt.com/1-division/startseite/wettbewerb/DK2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dk2.png?lm=1739373202",
+          "country": "Denmark",
+          "clubs": 12,
+          "average_market_value": "€6.18m",
+          "total_value": "€74.10m"
+        },
+        {
+          "tier": 2,
+          "competition": "OBOS-ligaen",
+          "competition_url": "https://www.transfermarkt.com/obos-ligaen/startseite/wettbewerb/NO2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no2.png?lm=1528662835",
+          "country": "Norway",
+          "clubs": 16,
+          "average_market_value": "€4.50m",
+          "total_value": "€72.02m"
+        },
+        {
+          "tier": 2,
+          "competition": "ChNL",
+          "competition_url": "https://www.transfermarkt.com/chance-narodni-liga/startseite/wettbewerb/TS2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ts2.png?lm=1719989776",
+          "country": "Czech Republic",
+          "clubs": 16,
+          "average_market_value": "€4.04m",
+          "total_value": "€64.71m"
+        },
+        {
+          "tier": 2,
+          "competition": "Superettan",
+          "competition_url": "https://www.transfermarkt.com/superettan/startseite/wettbewerb/SE2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/se2.png?lm=1633446978",
+          "country": "Sweden",
+          "clubs": 16,
+          "average_market_value": "€3.62m",
+          "total_value": "€57.96m"
+        },
+        {
+          "tier": 2,
+          "competition": "Challenge League",
+          "competition_url": "https://www.transfermarkt.com/challenge-league/startseite/wettbewerb/C2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c2.png?lm=1656407822",
+          "country": "Switzerland",
+          "clubs": 10,
+          "average_market_value": "€5.39m",
+          "total_value": "€53.90m"
+        },
+        {
+          "tier": 2,
+          "competition": "Prva liga Srbije",
+          "competition_url": "https://www.transfermarkt.com/prva-liga-srbije/startseite/wettbewerb/SER2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ser2.png?lm=1688375013",
+          "country": "Serbia",
+          "clubs": 16,
+          "average_market_value": "€3.21m",
+          "total_value": "€51.41m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga 2",
+          "competition_url": "https://www.transfermarkt.com/liga-2/startseite/wettbewerb/RO2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ro2.png?lm=1618761930",
+          "country": "Romania",
+          "clubs": 22,
+          "average_market_value": "€2.19m",
+          "total_value": "€48.15m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga Leumit",
+          "competition_url": "https://www.transfermarkt.com/liga-leumit/startseite/wettbewerb/ISR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/isr2.png?lm=1476188771",
+          "country": "Israel",
+          "clubs": 16,
+          "average_market_value": "€2.85m",
+          "total_value": "€45.64m"
+        },
+        {
+          "tier": 2,
+          "competition": "Persha Liga",
+          "competition_url": "https://www.transfermarkt.com/persha-liga/startseite/wettbewerb/UKR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ukr2.png?lm=1665239718",
+          "country": "Ukraine",
+          "clubs": 18,
+          "average_market_value": "€2.42m",
+          "total_value": "€43.49m"
+        },
+        {
+          "tier": 2,
+          "competition": "NB II.",
+          "competition_url": "https://www.transfermarkt.com/nemzeti-bajnoksag-ii-/startseite/wettbewerb/UN2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/un2.png?lm=1619448884",
+          "country": "Hungary",
+          "clubs": 16,
+          "average_market_value": "€2.58m",
+          "total_value": "€41.23m"
+        },
+        {
+          "tier": 2,
+          "competition": "Championship",
+          "competition_url": "https://www.transfermarkt.com/scottish-championship/startseite/wettbewerb/SC2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc2.png?lm=1410807536",
+          "country": "Scotland",
+          "clubs": 10,
+          "average_market_value": "€3.78m",
+          "total_value": "€37.75m"
+        },
+        {
+          "tier": 2,
+          "competition": "Vtora Liga",
+          "competition_url": "https://www.transfermarkt.com/vtora-liga/startseite/wettbewerb/BU2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bu2.png?lm=1609669142",
+          "country": "Bulgaria",
+          "clubs": 20,
+          "average_market_value": "€1.83m",
+          "total_value": "€36.59m"
+        },
+        {
+          "tier": 2,
+          "competition": "Prva NL",
+          "competition_url": "https://www.transfermarkt.com/prva-nogometna-liga/startseite/wettbewerb/KR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kr2.png?lm=1662675729",
+          "country": "Croatia",
+          "clubs": 12,
+          "average_market_value": "€2.77m",
+          "total_value": "€33.25m"
+        },
+        {
+          "tier": 2,
+          "competition": "Druga Liga",
+          "competition_url": "https://www.transfermarkt.com/druga-liga/startseite/wettbewerb/SL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sl2.png?lm=1424901190",
+          "country": "Slovenia",
+          "clubs": 16,
+          "average_market_value": "€1.41m",
+          "total_value": "€22.64m"
+        },
+        {
+          "tier": 2,
+          "competition": "II. Liga",
+          "competition_url": "https://www.transfermarkt.com/monacobet-liga/startseite/wettbewerb/SK2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sk2.png?lm=1709138923",
+          "country": "Slovakia",
+          "clubs": 14,
+          "average_market_value": "€1.41m",
+          "total_value": "€19.68m"
+        },
+        {
+          "tier": 2,
+          "competition": "Pershaya Liga",
+          "competition_url": "https://www.transfermarkt.com/pershaya-liga/startseite/wettbewerb/WER2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/wer2.png?lm=1741697679",
+          "country": "Belarus",
+          "clubs": 18,
+          "average_market_value": "€1.09m",
+          "total_value": "€19.65m"
+        },
+        {
+          "tier": 2,
+          "competition": "Prva liga FBIH",
+          "competition_url": "https://www.transfermarkt.com/prva-liga-fbih/startseite/wettbewerb/BOS2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bos2.png?lm=1598130485",
+          "country": "Bosnia-Herzegovina",
+          "clubs": 15,
+          "average_market_value": "€1.21m",
+          "total_value": "€18.21m"
+        },
+        {
+          "tier": 2,
+          "competition": "Prva Liga RS",
+          "competition_url": "https://www.transfermarkt.com/prva-liga-rs/startseite/wettbewerb/BH2S",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bh2s.png?lm=1597512077",
+          "country": "Bosnia-Herzegovina",
+          "clubs": 18,
+          "average_market_value": "€973k",
+          "total_value": "€17.51m"
+        },
+        {
+          "tier": 2,
+          "competition": "Kategoria e Parë",
+          "competition_url": "https://www.transfermarkt.com/kategoria-e-pare/startseite/wettbewerb/ALB2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/alb2.png?lm=1656879906",
+          "country": "Albania",
+          "clubs": 12,
+          "average_market_value": "€1.35m",
+          "total_value": "€16.16m"
+        },
+        {
+          "tier": 2,
+          "competition": "Lengjudeild",
+          "competition_url": "https://www.transfermarkt.com/lengjudeild/startseite/wettbewerb/IS2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/is2.png?lm=1591283813",
+          "country": "Iceland",
+          "clubs": 12,
+          "average_market_value": "€630k",
+          "total_value": "€7.56m"
+        },
+        {
+          "tier": 2,
+          "competition": "Ykkösliiga",
+          "competition_url": "https://www.transfermarkt.com/ykkosliiga/startseite/wettbewerb/FI2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi2.png?lm=1713781013",
+          "country": "Finland",
+          "clubs": 10,
+          "average_market_value": "€672k",
+          "total_value": "€6.72m"
+        },
+        {
+          "tier": 2,
+          "competition": "First League",
+          "competition_url": "https://www.transfermarkt.com/armenian-first-league/startseite/wettbewerb/ARM2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/arm2.png?lm=1704901532",
+          "country": "Armenia",
+          "clubs": 13,
+          "average_market_value": "€425k",
+          "total_value": "€5.53m"
+        },
+        {
+          "tier": 2,
+          "competition": "Pervaya Liga",
+          "competition_url": "https://www.transfermarkt.com/pervaya-liga/startseite/wettbewerb/KAS2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kas2.png?lm=1744203104",
+          "country": "Kazakhstan",
+          "clubs": 14,
+          "average_market_value": "€373k",
+          "total_value": "€5.23m"
+        },
+        {
+          "tier": 2,
+          "competition": "Erovnuli Liga 2",
+          "competition_url": "https://www.transfermarkt.com/erovnuli-liga-2/startseite/wettbewerb/GEO2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/geo2.png?lm=1650631536",
+          "country": "Georgia",
+          "clubs": 10,
+          "average_market_value": "€120k",
+          "total_value": "€1.20m"
+        },
+        {
+          "tier": 2,
+          "competition": "2. Division",
+          "competition_url": "https://www.transfermarkt.com/2-division/startseite/wettbewerb/CYP2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cyp2.png?lm=1677164201",
+          "country": "Cyprus",
+          "clubs": 16,
+          "average_market_value": "€56k",
+          "total_value": "€900k"
+        },
+        {
+          "tier": 2,
+          "competition": "Championship",
+          "competition_url": "https://www.transfermarkt.com/championship/startseite/wettbewerb/NIR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nir2.png?lm=1519033686",
+          "country": "Northern Ireland",
+          "clubs": 12,
+          "average_market_value": "€71k",
+          "total_value": "€855k"
+        },
+        {
+          "tier": 2,
+          "competition": "Challenge League",
+          "competition_url": "https://www.transfermarkt.com/challenge-league/startseite/wettbewerb/MAL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mal2.png?lm=1649336319",
+          "country": "Malta",
+          "clubs": 16,
+          "average_market_value": "€53k",
+          "total_value": "€850k"
+        },
+        {
+          "tier": 2,
+          "competition": "Challenge League - Finals",
+          "competition_url": "https://www.transfermarkt.com/challenge-league-finals/startseite/wettbewerb/MT2P",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mt2p.png?lm=1673944021",
+          "country": "Malta",
+          "clubs": 16,
+          "average_market_value": "€53k",
+          "total_value": "€850k"
+        },
+        {
+          "tier": 2,
+          "competition": "1. deild",
+          "competition_url": "https://www.transfermarkt.com/1-deild/startseite/wettbewerb/FAR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/far2.png?lm=1595275674",
+          "country": "Faroe Islands",
+          "clubs": 10,
+          "average_market_value": "€64k",
+          "total_value": "€640k"
+        },
+        {
+          "tier": 2,
+          "competition": "2. CFL",
+          "competition_url": "https://www.transfermarkt.com/2-cfl/startseite/wettbewerb/MNE2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mne2.png?lm=1625770218",
+          "country": "Montenegro",
+          "clubs": 9,
+          "average_market_value": "€68k",
+          "total_value": "€610k"
+        },
+        {
+          "tier": 2,
+          "competition": "Nakotnes Liga",
+          "competition_url": "https://www.transfermarkt.com/nakotnes-liga/startseite/wettbewerb/LET2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/let2.png?lm=1745663426",
+          "country": "Latvia",
+          "clubs": 14,
+          "average_market_value": "€43k",
+          "total_value": "€600k"
+        },
+        {
+          "tier": 2,
+          "competition": "Esiliiga",
+          "competition_url": "https://www.transfermarkt.com/esiliiga/startseite/wettbewerb/EST2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/est2.png?lm=1534338403",
+          "country": "Estonia",
+          "clubs": 10,
+          "average_market_value": "€19k",
+          "total_value": "€190k"
+        },
+        {
+          "tier": 2,
+          "competition": "First Division",
+          "competition_url": "https://www.transfermarkt.com/league-of-ireland-first-division/startseite/wettbewerb/IR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ir2.png?lm=1672532113",
+          "country": "Ireland",
+          "clubs": 10,
+          "average_market_value": "€10k",
+          "total_value": "€100k"
+        },
+        {
+          "tier": 2,
+          "competition": "Cymru South",
+          "competition_url": "https://www.transfermarkt.com/cymru-south/startseite/wettbewerb/WA2S",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/wa2s.png?lm=1668865420",
+          "country": "Wales",
+          "clubs": 16,
+          "average_market_value": "€4k",
+          "total_value": "€60k"
+        },
+        {
+          "tier": 2,
+          "competition": "Cymru North",
+          "competition_url": "https://www.transfermarkt.com/cymru-north/startseite/wettbewerb/WAL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/wal2.png?lm=1624021989",
+          "country": "Wales",
+          "clubs": 16,
+          "average_market_value": "€3k",
+          "total_value": "€50k"
+        },
+        {
+          "tier": 2,
+          "competition": "Ehrenpromotion",
+          "competition_url": "https://www.transfermarkt.com/ehrenpromotion/startseite/wettbewerb/LUX2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/lux2.png?lm=1672393370",
+          "country": "Luxembourg",
+          "clubs": 16,
+          "average_market_value": "€2k",
+          "total_value": "€25k"
+        },
+        {
+          "tier": 2,
+          "competition": "Segona Divisió",
+          "competition_url": "https://www.transfermarkt.com/segona-divisio/startseite/wettbewerb/AND2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/and2.png?lm=1698310084",
+          "country": "Andorra",
+          "clubs": 6,
+          "average_market_value": "€2k",
+          "total_value": "€10k"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga 1 (Promotion)",
+          "competition_url": "https://www.transfermarkt.com/liga-1-promotion-/startseite/wettbewerb/ML1P",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ml1p.png?lm=1678301517",
+          "country": "Moldova",
+          "clubs": 6,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 3,
+          "competition": "League One",
+          "competition_url": "https://www.transfermarkt.com/league-one/startseite/wettbewerb/GB3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gb3.png?lm=1692214205",
+          "country": "England",
+          "clubs": 24,
+          "average_market_value": "€10.88m",
+          "total_value": "€261.23m"
+        },
+        {
+          "tier": 3,
+          "competition": "3. Liga",
+          "competition_url": "https://www.transfermarkt.com/3-liga/startseite/wettbewerb/L3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/l3.png?lm=1569702802",
+          "country": "Germany",
+          "clubs": 20,
+          "average_market_value": "€8.04m",
+          "total_value": "€160.73m"
+        },
+        {
+          "tier": 3,
+          "competition": "Primera Federación - Gr. II",
+          "competition_url": "https://www.transfermarkt.com/primera-federacion-grupo-ii/startseite/wettbewerb/E3G2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e3g2.png?lm=1664271281",
+          "country": "Spain",
+          "clubs": 20,
+          "average_market_value": "€5.79m",
+          "total_value": "€115.73m"
+        },
+        {
+          "tier": 3,
+          "competition": "Serie C - B",
+          "competition_url": "https://www.transfermarkt.com/serie-c-girone-b/startseite/wettbewerb/IT3B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it3b.png?lm=1720690488",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€5.27m",
+          "total_value": "€105.50m"
+        },
+        {
+          "tier": 3,
+          "competition": "Primera Federación - Gr. I",
+          "competition_url": "https://www.transfermarkt.com/primera-federacion-grupo-i/startseite/wettbewerb/E3G1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e3g1.png?lm=1664271248",
+          "country": "Spain",
+          "clubs": 20,
+          "average_market_value": "€5.04m",
+          "total_value": "€100.83m"
+        },
+        {
+          "tier": 3,
+          "competition": "Serie C - A",
+          "competition_url": "https://www.transfermarkt.com/serie-c-girone-a/startseite/wettbewerb/IT3A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it3a.png?lm=1720690442",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€5.01m",
+          "total_value": "€100.16m"
+        },
+        {
+          "tier": 3,
+          "competition": "Serie C - C",
+          "competition_url": "https://www.transfermarkt.com/serie-c-girone-c/startseite/wettbewerb/IT3C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it3c.png?lm=1720690498",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€5.47m",
+          "total_value": "€98.50m"
+        },
+        {
+          "tier": 3,
+          "competition": "Championnat National",
+          "competition_url": "https://www.transfermarkt.com/championnat-national/startseite/wettbewerb/FR3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fr3.png?lm=1655729224",
+          "country": "France",
+          "clubs": 17,
+          "average_market_value": "€4.99m",
+          "total_value": "€84.85m"
+        },
+        {
+          "tier": 3,
+          "competition": "2. Division A (Phase 2)",
+          "competition_url": "https://www.transfermarkt.com/2-division-a-phase-2-/startseite/wettbewerb/R3D2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/r3d2.png?lm=1689773936",
+          "country": "Russia",
+          "clubs": 20,
+          "average_market_value": "€3.38m",
+          "total_value": "€67.67m"
+        },
+        {
+          "tier": 3,
+          "competition": "2. Division A (Phase 1)",
+          "competition_url": "https://www.transfermarkt.com/2-division-a-phase-1-/startseite/wettbewerb/R3D1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/r3d1.png?lm=1689773906",
+          "country": "Russia",
+          "clubs": 20,
+          "average_market_value": "€2.93m",
+          "total_value": "€58.64m"
+        },
+        {
+          "tier": 3,
+          "competition": "Promotion League",
+          "competition_url": "https://www.transfermarkt.com/promotion-league/startseite/wettbewerb/CHPR",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/chpr.png?lm=1688637708",
+          "country": "Switzerland",
+          "clubs": 18,
+          "average_market_value": "€1.96m",
+          "total_value": "€35.36m"
+        },
+        {
+          "tier": 3,
+          "competition": "2.Lig Kirmizi",
+          "competition_url": "https://www.transfermarkt.com/2-lig-kirmizi/startseite/wettbewerb/TR3B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr3b.png?lm=1726649432",
+          "country": "Türkiye",
+          "clubs": 18,
+          "average_market_value": "€1.57m",
+          "total_value": "€28.20m"
+        },
+        {
+          "tier": 3,
+          "competition": "2.Lig Beyaz",
+          "competition_url": "https://www.transfermarkt.com/2-lig-beyaz/startseite/wettbewerb/TR3A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr3a.png?lm=1726649355",
+          "country": "Türkiye",
+          "clubs": 18,
+          "average_market_value": "€1.56m",
+          "total_value": "€28.11m"
+        },
+        {
+          "tier": 3,
+          "competition": "Liga 3",
+          "competition_url": "https://www.transfermarkt.com/liga-3/startseite/wettbewerb/PT3A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pt3a.png?lm=1688559412",
+          "country": "Portugal",
+          "clubs": 20,
+          "average_market_value": "€788k",
+          "total_value": "€15.75m"
+        },
+        {
+          "tier": 3,
+          "competition": "CFL",
+          "competition_url": "https://www.transfermarkt.com/ceska-fotbalova-liga/startseite/wettbewerb/CZ3C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cz3c.png?lm=1575758168",
+          "country": "Czech Republic",
+          "clubs": 34,
+          "average_market_value": "€190k",
+          "total_value": "€6.46m"
+        },
+        {
+          "tier": 3,
+          "competition": "MSFL",
+          "competition_url": "https://www.transfermarkt.com/moravskoslezska-fotbalova-liga/startseite/wettbewerb/CZ3M",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cz3m.png?lm=1575758164",
+          "country": "Czech Republic",
+          "clubs": 18,
+          "average_market_value": "€226k",
+          "total_value": "€4.08m"
+        },
+        {
+          "tier": 3,
+          "competition": "Betclic 2 Liga",
+          "competition_url": "https://www.transfermarkt.com/betclic-2-liga/startseite/wettbewerb/PL2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl2l.png?lm=1719860136",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€196k",
+          "total_value": "€3.53m"
+        },
+        {
+          "tier": 3,
+          "competition": "1ste Nationale VV",
+          "competition_url": "https://www.transfermarkt.com/1ste-nationale-vv/startseite/wettbewerb/BE3V",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be3v.png?lm=1718007627",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€214k",
+          "total_value": "€3.43m"
+        },
+        {
+          "tier": 3,
+          "competition": "Regional League Central",
+          "competition_url": "https://www.transfermarkt.com/regional-league-central/startseite/wettbewerb/ATRM",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/atrm.png?lm=1647190277",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€196k",
+          "total_value": "€3.14m"
+        },
+        {
+          "tier": 3,
+          "competition": "1ste Nationale ACFF",
+          "competition_url": "https://www.transfermarkt.com/1ste-nationale-acff/startseite/wettbewerb/BE3A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be3a.png?lm=1718028454",
+          "country": "Belgium",
+          "clubs": 12,
+          "average_market_value": "€250k",
+          "total_value": "€3.00m"
+        },
+        {
+          "tier": 3,
+          "competition": "PostNord-ligaen Avd. 1",
+          "competition_url": "https://www.transfermarkt.com/postnord-ligaen-avd-1/startseite/wettbewerb/NO31",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no31.png?lm=1478600434",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€171k",
+          "total_value": "€2.40m"
+        },
+        {
+          "tier": 3,
+          "competition": "League One",
+          "competition_url": "https://www.transfermarkt.com/scottish-league-one/startseite/wettbewerb/SC3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc3.png?lm=1410807599",
+          "country": "Scotland",
+          "clubs": 10,
+          "average_market_value": "€213k",
+          "total_value": "€2.13m"
+        },
+        {
+          "tier": 3,
+          "competition": "PostNord-ligaen Avd. 2",
+          "competition_url": "https://www.transfermarkt.com/postnord-ligaen-avd-2/startseite/wettbewerb/NO32",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no32.png?lm=1478600525",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€105k",
+          "total_value": "€1.48m"
+        },
+        {
+          "tier": 3,
+          "competition": "Ettan Södra",
+          "competition_url": "https://www.transfermarkt.com/ettan-sodra/startseite/wettbewerb/SE3S",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/se3s.png?lm=1699739136",
+          "country": "Sweden",
+          "clubs": 16,
+          "average_market_value": "€80k",
+          "total_value": "€1.28m"
+        },
+        {
+          "tier": 3,
+          "competition": "Tweede Divisie",
+          "competition_url": "https://www.transfermarkt.com/tweede-divisie/startseite/wettbewerb/NTD",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ntd.png?lm=1723890919",
+          "country": "Netherlands",
+          "clubs": 18,
+          "average_market_value": "€56k",
+          "total_value": "€1.00m"
+        },
+        {
+          "tier": 3,
+          "competition": "Ettan Norra",
+          "competition_url": "https://www.transfermarkt.com/ettan-norra/startseite/wettbewerb/SE3N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/se3n.png?lm=1699739106",
+          "country": "Sweden",
+          "clubs": 16,
+          "average_market_value": "€44k",
+          "total_value": "€700k"
+        },
+        {
+          "tier": 3,
+          "competition": "2.Division",
+          "competition_url": "https://www.transfermarkt.com/2-division/startseite/wettbewerb/DK3O",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dk3o.png?lm=1468946140",
+          "country": "Denmark",
+          "clubs": 12,
+          "average_market_value": "€52k",
+          "total_value": "€625k"
+        },
+        {
+          "tier": 3,
+          "competition": "Druga Liga",
+          "competition_url": "https://www.transfermarkt.com/druga-liga/startseite/wettbewerb/UA3L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ua3l.png?lm=1692796591",
+          "country": "Ukraine",
+          "clubs": 20,
+          "average_market_value": "€31k",
+          "total_value": "€615k"
+        },
+        {
+          "tier": 3,
+          "competition": "Ykkönen",
+          "competition_url": "https://www.transfermarkt.com/ykkonen/startseite/wettbewerb/FIYK",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fiyk.png?lm=1713780919",
+          "country": "Finland",
+          "clubs": 12,
+          "average_market_value": "€40k",
+          "total_value": "€475k"
+        },
+        {
+          "tier": 3,
+          "competition": "2.Division Promotion",
+          "competition_url": "https://www.transfermarkt.com/2-division-promotion/startseite/wettbewerb/DK3V",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dk3v.png?lm=1468946150",
+          "country": "Denmark",
+          "clubs": 6,
+          "average_market_value": "€75k",
+          "total_value": "€450k"
+        },
+        {
+          "tier": 3,
+          "competition": "Regionalliga West",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-west/startseite/wettbewerb/ATRW",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/atrw.png?lm=1641377748",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€27k",
+          "total_value": "€425k"
+        },
+        {
+          "tier": 3,
+          "competition": "Regional League East",
+          "competition_url": "https://www.transfermarkt.com/regional-league-east/startseite/wettbewerb/ATRO",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/atro.png?lm=1497544630",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€13k",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 3,
+          "competition": "2.Division Relegation",
+          "competition_url": "https://www.transfermarkt.com/2-division-relegation/startseite/wettbewerb/DKDA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dkda.png?lm=1468946159",
+          "country": "Denmark",
+          "clubs": 6,
+          "average_market_value": "€29k",
+          "total_value": "€175k"
+        },
+        {
+          "tier": 3,
+          "competition": "Esiliiga B",
+          "competition_url": "https://www.transfermarkt.com/esiliiga-b/startseite/wettbewerb/EST3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/est3.png?lm=1534338505",
+          "country": "Estonia",
+          "clubs": 10,
+          "average_market_value": "€14k",
+          "total_value": "€135k"
+        },
+        {
+          "tier": 3,
+          "competition": "2. deild",
+          "competition_url": "https://www.transfermarkt.com/2-deild/startseite/wettbewerb/FAR3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/far3.png?lm=1595275715",
+          "country": "Faroe Islands",
+          "clubs": 11,
+          "average_market_value": "€10k",
+          "total_value": "€105k"
+        },
+        {
+          "tier": 3,
+          "competition": "2. deild",
+          "competition_url": "https://www.transfermarkt.com/2-deild/startseite/wettbewerb/ISL3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/isl3.png?lm=1648809208",
+          "country": "Iceland",
+          "clubs": 12,
+          "average_market_value": "€7k",
+          "total_value": "€80k"
+        },
+        {
+          "tier": 3,
+          "competition": "Intermediate",
+          "competition_url": "https://www.transfermarkt.com/intermediate-league/startseite/wettbewerb/NIR3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nir3.png?lm=1541187384",
+          "country": "Northern Ireland",
+          "clubs": 14,
+          "average_market_value": "€1k",
+          "total_value": "€20k"
+        },
+        {
+          "tier": 3,
+          "competition": "National Amateur League I",
+          "competition_url": "https://www.transfermarkt.com/national-amateur-league-i/startseite/wettbewerb/MAL3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mal3.png?lm=1715177971",
+          "country": "Malta",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "League Two",
+          "competition_url": "https://www.transfermarkt.com/league-two/startseite/wettbewerb/GB4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gb4.png?lm=1692215884",
+          "country": "England",
+          "clubs": 24,
+          "average_market_value": "€4.14m",
+          "total_value": "€99.35m"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga Südwest",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-sudwest/startseite/wettbewerb/RLSW",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rlsw.png?lm=1744502701",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€2.41m",
+          "total_value": "€43.41m"
+        },
+        {
+          "tier": 4,
+          "competition": "Segunda Federación - Gr. III",
+          "competition_url": "https://www.transfermarkt.com/segunda-federacion-grupo-iii/startseite/wettbewerb/E4G3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e4g3.png?lm=1626810976",
+          "country": "Spain",
+          "clubs": 18,
+          "average_market_value": "€2.25m",
+          "total_value": "€40.43m"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga Bayern",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-bayern/startseite/wettbewerb/RLB3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rlb3.png?lm=1744502749",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€2.11m",
+          "total_value": "€38.01m"
+        },
+        {
+          "tier": 4,
+          "competition": "Segunda Federación - Gr. II",
+          "competition_url": "https://www.transfermarkt.com/segunda-federacion-grupo-ii/startseite/wettbewerb/E4G2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e4g2.png?lm=1626811042",
+          "country": "Spain",
+          "clubs": 18,
+          "average_market_value": "€2.00m",
+          "total_value": "€35.95m"
+        },
+        {
+          "tier": 4,
+          "competition": "Segunda Federación - Gr. I",
+          "competition_url": "https://www.transfermarkt.com/segunda-federacion-grupo-i/startseite/wettbewerb/E4G1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e4g1.png?lm=1626811001",
+          "country": "Spain",
+          "clubs": 18,
+          "average_market_value": "€1.91m",
+          "total_value": "€34.40m"
+        },
+        {
+          "tier": 4,
+          "competition": "Segunda Federación - Gr. IV",
+          "competition_url": "https://www.transfermarkt.com/segunda-federacion-grupo-iv/startseite/wettbewerb/E4G4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e4g4.png?lm=1626811023",
+          "country": "Spain",
+          "clubs": 18,
+          "average_market_value": "€1.87m",
+          "total_value": "€33.63m"
+        },
+        {
+          "tier": 4,
+          "competition": "Segunda Federación - Gr. V",
+          "competition_url": "https://www.transfermarkt.com/segunda-federacion-grupo-v/startseite/wettbewerb/E4G5",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/e4g5.png?lm=1626810954",
+          "country": "Spain",
+          "clubs": 18,
+          "average_market_value": "€1.81m",
+          "total_value": "€32.50m"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga West",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-west/startseite/wettbewerb/RLW3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rlw3.png?lm=1744502565",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€1.78m",
+          "total_value": "€32.10m"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga Northeast",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-northeast/startseite/wettbewerb/RLN4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rln4.png?lm=1744502651",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€1.73m",
+          "total_value": "€31.11m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - B",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-b/startseite/wettbewerb/IT4B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4b.png?lm=1514457243",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€1.52m",
+          "total_value": "€30.36m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - C",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-c/startseite/wettbewerb/IT4C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4c.png?lm=1514457265",
+          "country": "Italy",
+          "clubs": 20,
+          "average_market_value": "€1.51m",
+          "total_value": "€30.22m"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga Nord",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-nord/startseite/wettbewerb/RLN3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rln3.png?lm=1744502608",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€1.67m",
+          "total_value": "€30.12m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - A",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-a/startseite/wettbewerb/IT4A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4a.png?lm=1514457248",
+          "country": "Italy",
+          "clubs": 19,
+          "average_market_value": "€1.53m",
+          "total_value": "€29.12m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - D",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-d/startseite/wettbewerb/IT4D",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4d.png?lm=1514457253",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€1.53m",
+          "total_value": "€27.61m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - E",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-e/startseite/wettbewerb/IT4E",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4e.png?lm=1514457173",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€1.50m",
+          "total_value": "€27.08m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - G",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-g/startseite/wettbewerb/IT4G",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4g.png?lm=1514457270",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€1.50m",
+          "total_value": "€27.05m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - F",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-f/startseite/wettbewerb/IT4F",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4f.png?lm=1514457259",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€1.48m",
+          "total_value": "€26.62m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - H",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-h/startseite/wettbewerb/IT4H",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4h.png?lm=1514457275",
+          "country": "Italy",
+          "clubs": 18,
+          "average_market_value": "€1.45m",
+          "total_value": "€26.01m"
+        },
+        {
+          "tier": 4,
+          "competition": "Serie D - I",
+          "competition_url": "https://www.transfermarkt.com/serie-d-girone-i/startseite/wettbewerb/IT4I",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/it4i.png?lm=1514457280",
+          "country": "Italy",
+          "clubs": 17,
+          "average_market_value": "€1.49m",
+          "total_value": "€25.29m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 2",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-2/startseite/wettbewerb/NO42",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no42.png?lm=1702667463",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€470k",
+          "total_value": "€6.58m"
+        },
+        {
+          "tier": 4,
+          "competition": "2. Division B",
+          "competition_url": "https://www.transfermarkt.com/2-division-b/startseite/wettbewerb/2DVB",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/2dvb.png?lm=1698999262",
+          "country": "Russia",
+          "clubs": 57,
+          "average_market_value": "€111k",
+          "total_value": "€6.35m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 6",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-6/startseite/wettbewerb/NO46",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no46.png?lm=1702667872",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€398k",
+          "total_value": "€5.58m"
+        },
+        {
+          "tier": 4,
+          "competition": "Betclic 3 Liga - Group II",
+          "competition_url": "https://www.transfermarkt.com/betclic-3-liga-group-ii/startseite/wettbewerb/PL32",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl32.png?lm=1719860025",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€254k",
+          "total_value": "€4.58m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 5",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-5/startseite/wettbewerb/NO45",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no45.png?lm=1702668670",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€275k",
+          "total_value": "€3.85m"
+        },
+        {
+          "tier": 4,
+          "competition": "1. Liga gr. 1",
+          "competition_url": "https://www.transfermarkt.com/1-liga-classic-group-1/startseite/wettbewerb/CHC1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/chc1.png?lm=1405005573",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€170k",
+          "total_value": "€2.73m"
+        },
+        {
+          "tier": 4,
+          "competition": "1. Liga gr. 2",
+          "competition_url": "https://www.transfermarkt.com/1-liga-classic-group-2/startseite/wettbewerb/CHC2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/chc2.png?lm=1405005569",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€148k",
+          "total_value": "€2.38m"
+        },
+        {
+          "tier": 4,
+          "competition": "3.Lig Grup 1",
+          "competition_url": "https://www.transfermarkt.com/3-lig-grup-1/startseite/wettbewerb/TR4A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr4a.png?lm=1726649461",
+          "country": "Türkiye",
+          "clubs": 16,
+          "average_market_value": "€141k",
+          "total_value": "€2.25m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 4",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-4/startseite/wettbewerb/NO44",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no44.png?lm=1702668061",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€119k",
+          "total_value": "€1.67m"
+        },
+        {
+          "tier": 4,
+          "competition": "Betclic 3 Liga - Group IV",
+          "competition_url": "https://www.transfermarkt.com/betclic-3-liga-group-iv/startseite/wettbewerb/PL34",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl34.png?lm=1719860077",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€89k",
+          "total_value": "€1.61m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 3",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-3/startseite/wettbewerb/NO43",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no43.png?lm=1702667621",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€109k",
+          "total_value": "€1.53m"
+        },
+        {
+          "tier": 4,
+          "competition": "Norsk Tipping-Ligaen avd. 1",
+          "competition_url": "https://www.transfermarkt.com/norsk-tipping-ligaen-avdeling-1/startseite/wettbewerb/NO41",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/no41.png?lm=1702667171",
+          "country": "Norway",
+          "clubs": 14,
+          "average_market_value": "€102k",
+          "total_value": "€1.43m"
+        },
+        {
+          "tier": 4,
+          "competition": "2de Nationale VV B",
+          "competition_url": "https://www.transfermarkt.com/2de-nationale-vv-b/startseite/wettbewerb/VFVB",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vfvb.png?lm=1581409757",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€88k",
+          "total_value": "€1.40m"
+        },
+        {
+          "tier": 4,
+          "competition": "National 2 - Grp. A",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-2-groupe-a/startseite/wettbewerb/CN2A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cn2a.png?lm=1596793819",
+          "country": "France",
+          "clubs": 16,
+          "average_market_value": "€75k",
+          "total_value": "€1.20m"
+        },
+        {
+          "tier": 4,
+          "competition": "3.Lig Grup 3",
+          "competition_url": "https://www.transfermarkt.com/3-lig-grup-3/startseite/wettbewerb/TR4C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr4c.png?lm=1726649500",
+          "country": "Türkiye",
+          "clubs": 16,
+          "average_market_value": "€72k",
+          "total_value": "€1.15m"
+        },
+        {
+          "tier": 4,
+          "competition": "2de Nationale ACFF",
+          "competition_url": "https://www.transfermarkt.com/2de-nationale-acff/startseite/wettbewerb/ACFF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/acff.png?lm=1581409788",
+          "country": "Belgium",
+          "clubs": 18,
+          "average_market_value": "€61k",
+          "total_value": "€1.10m"
+        },
+        {
+          "tier": 4,
+          "competition": "3.Lig Grup 4",
+          "competition_url": "https://www.transfermarkt.com/3-lig-grup-4/startseite/wettbewerb/TR4D",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr4d.png?lm=1639083934",
+          "country": "Türkiye",
+          "clubs": 16,
+          "average_market_value": "€68k",
+          "total_value": "€1.10m"
+        },
+        {
+          "tier": 4,
+          "competition": "1. Liga gr. 3",
+          "competition_url": "https://www.transfermarkt.com/1-liga-classic-group-3/startseite/wettbewerb/CHC3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/chc3.png?lm=1405005559",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€67k",
+          "total_value": "€1.08m"
+        },
+        {
+          "tier": 4,
+          "competition": "3.Lig Grup 2",
+          "competition_url": "https://www.transfermarkt.com/3-lig-grup-2/startseite/wettbewerb/TR4B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tr4b.png?lm=1726649482",
+          "country": "Türkiye",
+          "clubs": 16,
+          "average_market_value": "€59k",
+          "total_value": "€950k"
+        },
+        {
+          "tier": 4,
+          "competition": "Betclic 3 Liga - Group I",
+          "competition_url": "https://www.transfermarkt.com/betclic-3-liga-group-i/startseite/wettbewerb/PL31",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl31.png?lm=1719860006",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€49k",
+          "total_value": "€875k"
+        },
+        {
+          "tier": 4,
+          "competition": "LL Niederösterreich",
+          "competition_url": "https://www.transfermarkt.com/1-landesliga-niederosterreich/startseite/wettbewerb/A4N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4n.png?lm=1660410374",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€52k",
+          "total_value": "€825k"
+        },
+        {
+          "tier": 4,
+          "competition": "Betclic 3 Liga - Group III",
+          "competition_url": "https://www.transfermarkt.com/betclic-3-liga-group-iii/startseite/wettbewerb/PL33",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pl33.png?lm=1719860065",
+          "country": "Poland",
+          "clubs": 18,
+          "average_market_value": "€38k",
+          "total_value": "€675k"
+        },
+        {
+          "tier": 4,
+          "competition": "National 2 - Grp. C",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-2-groupe-c/startseite/wettbewerb/CN2C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cn2c.png?lm=1596793874",
+          "country": "France",
+          "clubs": 16,
+          "average_market_value": "€41k",
+          "total_value": "€650k"
+        },
+        {
+          "tier": 4,
+          "competition": "Kärntner Liga",
+          "competition_url": "https://www.transfermarkt.com/karntner-liga/startseite/wettbewerb/A4K",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4k.png?lm=1671057269",
+          "country": "Austria",
+          "clubs": 15,
+          "average_market_value": "€37k",
+          "total_value": "€550k"
+        },
+        {
+          "tier": 4,
+          "competition": "National 2 - Grp. B",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-2-groupe-b/startseite/wettbewerb/CN2B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cn2b.png?lm=1596793843",
+          "country": "France",
+          "clubs": 16,
+          "average_market_value": "€31k",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 4,
+          "competition": "2de Nationale VV A",
+          "competition_url": "https://www.transfermarkt.com/2de-nationale-vv-a/startseite/wettbewerb/VFVA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vfva.png?lm=1581409773",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€31k",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 4,
+          "competition": "LL Steiermark",
+          "competition_url": "https://www.transfermarkt.com/landesliga-steiermark/startseite/wettbewerb/A4ST",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4st.png?lm=1405006378",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€26k",
+          "total_value": "€410k"
+        },
+        {
+          "tier": 4,
+          "competition": "Wiener Stadtliga",
+          "competition_url": "https://www.transfermarkt.com/wiener-stadtliga/startseite/wettbewerb/A4W",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4w.png?lm=1403905379",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "€19k",
+          "total_value": "€300k"
+        },
+        {
+          "tier": 4,
+          "competition": "League Two",
+          "competition_url": "https://www.transfermarkt.com/scottish-league-two/startseite/wettbewerb/SC4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc4.png?lm=1405005668",
+          "country": "Scotland",
+          "clubs": 10,
+          "average_market_value": "€20k",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 4,
+          "competition": "Regionalliga Tirol",
+          "competition_url": "https://www.transfermarkt.com/regionalliga-tirol/startseite/wettbewerb/A4T",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4t.png?lm=1565649068",
+          "country": "Austria",
+          "clubs": 14,
+          "average_market_value": "€13k",
+          "total_value": "€175k"
+        },
+        {
+          "tier": 4,
+          "competition": "Kakkonen - Group C",
+          "competition_url": "https://www.transfermarkt.com/kakkonen-group-c/startseite/wettbewerb/FI3C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi3c.png?lm=1705499376",
+          "country": "Finland",
+          "clubs": 10,
+          "average_market_value": "€8k",
+          "total_value": "€75k"
+        },
+        {
+          "tier": 4,
+          "competition": "Kakkonen - Group A",
+          "competition_url": "https://www.transfermarkt.com/kakkonen-group-a/startseite/wettbewerb/FI3A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi3a.png?lm=1705499258",
+          "country": "Finland",
+          "clubs": 10,
+          "average_market_value": "€3k",
+          "total_value": "€25k"
+        },
+        {
+          "tier": 4,
+          "competition": "Kakkonen - Group B",
+          "competition_url": "https://www.transfermarkt.com/kakkonen-group-b/startseite/wettbewerb/FI3B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi3b.png?lm=1705499326",
+          "country": "Finland",
+          "clubs": 10,
+          "average_market_value": "€3k",
+          "total_value": "€25k"
+        },
+        {
+          "tier": 4,
+          "competition": "Derde Divisie A",
+          "competition_url": "https://www.transfermarkt.com/derde-divisie-a/startseite/wettbewerb/510",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/510.png?lm=1498202156",
+          "country": "Netherlands",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "Derde Divisie B",
+          "competition_url": "https://www.transfermarkt.com/derde-divisie-b/startseite/wettbewerb/511",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/511.png?lm=1498203788",
+          "country": "Netherlands",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "Burgenlandliga",
+          "competition_url": "https://www.transfermarkt.com/burgenlandliga/startseite/wettbewerb/A4B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4b.png?lm=1441574159",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "OÖ Liga",
+          "competition_url": "https://www.transfermarkt.com/oberosterreich-liga/startseite/wettbewerb/A4O",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4o.png?lm=1405005944",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "Salzburger Liga",
+          "competition_url": "https://www.transfermarkt.com/salzburger-liga/startseite/wettbewerb/A4S",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4s.png?lm=1691576332",
+          "country": "Austria",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "Eliteliga Vorarlberg",
+          "competition_url": "https://www.transfermarkt.com/eliteliga-vorarlberg/startseite/wettbewerb/A4V",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a4v.png?lm=1405006445",
+          "country": "Austria",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "National League",
+          "competition_url": "https://www.transfermarkt.com/national-league/startseite/wettbewerb/CNAT",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cnat.png?lm=1617808243",
+          "country": "England",
+          "clubs": 24,
+          "average_market_value": "€250k",
+          "total_value": "€6.00m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. B",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-b/startseite/wettbewerb/C3NA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3na.png?lm=1656456335",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€168k",
+          "total_value": "€2.35m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. I",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-i/startseite/wettbewerb/C3GE",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3ge.png?lm=1656457289",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€154k",
+          "total_value": "€2.15m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. J",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-j/startseite/wettbewerb/C3BF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3bf.png?lm=1656457179",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€134k",
+          "total_value": "€1.88m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. E",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-e/startseite/wettbewerb/C3BR",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3br.png?lm=1656453754",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€130k",
+          "total_value": "€1.83m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. H",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-h/startseite/wettbewerb/C3IF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3if.png?lm=1656457822",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€107k",
+          "total_value": "€1.50m"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. D",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-d/startseite/wettbewerb/C3PL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3pl.png?lm=1656456480",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€95k",
+          "total_value": "€1.33m"
+        },
+        {
+          "tier": 5,
+          "competition": "2. Liga Inter - Gr. 4",
+          "competition_url": "https://www.transfermarkt.com/2-liga-interregional-gruppe-4/startseite/wettbewerb/CIR4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cir4.png?lm=1405006881",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€69k",
+          "total_value": "€1.10m"
+        },
+        {
+          "tier": 5,
+          "competition": "Lowland League",
+          "competition_url": "https://www.transfermarkt.com/scottish-lowland-football-league/startseite/wettbewerb/SC5L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc5l.png?lm=1658408379",
+          "country": "Scotland",
+          "clubs": 18,
+          "average_market_value": "€54k",
+          "total_value": "€975k"
+        },
+        {
+          "tier": 5,
+          "competition": "NOFV-Oberliga Süd",
+          "competition_url": "https://www.transfermarkt.com/nofv-oberliga-sud/startseite/wettbewerb/OBLG",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblg.png?lm=1744473892",
+          "country": "Germany",
+          "clubs": 16,
+          "average_market_value": "€45k",
+          "total_value": "€725k"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. G",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-g/startseite/wettbewerb/C3HF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3hf.png?lm=1656585326",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€39k",
+          "total_value": "€550k"
+        },
+        {
+          "tier": 5,
+          "competition": "Bayernliga Süd",
+          "competition_url": "https://www.transfermarkt.com/bayernliga-sud/startseite/wettbewerb/OLB2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olb2.png?lm=1744473844",
+          "country": "Germany",
+          "clubs": 17,
+          "average_market_value": "€29k",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. C",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-c/startseite/wettbewerb/C3VL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3vl.png?lm=1656456662",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€25k",
+          "total_value": "€350k"
+        },
+        {
+          "tier": 5,
+          "competition": "Hessenliga",
+          "competition_url": "https://www.transfermarkt.com/hessenliga/startseite/wettbewerb/OBLC",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblc.png?lm=1744502315",
+          "country": "Germany",
+          "clubs": 19,
+          "average_market_value": "€17k",
+          "total_value": "€325k"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. A",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-a/startseite/wettbewerb/C3CM",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3cm.png?lm=1656456888",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€14k",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 5,
+          "competition": "Bayernliga Nord",
+          "competition_url": "https://www.transfermarkt.com/bayernliga-nord/startseite/wettbewerb/OLB1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olb1.png?lm=1744473856",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€11k",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 5,
+          "competition": "Oberliga Westfalen",
+          "competition_url": "https://www.transfermarkt.com/oberliga-westfalen/startseite/wettbewerb/OLW3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olw3.png?lm=1744853882",
+          "country": "Germany",
+          "clubs": 19,
+          "average_market_value": "€11k",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 5,
+          "competition": "Oberliga Schleswig-Holstein",
+          "competition_url": "https://www.transfermarkt.com/oberliga-schleswig-holstein/startseite/wettbewerb/OBLL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/obll.png?lm=1744502407",
+          "country": "Germany",
+          "clubs": 16,
+          "average_market_value": "€10k",
+          "total_value": "€160k"
+        },
+        {
+          "tier": 5,
+          "competition": "3de Nationale VV B",
+          "competition_url": "https://www.transfermarkt.com/3de-nationale-vv-b/startseite/wettbewerb/BE5B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be5b.png?lm=1729089433",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€9k",
+          "total_value": "€150k"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Etelä C",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-etela-group-c/startseite/wettbewerb/KOG3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kog3.png?lm=1705499729",
+          "country": "Finland",
+          "clubs": 12,
+          "average_market_value": "€13k",
+          "total_value": "€150k"
+        },
+        {
+          "tier": 5,
+          "competition": "OL RP/Saar",
+          "competition_url": "https://www.transfermarkt.com/oberliga-rheinland-pfalz-saar/startseite/wettbewerb/OLRP",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olrp.png?lm=1744473906",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€8k",
+          "total_value": "€150k"
+        },
+        {
+          "tier": 5,
+          "competition": "2. Liga Inter - Gr. 3",
+          "competition_url": "https://www.transfermarkt.com/2-liga-interregional-gruppe-3/startseite/wettbewerb/CIR3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cir3.png?lm=1405006885",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€8k",
+          "total_value": "€125k"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Etelä A",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-etela-group-a/startseite/wettbewerb/KOG1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kog1.png?lm=1705499608",
+          "country": "Finland",
+          "clubs": 12,
+          "average_market_value": "€10k",
+          "total_value": "€125k"
+        },
+        {
+          "tier": 5,
+          "competition": "Mittelrheinliga",
+          "competition_url": "https://www.transfermarkt.com/mittelrheinliga/startseite/wettbewerb/OLMR",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olmr.png?lm=1744501537",
+          "country": "Germany",
+          "clubs": 16,
+          "average_market_value": "€8k",
+          "total_value": "€125k"
+        },
+        {
+          "tier": 5,
+          "competition": "3de Nationale VV A",
+          "competition_url": "https://www.transfermarkt.com/3de-nationale-vv-a/startseite/wettbewerb/BE5A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/be5a.png?lm=1729089284",
+          "country": "Belgium",
+          "clubs": 16,
+          "average_market_value": "€6k",
+          "total_value": "€100k"
+        },
+        {
+          "tier": 5,
+          "competition": "National 3 - Grp. F",
+          "competition_url": "https://www.transfermarkt.com/championnat-national-3-groupe-f/startseite/wettbewerb/C3NO",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/c3no.png?lm=1656457670",
+          "country": "France",
+          "clubs": 14,
+          "average_market_value": "€5k",
+          "total_value": "€75k"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Läntinen",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-lantinen/startseite/wettbewerb/F4LA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/f4la.png?lm=1715807671",
+          "country": "Finland",
+          "clubs": 35,
+          "average_market_value": "€2k",
+          "total_value": "€75k"
+        },
+        {
+          "tier": 5,
+          "competition": "OL Niedersachsen",
+          "competition_url": "https://www.transfermarkt.com/oberliga-niedersachsen/startseite/wettbewerb/OBLN",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/obln.png?lm=1637068385",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€4k",
+          "total_value": "€70k"
+        },
+        {
+          "tier": 5,
+          "competition": "NOFV-Oberliga Nord",
+          "competition_url": "https://www.transfermarkt.com/nofv-oberliga-nord/startseite/wettbewerb/OBLF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblf.png?lm=1744473880",
+          "country": "Germany",
+          "clubs": 16,
+          "average_market_value": "€3k",
+          "total_value": "€50k"
+        },
+        {
+          "tier": 5,
+          "competition": "Highland League",
+          "competition_url": "https://www.transfermarkt.com/scottish-highland-football-league/startseite/wettbewerb/SC5H",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sc5h.png?lm=1605856919",
+          "country": "Scotland",
+          "clubs": 18,
+          "average_market_value": "€3k",
+          "total_value": "€50k"
+        },
+        {
+          "tier": 5,
+          "competition": "Oberliga Baden-Württemberg",
+          "competition_url": "https://www.transfermarkt.com/oberliga-baden-wurttemberg/startseite/wettbewerb/OBLB",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblb.png?lm=1744502034",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "€3k",
+          "total_value": "€45k"
+        },
+        {
+          "tier": 5,
+          "competition": "2. Liga Inter - Gr. 1",
+          "competition_url": "https://www.transfermarkt.com/2-liga-interregional-gruppe-1/startseite/wettbewerb/CIR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cir1.png?lm=1405006877",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "€2k",
+          "total_value": "€25k"
+        },
+        {
+          "tier": 5,
+          "competition": "Bremenliga",
+          "competition_url": "https://www.transfermarkt.com/bremenliga/startseite/wettbewerb/OBLK",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblk.png?lm=1596036751",
+          "country": "Germany",
+          "clubs": 16,
+          "average_market_value": "€1k",
+          "total_value": "€10k"
+        },
+        {
+          "tier": 5,
+          "competition": "2. Liga Inter - Gr. 2",
+          "competition_url": "https://www.transfermarkt.com/2-liga-interregional-gruppe-2/startseite/wettbewerb/CIR2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cir2.png?lm=1405006872",
+          "country": "Switzerland",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Pohjoinen",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-pohjoinen/startseite/wettbewerb/F4KP",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/f4kp.png?lm=1705499804",
+          "country": "Finland",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Itäinen",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-itainen/startseite/wettbewerb/FI4L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fi4l.png?lm=1705499855",
+          "country": "Finland",
+          "clubs": 28,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Kolmonen Etelä B",
+          "competition_url": "https://www.transfermarkt.com/kolmonen-etela-group-b/startseite/wettbewerb/KOG2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kog2.png?lm=1705499674",
+          "country": "Finland",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Oberliga Hamburg",
+          "competition_url": "https://www.transfermarkt.com/oberliga-hamburg/startseite/wettbewerb/OBLJ",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/oblj.png?lm=1744501169",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Oberliga Niederrhein",
+          "competition_url": "https://www.transfermarkt.com/oberliga-niederrhein/startseite/wettbewerb/OLNI",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/olni.png?lm=1744853071",
+          "country": "Germany",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "-"
+        }
+      ]
+    },
+    {
+      "confederation_name": "Asia/Oceania",
+      "url": "https://www.transfermarkt.com/wettbewerbe/asien/wettbewerbe?plus=1",
+      "leagues": [
+        {
+          "tier": 1,
+          "competition": "Saudi Pro League",
+          "competition_url": "https://www.transfermarkt.com/saudi-pro-league/startseite/wettbewerb/SA1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sa1.png?lm=1692612717",
+          "country": "Saudi Arabia",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€914.03m"
+        },
+        {
+          "tier": 1,
+          "competition": "UAE Pro League",
+          "competition_url": "https://www.transfermarkt.com/uae-pro-league/startseite/wettbewerb/UAE1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/uae1.png?lm=1670616425",
+          "country": "United Arab Emirates",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€373.30m"
+        },
+        {
+          "tier": 1,
+          "competition": "Stars League",
+          "competition_url": "https://www.transfermarkt.com/qatar-stars-league/startseite/wettbewerb/QSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/qsl.png?lm=1404288206",
+          "country": "Qatar",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€302.73m"
+        },
+        {
+          "tier": 1,
+          "competition": "J1 League",
+          "competition_url": "https://www.transfermarkt.com/j1-league/startseite/wettbewerb/JAP1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jap1.png?lm=1745609624",
+          "country": "Japan",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€294.74m"
+        },
+        {
+          "tier": 1,
+          "competition": "K League 1",
+          "competition_url": "https://www.transfermarkt.com/k-league-1/startseite/wettbewerb/RSK1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rsk1.png?lm=1669660383",
+          "country": "Korea, South",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€145.04m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super League",
+          "competition_url": "https://www.transfermarkt.com/chinese-super-league/startseite/wettbewerb/CSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/csl.png?lm=1601305342",
+          "country": "China",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€136.82m"
+        },
+        {
+          "tier": 1,
+          "competition": "Persian Gulf Pro League",
+          "competition_url": "https://www.transfermarkt.com/persian-gulf-pro-league/startseite/wettbewerb/IRN1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/irn1.png?lm=1705357813",
+          "country": "Iran",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€135.70m"
+        },
+        {
+          "tier": 1,
+          "competition": "A-League Men",
+          "competition_url": "https://www.transfermarkt.com/a-league-men/startseite/wettbewerb/AUS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/aus1.png?lm=1644660263",
+          "country": "Australia",
+          "clubs": 13,
+          "average_market_value": "-",
+          "total_value": "€91.20m"
+        },
+        {
+          "tier": 1,
+          "competition": "Superliga",
+          "competition_url": "https://www.transfermarkt.com/ozbekiston-superligasi/startseite/wettbewerb/UZ1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/uz1.png?lm=1707031580",
+          "country": "Uzbekistan",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€89.93m"
+        },
+        {
+          "tier": 1,
+          "competition": "Iraq Stars League",
+          "competition_url": "https://www.transfermarkt.com/iraq-stars-league/startseite/wettbewerb/IRQ1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/irq1.png?lm=1728638644",
+          "country": "Iraq",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€79.40m"
+        },
+        {
+          "tier": 1,
+          "competition": "Thai League",
+          "competition_url": "https://www.transfermarkt.com/thai-league/startseite/wettbewerb/THA1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tha1.png?lm=1631571296",
+          "country": "Thailand",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€76.40m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga 1",
+          "competition_url": "https://www.transfermarkt.com/liga-1-indonesia/startseite/wettbewerb/IN1L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/in1l.png?lm=1628819483",
+          "country": "Indonesia",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€68.00m"
+        },
+        {
+          "tier": 1,
+          "competition": "Indian Super League",
+          "competition_url": "https://www.transfermarkt.com/indian-super-league/startseite/wettbewerb/IND1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ind1.png?lm=1659779213",
+          "country": "India",
+          "clubs": 13,
+          "average_market_value": "-",
+          "total_value": "€56.92m"
+        },
+        {
+          "tier": 1,
+          "competition": "Super League",
+          "competition_url": "https://www.transfermarkt.com/malaysia-super-league/startseite/wettbewerb/MYS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mys1.png?lm=1739114481",
+          "country": "Malaysia",
+          "clubs": 13,
+          "average_market_value": "-",
+          "total_value": "€51.62m"
+        },
+        {
+          "tier": 1,
+          "competition": "V.League 1",
+          "competition_url": "https://www.transfermarkt.com/v-league-1/startseite/wettbewerb/VIE1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vie1.png?lm=1723920141",
+          "country": "Vietnam",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€47.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Oman Pro League",
+          "competition_url": "https://www.transfermarkt.com/oman-professional-league/startseite/wettbewerb/OM1L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/om1l.png?lm=1705296147",
+          "country": "Oman",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€37.16m"
+        },
+        {
+          "tier": 1,
+          "competition": "Leb. Premier League",
+          "competition_url": "https://www.transfermarkt.com/lebanese-premier-league/startseite/wettbewerb/LIB1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/lib1.png?lm=1650213352",
+          "country": "Lebanon",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€26.82m"
+        },
+        {
+          "tier": 1,
+          "competition": "Hong Kong Premier League",
+          "competition_url": "https://www.transfermarkt.com/hong-kong-premier-league/startseite/wettbewerb/HGKG",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hgkg.png?lm=1720380920",
+          "country": "Hongkong",
+          "clubs": 9,
+          "average_market_value": "-",
+          "total_value": "€20.28m"
+        },
+        {
+          "tier": 1,
+          "competition": "National League - North",
+          "competition_url": "https://www.transfermarkt.com/national-league-north/startseite/wettbewerb/NNL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nnl1.png?lm=1705543185",
+          "country": "New Zealand",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€19.85m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/singapore-premier-league/startseite/wettbewerb/SIN1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sin1.png?lm=1560163015",
+          "country": "Singapore",
+          "clubs": 9,
+          "average_market_value": "-",
+          "total_value": "€19.43m"
+        },
+        {
+          "tier": 1,
+          "competition": "Myanmar National League",
+          "competition_url": "https://www.transfermarkt.com/myanmar-national-league/startseite/wettbewerb/MYA1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mya1.png?lm=1481627883",
+          "country": "Myanmar",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€18.29m"
+        },
+        {
+          "tier": 1,
+          "competition": "Bangladesh PL",
+          "competition_url": "https://www.transfermarkt.com/bangladesh-premier-league/startseite/wettbewerb/BGD1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bgd1.png?lm=1551466827",
+          "country": "Bangladesh",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€18.03m"
+        },
+        {
+          "tier": 1,
+          "competition": "Fiji Premier League",
+          "competition_url": "https://www.transfermarkt.com/fiji-premier-league/startseite/wettbewerb/FIJ1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/fij1.png?lm=1627666227",
+          "country": "Fiji",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€16.75m"
+        },
+        {
+          "tier": 1,
+          "competition": "C. Premier League",
+          "competition_url": "https://www.transfermarkt.com/cambodian-premier-league/startseite/wettbewerb/KHM1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/khm1.png?lm=1692605660",
+          "country": "Cambodia",
+          "clubs": 11,
+          "average_market_value": "-",
+          "total_value": "€16.69m"
+        },
+        {
+          "tier": 1,
+          "competition": "Kyrgyz Premier League",
+          "competition_url": "https://www.transfermarkt.com/kyrgyz-premier-league/startseite/wettbewerb/KG1L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/kg1l.png?lm=1709903200",
+          "country": "Kyrgyzstan",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€12.00m"
+        },
+        {
+          "tier": 1,
+          "competition": "National League - Central",
+          "competition_url": "https://www.transfermarkt.com/national-league-central/startseite/wettbewerb/NCL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ncl1.png?lm=1705543193",
+          "country": "New Zealand",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€11.84m"
+        },
+        {
+          "tier": 1,
+          "competition": "PFL",
+          "competition_url": "https://www.transfermarkt.com/philippines-football-league/startseite/wettbewerb/PFL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pfl1.png?lm=1712327839",
+          "country": "Philippines",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€10.94m"
+        },
+        {
+          "tier": 1,
+          "competition": "Jordanian Pro League",
+          "competition_url": "https://www.transfermarkt.com/jordanian-pro-league/startseite/wettbewerb/JO1L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jo1l.png?lm=1740753026",
+          "country": "Jordan",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€9.43m"
+        },
+        {
+          "tier": 1,
+          "competition": "National League - South",
+          "competition_url": "https://www.transfermarkt.com/national-league-south/startseite/wettbewerb/NSL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nsl1.png?lm=1705543200",
+          "country": "New Zealand",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€8.56m"
+        },
+        {
+          "tier": 1,
+          "competition": "Vysshaya Liga",
+          "competition_url": "https://www.transfermarkt.com/vysshaya-liga/startseite/wettbewerb/TAD1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tad1.png?lm=1591974959",
+          "country": "Tajikistan",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€7.73m"
+        },
+        {
+          "tier": 1,
+          "competition": "Lao League 1",
+          "competition_url": "https://www.transfermarkt.com/lao-league-1/startseite/wettbewerb/LAO1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/lao1.png?lm=1742617097",
+          "country": "Laos",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€6.64m"
+        },
+        {
+          "tier": 1,
+          "competition": "Football Premier League",
+          "competition_url": "https://www.transfermarkt.com/taiwan-football-premier-league/startseite/wettbewerb/TFPL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tfpl.png?lm=1586589765",
+          "country": "Chinese Taipei",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€5.62m"
+        },
+        {
+          "tier": 1,
+          "competition": "Nepal Super League",
+          "competition_url": "https://www.transfermarkt.com/nepal-super-league/startseite/wettbewerb/NPL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/npl1.png?lm=1742614886",
+          "country": "Nepal",
+          "clubs": 7,
+          "average_market_value": "-",
+          "total_value": "€2.73m"
+        },
+        {
+          "tier": 1,
+          "competition": "Bhutan Premier League",
+          "competition_url": "https://www.transfermarkt.com/bhutan-premier-league/startseite/wettbewerb/BH1L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bh1l.png?lm=1745325877",
+          "country": "Bhutan",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€1.93m"
+        },
+        {
+          "tier": 2,
+          "competition": "J2 League",
+          "competition_url": "https://www.transfermarkt.com/j2-league/startseite/wettbewerb/JAP2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jap2.png?lm=1745609650",
+          "country": "Japan",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€134.56m"
+        },
+        {
+          "tier": 2,
+          "competition": "Saudi First Division League",
+          "competition_url": "https://www.transfermarkt.com/saudi-first-division-league/startseite/wettbewerb/SA2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sa2l.png?lm=1693314633",
+          "country": "Saudi Arabia",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€91.31m"
+        },
+        {
+          "tier": 2,
+          "competition": "K League 2",
+          "competition_url": "https://www.transfermarkt.com/k-league-2/startseite/wettbewerb/RSK2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/rsk2.png?lm=1669661442",
+          "country": "Korea, South",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€87.55m"
+        },
+        {
+          "tier": 2,
+          "competition": "Azadegan League",
+          "competition_url": "https://www.transfermarkt.com/azadegan-league/startseite/wettbewerb/IRN2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/irn2.png?lm=1446756375",
+          "country": "Iran",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€43.96m"
+        },
+        {
+          "tier": 2,
+          "competition": "League One",
+          "competition_url": "https://www.transfermarkt.com/china-league-one/startseite/wettbewerb/CLO",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/clo.png?lm=1602779471",
+          "country": "China",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€38.75m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga 2",
+          "competition_url": "https://www.transfermarkt.com/liga-2-indonesia/startseite/wettbewerb/ILI2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ili2.png?lm=1693907778",
+          "country": "Indonesia",
+          "clubs": 26,
+          "average_market_value": "-",
+          "total_value": "€32.29m"
+        },
+        {
+          "tier": 2,
+          "competition": "Thai League 2",
+          "competition_url": "https://www.transfermarkt.com/thai-league-2/startseite/wettbewerb/THA2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tha2.png?lm=1723404682",
+          "country": "Thailand",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€28.53m"
+        },
+        {
+          "tier": 2,
+          "competition": "Qatari Second Division",
+          "competition_url": "https://www.transfermarkt.com/qatari-second-division/startseite/wettbewerb/QU2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/qu2l.png?lm=1724662102",
+          "country": "Qatar",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€27.83m"
+        },
+        {
+          "tier": 2,
+          "competition": "I-League",
+          "competition_url": "https://www.transfermarkt.com/i-league/startseite/wettbewerb/INIL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/inil.png?lm=1698333588",
+          "country": "India",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€22.13m"
+        },
+        {
+          "tier": 2,
+          "competition": "Uzbekistan Pro Liga",
+          "competition_url": "https://www.transfermarkt.com/uzbekistan-pro-liga/startseite/wettbewerb/UZ2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/uz2l.png?lm=1620656401",
+          "country": "Uzbekistan",
+          "clubs": 6,
+          "average_market_value": "-",
+          "total_value": "€7.23m"
+        },
+        {
+          "tier": 2,
+          "competition": "NPL New South Wales",
+          "competition_url": "https://www.transfermarkt.com/national-premier-league-new-south-wales/startseite/wettbewerb/A2SW",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a2sw.png?lm=1676990286",
+          "country": "Australia",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€1.88m"
+        },
+        {
+          "tier": 2,
+          "competition": "NPL Victoria",
+          "competition_url": "https://www.transfermarkt.com/national-premier-league-victoria/startseite/wettbewerb/A2VI",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/a2vi.png?lm=1676575805",
+          "country": "Australia",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€875k"
+        },
+        {
+          "tier": 2,
+          "competition": "Hong Kong First Division",
+          "competition_url": "https://www.transfermarkt.com/hong-kong-first-division/startseite/wettbewerb/HK2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hk2l.png?lm=1616692276",
+          "country": "Hongkong",
+          "clubs": 13,
+          "average_market_value": "-",
+          "total_value": "€110k"
+        },
+        {
+          "tier": 3,
+          "competition": "J3 League",
+          "competition_url": "https://www.transfermarkt.com/j3-league/startseite/wettbewerb/JAP3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jap3.png?lm=1745609677",
+          "country": "Japan",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€55.86m"
+        },
+        {
+          "tier": 3,
+          "competition": "League Two A",
+          "competition_url": "https://www.transfermarkt.com/china-league-two-a/startseite/wettbewerb/CHL3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/chl3.png?lm=1618491912",
+          "country": "China",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€9.04m"
+        },
+        {
+          "tier": 3,
+          "competition": "League Two B",
+          "competition_url": "https://www.transfermarkt.com/china-league-two-b/startseite/wettbewerb/CL3S",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cl3s.png?lm=1618491896",
+          "country": "China",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€4.72m"
+        },
+        {
+          "tier": 3,
+          "competition": "K3 League",
+          "competition_url": "https://www.transfermarkt.com/k3-league/startseite/wettbewerb/K3L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/k3l.png?lm=1580922939",
+          "country": "Korea, South",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€985k"
+        },
+        {
+          "tier": 3,
+          "competition": "I-League 2",
+          "competition_url": "https://www.transfermarkt.com/i-league-2/startseite/wettbewerb/IND2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ind2.png?lm=1705740752",
+          "country": "India",
+          "clubs": 9,
+          "average_market_value": "-",
+          "total_value": "€125k"
+        },
+        {
+          "tier": 3,
+          "competition": "Liga Nusantara",
+          "competition_url": "https://www.transfermarkt.com/liga-nusantara/startseite/wettbewerb/IN3L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/in3l.png?lm=1733850182",
+          "country": "Indonesia",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€35k"
+        },
+        {
+          "tier": 3,
+          "competition": "Hong Kong Second Division",
+          "competition_url": "https://www.transfermarkt.com/hong-kong-second-division/startseite/wettbewerb/HK3L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hk3l.png?lm=1681409733",
+          "country": "Hongkong",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 3,
+          "competition": "League 2",
+          "competition_url": "https://www.transfermarkt.com/league-2/startseite/wettbewerb/IRN3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/irn3.png?lm=1539472125",
+          "country": "Iran",
+          "clubs": 28,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 4,
+          "competition": "K4 League",
+          "competition_url": "https://www.transfermarkt.com/k4-league/startseite/wettbewerb/K4L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/k4l.png?lm=1580922983",
+          "country": "Korea, South",
+          "clubs": 11,
+          "average_market_value": "-",
+          "total_value": "€2.20m"
+        },
+        {
+          "tier": 4,
+          "competition": "U21 League (Playoff)",
+          "competition_url": "https://www.transfermarkt.com/chinese-u21-league-playoff-stage-/startseite/wettbewerb/CN43",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cn43.png?lm=1746318724",
+          "country": "China",
+          "clubs": 19,
+          "average_market_value": "-",
+          "total_value": "€1.73m"
+        },
+        {
+          "tier": 4,
+          "competition": "Japan Football League",
+          "competition_url": "https://www.transfermarkt.com/japan-football-league/startseite/wettbewerb/JFL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jfl.png?lm=1700505737",
+          "country": "Japan",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€775k"
+        },
+        {
+          "tier": 4,
+          "competition": "Champions League (Regional)",
+          "competition_url": "https://www.transfermarkt.com/chinese-champions-league-regional-stage-/startseite/wettbewerb/CN41",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cn41.png?lm=1715868049",
+          "country": "China",
+          "clubs": 71,
+          "average_market_value": "-",
+          "total_value": "€225k"
+        },
+        {
+          "tier": 4,
+          "competition": "I-League 3",
+          "competition_url": "https://www.transfermarkt.com/i-league-3/startseite/wettbewerb/IN4L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/in4l.png?lm=1699456057",
+          "country": "India",
+          "clubs": 25,
+          "average_market_value": "-",
+          "total_value": "€50k"
+        },
+        {
+          "tier": 5,
+          "competition": "Shikoku Soccer League",
+          "competition_url": "https://www.transfermarkt.com/shikoku-soccer-league/startseite/wettbewerb/SHSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/shsl.png?lm=1591266599",
+          "country": "Japan",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€75k"
+        },
+        {
+          "tier": 5,
+          "competition": "Kanto Soccer League (Div.1)",
+          "competition_url": "https://www.transfermarkt.com/kanto-soccer-league-div-1-/startseite/wettbewerb/KTOS",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ktos.png?lm=1611212499",
+          "country": "Japan",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€60k"
+        },
+        {
+          "tier": 5,
+          "competition": "Chugoku Soccer League",
+          "competition_url": "https://www.transfermarkt.com/chugoku-soccer-league/startseite/wettbewerb/JCSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jcsl.png?lm=1662808149",
+          "country": "Japan",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€50k"
+        },
+        {
+          "tier": 5,
+          "competition": "Hokushin'etsu Football League (Div.1)",
+          "competition_url": "https://www.transfermarkt.com/hokushinetsu-football-league-div-1-/startseite/wettbewerb/HKSE",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hkse.png?lm=1611229186",
+          "country": "Japan",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€25k"
+        },
+        {
+          "tier": 5,
+          "competition": "Hokkaido Soccer League",
+          "competition_url": "https://www.transfermarkt.com/hokkaido-soccer-league/startseite/wettbewerb/HOSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hosl.png?lm=1652599254",
+          "country": "Japan",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Kansai Soccer League (Div.1)",
+          "competition_url": "https://www.transfermarkt.com/kansai-soccer-league-div-1-/startseite/wettbewerb/JPKA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jpka.png?lm=1611215082",
+          "country": "Japan",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Kyushu Soccer League",
+          "competition_url": "https://www.transfermarkt.com/kyushu-soccer-league/startseite/wettbewerb/JPKS",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jpks.png?lm=1586280137",
+          "country": "Japan",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Tohoku Soccer League (Div.1)",
+          "competition_url": "https://www.transfermarkt.com/tohoku-soccer-league-div-1-/startseite/wettbewerb/TOHL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tohl.png?lm=1611234577",
+          "country": "Japan",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "-"
+        },
+        {
+          "tier": 5,
+          "competition": "Tokai Soccer League (Div.1)",
+          "competition_url": "https://www.transfermarkt.com/tokai-soccer-league-div-1-/startseite/wettbewerb/TOSL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tosl.png?lm=1652599049",
+          "country": "Japan",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "-"
+        }
+      ]
+    },
+    {
+      "confederation_name": "America",
+      "url": "https://www.transfermarkt.com/wettbewerbe/amerika/wettbewerbe?plus=1",
+      "leagues": [
+        {
+          "tier": 1,
+          "competition": "Série A",
+          "competition_url": "https://www.transfermarkt.com/campeonato-brasileiro-serie-a/startseite/wettbewerb/BRA1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bra1.png?lm=1713364599",
+          "country": "Brazil",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€1.79bn"
+        },
+        {
+          "tier": 1,
+          "competition": "MLS",
+          "competition_url": "https://www.transfermarkt.com/major-league-soccer/startseite/wettbewerb/MLS1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mls1.png?lm=1612117632",
+          "country": "United States",
+          "clubs": 30,
+          "average_market_value": "-",
+          "total_value": "€1.30bn"
+        },
+        {
+          "tier": 1,
+          "competition": "Torneo Apertura",
+          "competition_url": "https://www.transfermarkt.com/torneo-apertura/startseite/wettbewerb/ARG1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/arg1.png?lm=1736445624",
+          "country": "Argentina",
+          "clubs": 30,
+          "average_market_value": "-",
+          "total_value": "€983.29m"
+        },
+        {
+          "tier": 1,
+          "competition": "Torneo Clausura",
+          "competition_url": "https://www.transfermarkt.com/torneo-clausura/startseite/wettbewerb/ARGC",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/argc.png?lm=1736782247",
+          "country": "Argentina",
+          "clubs": 30,
+          "average_market_value": "-",
+          "total_value": "€983.29m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga MX Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-mx-clausura/startseite/wettbewerb/MEX1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mex1.png?lm=1406287661",
+          "country": "Mexico",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€873.93m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga MX Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-mx-apertura/startseite/wettbewerb/MEXA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mexa.png?lm=1406287644",
+          "country": "Mexico",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€873.93m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liguilla Clausura",
+          "competition_url": "https://www.transfermarkt.com/liguilla-clausura/startseite/wettbewerb/POME",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pome.png?lm=1498770617",
+          "country": "Mexico",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€603.58m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liguilla Apertura",
+          "competition_url": "https://www.transfermarkt.com/liguilla-apertura/startseite/wettbewerb/POMX",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pomx.png?lm=1664911978",
+          "country": "Mexico",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€588.65m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Dimayor I",
+          "competition_url": "https://www.transfermarkt.com/liga-dimayor-apertura/startseite/wettbewerb/COLP",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/colp.png?lm=1580674248",
+          "country": "Colombia",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€219.58m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Primera",
+          "competition_url": "https://www.transfermarkt.com/liga-de-primera/startseite/wettbewerb/CLPD",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/clpd.png?lm=1739198851",
+          "country": "Chile",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€189.38m"
+        },
+        {
+          "tier": 1,
+          "competition": "LigaPro Serie A",
+          "competition_url": "https://www.transfermarkt.com/ligapro-serie-a/startseite/wettbewerb/EC1N",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ec1n.png?lm=1581946833",
+          "country": "Ecuador",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€173.99m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga AUF Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-auf-apertura/startseite/wettbewerb/URU1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/uru1.png?lm=1737663848",
+          "country": "Uruguay",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€155.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga AUF Intermedio",
+          "competition_url": "https://www.transfermarkt.com/liga-auf-intermedio/startseite/wettbewerb/URUI",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/urui.png?lm=1737664675",
+          "country": "Uruguay",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€155.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga 1 Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-1-apertura/startseite/wettbewerb/TDeA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tdea.png?lm=1579456471",
+          "country": "Peru",
+          "clubs": 19,
+          "average_market_value": "-",
+          "total_value": "€141.00m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Apertura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-apertura/startseite/wettbewerb/PR1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pr1a.png?lm=1586638106",
+          "country": "Paraguay",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€117.68m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Clausura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-clausura/startseite/wettbewerb/PR1C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pr1c.png?lm=1661778309",
+          "country": "Paraguay",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€117.68m"
+        },
+        {
+          "tier": 1,
+          "competition": "División Profesional Apertura",
+          "competition_url": "https://www.transfermarkt.com/division-profesional-apertura/startseite/wettbewerb/B1AP",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/b1ap.png?lm=1638148860",
+          "country": "Bolivia",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€88.56m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga FUTVE Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-futve-apertura/startseite/wettbewerb/VZ1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vz1a.png?lm=1679095469",
+          "country": "Venezuela",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€63.06m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga FUTVE Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-futve-clausura/startseite/wettbewerb/VZ1C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vz1c.png?lm=1542035540",
+          "country": "Venezuela",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€63.06m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Apertura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-apertura/startseite/wettbewerb/CRPD",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/crpd.png?lm=1638269214",
+          "country": "Costa Rica",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€49.67m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Clausura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-clausura/startseite/wettbewerb/PDV1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pdv1.png?lm=1638269247",
+          "country": "Costa Rica",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€49.67m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Guate Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-guate-apertura/startseite/wettbewerb/GU1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gu1a.png?lm=1685607525",
+          "country": "Guatemala",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€31.31m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Guate Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-guate-clausura/startseite/wettbewerb/GU1C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/gu1c.png?lm=1674032883",
+          "country": "Guatemala",
+          "clubs": 11,
+          "average_market_value": "-",
+          "total_value": "€31.03m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Nacional Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-nacional-apertura/startseite/wettbewerb/HO1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ho1a.png?lm=1724221669",
+          "country": "Honduras",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€30.85m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Nacional Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-nacional-clausura/startseite/wettbewerb/HOC1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/hoc1.png?lm=1734952956",
+          "country": "Honduras",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€30.85m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Apertura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-apertura/startseite/wettbewerb/SL1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sl1a.png?lm=1697094038",
+          "country": "El Salvador",
+          "clubs": 11,
+          "average_market_value": "-",
+          "total_value": "€27.24m"
+        },
+        {
+          "tier": 1,
+          "competition": "Primera División Clausura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-clausura/startseite/wettbewerb/SL1C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sl1c.png?lm=1697094069",
+          "country": "El Salvador",
+          "clubs": 11,
+          "average_market_value": "-",
+          "total_value": "€27.24m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Panameña Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-panamena-de-futbol-apertura/startseite/wettbewerb/PN1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pn1a.png?lm=1647938380",
+          "country": "Panama",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€23.87m"
+        },
+        {
+          "tier": 1,
+          "competition": "Apertura Play-Off",
+          "competition_url": "https://www.transfermarkt.com/primera-division-apertura-play-off/startseite/wettbewerb/CRPV",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/crpv.png?lm=1638269284",
+          "country": "Costa Rica",
+          "clubs": 4,
+          "average_market_value": "-",
+          "total_value": "€22.82m"
+        },
+        {
+          "tier": 1,
+          "competition": "Clausura Play-Off",
+          "competition_url": "https://www.transfermarkt.com/primera-division-clausura-play-off/startseite/wettbewerb/PDV2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pdv2.png?lm=1638269391",
+          "country": "Costa Rica",
+          "clubs": 4,
+          "average_market_value": "-",
+          "total_value": "€22.62m"
+        },
+        {
+          "tier": 1,
+          "competition": "CanPL",
+          "competition_url": "https://www.transfermarkt.com/canadian-premier-league/startseite/wettbewerb/CDN1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cdn1.png?lm=1644928004",
+          "country": "Canada",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€22.14m"
+        },
+        {
+          "tier": 1,
+          "competition": "Apertura Finale",
+          "competition_url": "https://www.transfermarkt.com/primera-division-apertura-finale/startseite/wettbewerb/CIF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cif.png?lm=1638269334",
+          "country": "Costa Rica",
+          "clubs": 2,
+          "average_market_value": "-",
+          "total_value": "€13.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Clausura Finale",
+          "competition_url": "https://www.transfermarkt.com/primera-division-clausura-finale/startseite/wettbewerb/CVF",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cvf.png?lm=1638269367",
+          "country": "Costa Rica",
+          "clubs": 2,
+          "average_market_value": "-",
+          "total_value": "€13.39m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Primera Apertura",
+          "competition_url": "https://www.transfermarkt.com/liga-primera-de-nicaragua-apertura/startseite/wettbewerb/NC1A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nc1a.png?lm=1674059009",
+          "country": "Nicaragua",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€5.15m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Primera Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-primera-de-nicaragua-clausura/startseite/wettbewerb/NC1C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/nc1c.png?lm=1674059028",
+          "country": "Nicaragua",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€5.15m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Dominicana de Fútbol",
+          "competition_url": "https://www.transfermarkt.com/liga-dominicana-de-futbol/startseite/wettbewerb/DOM1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/dom1.png?lm=1705487387",
+          "country": "Dominican Republic",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€1.43m"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Dominicana - Playoff",
+          "competition_url": "https://www.transfermarkt.com/liga-dominicana-de-futbol-playoff/startseite/wettbewerb/DOMP",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/domp.png?lm=1651477684",
+          "country": "Dominican Republic",
+          "clubs": 4,
+          "average_market_value": "-",
+          "total_value": "€1.15m"
+        },
+        {
+          "tier": 1,
+          "competition": "Jamaica Premier League",
+          "competition_url": "https://www.transfermarkt.com/jamaica-premier-league/startseite/wettbewerb/JPL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jpl1.png?lm=1626106395",
+          "country": "Jamaica",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€650k"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League Playoff",
+          "competition_url": "https://www.transfermarkt.com/jamaica-premier-league-playoff/startseite/wettbewerb/JPP1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/jpp1.png?lm=1632423380",
+          "country": "Jamaica",
+          "clubs": 6,
+          "average_market_value": "-",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 1,
+          "competition": "Liga Puerto Rico Clausura",
+          "competition_url": "https://www.transfermarkt.com/liga-puerto-rico-clausura/startseite/wettbewerb/PRC1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/prc1.png?lm=1742594083",
+          "country": "Puerto Rico",
+          "clubs": 10,
+          "average_market_value": "-",
+          "total_value": "€200k"
+        },
+        {
+          "tier": 2,
+          "competition": "Série B",
+          "competition_url": "https://www.transfermarkt.com/campeonato-brasileiro-serie-b/startseite/wettbewerb/BRA2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bra2.png?lm=1731436730",
+          "country": "Brazil",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€230.48m"
+        },
+        {
+          "tier": 2,
+          "competition": "Primera Nacional",
+          "competition_url": "https://www.transfermarkt.com/primera-nacional/startseite/wettbewerb/ARG2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/arg2.png?lm=1606232114",
+          "country": "Argentina",
+          "clubs": 36,
+          "average_market_value": "-",
+          "total_value": "€105.55m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga Expansión MX Cl.",
+          "competition_url": "https://www.transfermarkt.com/liga-de-expansion-mx-clausura/startseite/wettbewerb/MEX2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mex2.png?lm=1639483872",
+          "country": "Mexico",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€105.42m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga Expansión MX Ap.",
+          "competition_url": "https://www.transfermarkt.com/liga-de-expansion-mx-apertura/startseite/wettbewerb/MEXB",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mexb.png?lm=1639483845",
+          "country": "Mexico",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€105.42m"
+        },
+        {
+          "tier": 2,
+          "competition": "USLC",
+          "competition_url": "https://www.transfermarkt.com/usl-championship/startseite/wettbewerb/USL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/usl.png?lm=1543694624",
+          "country": "United States",
+          "clubs": 24,
+          "average_market_value": "-",
+          "total_value": "€90.91m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga de Ascenso",
+          "competition_url": "https://www.transfermarkt.com/liga-de-ascenso/startseite/wettbewerb/CL2B",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/cl2b.png?lm=1739198890",
+          "country": "Chile",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€70.15m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liguilla de Expansión Clausura",
+          "competition_url": "https://www.transfermarkt.com/liguilla-de-expansion-clausura/startseite/wettbewerb/MXBC",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mxbc.png?lm=1639483877",
+          "country": "Mexico",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€60.59m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liguilla de Expansión Apertura",
+          "competition_url": "https://www.transfermarkt.com/liguilla-de-expansion-apertura/startseite/wettbewerb/MXBA",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mxba.png?lm=1639483864",
+          "country": "Mexico",
+          "clubs": 8,
+          "average_market_value": "-",
+          "total_value": "€59.81m"
+        },
+        {
+          "tier": 2,
+          "competition": "Torneo DIMAYOR I",
+          "competition_url": "https://www.transfermarkt.com/torneo-dimayor-i/startseite/wettbewerb/CO2T",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/co2t.png?lm=1580728690",
+          "country": "Colombia",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€47.50m"
+        },
+        {
+          "tier": 2,
+          "competition": "Torneo Competencia",
+          "competition_url": "https://www.transfermarkt.com/segunda-division-torneo-competencia/startseite/wettbewerb/UR2T",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ur2t.png?lm=1747544206",
+          "country": "Uruguay",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€40.46m"
+        },
+        {
+          "tier": 2,
+          "competition": "Segunda División",
+          "competition_url": "https://www.transfermarkt.com/segunda-division-fase-regular/startseite/wettbewerb/URU2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/uru2.png?lm=1747544015",
+          "country": "Uruguay",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€40.46m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga 2",
+          "competition_url": "https://www.transfermarkt.com/liga-2/startseite/wettbewerb/PER2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/per2.png?lm=1579456913",
+          "country": "Peru",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€38.20m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga Pro Serie B",
+          "competition_url": "https://www.transfermarkt.com/liga-pro-serie-b/startseite/wettbewerb/EC2L",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ec2l.png?lm=1707832810",
+          "country": "Ecuador",
+          "clubs": 12,
+          "average_market_value": "-",
+          "total_value": "€21.44m"
+        },
+        {
+          "tier": 2,
+          "competition": "Copa Simón Bolívar (-2024)",
+          "competition_url": "https://www.transfermarkt.com/copa-simon-bolivar-2024-/startseite/wettbewerb/BOL2",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bol2.png?lm=1636120845",
+          "country": "Bolivia",
+          "clubs": 17,
+          "average_market_value": "-",
+          "total_value": "€6.78m"
+        },
+        {
+          "tier": 2,
+          "competition": "Liga FUTVE 2",
+          "competition_url": "https://www.transfermarkt.com/liga-futve-2/startseite/wettbewerb/VN2A",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/vn2a.png?lm=1679095131",
+          "country": "Venezuela",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€2.78m"
+        },
+        {
+          "tier": 3,
+          "competition": "USL1",
+          "competition_url": "https://www.transfermarkt.com/usl-league-one/startseite/wettbewerb/USC3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/usc3.png?lm=1538380520",
+          "country": "United States",
+          "clubs": 14,
+          "average_market_value": "-",
+          "total_value": "€31.94m"
+        },
+        {
+          "tier": 3,
+          "competition": "MLS Next Pro",
+          "competition_url": "https://www.transfermarkt.com/mls-next-pro/startseite/wettbewerb/MNP3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mnp3.png?lm=1639596259",
+          "country": "United States",
+          "clubs": 29,
+          "average_market_value": "-",
+          "total_value": "€13.71m"
+        },
+        {
+          "tier": 3,
+          "competition": "Série C",
+          "competition_url": "https://www.transfermarkt.com/campeonato-brasileiro-serie-c/startseite/wettbewerb/BRA3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bra3.png?lm=1682608634",
+          "country": "Brazil",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€5.75m"
+        },
+        {
+          "tier": 3,
+          "competition": "Liga 3",
+          "competition_url": "https://www.transfermarkt.com/liga-3/startseite/wettbewerb/PLI3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/pli3.png?lm=1747742282",
+          "country": "Peru",
+          "clubs": 37,
+          "average_market_value": "-",
+          "total_value": "€5.29m"
+        },
+        {
+          "tier": 3,
+          "competition": "Primera B Apertura",
+          "competition_url": "https://www.transfermarkt.com/primera-division-b-apertura/startseite/wettbewerb/AR3C",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ar3c.png?lm=1739527666",
+          "country": "Argentina",
+          "clubs": 21,
+          "average_market_value": "-",
+          "total_value": "€570k"
+        },
+        {
+          "tier": 3,
+          "competition": "Torneo Federal A",
+          "competition_url": "https://www.transfermarkt.com/torneo-federal-a/startseite/wettbewerb/ARG3",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/arg3.png?lm=1649186614",
+          "country": "Argentina",
+          "clubs": 38,
+          "average_market_value": "-",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 4,
+          "competition": "Série D",
+          "competition_url": "https://www.transfermarkt.com/campeonato-brasileiro-serie-d/startseite/wettbewerb/BRA4",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/bra4.png?lm=1682608780",
+          "country": "Brazil",
+          "clubs": 64,
+          "average_market_value": "-",
+          "total_value": "€1.75m"
+        }
+      ]
+    },
+    {
+      "confederation_name": "Africa",
+      "url": "https://www.transfermarkt.com/wettbewerbe/afrika/wettbewerbe?plus=1",
+      "leagues": [
+        {
+          "tier": 1,
+          "competition": "Betway Premiership",
+          "competition_url": "https://www.transfermarkt.com/betway-premiership/startseite/wettbewerb/SFA1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/sfa1.png?lm=1721827539",
+          "country": "South Africa",
+          "clubs": 15,
+          "average_market_value": "-",
+          "total_value": "€173.88m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/egyptian-premier-league/startseite/wettbewerb/EGY1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/egy1.png?lm=1741338264",
+          "country": "Egypt",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€151.85m"
+        },
+        {
+          "tier": 1,
+          "competition": "Botola Pro Inwi",
+          "competition_url": "https://www.transfermarkt.com/botola-pro-inwi/startseite/wettbewerb/MAR1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/mar1.png?lm=1649263824",
+          "country": "Morocco",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€128.87m"
+        },
+        {
+          "tier": 1,
+          "competition": "Ligue Professionnelle 1",
+          "competition_url": "https://www.transfermarkt.com/ligue-professionnelle-1/startseite/wettbewerb/ALG1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/alg1.png?lm=1719326582",
+          "country": "Algeria",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€101.78m"
+        },
+        {
+          "tier": 1,
+          "competition": "Ligue I Pro",
+          "competition_url": "https://www.transfermarkt.com/ligue-professionnelle-1/startseite/wettbewerb/TUN1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/tun1.png?lm=1534152824",
+          "country": "Tunisia",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€92.73m"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/ghana-premier-league/startseite/wettbewerb/GHPL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ghpl.png?lm=1723096151",
+          "country": "Ghana",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€29.68m"
+        },
+        {
+          "tier": 1,
+          "competition": "Libyan Premier League",
+          "competition_url": "https://www.transfermarkt.com/libyan-premier-league/startseite/wettbewerb/LPL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/lpl.png?lm=1735383720",
+          "country": "Libya",
+          "clubs": 35,
+          "average_market_value": "-",
+          "total_value": "€23.18m"
+        },
+        {
+          "tier": 1,
+          "competition": "NPFL",
+          "competition_url": "https://www.transfermarkt.com/nigeria-professional-football-league/startseite/wettbewerb/NPFL",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/npfl.png?lm=1557386764",
+          "country": "Nigeria",
+          "clubs": 20,
+          "average_market_value": "-",
+          "total_value": "€975k"
+        },
+        {
+          "tier": 1,
+          "competition": "Uganda Premier League",
+          "competition_url": "https://www.transfermarkt.com/uganda-premier-league/startseite/wettbewerb/UGL1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/ugl1.png?lm=1721651729",
+          "country": "Uganda",
+          "clubs": 16,
+          "average_market_value": "-",
+          "total_value": "€500k"
+        },
+        {
+          "tier": 1,
+          "competition": "Premier League",
+          "competition_url": "https://www.transfermarkt.com/ethiopian-premier-league/startseite/wettbewerb/ETP1",
+          "competition_logo_url": "https://www.transfermarkt.comhttps://tmssl.akamaized.net//images/logo/tiny/etp1.png?lm=1721653030",
+          "country": "Ethiopia",
+          "clubs": 18,
+          "average_market_value": "-",
+          "total_value": "€325k"
+        }
+      ]
+    }
+  ]
+}

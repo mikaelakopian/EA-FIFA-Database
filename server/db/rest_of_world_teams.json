@@ -1,0 +1,530 @@
+[
+  {
+    "teamid": 211,
+    "teamname": "Dinamo Zagreb",
+    "country": "Croatia",
+    "countryid": "10"
+  },
+  {
+    "teamid": 263,
+    "teamname": "Hajduk Split",
+    "country": "Croatia",
+    "countryid": "10"
+  },
+  {
+    "teamid": 266,
+    "teamname": "Slavia Praha",
+    "country": "Czech Republic",
+    "countryid": "12"
+  },
+  {
+    "teamid": 267,
+    "teamname": "Sparta Praha",
+    "country": "Czech Republic",
+    "countryid": "12"
+  },
+  {
+    "teamid": 278,
+    "teamname": "AEK",
+    "country": "Greece",
+    "countryid": "22"
+  },
+  {
+    "teamid": 280,
+    "teamname": "Olympiacos",
+    "country": "Greece",
+    "countryid": "22"
+  },
+  {
+    "teamid": 383,
+    "teamname": "Palmeiras",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 393,
+    "teamname": "PAOK",
+    "country": "Greece",
+    "countryid": "22"
+  },
+  {
+    "teamid": 517,
+    "teamname": "Botafogo",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 567,
+    "teamname": "Fluminense",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 568,
+    "teamname": "Cruzeiro",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 598,
+    "teamname": "São Paulo",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1035,
+    "teamname": "Atlético Mineiro",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1039,
+    "teamname": "Athletico Paranaense",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1041,
+    "teamname": "Corinthians",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1043,
+    "teamname": "Flamengo",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1048,
+    "teamname": "Internacional",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1629,
+    "teamname": "Grêmio",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 1874,
+    "teamname": "Ferencvárosi TC",
+    "country": "Hungary",
+    "countryid": "23"
+  },
+  {
+    "teamid": 1884,
+    "teamname": "Panathinaikos",
+    "country": "Greece",
+    "countryid": "22"
+  },
+  {
+    "teamid": 100135,
+    "teamname": "APOEL Nicosia FC",
+    "country": "Cyprus",
+    "countryid": "11"
+  },
+  {
+    "teamid": 100325,
+    "teamname": "HJK Helsinki",
+    "country": "Finland",
+    "countryid": "17"
+  },
+  {
+    "teamid": 101047,
+    "teamname": "Dynamo Kyiv",
+    "country": "Ukraine",
+    "countryid": "49"
+  },
+  {
+    "teamid": 101059,
+    "teamname": "Shakhtar Donetsk",
+    "country": "Ukraine",
+    "countryid": "49"
+  },
+  {
+    "teamid": 101099,
+    "teamname": "América de Cali",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 101100,
+    "teamname": "Atlético Nacional",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 101101,
+    "teamname": "Junior de Barranquilla",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 101103,
+    "teamname": "Independiente Medellín",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 101105,
+    "teamname": "Millonarios",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 110468,
+    "teamname": "Viktoria Plzeň",
+    "country": "Czech Republic",
+    "countryid": "12"
+  },
+  {
+    "teamid": 110968,
+    "teamname": "Bolívar",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 110969,
+    "teamname": "The Strongest",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 110974,
+    "teamname": "Jorge Wilstermann",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 110975,
+    "teamname": "Universidad Católica",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 110978,
+    "teamname": "Cobresal",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 110980,
+    "teamname": "Colo-Colo",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 110981,
+    "teamname": "Barcelona SC Guayaquil",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 110982,
+    "teamname": "Deportivo Cuenca",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 110986,
+    "teamname": "LDU Quito",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 111006,
+    "teamname": "Sportivo Luqueño",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 111008,
+    "teamname": "Libertad",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 111052,
+    "teamname": "Fortaleza",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 111327,
+    "teamname": "Huachipato",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 111328,
+    "teamname": "Palestino",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 111329,
+    "teamname": "Guaraní (Paraguay)",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 111596,
+    "teamname": "MLS All Stars",
+    "country": "Rest of World",
+    "countryid": "211"
+  },
+  {
+    "teamid": 111701,
+    "teamname": "Al Ain FC (UAE)",
+    "country": "United Arab Emirates",
+    "countryid": "190"
+  },
+  {
+    "teamid": 111722,
+    "teamname": "Deportes Tolima",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 112472,
+    "teamname": "RB Bragantino",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 112535,
+    "teamname": "Unión La Calera",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 112584,
+    "teamname": "Everton de Viña del Mar",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 112667,
+    "teamname": "Nacional Potosí",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 112671,
+    "teamname": "Nacional Asunción",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 112705,
+    "teamname": "Coquimbo Unido",
+    "country": "Chile",
+    "countryid": "55"
+  },
+  {
+    "teamid": 112716,
+    "teamname": "Cerro Porteño",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 112908,
+    "teamname": "Independiente del Valle",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 113746,
+    "teamname": "Técnico Universitario",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 113888,
+    "teamname": "Qarabağ FK",
+    "country": "Azerbaijan",
+    "countryid": "5"
+  },
+  {
+    "teamid": 114577,
+    "teamname": "Always Ready",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 114580,
+    "teamname": "Delfín SC",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 114581,
+    "teamname": "Universidad Católica del Ecuador",
+    "country": "Ecuador",
+    "countryid": "58"
+  },
+  {
+    "teamid": 114815,
+    "teamname": "Soccer Aid",
+    "country": "Rest of World",
+    "countryid": "211"
+  },
+  {
+    "teamid": 115491,
+    "teamname": "Real Tomayapo",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 115530,
+    "teamname": "Cuiabá",
+    "country": "Brazil",
+    "countryid": "54"
+  },
+  {
+    "teamid": 116292,
+    "teamname": "Universitario de Vinto",
+    "country": "Bolivia",
+    "countryid": "52"
+  },
+  {
+    "teamid": 116295,
+    "teamname": "Sportivo Ameliano",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 116323,
+    "teamname": "Sportivo Trinidense",
+    "country": "Paraguay",
+    "countryid": "61"
+  },
+  {
+    "teamid": 131511,
+    "teamname": "Alianza FC",
+    "country": "Colombia",
+    "countryid": "56"
+  },
+  {
+    "teamid": 101110,
+    "teamname": "Peñarol",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 110989,
+    "teamname": "Caracas FC",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 110990,
+    "teamname": "Deportivo Táchira",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 111010,
+    "teamname": "Alianza Lima",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 111014,
+    "teamname": "Universitario de Deportes",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 111325,
+    "teamname": "Nacional de Montevideo",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 111326,
+    "teamname": "Liverpool Fútbol Club Uruguay",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 101108,
+    "teamname": "Olimpia Asunción",
+    "country": "Paraguay",
+    "countryid": "58"
+  },
+  {
+    "teamid": 110991,
+    "teamname": "Carabobo FC",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 110998,
+    "teamname": "Danubio FC",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 111001,
+    "teamname": "Montevideo Wanderers",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 112853,
+    "teamname": "Deportivo La Guaira",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 112914,
+    "teamname": "Metropolitanos FC",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 113029,
+    "teamname": "Universidad César Vallejo",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 114511,
+    "teamname": "Sport Huancayo",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 115536,
+    "teamname": "Cerro Largo",
+    "country": "Uruguay",
+    "countryid": "60"
+  },
+  {
+    "teamid": 116263,
+    "teamname": "Asociación Deportiva Tarma",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 131161,
+    "teamname": "Deportivo Garcilaso",
+    "country": "Peru",
+    "countryid": "59"
+  },
+  {
+    "teamid": 131474,
+    "teamname": "Rayo Zuliano",
+    "country": "Venezuela",
+    "countryid": "61"
+  },
+  {
+    "teamid": 112615,
+    "teamname": "Racing Club De Montevideo",
+    "country": "Uruguay",
+    "countryid": "60"
+  }
+]

@@ -1,0 +1,1042 @@
+[
+  {
+    "leagueid": "1",
+    "leaguename": "3F Superliga",
+    "leaguelevel": 1,
+    "country": "Denmark",
+    "iswomenleague": false,
+    "countryid": "13"
+  },
+  {
+    "leagueid": "4",
+    "leaguename": "1A Pro League",
+    "leaguelevel": 1,
+    "country": "Belgium",
+    "iswomenleague": false,
+    "countryid": "7"
+  },
+  {
+    "leagueid": "7",
+    "leaguename": "LeagueName_7_Brazil-Campeonato_FullChar",
+    "leaguelevel": 1,
+    "country": "Brazil",
+    "iswomenleague": false,
+    "countryid": "54"
+  },
+  {
+    "leagueid": "10",
+    "leaguename": "Eredivisie",
+    "leaguelevel": 1,
+    "country": "Holland",
+    "iswomenleague": false,
+    "countryid": "34"
+  },
+  {
+    "leagueid": "13",
+    "leaguename": "Premier League",
+    "leaguelevel": 1,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "14",
+    "leaguename": "EFL Championship",
+    "leaguelevel": 2,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "16",
+    "leaguename": "Ligue 1 McDonald's",
+    "leaguelevel": 1,
+    "country": "France",
+    "iswomenleague": false,
+    "countryid": "18"
+  },
+  {
+    "leagueid": "17",
+    "leaguename": "Ligue 2 BKT",
+    "leaguelevel": 2,
+    "country": "France",
+    "iswomenleague": false,
+    "countryid": "18"
+  },
+  {
+    "leagueid": "19",
+    "leaguename": "Bundesliga",
+    "leaguelevel": 1,
+    "country": "Germany",
+    "iswomenleague": false,
+    "countryid": "21"
+  },
+  {
+    "leagueid": "20",
+    "leaguename": "Bundesliga 2",
+    "leaguelevel": 2,
+    "country": "Germany",
+    "iswomenleague": false,
+    "countryid": "21"
+  },
+  {
+    "leagueid": "31",
+    "leaguename": "Serie A Enilive",
+    "leaguelevel": 1,
+    "country": "Italy",
+    "iswomenleague": false,
+    "countryid": "27"
+  },
+  {
+    "leagueid": "32",
+    "leaguename": "Serie BKT",
+    "leaguelevel": 2,
+    "country": "Italy",
+    "iswomenleague": false,
+    "countryid": "27"
+  },
+  {
+    "leagueid": "39",
+    "leaguename": "Major League Soccer",
+    "leaguelevel": 1,
+    "country": "United States",
+    "iswomenleague": false,
+    "countryid": "95"
+  },
+  {
+    "leagueid": "41",
+    "leaguename": "Eliteserien",
+    "leaguelevel": 1,
+    "country": "Norway",
+    "iswomenleague": false,
+    "countryid": "36"
+  },
+  {
+    "leagueid": "50",
+    "leaguename": "Scottish Premiership",
+    "leaguelevel": 1,
+    "country": "Scotland",
+    "iswomenleague": false,
+    "countryid": "42"
+  },
+  {
+    "leagueid": "51",
+    "leaguename": "Scotland League",
+    "leaguelevel": 2,
+    "country": "Scotland",
+    "iswomenleague": false,
+    "countryid": "42"
+  },
+  {
+    "leagueid": "53",
+    "leaguename": "LALIGA EA SPORTS",
+    "leaguelevel": 1,
+    "country": "Spain",
+    "iswomenleague": false,
+    "countryid": "45"
+  },
+  {
+    "leagueid": "54",
+    "leaguename": "LALIGA HYPERMOTION",
+    "leaguelevel": 2,
+    "country": "Spain",
+    "iswomenleague": false,
+    "countryid": "45"
+  },
+  {
+    "leagueid": "56",
+    "leaguename": "Allsvenskan",
+    "leaguelevel": 1,
+    "country": "Sweden",
+    "iswomenleague": false,
+    "countryid": "46"
+  },
+  {
+    "leagueid": "60",
+    "leaguename": "EFL League One",
+    "leaguelevel": 3,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "61",
+    "leaguename": "EFL League Two",
+    "leaguelevel": 4,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "63",
+    "leaguename": "Hellas Liga",
+    "leaguelevel": 1,
+    "country": "Greece",
+    "iswomenleague": false,
+    "countryid": "22"
+  },
+  {
+    "leagueid": "65",
+    "leaguename": "SSE Airtricity Men's Premier Division",
+    "leaguelevel": 1,
+    "country": "Republic of Ireland",
+    "iswomenleague": false,
+    "countryid": "25"
+  },
+  {
+    "leagueid": "66",
+    "leaguename": "PKO Bank Polski Ekstraklasa",
+    "leaguelevel": 1,
+    "country": "Poland",
+    "iswomenleague": false,
+    "countryid": "37"
+  },
+  {
+    "leagueid": "68",
+    "leaguename": "Trendyol Süper Lig",
+    "leaguelevel": 1,
+    "country": "Turkey",
+    "iswomenleague": false,
+    "countryid": "48"
+  },
+  {
+    "leagueid": "76",
+    "leaguename": "Rest of World Men",
+    "leaguelevel": 2,
+    "country": "Rest of World",
+    "iswomenleague": false,
+    "countryid": "211"
+  },
+  {
+    "leagueid": "78",
+    "leaguename": "Сборные (муж.)",
+    "leaguelevel": 1,
+    "country": "International",
+    "iswomenleague": false,
+    "countryid": "75"
+  },
+  {
+    "leagueid": "80",
+    "leaguename": "Österreichische Fußball-Bundesliga",
+    "leaguelevel": 1,
+    "country": "Austria",
+    "iswomenleague": false,
+    "countryid": "4"
+  },
+  {
+    "leagueid": "83",
+    "leaguename": "K League 1",
+    "leaguelevel": 1,
+    "country": "Korea Republic",
+    "iswomenleague": false,
+    "countryid": "167"
+  },
+  {
+    "leagueid": "84",
+    "leaguename": "Mexican Clausura",
+    "leaguelevel": 1,
+    "country": "Mexico",
+    "iswomenleague": false,
+    "countryid": "83"
+  },
+  {
+    "leagueid": "85",
+    "leaguename": "Mexican Apertura",
+    "leaguelevel": 1,
+    "country": "Mexico",
+    "iswomenleague": false,
+    "countryid": "83"
+  },
+  {
+    "leagueid": "157",
+    "leaguename": "LeagueName_157_Chile-Clausura_Gen-FullChar",
+    "leaguelevel": 1,
+    "country": "Chile",
+    "iswomenleague": false,
+    "countryid": "55"
+  },
+  {
+    "leagueid": "189",
+    "leaguename": "Credit Suisse Super League",
+    "leaguelevel": 1,
+    "country": "Switzerland",
+    "iswomenleague": false,
+    "countryid": "47"
+  },
+  {
+    "leagueid": "241",
+    "leaguename": "Мой турнир",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "242",
+    "leaguename": "Мой турнир",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "243",
+    "leaguename": "Мой турнир",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "244",
+    "leaguename": "Мой турнир",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "245",
+    "leaguename": "Мой турнир",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "308",
+    "leaguename": "Liga Portugal",
+    "leaguelevel": 1,
+    "country": "Portugal",
+    "iswomenleague": false,
+    "countryid": "38"
+  },
+  {
+    "leagueid": "317",
+    "leaguename": "Liga Hrvatska",
+    "leaguelevel": 1,
+    "country": "Croatia",
+    "iswomenleague": false,
+    "countryid": "10"
+  },
+  {
+    "leagueid": "319",
+    "leaguename": "Ceska Liga",
+    "leaguelevel": 1,
+    "country": "Czech Republic",
+    "iswomenleague": false,
+    "countryid": "12"
+  },
+  {
+    "leagueid": "322",
+    "leaguename": "Finnliiga",
+    "leaguelevel": 1,
+    "country": "Finland",
+    "iswomenleague": false,
+    "countryid": "17"
+  },
+  {
+    "leagueid": "330",
+    "leaguename": "SUPERLIGA",
+    "leaguelevel": 1,
+    "country": "Denmark",
+    "iswomenleague": false,
+    "countryid": "13"
+  },
+  {
+    "leagueid": "332",
+    "leaguename": "Ukrayina Liha",
+    "leaguelevel": 1,
+    "country": "Ukraine",
+    "iswomenleague": false,
+    "countryid": "49"
+  },
+  {
+    "leagueid": "343",
+    "leaguename": "League of Egypt",
+    "leaguelevel": 1,
+    "country": "Egypt",
+    "iswomenleague": false,
+    "countryid": "111"
+  },
+  {
+    "leagueid": "347",
+    "leaguename": "South African FL",
+    "leaguelevel": 1,
+    "country": "South Africa",
+    "iswomenleague": false,
+    "countryid": "140"
+  },
+  {
+    "leagueid": "350",
+    "leaguename": "ROSHN Saudi League",
+    "leaguelevel": 1,
+    "country": "Saudi Arabia",
+    "iswomenleague": false,
+    "countryid": "183"
+  },
+  {
+    "leagueid": "351",
+    "leaguename": "Isuzu UTE A League",
+    "leaguelevel": 1,
+    "country": "Australia",
+    "iswomenleague": false,
+    "countryid": "195"
+  },
+  {
+    "leagueid": "353",
+    "leaguename": "Liga Profesional de Fútbol",
+    "leaguelevel": 1,
+    "country": "Argentina",
+    "iswomenleague": false,
+    "countryid": "52"
+  },
+  {
+    "leagueid": "371",
+    "leaguename": "Scotland League",
+    "leaguelevel": 2,
+    "country": "Scotland",
+    "iswomenleague": false,
+    "countryid": "42"
+  },
+  {
+    "leagueid": "382",
+    "leaguename": "Своб. агенты ",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "383",
+    "leaguename": "Лига созд. игроков",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "384",
+    "leaguename": "Лига Творческого центра",
+    "leaguelevel": 2,
+    "country": "Custom",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "390",
+    "leaguename": "MLS Cup",
+    "leaguelevel": 2,
+    "country": "United States",
+    "iswomenleague": false,
+    "countryid": "95"
+  },
+  {
+    "leagueid": "993",
+    "leaguename": "Asia Qualifier",
+    "leaguelevel": 2,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "1003",
+    "leaguename": "CONMEBOL Libertadores",
+    "leaguelevel": 2,
+    "country": "South America",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "1005",
+    "leaguename": "Colombia Finalización ",
+    "leaguelevel": 1,
+    "country": "Colombia",
+    "iswomenleague": false,
+    "countryid": "56"
+  },
+  {
+    "leagueid": "1008",
+    "leaguename": "Argentina Apertura",
+    "leaguelevel": 1,
+    "country": "Argentina",
+    "iswomenleague": false,
+    "countryid": "52"
+  },
+  {
+    "leagueid": "1009",
+    "leaguename": "Argentina Clausura",
+    "leaguelevel": 1,
+    "country": "Argentina",
+    "iswomenleague": false,
+    "countryid": "52"
+  },
+  {
+    "leagueid": "1014",
+    "leaguename": "CONMEBOL Sudamericana",
+    "leaguelevel": 2,
+    "country": "South America",
+    "iswomenleague": true,
+    "countryid": null
+  },
+  {
+    "leagueid": "1015",
+    "leaguename": "CONMEBOL Recopa",
+    "leaguelevel": 2,
+    "country": "South America",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "1990",
+    "leaguename": "FIFA World Cup",
+    "leaguelevel": 1,
+    "country": "International",
+    "iswomenleague": false,
+    "countryid": "75"
+  },
+  {
+    "leagueid": "2002",
+    "leaguename": "Nacional B",
+    "leaguelevel": 2,
+    "country": "Argentina",
+    "iswomenleague": false,
+    "countryid": "52"
+  },
+  {
+    "leagueid": "2012",
+    "leaguename": "Chinese Football Association Super League",
+    "leaguelevel": 1,
+    "country": "China PR",
+    "iswomenleague": false,
+    "countryid": "155"
+  },
+  {
+    "leagueid": "2025",
+    "leaguename": "LeagueName_2025_Campeonato-Brasileiro-Serie-B_Gen-FullChar",
+    "leaguelevel": 2,
+    "country": "Brazil",
+    "iswomenleague": false,
+    "countryid": "54"
+  },
+  {
+    "leagueid": "2028",
+    "leaguename": "Мировая Лига",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2076",
+    "leaguename": "3. Liga",
+    "leaguelevel": 3,
+    "country": "Germany",
+    "iswomenleague": false,
+    "countryid": "21"
+  },
+  {
+    "leagueid": "2092",
+    "leaguename": "Futsal Title",
+    "leaguelevel": 2,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2093",
+    "leaguename": "Street Champions",
+    "leaguelevel": 2,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2094",
+    "leaguename": "adidas Tango League Champions",
+    "leaguelevel": 2,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2095",
+    "leaguename": "Futsal Title",
+    "leaguelevel": 2,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2096",
+    "leaguename": "Street Champions",
+    "leaguelevel": 2,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2118",
+    "leaguename": "Кумиры",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2136",
+    "leaguename": "Женские сборные",
+    "leaguelevel": 2,
+    "country": "International",
+    "iswomenleague": true,
+    "countryid": "75"
+  },
+  {
+    "leagueid": "2137",
+    "leaguename": "Предсезонный турнир",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2138",
+    "leaguename": "Топ-клубы",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2140",
+    "leaguename": "Women's International Cup",
+    "leaguelevel": 2,
+    "country": "Unknown",
+    "iswomenleague": true,
+    "countryid": null
+  },
+  {
+    "leagueid": "2149",
+    "leaguename": "Indian Super League",
+    "leaguelevel": 1,
+    "country": "India",
+    "iswomenleague": false,
+    "countryid": "159"
+  },
+  {
+    "leagueid": "2150",
+    "leaguename": "НАГРАДЫ",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2172",
+    "leaguename": "United Emirates League",
+    "leaguelevel": 1,
+    "country": "United Arab Emirates",
+    "iswomenleague": false,
+    "countryid": "190"
+  },
+  {
+    "leagueid": "2179",
+    "leaguename": "Calcio B",
+    "leaguelevel": 2,
+    "country": "Italy",
+    "iswomenleague": false,
+    "countryid": "27"
+  },
+  {
+    "leagueid": "2208",
+    "leaguename": "England Division Five",
+    "leaguelevel": 5,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "2209",
+    "leaguename": "Liga Colombia",
+    "leaguelevel": 1,
+    "country": "Colombia",
+    "iswomenleague": false,
+    "countryid": "56"
+  },
+  {
+    "leagueid": "2210",
+    "leaguename": "Liga Cyprus",
+    "leaguelevel": 1,
+    "country": "Cyprus",
+    "iswomenleague": false,
+    "countryid": "11"
+  },
+  {
+    "leagueid": "2211",
+    "leaguename": "Magyar Liga",
+    "leaguelevel": 1,
+    "country": "Hungary",
+    "iswomenleague": false,
+    "countryid": "23"
+  },
+  {
+    "leagueid": "2215",
+    "leaguename": "Google Pixel Frauen-Bundesliga",
+    "leaguelevel": 2,
+    "country": "Germany",
+    "iswomenleague": true,
+    "countryid": "21"
+  },
+  {
+    "leagueid": "2216",
+    "leaguename": "Barclays Women’s Super League",
+    "leaguelevel": 2,
+    "country": "England",
+    "iswomenleague": true,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "2218",
+    "leaguename": "Arkema Première Ligue",
+    "leaguelevel": 2,
+    "country": "France",
+    "iswomenleague": true,
+    "countryid": "18"
+  },
+  {
+    "leagueid": "2221",
+    "leaguename": "National Women's Soccer League",
+    "leaguelevel": 2,
+    "country": "United States",
+    "iswomenleague": true,
+    "countryid": "95"
+  },
+  {
+    "leagueid": "2222",
+    "leaguename": "Liga F",
+    "leaguelevel": 2,
+    "country": "Spain",
+    "iswomenleague": true,
+    "countryid": "45"
+  },
+  {
+    "leagueid": "2226",
+    "leaguename": "Rest of World Women",
+    "leaguelevel": 2,
+    "country": "Rest of World",
+    "iswomenleague": true,
+    "countryid": "211"
+  },
+  {
+    "leagueid": "2228",
+    "leaguename": "Liga Portugal Feminino",
+    "leaguelevel": 2,
+    "country": "Portugal",
+    "iswomenleague": true,
+    "countryid": "38"
+  },
+  {
+    "leagueid": "2229",
+    "leaguename": "Nederland Vrouwen Liga",
+    "leaguelevel": 2,
+    "country": "Holland",
+    "iswomenleague": true,
+    "countryid": "34"
+  },
+  {
+    "leagueid": "2230",
+    "leaguename": "Ceska Liga Žen",
+    "leaguelevel": 2,
+    "country": "Czech Republic",
+    "iswomenleague": true,
+    "countryid": "12"
+  },
+  {
+    "leagueid": "2231",
+    "leaguename": "Schweizer Damen Liga",
+    "leaguelevel": 2,
+    "country": "Switzerland",
+    "iswomenleague": true,
+    "countryid": "47"
+  },
+  {
+    "leagueid": "2232",
+    "leaguename": "Sverige Liga",
+    "leaguelevel": 1,
+    "country": "Sweden",
+    "iswomenleague": true,
+    "countryid": "46"
+  },
+  {
+    "leagueid": "2233",
+    "leaguename": "Scottish Women's League",
+    "leaguelevel": 2,
+    "country": "Scotland",
+    "iswomenleague": true,
+    "countryid": "42"
+  },
+  {
+    "leagueid": "2236",
+    "leaguename": "Calcio A Femminile",
+    "leaguelevel": 2,
+    "country": "Italy",
+    "iswomenleague": true,
+    "countryid": "27"
+  },
+  {
+    "leagueid": "2240",
+    "leaguename": "5 на 5",
+    "leaguelevel": 5,
+    "country": "Special",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "2244",
+    "leaguename": "Liga Azerbaijan",
+    "leaguelevel": 1,
+    "country": "Azerbaijan",
+    "iswomenleague": false,
+    "countryid": "5"
+  },
+  {
+    "leagueid": "3004",
+    "leaguename": "Квалификация КОНКАКАФ",
+    "leaguelevel": 2,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "3005",
+    "leaguename": "Asia Continental Cup",
+    "leaguelevel": 2,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "3006",
+    "leaguename": "League of Russia",
+    "leaguelevel": 1,
+    "country": "Russia",
+    "iswomenleague": false,
+    "countryid": "40"
+  },
+  {
+    "leagueid": "5067",
+    "leaguename": "Copa de Primera",
+    "leaguelevel": 1,
+    "country": "Unknown",
+    "iswomenleague": false,
+    "countryid": null
+  },
+  {
+    "leagueid": "10001",
+    "leaguename": "Denmark League 2",
+    "leaguelevel": 2,
+    "country": "Denmark",
+    "iswomenleague": false,
+    "countryid": "13"
+  },
+  {
+    "leagueid": "10004",
+    "leaguename": "Belgium League 2",
+    "leaguelevel": 2,
+    "country": "Belgium",
+    "iswomenleague": false,
+    "countryid": "7"
+  },
+  {
+    "leagueid": "10007",
+    "leaguename": "LeagueName_10007_FW-Brazil_Gen-FullChar",
+    "leaguelevel": 2,
+    "country": "Brazil",
+    "iswomenleague": false,
+    "countryid": "54"
+  },
+  {
+    "leagueid": "10010",
+    "leaguename": "Holland League 2",
+    "leaguelevel": 2,
+    "country": "Holland",
+    "iswomenleague": false,
+    "countryid": "34"
+  },
+  {
+    "leagueid": "10017",
+    "leaguename": "France League 3",
+    "leaguelevel": 3,
+    "country": "France",
+    "iswomenleague": false,
+    "countryid": "18"
+  },
+  {
+    "leagueid": "10020",
+    "leaguename": "Germany League 3",
+    "leaguelevel": 3,
+    "country": "Germany",
+    "iswomenleague": false,
+    "countryid": "21"
+  },
+  {
+    "leagueid": "10032",
+    "leaguename": "Italy League 3",
+    "leaguelevel": 3,
+    "country": "Italy",
+    "iswomenleague": false,
+    "countryid": "27"
+  },
+  {
+    "leagueid": "10041",
+    "leaguename": "Norway League 2",
+    "leaguelevel": 2,
+    "country": "Norway",
+    "iswomenleague": false,
+    "countryid": "36"
+  },
+  {
+    "leagueid": "10050",
+    "leaguename": "Scotland League 2",
+    "leaguelevel": 3,
+    "country": "Scotland",
+    "iswomenleague": false,
+    "countryid": "42"
+  },
+  {
+    "leagueid": "10054",
+    "leaguename": "Spain League 3",
+    "leaguelevel": 3,
+    "country": "Spain",
+    "iswomenleague": false,
+    "countryid": "45"
+  },
+  {
+    "leagueid": "10056",
+    "leaguename": "Sweden League 2",
+    "leaguelevel": 2,
+    "country": "Sweden",
+    "iswomenleague": false,
+    "countryid": "46"
+  },
+  {
+    "leagueid": "10061",
+    "leaguename": "England League 5",
+    "leaguelevel": 5,
+    "country": "England",
+    "iswomenleague": false,
+    "countryid": "14"
+  },
+  {
+    "leagueid": "10065",
+    "leaguename": "Ireland League 2",
+    "leaguelevel": 2,
+    "country": "Republic of Ireland",
+    "iswomenleague": false,
+    "countryid": "25"
+  },
+  {
+    "leagueid": "10066",
+    "leaguename": "Poland League 2",
+    "leaguelevel": 2,
+    "country": "Poland",
+    "iswomenleague": false,
+    "countryid": "37"
+  },
+  {
+    "leagueid": "10067",
+    "leaguename": "Russia League 2",
+    "leaguelevel": 2,
+    "country": "Russia",
+    "iswomenleague": false,
+    "countryid": "40"
+  },
+  {
+    "leagueid": "10076",
+    "leaguename": "Остальной мир 2",
+    "leaguelevel": 2,
+    "country": "Rest of World",
+    "iswomenleague": false,
+    "countryid": "211"
+  },
+  {
+    "leagueid": "10080",
+    "leaguename": "Austria League 2",
+    "leaguelevel": 2,
+    "country": "Austria",
+    "iswomenleague": false,
+    "countryid": "4"
+  },
+  {
+    "leagueid": "10083",
+    "leaguename": "Korea League 2",
+    "leaguelevel": 2,
+    "country": "Korea Republic",
+    "iswomenleague": false,
+    "countryid": "167"
+  },
+  {
+    "leagueid": "10189",
+    "leaguename": "Switzerland League 2",
+    "leaguelevel": 2,
+    "country": "Switzerland",
+    "iswomenleague": false,
+    "countryid": "47"
+  },
+  {
+    "leagueid": "10308",
+    "leaguename": "Portugal League 2",
+    "leaguelevel": 2,
+    "country": "Portugal",
+    "iswomenleague": false,
+    "countryid": "38"
+  },
+  {
+    "leagueid": "10335",
+    "leaguename": "Chile League 2",
+    "leaguelevel": 2,
+    "country": "Chile",
+    "iswomenleague": false,
+    "countryid": "55"
+  },
+  {
+    "leagueid": "10336",
+    "leaguename": "Colombia League 2",
+    "leaguelevel": 2,
+    "country": "Colombia",
+    "iswomenleague": false,
+    "countryid": "56"
+  },
+  {
+    "leagueid": "10341",
+    "leaguename": "Mexico League 2",
+    "leaguelevel": 2,
+    "country": "Mexico",
+    "iswomenleague": false,
+    "countryid": "83"
+  },
+  {
+    "leagueid": "10350",
+    "leaguename": "Saudi League 2",
+    "leaguelevel": 2,
+    "country": "Saudi Arabia",
+    "iswomenleague": false,
+    "countryid": "183"
+  },
+  {
+    "leagueid": "10353",
+    "leaguename": "Argentina League 2",
+    "leaguelevel": 2,
+    "country": "Argentina",
+    "iswomenleague": false,
+    "countryid": "52"
+  },
+  {
+    "leagueid": "13456213",
+    "leaguename": "Федерация футбола США",
+    "leaguelevel": 1,
+    "country": "United States",
+    "iswomenleague": false,
+    "countryid": "95"
+  }
+]
