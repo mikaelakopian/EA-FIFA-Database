@@ -17,7 +17,7 @@ from .playernames import initialize_playernames_file
 # Import ML prediction functionality
 from .PlayerParametersPredictionsModel import enhance_player_data_with_predictions
 # Import player attributes calculation functionality  
-from .PlayerAttributesCalculationModel import generate_player_attributes
+from .PlayerAttributesCalculationModel import generate_player_attributes, calculate_balance
 
 router = APIRouter()
 
@@ -199,102 +199,6 @@ def get_position_map():
             _position_map = {}
     return _position_map
 
-def calculate_balance(position: str, agility: int, strength: int, dribbling: int, ball_control: int, overall_rating: int) -> int:
-    """
-    Calculate balance attribute based on position and other player attributes.
-    
-    Balance is important for:
-    - Technical players (dribbling, ball control)
-    - Agile players who need stability while moving
-    - Position-specific requirements
-    
-    Args:
-        position: FIFA position code (0-27)
-        agility: Player agility rating
-        strength: Player strength rating  
-        dribbling: Player dribbling rating
-        ball_control: Player ball control rating
-        overall_rating: Player overall rating
-        
-    Returns:
-        int: Balance rating (1-99)
-    """
-    
-    # Position-based balance importance multipliers
-    position_multipliers = {
-        # Goalkeepers - moderate balance for distribution
-        "0": 0.7,
-        
-        # Defenders - need balance for aerial duels and tackling
-        "1": 0.8,   # Sweeper
-        "2": 0.85,  # RWB
-        "3": 0.8,   # RB
-        "4": 0.75,  # CB
-        "5": 0.75,  # CB
-        "6": 0.75,  # CB
-        "7": 0.8,   # LB
-        "8": 0.85,  # LWB
-        
-        # Defensive Midfielders - need balance for pressing and passing
-        "9": 0.85,   # CDM
-        "10": 0.85,  # CDM
-        "11": 0.85,  # CDM
-        
-        # Wide Midfielders - high balance for dribbling and crossing
-        "12": 0.9,   # RM
-        "16": 0.9,   # LM
-        
-        # Central Midfielders - very important for ball control and pressing
-        "13": 0.9,   # CM
-        "14": 0.9,   # CM
-        "15": 0.9,   # CM
-        
-        # Attacking Midfielders - crucial for dribbling and tight spaces
-        "17": 0.95,  # CAM
-        "18": 0.95,  # CAM
-        "19": 0.95,  # CAM
-        
-        # Forwards - important for ball control and finishing
-        "20": 0.85,  # CF
-        "21": 0.85,  # CF
-        "22": 0.85,  # CF
-        
-        # Wingers - very high balance for dribbling and agility
-        "23": 0.95,  # RW
-        "27": 0.95,  # LW
-        
-        # Strikers - need balance for finishing and holding up play
-        "24": 0.8,   # ST
-        "25": 0.8,   # ST
-        "26": 0.8,   # ST
-    }
-    
-    # Get position multiplier (default to 0.8 if position not found)
-    pos_multiplier = position_multipliers.get(position, 0.8)
-    
-    # Calculate base balance from related attributes
-    # Formula: weighted average of agility, dribbling, ball_control with strength factor
-    # Agility is most important (40%), then dribbling (25%), ball_control (25%), strength adds stability (10%)
-    technical_component = (agility * 0.4 + dribbling * 0.25 + ball_control * 0.25 + strength * 0.1)
-    
-    # Apply position multiplier
-    position_adjusted_balance = technical_component * pos_multiplier
-    
-    # Ensure balance correlates somewhat with overall rating (but not too strictly)
-    # Higher overall players should generally have better balance
-    overall_factor = 0.3 + (overall_rating / 100) * 0.4  # Factor between 0.3 and 0.7
-    
-    # Final calculation
-    final_balance = position_adjusted_balance * overall_factor + overall_rating * 0.3
-    
-    # Add small random variation for realism (±3 points)
-    variation = random.randint(-3, 3)
-    final_balance += variation
-    
-    # Ensure balance stays within FIFA bounds (1-99)
-    final_balance = max(1, min(99, int(final_balance)))
-    
-    return final_balance
 
 def get_cached_players(file_path: str):
     """Get players from cache or load from file"""
