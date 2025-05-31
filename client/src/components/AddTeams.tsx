@@ -713,10 +713,10 @@ export default function AddTeams({
       placement="center"
       isDismissable={!isProcessing}
       hideCloseButton={isProcessing}
-      scrollBehavior="outside"
+      scrollBehavior="inside"
       classNames={{
         backdrop: "bg-black/50 backdrop-blur-sm",
-        base: "bg-gradient-to-br from-white to-default-50 dark:from-default-100 dark:to-default-50 max-h-[85vh]",
+        base: "bg-gradient-to-br from-white to-default-50 dark:from-default-100 dark:to-default-50 max-h-[85vh] max-w-[90vw]",
       }}
     >
       <ModalContent>
@@ -825,78 +825,8 @@ export default function AddTeams({
               </div>
             </div>
 
-            {/* Middle Column - Steps */}
-            <div className="col-span-2 bg-warning-50/50 dark:bg-warning-900/10 rounded-lg border border-warning-200 flex flex-col h-full min-h-0">
-              <h3 className="font-semibold text-sm text-warning-700 dark:text-warning-400 p-2 pb-1 flex items-center gap-1 flex-shrink-0">
-                <Icon icon="lucide:list-checks" className="w-4 h-4" />
-                Steps
-              </h3>
-              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
-                <div className="space-y-0.5 h-full">
-                  {PROCESSING_STEPS_INFO.map((step, index) => {
-                    const status = currentTeam ? getStepStatus(index, currentTeam) : 'pending';
-                    
-                    return (
-                      <div key={index}>
-                        <Card
-                          className={`transition-all duration-300 ${
-                            status === 'active' 
-                              ? 'bg-primary-100 dark:bg-primary-900/30 border border-primary-400 shadow-sm' 
-                              : status === 'completed'
-                              ? 'bg-success-100 dark:bg-success-900/30'
-                              : 'bg-white/50 dark:bg-default-100/50 opacity-60'
-                          }`}
-                        >
-                          <CardBody className="p-1.5">
-                            <div className="flex items-center gap-1.5">
-                              <div className={`p-1 rounded ${
-                                status === 'active' 
-                                  ? 'bg-primary-200 text-primary-700' 
-                                  : status === 'completed'
-                                  ? 'bg-success-200 text-success-700'
-                                  : 'bg-default-100 text-default-400'
-                              }`}>
-                                <Icon 
-                                  icon={status === 'completed' ? 'lucide:check-circle' : step.icon} 
-                                  className="w-3 h-3" 
-                                />
-                              </div>
-                              <p className={`text-xs font-medium flex-1 ${
-                                status === 'active' ? 'text-primary-700' : ''
-                              }`}>
-                                {step.name.substring(2)}
-                              </p>
-                              {status === 'active' && progressData?.category_progress !== undefined && (
-                                <Chip size="sm" color="primary" variant="flat" className="h-4">
-                                  <span className="text-[10px]">{Math.round(progressData.category_progress)}%</span>
-                                </Chip>
-                              )}
-                            </div>
-                          </CardBody>
-                        </Card>
-                        {index < PROCESSING_STEPS_INFO.length - 1 && (
-                          <div className="flex justify-center py-0.5">
-                            <Icon 
-                              icon="lucide:arrow-down" 
-                              className={`w-3 h-3 ${
-                                status === 'completed' 
-                                  ? 'text-success-500' 
-                                  : status === 'active'
-                                  ? 'text-primary-500 flow-arrow'
-                                  : 'text-default-300'
-                              }`} 
-                            />
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
             {/* Right Column - Content */}
-            <div className="col-span-8 bg-primary-50/30 dark:bg-primary-900/10 rounded-lg border border-primary-200 flex flex-col h-full min-h-0">
+            <div className="col-span-10 bg-primary-50/30 dark:bg-primary-900/10 rounded-lg border border-primary-200 flex flex-col h-full min-h-0">
               <div className="flex-shrink-0 p-2 pb-1">
                 <h3 className="font-semibold text-sm text-primary-700 dark:text-primary-400 mb-1 flex items-center gap-1">
                   <Icon icon="lucide:file-text" className="w-4 h-4" />
@@ -1282,7 +1212,42 @@ export default function AddTeams({
           </div>
         </ModalBody>
 
-        <ModalFooter className="pt-1 pb-2">
+        <ModalFooter className="pt-1 pb-2 justify-center">
+          {/* Processing Steps Icons */}
+          {(isProcessing || isComplete) && currentTeam && (
+            <div className="flex items-center gap-1 px-2 overflow-x-auto max-w-full">
+              {PROCESSING_STEPS_INFO.map((step, index) => {
+                const status = getStepStatus(index, currentTeam);
+                
+                return (
+                  <Tooltip
+                    key={index}
+                    content={step.name}
+                    placement="top"
+                    delay={0}
+                    closeDelay={100}
+                    size="sm"
+                    showArrow
+                  >
+                    <div className={`p-1.5 rounded-full transition-all duration-300 flex-shrink-0 ${
+                      status === 'active' 
+                        ? 'bg-primary-500 text-white shadow-md scale-110' 
+                        : status === 'completed'
+                        ? 'bg-success-500 text-white'
+                        : 'bg-default-200 text-default-400'
+                    }`}>
+                      <Icon 
+                        icon={status === 'completed' ? 'lucide:check' : step.icon} 
+                        className="w-3 h-3" 
+                      />
+                    </div>
+                  </Tooltip>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Action Buttons - Only when not processing */}
           {!isProcessing && !isComplete && (
             <>
               <Button
@@ -1302,23 +1267,6 @@ export default function AddTeams({
                 Start Adding Teams
               </Button>
             </>
-          )}
-          {isProcessing && !isComplete && (
-            <div className="w-full text-center">
-              <p className="text-xs text-default-500">
-                Processing teams... Please wait
-              </p>
-            </div>
-          )}
-          {isComplete && (
-            <Button
-              color="primary"
-              variant="flat"
-              onPress={handleClose}
-              size="sm"
-            >
-              Close
-            </Button>
           )}
         </ModalFooter>
       </ModalContent>
