@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Modal,
   ModalContent,
@@ -10,19 +10,12 @@ import {
   Chip,
   Card,
   CardBody,
-  Avatar,
-  Divider,
-  ScrollShadow,
-  Accordion,
-  AccordionItem,
   Table,
   TableHeader,
   TableColumn,
   TableBody,
   TableRow,
   TableCell,
-  Badge,
-  Spinner,
   CircularProgress,
   Image,
   Tooltip,
@@ -47,7 +40,6 @@ interface AddTeamsProps {
   selectedTeams: TransfermarktTeam[];
   projectId?: string;
   leagueId: string;
-  onTeamsAdded?: () => void;
 }
 
 interface ProgressData {
@@ -74,13 +66,6 @@ interface ProgressData {
   players_processing_progress?: { [key: string]: any };
 }
 
-interface ProcessingStep {
-  name: string;
-  icon: string;
-  completed: boolean;
-  active: boolean;
-  data?: any;
-}
 
 interface PlayerSaveStatus {
   name: string;
@@ -170,20 +155,62 @@ if (typeof document !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
+// Компонент для отображения названия команды с условным Tooltip
+function TeamNameWithTooltip({ teamname }: { teamname: string }) {
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (textRef.current) {
+        const isTextOverflowing = textRef.current.scrollWidth > textRef.current.clientWidth;
+        setIsOverflowing(isTextOverflowing);
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [teamname]);
+
+  const textElement = (
+    <p 
+      ref={textRef}
+      className="font-medium text-xs truncate leading-tight flex-1 cursor-default"
+    >
+      {teamname}
+    </p>
+  );
+
+  if (isOverflowing) {
+    return (
+      <Tooltip
+        content={teamname}
+        placement="bottom"
+        delay={500}
+        closeDelay={0}
+        size="sm"
+      >
+        {textElement}
+      </Tooltip>
+    );
+  }
+
+  return textElement;
+}
+
 export default function AddTeams({
   isOpen,
   onClose,
   selectedTeams,
   projectId,
   leagueId,
-  onTeamsAdded,
 }: AddTeamsProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progressData, setProgressData] = useState<ProgressData | null>(null);
   const [completedTeams, setCompletedTeams] = useState<Set<string>>(new Set());
   const [currentTeamIndex, setCurrentTeamIndex] = useState(-1);
   const [teamData, setTeamData] = useState<{ [teamName: string]: any }>({});
-  const [wsConnected, setWsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isComplete, setIsComplete] = useState(false);
   const wsRef = useRef<WebSocket | null>(null);
@@ -191,6 +218,7 @@ export default function AddTeams({
   const [savedPlayerRatings, setSavedPlayerRatings] = useState<{ [teamName: string]: { [playerIndex: number]: number } }>({});
   const previousProgressRef = useRef<number>(0);
   const [teamStepProgress, setTeamStepProgress] = useState<{ [teamName: string]: number }>({});
+
 
   // Function to normalize step names for comparison
   const normalizeStepName = (name: string): string => {
@@ -211,7 +239,6 @@ export default function AddTeams({
 
         ws.onopen = () => {
           console.log('[AddTeams] WebSocket connected');
-          setWsConnected(true);
         };
 
         ws.onmessage = (event) => {
@@ -228,12 +255,10 @@ export default function AddTeams({
 
         ws.onclose = () => {
           console.log('[AddTeams] WebSocket disconnected');
-          setWsConnected(false);
         };
 
         ws.onerror = (error) => {
           console.error('[AddTeams] WebSocket error:', error);
-          setWsConnected(false);
         };
       } catch (error) {
         console.error('[AddTeams] Error creating WebSocket:', error);
@@ -685,166 +710,129 @@ export default function AddTeams({
       isOpen={isOpen}
       onClose={handleClose}
       size="5xl"
+      placement="center"
       isDismissable={!isProcessing}
       hideCloseButton={isProcessing}
-      scrollBehavior="inside"
+      scrollBehavior="outside"
       classNames={{
         backdrop: "bg-black/50 backdrop-blur-sm",
-        base: "bg-gradient-to-br from-white to-default-50 dark:from-default-100 dark:to-default-50 max-h-[95vh]",
+        base: "bg-gradient-to-br from-white to-default-50 dark:from-default-100 dark:to-default-50 max-h-[85vh]",
       }}
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 pb-1">
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-2">
-              <div className="p-1 bg-primary-100 rounded-lg">
-                <Icon icon="lucide:plus-circle" className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <div className="p-1 bg-primary-100 rounded-lg">
+                  <Icon icon="lucide:plus-circle" className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-bold">Add Teams to Game</h2>
+                  <p className="text-xs text-default-500">
+                    {selectedTeams.length} team{selectedTeams.length !== 1 ? 's' : ''} selected
+                  </p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-lg font-bold">Add Teams to Game</h2>
-                <p className="text-xs text-default-500">
-                  {selectedTeams.length} team{selectedTeams.length !== 1 ? 's' : ''} selected
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-1">
-              {wsConnected && (
-                <Chip color="success" size="sm" variant="flat">
-                  <Icon icon="lucide:wifi" className="w-3 h-3 mr-1" />
-                  Connected
-                </Chip>
-              )}
-              {!isProcessing && !isComplete && (
-                <Button
-                  isIconOnly
-                  variant="light"
-                  onPress={handleClose}
-                  size="sm"
-                >
-                  <Icon icon="lucide:x" className="w-4 h-4" />
-                </Button>
+              
+              {/* Progress information positioned to the right of the title */}
+              {isProcessing && (
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-medium">Overall Progress</span>
+                    <span className="text-xs text-default-500">
+                      {completedTeams.size} of {selectedTeams.length} teams completed
+                      {progressData?.current !== undefined && progressData.current < selectedTeams.length && 
+                        ` • Team ${progressData.current + 1}/${selectedTeams.length}`}
+                    </span>
+                  </div>
+                  <Progress
+                    value={overallProgress}
+                    color="primary"
+                    size="sm"
+                    showValueLabel
+                    aria-label="Overall progress"
+                    className="w-64"
+                  />
+                </div>
               )}
             </div>
           </div>
 
-          {/* Overall Progress */}
-          {isProcessing && (
-            <div className="mt-2">
-              <div className="flex items-center justify-between mb-0.5">
-                <span className="text-xs font-medium">Overall Progress</span>
-                <span className="text-xs text-default-500">
-                  {completedTeams.size} of {selectedTeams.length} teams completed
-                  {progressData?.current !== undefined && progressData.current < selectedTeams.length && 
-                    ` • Team ${progressData.current + 1}/${selectedTeams.length}`}
+          {/* Player saving progress - moved below */}
+          {isProcessing && ((progressData?.current_category?.toLowerCase().includes('saving') && 
+           progressData?.current_category?.toLowerCase().includes('player')) ||
+           progressData?.current_processing_player) &&
+           (progressData?.current_player || progressData?.current_processing_player) && (
+            <p className="text-xs text-primary-600 text-center animate-pulse font-medium mt-1">
+              Saving player {progressData.player_index !== undefined ? progressData.player_index + 1 : '?'}/{progressData.total_players || '?'}: {progressData.current_player || progressData.current_processing_player}
+              {progressData?.player_overall_rating && (
+                <span className="ml-2 text-success-600 font-bold">
+                  (OVR: {progressData.player_overall_rating})
                 </span>
-              </div>
-              <Progress
-                value={overallProgress}
-                color="primary"
-                size="sm"
-                showValueLabel
-                aria-label="Overall progress"
-              />
-              {((progressData?.current_category?.toLowerCase().includes('saving') && 
-               progressData?.current_category?.toLowerCase().includes('player')) ||
-               progressData?.current_processing_player) &&
-               (progressData?.current_player || progressData?.current_processing_player) && (
-                <p className="text-xs text-primary-600 text-center animate-pulse font-medium mt-1">
-                  Saving player {progressData.player_index !== undefined ? progressData.player_index + 1 : '?'}/{progressData.total_players || '?'}: {progressData.current_player || progressData.current_processing_player}
-                  {progressData?.player_overall_rating && (
-                    <span className="ml-2 text-success-600 font-bold">
-                      (OVR: {progressData.player_overall_rating})
-                    </span>
-                  )}
-                </p>
               )}
-            </div>
+            </p>
           )}
         </ModalHeader>
 
         <ModalBody className="gap-0 p-2">
-          <div className="grid grid-cols-12 gap-2 h-[550px]">
+          <div className="grid grid-cols-12 gap-2 h-[65vh]">
             {/* Left Column - Teams List */}
-            <div className="col-span-2 bg-danger-50/50 dark:bg-danger-900/10 rounded-lg p-2 border border-danger-200">
-              <h3 className="font-semibold text-xs text-danger-700 dark:text-danger-400 mb-2 flex items-center gap-1">
+            <div className="col-span-2 bg-danger-50/50 dark:bg-danger-900/10 rounded-lg border border-danger-200 flex flex-col h-full min-h-0">
+              <h3 className="font-semibold text-xs text-danger-700 dark:text-danger-400 p-2 pb-1 flex items-center gap-1 flex-shrink-0">
                 <Icon icon="lucide:users" className="w-4 h-4" />
                 Teams
               </h3>
-              <ScrollShadow className="h-[500px]">
-                <div className="space-y-1">
-                  {selectedTeams.map((team, index) => {
-                    const isCurrentTeam = index === currentTeamIndex;
-                    const isCompleted = completedTeams.has(team.team_id);
-                    
-                    return (
-                      <Card
-                        key={team.team_id}
-                        isPressable={isComplete || isProcessing}
-                        onPress={() => {
-                          if (isComplete || (isProcessing && index !== currentTeamIndex)) {
-                            setCurrentTeamIndex(index);
-                          }
-                        }}
-                        className={`transition-all duration-300 ${
-                          isCurrentTeam 
-                            ? 'bg-primary-100 dark:bg-primary-900/30 border border-primary-400 shadow-sm' 
-                            : isCompleted 
-                            ? 'bg-success-100 dark:bg-success-900/30 border border-success-400'
-                            : 'bg-white dark:bg-default-100'
-                        }`}
-                      >
-                        <CardBody className="p-2">
-                          <div className="flex items-center gap-2">
-                            <div className="relative">
-                              <Avatar
+              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
+                <div className="space-y-1 h-full">
+                    {selectedTeams.map((team, index) => {
+                      const isCurrentTeam = index === currentTeamIndex;
+                      const isCompleted = completedTeams.has(team.team_id);
+                      
+                      return (
+                        <Card
+                          key={team.team_id}
+                          isPressable={isComplete || isProcessing}
+                          onPress={() => {
+                            if (isComplete || (isProcessing && index !== currentTeamIndex)) {
+                              setCurrentTeamIndex(index);
+                            }
+                          }}
+                          className={`transition-all duration-300 ${
+                            isCompleted
+                              ? 'bg-green-100 dark:bg-green-900/30 border border-green-400'
+                              : isCurrentTeam 
+                              ? 'bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-400' 
+                              : 'bg-gray-100 dark:bg-gray-900/30 border border-gray-300'
+                          }`}
+                        >
+                          <CardBody className="p-1.5">
+                            <div className="flex items-center gap-2 w-full">
+                              <Image
                                 src={team.teamlogo}
                                 alt={team.teamname}
-                                size="sm"
-                                className="w-8 h-8"
+                                width={20}
+                                height={20}
+                                className="object-contain flex-shrink-0"
                               />
-                              {isCompleted && (
-                                <div className="absolute -bottom-0.5 -right-0.5 bg-success rounded-full p-0.5">
-                                  <Icon icon="lucide:check" className="w-2.5 h-2.5 text-white" />
-                                </div>
-                              )}
-                              {isCurrentTeam && !isCompleted && (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <Spinner size="sm" color="primary" className="absolute scale-[0.65]" />
-                                </div>
-                              )}
+                              <TeamNameWithTooltip teamname={team.teamname} />
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-medium text-xs truncate">{team.teamname}</p>
-                              <div className="flex items-center gap-1">
-                                {isCompleted && (
-                                  <Chip color="success" size="sm" variant="flat" className="h-4">
-                                    <span className="text-[10px]">Done</span>
-                                  </Chip>
-                                )}
-                                {isCurrentTeam && !isCompleted && (
-                                  <Chip color="primary" size="sm" variant="flat" className="animate-pulse h-4">
-                                    <span className="text-[10px]">Processing</span>
-                                  </Chip>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </CardBody>
-                      </Card>
-                    );
-                  })}
+                          </CardBody>
+                        </Card>
+                      );
+                    })}
                 </div>
-              </ScrollShadow>
+              </div>
             </div>
 
             {/* Middle Column - Steps */}
-            <div className="col-span-2 bg-warning-50/50 dark:bg-warning-900/10 rounded-lg p-2 border border-warning-200">
-              <h3 className="font-semibold text-sm text-warning-700 dark:text-warning-400 mb-2 flex items-center gap-1">
+            <div className="col-span-2 bg-warning-50/50 dark:bg-warning-900/10 rounded-lg border border-warning-200 flex flex-col h-full min-h-0">
+              <h3 className="font-semibold text-sm text-warning-700 dark:text-warning-400 p-2 pb-1 flex items-center gap-1 flex-shrink-0">
                 <Icon icon="lucide:list-checks" className="w-4 h-4" />
                 Steps
               </h3>
-              <ScrollShadow className="h-[500px]">
-                <div className="space-y-0.5">
+              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
+                <div className="space-y-0.5 h-full">
                   {PROCESSING_STEPS_INFO.map((step, index) => {
                     const status = currentTeam ? getStepStatus(index, currentTeam) : 'pending';
                     
@@ -904,43 +892,45 @@ export default function AddTeams({
                     );
                   })}
                 </div>
-              </ScrollShadow>
+              </div>
             </div>
 
             {/* Right Column - Content */}
-            <div className="col-span-8 bg-primary-50/30 dark:bg-primary-900/10 rounded-lg p-2 border border-primary-200">
-              <h3 className="font-semibold text-sm text-primary-700 dark:text-primary-400 mb-2 flex items-center gap-1">
-                <Icon icon="lucide:file-text" className="w-4 h-4" />
-                Content
-              </h3>
-              
-              {error && (
-                <Card className="mb-2 bg-danger-50 border border-danger-200">
-                  <CardBody className="p-2">
-                    <div className="flex items-center gap-2">
-                      <Icon icon="lucide:alert-circle" className="w-4 h-4 text-danger" />
-                      <span className="text-xs text-danger">{error}</span>
-                    </div>
-                  </CardBody>
-                </Card>
-              )}
+            <div className="col-span-8 bg-primary-50/30 dark:bg-primary-900/10 rounded-lg border border-primary-200 flex flex-col h-full min-h-0">
+              <div className="flex-shrink-0 p-2 pb-1">
+                <h3 className="font-semibold text-sm text-primary-700 dark:text-primary-400 mb-1 flex items-center gap-1">
+                  <Icon icon="lucide:file-text" className="w-4 h-4" />
+                  Content
+                </h3>
+                
+                {error && (
+                  <Card className="mb-1 bg-danger-50 border border-danger-200">
+                    <CardBody className="p-2">
+                      <div className="flex items-center gap-2">
+                        <Icon icon="lucide:alert-circle" className="w-4 h-4 text-danger" />
+                        <span className="text-xs text-danger">{error}</span>
+                      </div>
+                    </CardBody>
+                  </Card>
+                )}
 
-              {isComplete && (
-                <Card className="mb-2 bg-success-50 border border-success-200">
-                  <CardBody className="p-2">
-                    <div className="flex items-center gap-2">
-                      <Icon icon="lucide:check-circle" className="w-4 h-4 text-success pulse-green" />
-                      <span className="text-xs text-success font-semibold">
-                        Successfully added {selectedTeams.length} teams!
-                      </span>
-                    </div>
-                  </CardBody>
-                </Card>
-              )}
+                {isComplete && (
+                  <Card className="mb-1 bg-success-50 border border-success-200">
+                    <CardBody className="p-2">
+                      <div className="flex items-center gap-2">
+                        <Icon icon="lucide:check-circle" className="w-4 h-4 text-success pulse-green" />
+                        <span className="text-xs text-success font-semibold">
+                          Successfully added {selectedTeams.length} teams!
+                        </span>
+                      </div>
+                    </CardBody>
+                  </Card>
+                )}
+              </div>
 
-              <ScrollShadow className="h-[480px]">
+              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
                 {currentTeam ? (
-                  <div className="space-y-2">
+                  <div className="space-y-2 h-full">
                     {/* Combined Team Info, Colors, and Ratings Card - ULTRA COMPACT */}
                     <Card>
                       <CardBody className="p-2">
@@ -1287,7 +1277,7 @@ export default function AddTeams({
                     <p className="text-xs">Start processing to see team details</p>
                   </div>
                 )}
-              </ScrollShadow>
+              </div>
             </div>
           </div>
         </ModalBody>
