@@ -363,31 +363,10 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
     return Math.max(1, Math.min(15, averageDrop)); // Clamp between 1-15 points
   }, [countryData]);
 
-  // Calculate average tier 2 to tier 3 drop from existing FC25 data
+  // Fixed tier 2 to tier 3 drop of 5.0 points
   const getAverageTier2ToTier3Drop = useMemo(() => {
-    if (!countryData || countryData.length === 0) return 5.0; // Default fallback
-    
-    const drops: number[] = [];
-    
-    countryData.forEach(country => {
-      if (country.fc25Ratings?.[2] && country.fc25Ratings?.[3]) {
-        const tier2Rating = country.fc25Ratings[2].average_rating;
-        const tier3Rating = country.fc25Ratings[3].average_rating;
-        const drop = tier2Rating - tier3Rating;
-        drops.push(drop);
-      }
-    });
-    
-    if (drops.length === 0) return 5.0; // Default if no data
-    
-    // Calculate average drop
-    const averageDrop = drops.reduce((sum, drop) => sum + drop, 0) / drops.length;
-    
-    // Debug logging
-    console.log(`[DEBUG] Average tier 2→3 drop: ${averageDrop.toFixed(2)} (from ${drops.length} countries: ${drops.map(d => d.toFixed(1)).join(', ')})`);
-    
-    return Math.max(1, Math.min(15, averageDrop)); // Clamp between 1-15 points
-  }, [countryData]);
+    return 5.0; // Fixed drop of exactly 5.0 points
+  }, []);
 
   // Function to get tier 1 rating for a country (either FC25 data or regression prediction)
   const getTier1Rating = (countryName: string): number | null => {
@@ -500,14 +479,14 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         // Debug logging
         console.log(`[DEBUG ${countryName} Tier 2] Tier 1 rating: ${tier1Rating.toFixed(1)}, Drop: ${getAverageTier1ToTier2Drop.toFixed(1)}, Tier 2: ${estimatedTier2.toFixed(1)}`);
         
-        return Math.max(45, Math.min(95, Math.round(estimatedTier2 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier2 * 10) / 10));
       }
       
       // Fallback for default rating if no tier 1 available
       if (isDefaultRating) {
         const defaultTier1 = 50;
         const estimatedTier2 = defaultTier1 - getAverageTier1ToTier2Drop;
-        return Math.max(45, Math.min(95, Math.round(estimatedTier2 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier2 * 10) / 10));
       }
     }
     
@@ -521,7 +500,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         // Debug logging
         console.log(`[DEBUG ${countryName} Tier 3] Tier 2 rating: ${tier2Rating.toFixed(1)}, Drop: ${getAverageTier2ToTier3Drop.toFixed(1)}, Tier 3: ${estimatedTier3.toFixed(1)}`);
         
-        return Math.max(45, Math.min(95, Math.round(estimatedTier3 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier3 * 10) / 10));
       }
       
       // Fallback for default rating if no tier 2 available
@@ -529,7 +508,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         const defaultTier1 = 50;
         const defaultTier2 = defaultTier1 - getAverageTier1ToTier2Drop;
         const estimatedTier3 = defaultTier2 - getAverageTier2ToTier3Drop;
-        return Math.max(45, Math.min(95, Math.round(estimatedTier3 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier3 * 10) / 10));
       }
     }
     
@@ -543,7 +522,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         // Debug logging
         console.log(`[DEBUG ${countryName} Tier 4] Tier 3 rating: ${tier3Rating.toFixed(1)}, Drop: 3.0, Tier 4: ${estimatedTier4.toFixed(1)}`);
         
-        return Math.max(45, Math.min(95, Math.round(estimatedTier4 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier4 * 10) / 10));
       }
       
       // Fallback for default rating if no tier 3 available
@@ -552,7 +531,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         const defaultTier2 = defaultTier1 - getAverageTier1ToTier2Drop;
         const defaultTier3 = defaultTier2 - getAverageTier2ToTier3Drop;
         const estimatedTier4 = defaultTier3 - 3;
-        return Math.max(45, Math.min(95, Math.round(estimatedTier4 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier4 * 10) / 10));
       }
     }
     
@@ -566,7 +545,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         // Debug logging
         console.log(`[DEBUG ${countryName} Tier 5] Tier 4 rating: ${tier4Rating.toFixed(1)}, Drop: 3.0, Tier 5: ${estimatedTier5.toFixed(1)}`);
         
-        return Math.max(45, Math.min(95, Math.round(estimatedTier5 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier5 * 10) / 10));
       }
       
       // Fallback for default rating if no tier 4 available
@@ -576,7 +555,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
         const defaultTier3 = defaultTier2 - getAverageTier2ToTier3Drop;
         const defaultTier4 = defaultTier3 - 3;
         const estimatedTier5 = defaultTier4 - 3;
-        return Math.max(45, Math.min(95, Math.round(estimatedTier5 * 10) / 10));
+        return Math.max(25, Math.min(95, Math.round(estimatedTier5 * 10) / 10));
       }
     }
     
@@ -972,7 +951,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
               </span>
               <span className="text-secondary-700 ml-4">
                 <Chip color="secondary" variant="flat" size="sm" className="mx-1">◊00.0</Chip>
-                — базовый рейтинг (1-й тир: 50, остальные тиры: расчёт по дропам)
+                — базовый рейтинг (1-й тир: 50; 2-й тир: дроп {getAverageTier1ToTier2Drop.toFixed(1)} очков; 3-й тир: дроп {getAverageTier2ToTier3Drop.toFixed(1)} очков; 4-й и 5-й тир: дроп по 3 очка)
               </span>
             </div>
           </div>
