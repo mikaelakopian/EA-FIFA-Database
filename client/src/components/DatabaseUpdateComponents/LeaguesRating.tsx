@@ -73,6 +73,7 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [sortConfig, setSortConfig] = useState<SortConfig>(null);
+  const [saving, setSaving] = useState(false);
   
   const rowsPerPage = 20;
 
@@ -116,6 +117,80 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
       setError(err instanceof Error ? err.message : "Unknown error occurred");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const saveLeagueRatings = async () => {
+    try {
+      setSaving(true);
+      setError(null);
+
+      // Prepare the ratings data
+      const ratingsData: Record<string, any> = {};
+      
+      countryData.forEach(country => {
+        const countryRatings: Record<string, any> = {};
+        
+        // Add ratings for each tier (1-5)
+        for (let tier = 1; tier <= 5; tier++) {
+          // Check if country has FC25 data for this tier
+          if (country.fc25Ratings?.[tier]) {
+            countryRatings[tier] = {
+              average_rating: country.fc25Ratings[tier].average_rating,
+              type: "fc25_data"
+            };
+          } else {
+            // Calculate estimated or base rating
+            const tierMarketValue = calculateTierValue(country, tier);
+            const hasMarketData = tierMarketValue > 0;
+            
+            let rating: number;
+            let ratingType: string;
+            
+            if (hasMarketData) {
+              rating = estimateFC25Rating(tierMarketValue, tier, country.country);
+              ratingType = "estimated";
+            } else {
+              rating = estimateFC25Rating(0, tier, country.country, true);
+              ratingType = "base_rating";
+            }
+            
+            countryRatings[tier] = {
+              average_rating: rating,
+              type: ratingType
+            };
+          }
+        }
+        
+        if (Object.keys(countryRatings).length > 0) {
+          ratingsData[country.country] = countryRatings;
+        }
+      });
+
+      // Save to server
+      const response = await fetch("http://localhost:8000/db/save_league_ratings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ratings: ratingsData }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || `Save failed: ${response.status}`);
+      }
+
+      const result = await response.json();
+      alert(`✅ ${result.message}`);
+      
+    } catch (err) {
+      console.error("Error saving league ratings:", err);
+      const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
+      setError(`Failed to save league ratings: ${errorMessage}`);
+      alert(`❌ Failed to save league ratings: ${errorMessage}`);
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -912,14 +987,26 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
               <p className="text-gray-600">FC25 рейтинг для лиг из игры, рыночная стоимость для остальных (наведите для подробностей)</p>
             </div>
           </div>
-          <Button 
-            color="danger" 
-            variant="light" 
-            onPress={onClose}
-            startContent={<Icon icon="mdi:close" />}
-          >
-            Закрыть
-          </Button>
+          <div className="flex gap-2">
+            <Button 
+              color="primary" 
+              variant="solid" 
+              onPress={saveLeagueRatings}
+              startContent={<Icon icon="mdi:content-save" />}
+              isLoading={saving}
+              isDisabled={loading || countryData.length === 0}
+            >
+              Сохранить рейтинги лиг
+            </Button>
+            <Button 
+              color="danger" 
+              variant="light" 
+              onPress={onClose}
+              startContent={<Icon icon="mdi:close" />}
+            >
+              Закрыть
+            </Button>
+          </div>
         </CardHeader>
         <CardBody className="pt-0">
           <div className="flex flex-wrap gap-4 mb-4">

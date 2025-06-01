@@ -1,0 +1,4776 @@
+{
+    "England": {
+        "1": {
+            "average_rating": 78.4,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 70,
+            "type": "fc25_data"
+        },
+        "3": {
+            "average_rating": 64.6,
+            "type": "fc25_data"
+        },
+        "4": {
+            "average_rating": 61.3,
+            "type": "fc25_data"
+        },
+        "5": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        }
+    },
+    "Spain": {
+        "1": {
+            "average_rating": 76.9,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 68.6,
+            "type": "fc25_data"
+        },
+        "3": {
+            "average_rating": 63.6,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 60.6,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 57.6,
+            "type": "base_rating"
+        }
+    },
+    "Italy": {
+        "1": {
+            "average_rating": 75.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 68,
+            "type": "fc25_data"
+        },
+        "3": {
+            "average_rating": 63,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 60,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 57,
+            "type": "base_rating"
+        }
+    },
+    "Germany": {
+        "1": {
+            "average_rating": 75.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 68.4,
+            "type": "fc25_data"
+        },
+        "3": {
+            "average_rating": 63.9,
+            "type": "fc25_data"
+        },
+        "4": {
+            "average_rating": 60.9,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 57.9,
+            "type": "estimated"
+        }
+    },
+    "France": {
+        "1": {
+            "average_rating": 74.5,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 66.4,
+            "type": "fc25_data"
+        },
+        "3": {
+            "average_rating": 61.4,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 58.4,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 55.4,
+            "type": "estimated"
+        }
+    },
+    "Portugal": {
+        "1": {
+            "average_rating": 70.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 62.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 57.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 54.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 51.8,
+            "type": "base_rating"
+        }
+    },
+    "Brazil": {
+        "1": {
+            "average_rating": 71.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 63.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 55.3,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 52.3,
+            "type": "base_rating"
+        }
+    },
+    "Netherlands": {
+        "1": {
+            "average_rating": 68.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 60.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 55.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 52.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 49.8,
+            "type": "base_rating"
+        }
+    },
+    "Belgium": {
+        "1": {
+            "average_rating": 69,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 61,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 56,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 53,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 50,
+            "type": "estimated"
+        }
+    },
+    "Türkiye": {
+        "1": {
+            "average_rating": 69.4,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 61.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 56.4,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 53.4,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 50.4,
+            "type": "base_rating"
+        }
+    },
+    "Russia": {
+        "1": {
+            "average_rating": 69.6,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 61.6,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 56.6,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 53.6,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 50.6,
+            "type": "base_rating"
+        }
+    },
+    "Mexico": {
+        "1": {
+            "average_rating": 69.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 61.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 56.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 53.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 50.4,
+            "type": "base_rating"
+        }
+    },
+    "Saudi Arabia": {
+        "1": {
+            "average_rating": 66.9,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 58.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 50.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.9,
+            "type": "base_rating"
+        }
+    },
+    "United States": {
+        "1": {
+            "average_rating": 68.9,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 60.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 55.9,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 52.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 49.9,
+            "type": "base_rating"
+        }
+    },
+    "Switzerland": {
+        "1": {
+            "average_rating": 67.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 59.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 54.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 51.8,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 48.8,
+            "type": "estimated"
+        }
+    },
+    "Greece": {
+        "1": {
+            "average_rating": 67.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 59.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 54.7,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 51.7,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 48.7,
+            "type": "base_rating"
+        }
+    },
+    "Austria": {
+        "1": {
+            "average_rating": 66.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 58.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 50.8,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 47.8,
+            "type": "base_rating"
+        }
+    },
+    "Argentina": {
+        "1": {
+            "average_rating": 69.9,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 61.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 56.9,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 53.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 50.9,
+            "type": "base_rating"
+        }
+    },
+    "Denmark": {
+        "1": {
+            "average_rating": 66.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 58.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 50.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.8,
+            "type": "base_rating"
+        }
+    },
+    "Scotland": {
+        "1": {
+            "average_rating": 66.4,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 58.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.4,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 50.4,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 47.4,
+            "type": "estimated"
+        }
+    },
+    "United Arab Emirates": {
+        "1": {
+            "average_rating": 66.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 58.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 53.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 50.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.8,
+            "type": "base_rating"
+        }
+    },
+    "Ukraine": {
+        "1": {
+            "average_rating": 66.6,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 58.6,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.6,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 50.6,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.6,
+            "type": "base_rating"
+        }
+    },
+    "Qatar": {
+        "1": {
+            "average_rating": 66.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 58.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 50.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.5,
+            "type": "base_rating"
+        }
+    },
+    "Croatia": {
+        "1": {
+            "average_rating": 66.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 58.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 50.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.4,
+            "type": "base_rating"
+        }
+    },
+    "Czech Republic": {
+        "1": {
+            "average_rating": 66.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 53.3,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        }
+    },
+    "Serbia": {
+        "1": {
+            "average_rating": 65.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 57.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 52.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 49.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 46.1,
+            "type": "base_rating"
+        }
+    },
+    "Norway": {
+        "1": {
+            "average_rating": 64.2,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 56.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.2,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 48.2,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 45.2,
+            "type": "base_rating"
+        }
+    },
+    "Poland": {
+        "1": {
+            "average_rating": 65.3,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 57.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 52.3,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 49.3,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 46.3,
+            "type": "base_rating"
+        }
+    },
+    "Sweden": {
+        "1": {
+            "average_rating": 64.4,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 56.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.4,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 48.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 45.4,
+            "type": "base_rating"
+        }
+    },
+    "Romania": {
+        "1": {
+            "average_rating": 64.8,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 56.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 48.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 45.8,
+            "type": "base_rating"
+        }
+    },
+    "Japan": {
+        "1": {
+            "average_rating": 64.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 56.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.7,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 48.7,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 45.7,
+            "type": "estimated"
+        }
+    },
+    "Hungary": {
+        "1": {
+            "average_rating": 64.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 56.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 48.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        }
+    },
+    "Chile": {
+        "1": {
+            "average_rating": 63.9,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.9,
+            "type": "base_rating"
+        }
+    },
+    "Korea, South": {
+        "1": {
+            "average_rating": 67.2,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 59.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 54.2,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 51.2,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 48.2,
+            "type": "base_rating"
+        }
+    },
+    "South Africa": {
+        "1": {
+            "average_rating": 63.9,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.9,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 50.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.9,
+            "type": "base_rating"
+        }
+    },
+    "Bulgaria": {
+        "1": {
+            "average_rating": 63.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.7,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.7,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.7,
+            "type": "base_rating"
+        }
+    },
+    "Colombia": {
+        "1": {
+            "average_rating": 63.6,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.6,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.6,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.6,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.6,
+            "type": "base_rating"
+        }
+    },
+    "Ecuador": {
+        "1": {
+            "average_rating": 63.6,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.6,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.6,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.6,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.6,
+            "type": "base_rating"
+        }
+    },
+    "Cyprus": {
+        "1": {
+            "average_rating": 63.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.5,
+            "type": "base_rating"
+        }
+    },
+    "Israel": {
+        "1": {
+            "average_rating": 63.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.4,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.4,
+            "type": "base_rating"
+        }
+    },
+    "Azerbaijan": {
+        "1": {
+            "average_rating": 63.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        }
+    },
+    "Paraguay": {
+        "1": {
+            "average_rating": 63.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        }
+    },
+    "Uruguay": {
+        "1": {
+            "average_rating": 63.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 55.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        }
+    },
+    "China": {
+        "1": {
+            "average_rating": 64.7,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 56.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 51.7,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 48.7,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 45.7,
+            "type": "base_rating"
+        }
+    },
+    "Slovakia": {
+        "1": {
+            "average_rating": 62.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 49.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 46.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43.8,
+            "type": "base_rating"
+        }
+    },
+    "Egypt": {
+        "1": {
+            "average_rating": 62.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54.5,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 49.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 46.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43.5,
+            "type": "base_rating"
+        }
+    },
+    "Iran": {
+        "1": {
+            "average_rating": 62.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 49.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 46.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43.5,
+            "type": "base_rating"
+        }
+    },
+    "Morocco": {
+        "1": {
+            "average_rating": 62.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54.5,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 49.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 46.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43.5,
+            "type": "base_rating"
+        }
+    },
+    "Slovenia": {
+        "1": {
+            "average_rating": 62.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 49.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 46.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43.1,
+            "type": "base_rating"
+        }
+    },
+    "Australia": {
+        "1": {
+            "average_rating": 61.7,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 53.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48.7,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.7,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.7,
+            "type": "base_rating"
+        }
+    },
+    "Peru": {
+        "1": {
+            "average_rating": 62,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 54,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 49,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 46,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 43,
+            "type": "base_rating"
+        }
+    },
+    "Algeria": {
+        "1": {
+            "average_rating": 61.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.5,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 48.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.5,
+            "type": "base_rating"
+        }
+    },
+    "Bolivia": {
+        "1": {
+            "average_rating": 61.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.5,
+            "type": "base_rating"
+        }
+    },
+    "Tunisia": {
+        "1": {
+            "average_rating": 61.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.5,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 48.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.5,
+            "type": "base_rating"
+        }
+    },
+    "Uzbekistan": {
+        "1": {
+            "average_rating": 61.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.5,
+            "type": "base_rating"
+        }
+    },
+    "Costa Rica": {
+        "1": {
+            "average_rating": 61.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 48.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.4,
+            "type": "base_rating"
+        }
+    },
+    "Kazakhstan": {
+        "1": {
+            "average_rating": 61.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42.1,
+            "type": "base_rating"
+        }
+    },
+    "Bosnia-Herzegovina": {
+        "1": {
+            "average_rating": 61,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42,
+            "type": "base_rating"
+        }
+    },
+    "Thailand": {
+        "1": {
+            "average_rating": 61,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42,
+            "type": "base_rating"
+        }
+    },
+    "Venezuela": {
+        "1": {
+            "average_rating": 61,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 53,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 48,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 45,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 42,
+            "type": "base_rating"
+        }
+    },
+    "Albania": {
+        "1": {
+            "average_rating": 60.6,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.6,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.6,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.6,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.6,
+            "type": "base_rating"
+        }
+    },
+    "Latvia": {
+        "1": {
+            "average_rating": 60.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.5,
+            "type": "base_rating"
+        }
+    },
+    "Armenia": {
+        "1": {
+            "average_rating": 60.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.5,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.5,
+            "type": "base_rating"
+        }
+    },
+    "Lithuania": {
+        "1": {
+            "average_rating": 60.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        }
+    },
+    "Moldova": {
+        "1": {
+            "average_rating": 60.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        }
+    },
+    "India": {
+        "1": {
+            "average_rating": 58.2,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 50.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 45.2,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 42.2,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 39.2,
+            "type": "base_rating"
+        }
+    },
+    "Indonesia": {
+        "1": {
+            "average_rating": 60.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.3,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        }
+    },
+    "Iraq": {
+        "1": {
+            "average_rating": 60.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        }
+    },
+    "Malaysia": {
+        "1": {
+            "average_rating": 60.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 47.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        }
+    },
+    "Malta": {
+        "1": {
+            "average_rating": 60.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.2,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.2,
+            "type": "base_rating"
+        }
+    },
+    "Belarus": {
+        "1": {
+            "average_rating": 60.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41.1,
+            "type": "base_rating"
+        }
+    },
+    "Georgia": {
+        "1": {
+            "average_rating": 60,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 52,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 47,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 44,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 41,
+            "type": "base_rating"
+        }
+    },
+    "Kosovo": {
+        "1": {
+            "average_rating": 59.9,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.9,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.9,
+            "type": "base_rating"
+        }
+    },
+    "North Macedonia": {
+        "1": {
+            "average_rating": 59.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.8,
+            "type": "base_rating"
+        }
+    },
+    "Finland": {
+        "1": {
+            "average_rating": 59.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 46.7,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 43.7,
+            "type": "estimated"
+        },
+        "5": {
+            "average_rating": 40.7,
+            "type": "estimated"
+        }
+    },
+    "Canada": {
+        "1": {
+            "average_rating": 59.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        }
+    },
+    "Guatemala": {
+        "1": {
+            "average_rating": 59.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        }
+    },
+    "Honduras": {
+        "1": {
+            "average_rating": 59.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        }
+    },
+    "Oman": {
+        "1": {
+            "average_rating": 59.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        }
+    },
+    "Vietnam": {
+        "1": {
+            "average_rating": 59.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        }
+    },
+    "Ireland": {
+        "1": {
+            "average_rating": 59.9,
+            "type": "fc25_data"
+        },
+        "2": {
+            "average_rating": 51.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 46.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.9,
+            "type": "base_rating"
+        }
+    },
+    "Andorra": {
+        "1": {
+            "average_rating": 59.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 46.2,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.2,
+            "type": "base_rating"
+        }
+    },
+    "Montenegro": {
+        "1": {
+            "average_rating": 59.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 51.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 46.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 43.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 40.1,
+            "type": "base_rating"
+        }
+    },
+    "Northern Ireland": {
+        "1": {
+            "average_rating": 58.9,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.9,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 45.9,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 42.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.9,
+            "type": "base_rating"
+        }
+    },
+    "Estonia": {
+        "1": {
+            "average_rating": 58.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 45.8,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 42.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.8,
+            "type": "base_rating"
+        }
+    },
+    "Iceland": {
+        "1": {
+            "average_rating": 58.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.7,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 45.7,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 42.7,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.7,
+            "type": "base_rating"
+        }
+    },
+    "Bangladesh": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Cambodia": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "El Salvador": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Fiji": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Ghana": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Hongkong": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Lebanon": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Myanmar": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Panama": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Singapore": {
+        "1": {
+            "average_rating": 58.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 50.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 45.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 42.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 39.3,
+            "type": "base_rating"
+        }
+    },
+    "Luxembourg": {
+        "1": {
+            "average_rating": 57.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 49.8,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 44.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 41.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 38.8,
+            "type": "base_rating"
+        }
+    },
+    "New Zealand": {
+        "1": {
+            "average_rating": 57.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 49.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 44.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 38.3,
+            "type": "base_rating"
+        }
+    },
+    "Faroe Islands": {
+        "1": {
+            "average_rating": 57.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 49.2,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 44.2,
+            "type": "estimated"
+        },
+        "4": {
+            "average_rating": 41.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 38.2,
+            "type": "base_rating"
+        }
+    },
+    "Wales": {
+        "1": {
+            "average_rating": 57.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 49.1,
+            "type": "estimated"
+        },
+        "3": {
+            "average_rating": 44.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 41.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 38.1,
+            "type": "base_rating"
+        }
+    },
+    "Gibraltar": {
+        "1": {
+            "average_rating": 56.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.8,
+            "type": "base_rating"
+        }
+    },
+    "Philippines": {
+        "1": {
+            "average_rating": 56.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.8,
+            "type": "base_rating"
+        }
+    },
+    "Kyrgyzstan": {
+        "1": {
+            "average_rating": 56.5,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.5,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.5,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.5,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.5,
+            "type": "base_rating"
+        }
+    },
+    "Laos": {
+        "1": {
+            "average_rating": 56.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.4,
+            "type": "base_rating"
+        }
+    },
+    "Jordan": {
+        "1": {
+            "average_rating": 56.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.3,
+            "type": "base_rating"
+        }
+    },
+    "Chinese Taipei": {
+        "1": {
+            "average_rating": 56.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.2,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.2,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.2,
+            "type": "base_rating"
+        }
+    },
+    "Libya": {
+        "1": {
+            "average_rating": 56.1,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48.1,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43.1,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40.1,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37.1,
+            "type": "base_rating"
+        }
+    },
+    "Tajikistan": {
+        "1": {
+            "average_rating": 56,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 48,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 43,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 40,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 37,
+            "type": "base_rating"
+        }
+    },
+    "San Marino": {
+        "1": {
+            "average_rating": 55.9,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 47.9,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 42.9,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 39.9,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 36.9,
+            "type": "base_rating"
+        }
+    },
+    "Nicaragua": {
+        "1": {
+            "average_rating": 55.7,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 47.7,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 42.7,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 39.7,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 36.7,
+            "type": "base_rating"
+        }
+    },
+    "Nepal": {
+        "1": {
+            "average_rating": 55.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 47.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 42.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 39.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 36.4,
+            "type": "base_rating"
+        }
+    },
+    "Dominican Republic": {
+        "1": {
+            "average_rating": 54.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.8,
+            "type": "base_rating"
+        }
+    },
+    "Bhutan": {
+        "1": {
+            "average_rating": 54.8,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.8,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.8,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.8,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.8,
+            "type": "base_rating"
+        }
+    },
+    "Jamaica": {
+        "1": {
+            "average_rating": 54.4,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.4,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.4,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.4,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.4,
+            "type": "base_rating"
+        }
+    },
+    "Nigeria": {
+        "1": {
+            "average_rating": 54.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.3,
+            "type": "base_rating"
+        }
+    },
+    "Uganda": {
+        "1": {
+            "average_rating": 54.3,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.3,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.3,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.3,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.3,
+            "type": "base_rating"
+        }
+    },
+    "Puerto Rico": {
+        "1": {
+            "average_rating": 54.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.2,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.2,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.2,
+            "type": "base_rating"
+        }
+    },
+    "Ethiopia": {
+        "1": {
+            "average_rating": 54.2,
+            "type": "estimated"
+        },
+        "2": {
+            "average_rating": 46.2,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 41.2,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 38.2,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 35.2,
+            "type": "base_rating"
+        }
+    },
+    "Afghanistan": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "American Samoa": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "American Virgin Islands": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Angola": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Anguilla": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Antigua and Barbuda": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Aruba": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Bahamas": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Bahrain": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Barbados": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Belize": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Benin": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Bermuda": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Botswana": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "British Virgin Islands": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Brunei Darussalam": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Burkina Faso": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Burundi": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cameroon": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cape Verde": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cayman Islands": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Central African Republic": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Chad": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Comoros": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Congo": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cookinseln": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cote d'Ivoire": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Cuba": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Curacao": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Djibouti": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Dominica": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "DR Congo": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Equatorial Guinea": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Eritrea": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "eSwatini": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Gabon": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Greenland": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Grenada": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Guadeloupe": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Guam": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Guinea": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Guinea-Bissau": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Guyana": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Haiti": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Kenya": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Korea, North": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Kuwait": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Lesotho": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Liberia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Liechtenstein": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Macao": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Madagascar": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Malawi": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Maldives": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Mali": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Martinique": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Mauritania": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Mauritius": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Mongolia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Montserrat": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Mozambique": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Namibia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Neukaledonien": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Niger": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Pakistan": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Palestine": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Papua New Guinea": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Rwanda": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Saint-Martin": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Samoa": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Sao Tome and Principe": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Senegal": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Seychelles": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Sierra Leone": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Sint Maarten": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Solomon Islands": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Somalia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Southern Sudan": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Sri Lanka": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "St. Kitts & Nevis": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "St. Lucia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "St. Vincent & Grenadinen": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Sudan": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Suriname": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Syria": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Tahiti": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Tanzania": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "The Gambia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Timor-Leste": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Togo": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Tonga": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Trinidad and Tobago": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Turkey": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Turkmenistan": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Turks- and Caicosinseln": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Vanuatu": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Yemen": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Zambia": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    },
+    "Zimbabwe": {
+        "1": {
+            "average_rating": 50,
+            "type": "base_rating"
+        },
+        "2": {
+            "average_rating": 42,
+            "type": "base_rating"
+        },
+        "3": {
+            "average_rating": 37,
+            "type": "base_rating"
+        },
+        "4": {
+            "average_rating": 34,
+            "type": "base_rating"
+        },
+        "5": {
+            "average_rating": 31,
+            "type": "base_rating"
+        }
+    }
+}

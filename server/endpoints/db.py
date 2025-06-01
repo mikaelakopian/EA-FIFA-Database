@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
-from typing import Dict, List
+from typing import Dict, List, Any
 import json
 import os
 
@@ -10,9 +10,13 @@ router = APIRouter()
 
 DB_DIR = os.path.join(os.path.dirname(__file__), '..', 'db') # ../db relative to current file
 POSITIONS_FILE = os.path.join(DB_DIR, 'db_positions.json')
+LEAGUE_RATINGS_FILE = os.path.join(DB_DIR, 'db_leagues_ratings.json')
 
 class PositionMappingsPayload(BaseModel):
     mappings: Dict[str, List[List[str]]] # TM Name -> List of [FC Name, FC ID as string]
+
+class LeagueRatingsPayload(BaseModel):
+    ratings: Dict[str, Any] # Country ratings data
 
 @router.get("/db/rest_of_world_teams", tags=["db"])
 async def get_rest_of_world_teams():
@@ -201,4 +205,31 @@ async def get_fc25_league_ratings(project_id: str = Query(None, description="Pro
         return result
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to calculate FC25 league ratings: {str(e)}") 
+        raise HTTPException(status_code=500, detail=f"Failed to calculate FC25 league ratings: {str(e)}")
+
+@router.post("/db/save_league_ratings", tags=["db"])
+async def save_league_ratings(payload: LeagueRatingsPayload):
+    """Save league ratings data to a JSON file."""
+    try:
+        # Ensure the db directory exists
+        os.makedirs(DB_DIR, exist_ok=True)
+        
+        with open(LEAGUE_RATINGS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(payload.ratings, f, ensure_ascii=False, indent=4)
+        return {"message": "League ratings saved successfully.", "file_path": LEAGUE_RATINGS_FILE}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to save league ratings: {str(e)}")
+
+@router.get("/db/load_league_ratings", tags=["db"])
+async def load_league_ratings():
+    """Load league ratings data from a JSON file."""
+    try:
+        if not os.path.exists(LEAGUE_RATINGS_FILE):
+            return {"message": "League ratings file not found.", "ratings": {}}
+        
+        with open(LEAGUE_RATINGS_FILE, 'r', encoding='utf-8') as f:
+            ratings = json.load(f)
+        return {"message": "League ratings loaded successfully.", "ratings": ratings}
+    except Exception as e:
+        print(f"Error loading league ratings: {str(e)}. Returning empty ratings.")
+        return {"message": f"Error loading ratings: {str(e)}. Returning empty ratings.", "ratings": {}} 
