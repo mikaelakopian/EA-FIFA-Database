@@ -1,6 +1,42 @@
+@font-face {
+  font-family: 'LivesportFinder';
+  src: url('/fonts/LivesportFinderLatin-Regular_Static.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LivesportFinder';
+  src: url('/fonts/LivesportFinderLatin-Bold_Static.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'LivesportFinder', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'LivesportFinder', system-ui, sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-livesport {
+    font-family: 'LivesportFinder', system-ui, sans-serif;
+  }
+  
+  .font-livesport-bold {
+    font-family: 'LivesportFinder', system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
 
 /* === Глобальный тонкий скроллбар без стрелочек === */
 

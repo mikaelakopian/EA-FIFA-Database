@@ -10,17 +10,11 @@ import {
   Chip,
   Card,
   CardBody,
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  CircularProgress,
   Image,
   Tooltip,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import PlayerCardFromAddTeam from "./PlayerCardFromAddTeam";
 
 interface TransfermarktTeam {
   teamname: string;
@@ -76,6 +70,7 @@ interface PlayerSaveStatus {
   position?: string;
 }
 
+
 const PROCESSING_STEPS_INFO = [
   { name: "📥 Downloading team logo", icon: "lucide:download" },
   { name: "🏷️ Basic team info", icon: "lucide:tag" },
@@ -100,7 +95,7 @@ const PROCESSING_STEPS_INFO = [
   { name: "🌐 Processing language strings", icon: "lucide:globe" },
 ];
 
-// Add CSS animations
+// Add CSS animations and card fixes
 const styles = `
   @keyframes slideIn {
     from {
@@ -146,6 +141,25 @@ const styles = `
   .flow-arrow {
     animation: flowDown 1s ease-in-out infinite alternate;
   }
+  
+  /* Горизонтальные карточки игроков в стиле изображения */
+  .player-card-fixed {
+    width: 100% !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+  }
+  
+  .player-card-body-fixed {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
 `;
 
 // Inject styles
@@ -155,49 +169,6 @@ if (typeof document !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
-// Компонент для отображения названия команды с условным Tooltip
-function TeamNameWithTooltip({ teamname }: { teamname: string }) {
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const [isOverflowing, setIsOverflowing] = useState(false);
-
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (textRef.current) {
-        const isTextOverflowing = textRef.current.scrollWidth > textRef.current.clientWidth;
-        setIsOverflowing(isTextOverflowing);
-      }
-    };
-
-    checkOverflow();
-    window.addEventListener('resize', checkOverflow);
-    return () => window.removeEventListener('resize', checkOverflow);
-  }, [teamname]);
-
-  const textElement = (
-    <p 
-      ref={textRef}
-      className="font-medium text-xs truncate leading-tight flex-1 cursor-default"
-    >
-      {teamname}
-    </p>
-  );
-
-  if (isOverflowing) {
-    return (
-      <Tooltip
-        content={teamname}
-        placement="bottom"
-        delay={500}
-        closeDelay={0}
-        size="sm"
-      >
-        {textElement}
-      </Tooltip>
-    );
-  }
-
-  return textElement;
-}
 
 export default function AddTeams({
   isOpen,
@@ -214,10 +185,12 @@ export default function AddTeams({
   const [error, setError] = useState<string | null>(null);
   const [isComplete, setIsComplete] = useState(false);
   const wsRef = useRef<WebSocket | null>(null);
+  const successTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [playerSaveStatus, setPlayerSaveStatus] = useState<{ [teamName: string]: PlayerSaveStatus[] }>({});
   const [savedPlayerRatings, setSavedPlayerRatings] = useState<{ [teamName: string]: { [playerIndex: number]: number } }>({});
   const previousProgressRef = useRef<number>(0);
   const [teamStepProgress, setTeamStepProgress] = useState<{ [teamName: string]: number }>({});
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
 
   // Function to normalize step names for comparison
@@ -291,6 +264,17 @@ export default function AddTeams({
       player_status: data.player_status,
       current_processing_player: data.current_processing_player
     });
+    
+    // Дебаг для сохранения игроков
+    if (data.current_category?.includes('💾 Saving team players') && data.current_player) {
+      console.log('🎯 [СОХРАНЕНИЕ ИГРОКА]', {
+        team: data.current_team,
+        player: data.current_player,
+        index: data.player_index,
+        rating: data.player_overall_rating,
+        category: data.current_category
+      });
+    }
     
     setProgressData(data);
   
@@ -552,6 +536,12 @@ export default function AddTeams({
     if (data.status === 'completed') {
       setIsComplete(true);
       setIsProcessing(false);
+      setShowSuccessModal(true);
+      // Auto-close modal after 5 seconds
+      successTimerRef.current = setTimeout(() => {
+        setShowSuccessModal(false);
+        successTimerRef.current = null;
+      }, 5000);
     } else if (data.status === 'error') {
       setError(data.message || 'An error occurred');
       setIsProcessing(false);
@@ -597,6 +587,14 @@ export default function AddTeams({
     }
   };
 
+  const handleSuccessModalClose = () => {
+    if (successTimerRef.current) {
+      clearTimeout(successTimerRef.current);
+      successTimerRef.current = null;
+    }
+    setShowSuccessModal(false);
+  };
+
   const handleClose = () => {
     if (isProcessing) return;
     
@@ -611,6 +609,7 @@ export default function AddTeams({
     setTeamStepProgress({});
     setPlayerSaveStatus({});
     setSavedPlayerRatings({});
+    handleSuccessModalClose();
     
     onClose();
   };
@@ -706,6 +705,7 @@ export default function AddTeams({
                                      currentTeam;
 
   return (
+    <>
     <Modal
       isOpen={isOpen}
       onClose={handleClose}
@@ -728,7 +728,7 @@ export default function AddTeams({
                   <Icon icon="lucide:plus-circle" className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold">Add Teams to Game</h2>
+                  <h2 className="text-lg font-bold font-livesport-bold">Add Teams to Game</h2>
                   <p className="text-xs text-default-500">
                     {selectedTeams.length} team{selectedTeams.length !== 1 ? 's' : ''} selected
                   </p>
@@ -759,197 +759,178 @@ export default function AddTeams({
             </div>
           </div>
 
-          {/* Player saving progress - moved below */}
-          {isProcessing && ((progressData?.current_category?.toLowerCase().includes('saving') && 
-           progressData?.current_category?.toLowerCase().includes('player')) ||
-           progressData?.current_processing_player) &&
-           (progressData?.current_player || progressData?.current_processing_player) && (
-            <p className="text-xs text-primary-600 text-center animate-pulse font-medium mt-1">
-              Saving player {progressData.player_index !== undefined ? progressData.player_index + 1 : '?'}/{progressData.total_players || '?'}: {progressData.current_player || progressData.current_processing_player}
-              {progressData?.player_overall_rating && (
-                <span className="ml-2 text-success-600 font-bold">
-                  (OVR: {progressData.player_overall_rating})
-                </span>
-              )}
-            </p>
-          )}
+          
+          {/* Teams list in header */}
+          <div className="flex items-center gap-2 mt-2 flex-wrap">
+            {selectedTeams.map((team, index) => {
+              const isCurrentTeam = index === currentTeamIndex;
+              const isCompleted = completedTeams.has(team.team_id);
+              
+              return (
+                <button
+                  key={team.team_id}
+                  onClick={() => {
+                    if (isComplete || (isProcessing && index !== currentTeamIndex)) {
+                      setCurrentTeamIndex(index);
+                    }
+                  }}
+                  disabled={!isComplete && (!isProcessing || index === currentTeamIndex)}
+                  className={`flex items-center gap-2 px-2 py-1 rounded-lg text-xs font-medium transition-all duration-300 ${
+                    isCompleted
+                      ? 'bg-green-100 dark:bg-green-900/30 border border-green-400 text-green-700 dark:text-green-300'
+                      : isCurrentTeam 
+                      ? 'bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-400 text-yellow-700 dark:text-yellow-300' 
+                      : 'bg-gray-100 dark:bg-gray-900/30 border border-gray-300 text-gray-700 dark:text-gray-300'
+                  } ${(isComplete || (isProcessing && index !== currentTeamIndex)) ? 'cursor-pointer hover:scale-105' : 'cursor-default'}`}
+                >
+                  <Image
+                    src={team.teamlogo}
+                    alt={team.teamname}
+                    width={16}
+                    height={16}
+                    className="object-contain flex-shrink-0"
+                  />
+                  <span className="truncate max-w-[120px]" title={team.teamname}>
+                    {team.teamname}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </ModalHeader>
 
         <ModalBody className="gap-0 p-2">
           <div className="grid grid-cols-12 gap-2 h-[65vh]">
-            {/* Left Column - Teams List */}
-            <div className="col-span-2 bg-danger-50/50 dark:bg-danger-900/10 rounded-lg border border-danger-200 flex flex-col h-full min-h-0">
-              <h3 className="font-semibold text-xs text-danger-700 dark:text-danger-400 p-2 pb-1 flex items-center gap-1 flex-shrink-0">
-                <Icon icon="lucide:users" className="w-4 h-4" />
-                Teams
+            {/* Left Column - Current Team Info */}
+            <div className="col-span-2 bg-zinc-900 dark:bg-black-100 rounded-lg flex flex-col">
+              <h3 className="font-semibold text-xs text-gray-200 p-2 pb-1 flex items-center gap-1 flex-shrink-0 font-livesport-bold">
+                <Icon icon="lucide:info" className="w-4 h-4" />
+                Team Info
               </h3>
-              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
-                <div className="space-y-1 h-full">
-                    {selectedTeams.map((team, index) => {
-                      const isCurrentTeam = index === currentTeamIndex;
-                      const isCompleted = completedTeams.has(team.team_id);
-                      
-                      return (
-                        <Card
-                          key={team.team_id}
-                          isPressable={isComplete || isProcessing}
-                          onPress={() => {
-                            if (isComplete || (isProcessing && index !== currentTeamIndex)) {
-                              setCurrentTeamIndex(index);
-                            }
-                          }}
-                          className={`transition-all duration-300 ${
-                            isCompleted
-                              ? 'bg-green-100 dark:bg-green-900/30 border border-green-400'
-                              : isCurrentTeam 
-                              ? 'bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-400' 
-                              : 'bg-gray-100 dark:bg-gray-900/30 border border-gray-300'
-                          }`}
-                        >
-                          <CardBody className="p-1.5">
-                            <div className="flex items-center gap-2 w-full">
-                              <Image
-                                src={team.teamlogo}
-                                alt={team.teamname}
-                                width={20}
-                                height={20}
-                                className="object-contain flex-shrink-0"
-                              />
-                              <TeamNameWithTooltip teamname={team.teamname} />
-                            </div>
-                          </CardBody>
-                        </Card>
-                      );
-                    })}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Content */}
-            <div className="col-span-10 bg-primary-50/30 dark:bg-primary-900/10 rounded-lg border border-primary-200 flex flex-col h-full min-h-0">
-              <div className="flex-shrink-0 p-2 pb-1">
-                <h3 className="font-semibold text-sm text-primary-700 dark:text-primary-400 mb-1 flex items-center gap-1">
-                  <Icon icon="lucide:file-text" className="w-4 h-4" />
-                  Content
-                </h3>
-                
-                {error && (
-                  <Card className="mb-1 bg-danger-50 border border-danger-200">
-                    <CardBody className="p-2">
-                      <div className="flex items-center gap-2">
-                        <Icon icon="lucide:alert-circle" className="w-4 h-4 text-danger" />
-                        <span className="text-xs text-danger">{error}</span>
-                      </div>
-                    </CardBody>
-                  </Card>
-                )}
-
-                {isComplete && (
-                  <Card className="mb-1 bg-success-50 border border-success-200">
-                    <CardBody className="p-2">
-                      <div className="flex items-center gap-2">
-                        <Icon icon="lucide:check-circle" className="w-4 h-4 text-success pulse-green" />
-                        <span className="text-xs text-success font-semibold">
-                          Successfully added {selectedTeams.length} teams!
-                        </span>
-                      </div>
-                    </CardBody>
-                  </Card>
-                )}
-              </div>
-
-              <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-default-300 scrollbar-track-transparent px-2 pb-2">
+              <div className="p-2">
                 {currentTeam ? (
-                  <div className="space-y-2 h-full">
-                    {/* Combined Team Info, Colors, and Ratings Card - ULTRA COMPACT */}
-                    <Card>
-                      <CardBody className="p-2">
-                        <div className="flex items-center gap-2"> {/* Main horizontal container for logo + rest */}
-                          <Image
-                            src={currentTeam.teamlogo}
-                            alt={currentTeam.teamname}
-                            width={50}
-                            height={50}
-                            className="object-contain flex-shrink-0"
-                          />
-                          <div className="flex-1 flex flex-col gap-0.5 min-w-0"> {/* Vertical container for name + details rows */}
-                            {/* Row 1: Name and Colors */}
-                            <div className="flex items-center gap-x-2"> 
-                              <h4 className="text-base font-semibold truncate flex-1" title={currentTeam.teamname}>{currentTeam.teamname}</h4>
-                              {/* Conditionally display Team ID Chip here */}
-                              {currentTeamData.teamid && (
-                                <Chip size="sm" variant="flat" color="default" className="h-5 ml-1 flex-shrink-0">
-                                  <span className="text-[10px] text-default-500">ID: {currentTeamData.teamid}</span>
-                                </Chip>
-                              )}
-                              {/* Colors Group (conditional) */}
-                              {currentTeamData.teamcolor1r && (
-                                <div className="flex items-center gap-1.5 flex-shrink-0">
-                                  <Tooltip content="Primary" placement="bottom" delay={0} closeDelay={0}>
-                                    <div
-                                      className="w-4 h-4 rounded-full border border-default-300 dark:border-default-500 shadow-sm cursor-default"
-                                      style={{ backgroundColor: `rgb(${currentTeamData.teamcolor1r}, ${currentTeamData.teamcolor1g}, ${currentTeamData.teamcolor1b})` }}
-                                    />
-                                  </Tooltip>
-                                  <Tooltip content="Secondary" placement="bottom" delay={0} closeDelay={0}>
-                                    <div
-                                      className="w-4 h-4 rounded-full border border-default-300 dark:border-default-500 shadow-sm cursor-default"
-                                      style={{ backgroundColor: `rgb(${currentTeamData.teamcolor2r}, ${currentTeamData.teamcolor2g}, ${currentTeamData.teamcolor2b})` }}
-                                    />
-                                  </Tooltip>
-                                  <Tooltip content="Tertiary" placement="bottom" delay={0} closeDelay={0}>
-                                    <div
-                                      className="w-4 h-4 rounded-full border border-default-300 dark:border-default-500 shadow-sm cursor-default"
-                                      style={{ backgroundColor: `rgb(${currentTeamData.teamcolor3r}, ${currentTeamData.teamcolor3g}, ${currentTeamData.teamcolor3b})` }}
-                                    />
-                                  </Tooltip>
-                                </div>
-                              )}
+                  <div className="flex flex-col items-center gap-3">
+                    {/* Team Logo */}
+                    <Image
+                      src={currentTeam.teamlogo}
+                      alt={currentTeam.teamname}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
+                    
+                    {/* Team Name */}
+                    <div className="text-center">
+                      <h4 className="font-bold text-sm text-center leading-tight text-white font-livesport-bold" title={currentTeam.teamname}>
+                        {currentTeam.teamname}
+                      </h4>
+                      
+                      {/* Team ID */}
+                      {currentTeamData.teamid && (
+                        <p className="text-xs text-gray-400 mt-1">
+                          ID: {currentTeamData.teamid}
+                        </p>
+                      )}
+                    </div>
+                    
+                    {/* Team Colors */}
+                    {currentTeamData.teamcolor1r && (
+                      <div className="w-full">
+                        <p className="text-xs text-gray-400 mb-2 text-center">Team Colors</p>
+                        <div className="flex justify-center items-center gap-2">
+                          <Tooltip content="Primary" placement="bottom" delay={0} closeDelay={0}>
+                            <div
+                              className="w-6 h-6 rounded-full border-2 border-default-300 dark:border-default-500 shadow-sm cursor-default"
+                              style={{ backgroundColor: `rgb(${currentTeamData.teamcolor1r}, ${currentTeamData.teamcolor1g}, ${currentTeamData.teamcolor1b})` }}
+                            />
+                          </Tooltip>
+                          <Tooltip content="Secondary" placement="bottom" delay={0} closeDelay={0}>
+                            <div
+                              className="w-6 h-6 rounded-full border-2 border-default-300 dark:border-default-500 shadow-sm cursor-default"
+                              style={{ backgroundColor: `rgb(${currentTeamData.teamcolor2r}, ${currentTeamData.teamcolor2g}, ${currentTeamData.teamcolor2b})` }}
+                            />
+                          </Tooltip>
+                          <Tooltip content="Tertiary" placement="bottom" delay={0} closeDelay={0}>
+                            <div
+                              className="w-6 h-6 rounded-full border-2 border-default-300 dark:border-default-500 shadow-sm cursor-default"
+                              style={{ backgroundColor: `rgb(${currentTeamData.teamcolor3r}, ${currentTeamData.teamcolor3g}, ${currentTeamData.teamcolor3b})` }}
+                            />
+                          </Tooltip>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Team Ratings */}
+                    {currentTeamData.overallrating && (!isShowingPlayerSaveDetails || isComplete) && (
+                      <div className="w-full">
+                        <p className="text-xs text-gray-400 mb-2 text-center">Team Ratings</p>
+                        <div className="space-y-1">
+                          <div className="bg-default-100/70 dark:bg-default-500/30 p-1 px-2 rounded text-center">
+                            <span className="text-[9px] text-default-500 dark:text-default-700 block">OVERALL</span>
+                            <span className="text-sm text-black dark:text-white font-bold">{currentTeamData.overallrating}</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-1">
+                            <div className="bg-danger-100/70 dark:bg-danger-500/30 p-1 rounded text-center">
+                              <span className="text-[8px] text-danger-600 dark:text-danger-700 block">ATT</span>
+                              <span className="text-xs text-danger-900 dark:text-danger-500 font-bold">{currentTeamData.attackrating}</span>
                             </div>
-
-                            {/* Row 2: Stats and Ratings */}
-                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5"> 
-                              {/* Stats Group */}
-                              <div className="flex items-center gap-x-0.5">
-                                <span className="text-default-500">Squad:</span>
-                                <span className="font-semibold text-default-700 dark:text-default-200">{currentTeam.squad}</span>
-                              </div>
-                              <div className="flex items-center gap-x-0.5">
-                                <span className="text-default-500">Avg Age:</span>
-                                <span className="font-semibold text-default-700 dark:text-default-200">{currentTeam.avg_age}</span>
-                              </div>
-                              <div className="flex items-center gap-x-0.5">
-                                <span className="text-default-500">Value:</span>
-                                <span className="font-semibold text-default-700 dark:text-default-200">{currentTeam.total_market_value}</span>
-                              </div>
-
-                              {/* Ratings Group (conditional) - no explicit separator, relies on gap */}
-                              {currentTeamData.overallrating && (!isShowingPlayerSaveDetails || isComplete) && (
-                                  <div className="flex items-center gap-x-1 gap-y-0.5 flex-wrap">
-                                    <div className="bg-default-100/70 dark:bg-default-500/30 p-0.5 px-1 rounded text-center">
-                                      <span className="text-[9px] text-default-500 dark:text-default-700">OVR:</span>
-                                      <span className="text-[10px] text-black dark:text-white font-bold">{currentTeamData.overallrating}</span>
-                                    </div>
-                                    <div className="bg-danger-100/70 dark:bg-danger-500/30 p-0.5 px-1 rounded text-center">
-                                      <span className="text-[9px] text-danger-600 dark:text-danger-700">ATT:</span>
-                                      <span className="text-[10px] text-danger-900 dark:text-danger-500 font-bold">{currentTeamData.attackrating}</span>
-                                    </div>
-                                    <div className="bg-warning-100/70 dark:bg-warning-500/30 p-0.5 px-1 rounded text-center">
-                                      <span className="text-[9px] text-yellow-600 dark:text-yellow-400">MID:</span>
-                                      <span className="text-[10px] text-yellow-900 dark:text-yellow-500 font-bold">{currentTeamData.midfieldrating}</span>
-                                    </div>
-                                    <div className="bg-primary-100/70 dark:bg-primary-500/30 p-0.5 px-1 rounded text-center">
-                                      <span className="text-[9px] text-primary-600 dark:text-primary-700">DEF:</span>
-                                      <span className="text-[10px] text-primary-900 dark:text-primary-500 font-bold">{currentTeamData.defenserating}</span>
-                                    </div>
-                                  </div>
-                              )}
+                            <div className="bg-warning-100/70 dark:bg-warning-500/30 p-1 rounded text-center">
+                              <span className="text-[8px] text-yellow-600 dark:text-yellow-400 block">MID</span>
+                              <span className="text-xs text-yellow-900 dark:text-yellow-500 font-bold">{currentTeamData.midfieldrating}</span>
+                            </div>
+                            <div className="bg-primary-100/70 dark:bg-primary-500/30 p-1 rounded text-center">
+                              <span className="text-[8px] text-primary-600 dark:text-primary-700 block">DEF</span>
+                              <span className="text-xs text-primary-900 dark:text-primary-500 font-bold">{currentTeamData.defenserating}</span>
                             </div>
                           </div>
                         </div>
+                      </div>
+                    )}
+
+                    {/* Basic Info */}
+                    <div className="w-full space-y-1 text-xs">
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Squad:</span>
+                        <span className="font-medium text-white">{currentTeam.squad}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Avg Age:</span>
+                        <span className="font-medium text-white">{currentTeam.avg_age}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Foreigners:</span>
+                        <span className="font-medium text-white">{currentTeam.foreigners}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-400">Value:</span>
+                        <span className="font-medium text-white">{currentTeam.total_market_value}</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-8 text-gray-400">
+                    <Icon icon="lucide:help-circle" className="w-8 h-8 mb-2" />
+                    <p className="text-xs text-center">No team selected</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Right Column - Main Content */}
+            <div className="col-span-10 flex flex-col h-full min-h-0 px-2 pb-2">
+              {currentTeam ? (
+                <div className="space-y-2">
+                  {/* Error message */}
+                  {error && (
+                    <Card className="bg-danger-50 border border-danger-200">
+                      <CardBody className="p-2">
+                        <div className="flex items-center gap-2">
+                          <Icon icon="lucide:alert-circle" className="w-4 h-4 text-danger" />
+                          <span className="text-xs text-danger">{error}</span>
+                        </div>
                       </CardBody>
                     </Card>
-
+                  )}
                     {/* Player Save Progress - Show when saving players AND not complete */}
                     {isShowingPlayerSaveDetails && currentTeam && !isComplete && (
                       <Card>
@@ -980,38 +961,40 @@ export default function AddTeams({
                               </span>
                             )}
                           </h5>
-                          <Table 
-                            aria-label="Player save status" 
-                            removeWrapper
-                            className="min-h-[200px]"
-                          >
-                            <TableHeader>
-                              <TableColumn>Status</TableColumn>
-                              <TableColumn>Player</TableColumn>
-                              <TableColumn>Position</TableColumn>
-                              <TableColumn>OVR</TableColumn>
-                            </TableHeader>
-                            <TableBody>
+                          <div className="grid gap-2 auto-rows-[96px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
                             {(playerSaveStatus[currentTeam.teamname] || currentTeamData.parsed_players_for_table?.map((p: any) => ({
                               name: p.name,
                               status: 'pending' as const,
                               position: p.position
                             })) || []).map((player, idx) => {
-                              // Extract player name from current_processing_player if it exists
-                              let currentProcessingPlayerName = '';
-                              if (progressData?.current_processing_player) {
-                                const parts = progressData.current_processing_player.split('-');
-                                currentProcessingPlayerName = parts.length >= 2 ? parts.slice(1).join('-') : progressData.current_processing_player;
-                              }
+                              // Получаем данные игрока из основной таблицы
+                              const basePlayerData = currentTeamData.parsed_players_for_table?.[idx];
                               
-                              // Check if this is the current player being processed
-                              const isCurrentPlayer = (progressData?.player_index !== undefined && progressData.player_index === idx) || 
-                                (progressData?.current_player && player.name === progressData.current_player) ||
-                                (currentProcessingPlayerName && player.name === currentProcessingPlayerName) ||
-                                (currentProcessingPlayerName && player.name.toLowerCase() === currentProcessingPlayerName.toLowerCase());
+                              // ЧЕТКАЯ ЛОГИКА: Проверяем что это именно тот игрок, который сейчас обрабатывается
+                              const isCurrentPlayer = Boolean(
+                                progressData && 
+                                progressData.current_team === currentTeam.teamname &&
+                                progressData.player_index === idx &&
+                                progressData.current_category?.includes('💾 Saving team players') &&
+                                progressData.current_player
+                              );
+                              
+                              // Дебаг логи только для текущего игрока
+                              if (isCurrentPlayer) {
+                                console.log(`🟢 [АКТИВНЫЙ ИГРОК] ${idx}: "${player.name}"`, {
+                                  team: progressData?.current_team,
+                                  player_index: progressData?.player_index,
+                                  category: progressData?.current_category,
+                                  current_player: progressData?.current_player,
+                                  rating: progressData?.player_overall_rating
+                                });
+                              }
                               
                               // Update status if this is the current player
                               const displayStatus = isCurrentPlayer ? 'saving' : player.status;
+                              
+                              // Унифицированные данные для отображения
+                              const displayPlayerName = basePlayerData?.name || player.name || 'Unknown Player';
                               
                               // IMPORTANT: Always check all sources for rating data
                               const displayOverallRating = (() => {
@@ -1035,78 +1018,22 @@ export default function AddTeams({
                                 return undefined;
                               })();
                               
-                              console.log(`[Table Render] Player ${idx} ${player.name}: status=${displayStatus}, rating=${displayOverallRating}`);
+                              console.log(`[Card Render] Player ${idx} ${displayPlayerName}: status=${displayStatus}, rating=${displayOverallRating}, isCurrentPlayer=${isCurrentPlayer}`);
                               
                               return (
-                                <TableRow 
+                                <PlayerCardFromAddTeam
                                   key={idx}
-                                  className={isCurrentPlayer ? "bg-primary-50 dark:bg-primary-900/20 animate-pulse" : ""}
-                                >
-                                  <TableCell>
-                                    <div className="flex items-center">
-                                      {displayStatus === 'saved' && (
-                                        <Icon icon="lucide:check-circle" className="w-3 h-3 text-success" />
-                                      )}
-                                      {displayStatus === 'saving' && (
-                                        <CircularProgress 
-                                          size="sm" 
-                                          color="primary"
-                                          aria-label="Saving player"
-                                          classNames={{
-                                            svg: "w-5 h-5",
-                                            indicator: "stroke-primary",
-                                            track: "stroke-primary/10"
-                                          }}
-                                          strokeWidth={3}
-                                          isIndeterminate={!progressData?.category_progress}
-                                          value={progressData?.category_progress}
-                                          showValueLabel={false}
-                                        />
-                                      )}
-                                      {displayStatus === 'pending' && (
-                                        <Icon icon="lucide:circle" className="w-3 h-3 text-default-300" />
-                                      )}
-                                      {displayStatus === 'error' && (
-                                        <Icon icon="lucide:x-circle" className="w-3 h-3 text-danger" />
-                                      )}
-                                    </div>
-                                  </TableCell>
-                                  <TableCell className={`text-xs font-medium ${isCurrentPlayer ? "text-primary-700 dark:text-primary-200" : "dark:text-default-300"}`}>
-                                    {player.name}
-                                    {isCurrentPlayer && (progressData?.current_player || currentProcessingPlayerName) && (
-                                      <Chip size="sm" color="primary" variant="flat" className="ml-2 h-4 animate-pulse">
-                                        <span className="text-[10px]">Saving...</span>
-                                      </Chip>
-                                    )}
-                                  </TableCell>
-                                  <TableCell>
-                                    <Chip size="sm" variant="flat" className="h-4">
-                                      <span className="text-[10px]">
-                                        {player.position || currentTeamData.parsed_players_for_table?.[idx]?.position || '-'}
-                                      </span>
-                                    </Chip>
-                                  </TableCell>
-                                  <TableCell>
-                                    {displayOverallRating !== undefined ? (
-                                      <Chip 
-                                        size="sm" 
-                                        color={displayOverallRating >= 70 ? "success" : displayOverallRating >= 65 ? "warning" : "default"}
-                                        variant="flat" 
-                                        className="h-4"
-                                      >
-                                        <span className="text-[10px] font-bold">
-                                          {displayOverallRating}
-                                        </span>
-                                      </Chip>
-                                    ) : (
-                                      <span className="text-xs text-default-400">-</span>
-                                    )}
-                                  </TableCell>
-                                </TableRow>
+                                  player={player}
+                                  playerIndex={idx}
+                                  currentTeam={currentTeam}
+                                  basePlayerData={basePlayerData}
+                                  isCurrentPlayer={isCurrentPlayer}
+                                  displayOverallRating={displayOverallRating}
+                                  displayStatus={displayStatus}
+                                />
                               );
                             })}
-                            </TableBody>
-                          </Table>
+                          </div>
                         </CardBody>
                       </Card>
                     )}
@@ -1122,80 +1049,51 @@ export default function AddTeams({
                             Players ({currentTeamData.parsed_players_for_table.length})
                             {isComplete && <Chip size="sm" color="success" variant="flat" className="ml-2 h-4"><span className="text-[10px]">Final Data</span></Chip>}
                           </h5>
-                          <Table aria-label="Player list" removeWrapper>
-                            <TableHeader>
-                              <TableColumn>#</TableColumn>
-                              <TableColumn>Name</TableColumn>
-                              <TableColumn>Pos</TableColumn>
-                              <TableColumn>Nation</TableColumn>
-                              <TableColumn>Value</TableColumn>
-                              <TableColumn>OVR</TableColumn>
-                            </TableHeader>
-                            <TableBody>
-                              {currentTeamData.parsed_players_for_table.map((player: any, idx: number) => {
-                                // Get saved player data if available
-                                const savedPlayerData = playerSaveStatus[currentTeam.teamname]?.[idx];
-                                
-                                // Get rating from separate storage first, then fallback to saved player data
-                                const savedRating = savedPlayerRatings[currentTeam.teamname]?.[idx];
-                                const displayOverallRating = savedRating ?? savedPlayerData?.overall_rating ?? player.overall_rating; // Prioritize savedRating, then playerSaveStatus, then original
-                                
-                                const displayPosition = savedPlayerData?.position || player.position;
-                                const isSaved = savedPlayerData?.status === 'saved';
-                                
-                                // Debug logging
-                                if (idx < 5) { // Only log first 5 players to avoid spam
-                                  console.log(`[Player ${idx}] ${player.name}:`, {
-                                    savedPlayerData,
-                                    savedRating,
-                                    displayOverallRating,
-                                    isSaved,
-                                    originalRating: player.overall_rating
-                                  });
-                                }
-                                
-                                return (
-                                  <TableRow 
-                                    key={idx}
-                                    className={isSaved ? "bg-success-50 dark:bg-success-900/20" : "dark:bg-default-100/50"}
-                                  >
-                                    <TableCell className="text-xs dark:text-default-300">
-                                      <div className="flex items-center gap-1">
-                                        {player.number || '-'}
-                                        {isSaved && (
-                                          <Icon icon="lucide:check-circle" className="w-3 h-3 text-success ml-1" />
-                                        )}
-                                      </div>
-                                    </TableCell>
-                                    <TableCell className="text-xs font-medium dark:text-default-200">{player.name}</TableCell>
-                                    <TableCell>
-                                      <Chip size="sm" variant="flat" className="h-4">
-                                        <span className="text-[10px]">{displayPosition}</span>
-                                      </Chip>
-                                    </TableCell>
-                                    <TableCell className="text-xs dark:text-default-300">{player.nationality}</TableCell>
-                                    <TableCell className="text-xs dark:text-default-300">{player.value || '-'}</TableCell>
-                                    <TableCell>
-                                      {displayOverallRating ? (
-                                        <Chip 
-                                          size="sm" 
-                                          color={displayOverallRating >= 70 ? "success" : displayOverallRating >= 65 ? "warning" : "default"}
-                                          variant={isSaved ? "solid" : "flat"}
-                                          className="h-4"
-                                        >
-                                          <span className="text-[10px] font-bold">
-                                            {displayOverallRating}
-                                          </span>
-                                        </Chip>
-                                      ) : (
-                                        <span className="text-xs text-default-400">-</span>
-                                      )}
-                                    </TableCell>
-                                  </TableRow>
-                                );
-                              })}
-                            </TableBody>
-                          </Table>
+                          <div className="grid gap-2 auto-rows-[96px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
+                            {currentTeamData.parsed_players_for_table.map((player: any, idx: number) => {
+                              // Get saved player data if available
+                              const savedPlayerData = playerSaveStatus[currentTeam.teamname]?.[idx];
+                              
+                              // Get rating from separate storage first, then fallback to saved player data
+                              const savedRating = savedPlayerRatings[currentTeam.teamname]?.[idx];
+                              const displayOverallRating = savedRating ?? savedPlayerData?.overall_rating ?? player.overall_rating; // Prioritize savedRating, then playerSaveStatus, then original
+                              
+                              const isSaved = savedPlayerData?.status === 'saved';
+                              
+                              // Унифицированные данные для отображения (так же как в первой карточке)
+                              const displayPlayerName = player.name || 'Unknown Player';
+                              
+                              // Debug logging
+                              if (idx < 5) { // Only log first 5 players to avoid spam
+                                console.log(`[Final Player ${idx}] ${displayPlayerName}:`, {
+                                  savedPlayerData,
+                                  savedRating,
+                                  displayOverallRating,
+                                  isSaved,
+                                  originalRating: player.overall_rating,
+                                  displayPlayerName
+                                });
+                              }
+                              
+                              return (
+                                <PlayerCardFromAddTeam
+                                  key={idx}
+                                  player={{
+                                    name: displayPlayerName,
+                                    status: isSaved ? 'saved' : 'pending',
+                                    position: savedPlayerData?.position || player.position || 'CM',
+                                    overall_rating: displayOverallRating
+                                  }}
+                                  playerIndex={idx}
+                                  currentTeam={currentTeam}
+                                  basePlayerData={player}
+                                  isCurrentPlayer={false}
+                                  displayOverallRating={displayOverallRating}
+                                  displayStatus={isSaved ? 'saved' : 'pending'}
+                                />
+                              );
+                            })}
+                          </div>
                         </CardBody>
                       </Card>
                     )}
@@ -1207,7 +1105,6 @@ export default function AddTeams({
                     <p className="text-xs">Start processing to see team details</p>
                   </div>
                 )}
-              </div>
             </div>
           </div>
         </ModalBody>
@@ -1271,5 +1168,58 @@ export default function AddTeams({
         </ModalFooter>
       </ModalContent>
     </Modal>
+
+    {/* Success Modal */}
+    <Modal 
+      isOpen={showSuccessModal} 
+      onClose={handleSuccessModalClose}
+      size="sm"
+      placement="center"
+      backdrop="blur"
+      isDismissable={true}
+      isKeyboardDismissDisabled={false}
+      classNames={{
+        backdrop: "bg-green-500/30 backdrop-blur-xl",
+        base: "bg-white dark:bg-zinc-900 border-2 border-green-400 shadow-2xl",
+        closeButton: "absolute top-2 right-2 z-10 bg-green-500 hover:bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center",
+      }}
+    >
+      <ModalContent>
+        <ModalBody className="p-6">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
+              <Icon icon="lucide:check" className="w-8 h-8 text-white" />
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-green-700 dark:text-green-400 mb-2 font-livesport-bold">
+                Success!
+              </h3>
+              <p className="text-sm text-default-600 dark:text-default-400">
+                Successfully added {selectedTeams.length} team{selectedTeams.length !== 1 ? 's' : ''}!
+              </p>
+            </div>
+            <div className="w-full bg-default-200 dark:bg-default-700 rounded-full h-1">
+              <div 
+                className="bg-green-500 h-1 rounded-full transition-all duration-[5000ms] ease-linear"
+                style={{ width: showSuccessModal ? '100%' : '0%' }}
+              />
+            </div>
+            
+            {/* Manual close button */}
+            <Button
+              color="success"
+              variant="flat"
+              size="sm"
+              onPress={handleSuccessModalClose}
+              className="mt-2"
+              startContent={<Icon icon="lucide:check" className="w-4 h-4" />}
+            >
+              OK
+            </Button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+    </>
   );
 }

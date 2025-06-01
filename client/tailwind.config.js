@@ -10,7 +10,12 @@ export default {
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'livesport': ['LivesportFinder', 'system-ui', 'sans-serif'],
+        'sans': ['LivesportFinder', 'system-ui', 'sans-serif'],
+      },
+    },
   },
   darkMode: "class",
   plugins: [heroui()],
