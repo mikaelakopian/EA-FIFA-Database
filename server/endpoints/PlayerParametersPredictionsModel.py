@@ -520,7 +520,20 @@ async def enhance_player_data_with_predictions(player_data: Dict[str, Any], imag
         updated_params = []
         
         for param_name, predicted_value in predictions.items():
-            # Always apply ML predictions, overriding existing values
+            # Skip height prediction if player already has height data
+            if param_name == "height":
+                existing_height = enhanced_data.get("height", "0")
+                # Skip if height is already set (not 0 or empty)
+                if existing_height and existing_height != "0" and str(existing_height).strip():
+                    updated_params.append({
+                        "parameter": param_name,
+                        "old_value": existing_height,
+                        "new_value": existing_height,
+                        "skipped": True
+                    })
+                    continue
+            
+            # Apply ML predictions for other parameters or height when not set
             old_value = enhanced_data.get(param_name, "0")
             enhanced_data[param_name] = predicted_value
             updated_params.append({
@@ -534,9 +547,11 @@ async def enhance_player_data_with_predictions(player_data: Dict[str, Any], imag
             predictor = get_predictor()
             mode = "FC Faces PyTorch" if predictor.pytorch_available else "Mock"
             print(f"        🤖 ML анализ выполнен для {len(predictions)} параметров ({mode}):")
-            for param_name, predicted_value in predictions.items():
-                # Получаем оригинальное значение ДО изменений
-                original_value = player_data.get(param_name, "0")
+            
+            for param_info in updated_params:
+                param_name = param_info["parameter"]
+                old_value = param_info["old_value"]
+                new_value = param_info["new_value"]
                 
                 # Получаем confidence если доступен
                 confidence_str = ""
@@ -544,11 +559,12 @@ async def enhance_player_data_with_predictions(player_data: Dict[str, Any], imag
                     confidence = predictor._last_confidences[param_name]
                     confidence_str = f" (уверенность: {confidence*100:.1f}%)"
                 
-                # Все ML предсказания теперь применяются
-                if original_value != predicted_value:
-                    print(f"           📊 {param_name}: применено значение {predicted_value} (было: {original_value}){confidence_str}")
+                if param_info.get('skipped', False):
+                    print(f"           ⏭️  {param_name}: пропущен - уже установлен ({old_value})")
+                elif old_value != new_value:
+                    print(f"           📊 {param_name}: применено значение {new_value} (было: {old_value}){confidence_str}")
                 else:
-                    print(f"           📊 {param_name}: применено значение {predicted_value}{confidence_str}")
+                    print(f"           📊 {param_name}: применено значение {new_value}{confidence_str}")
         else:
             print(f"        🤖 ML анализ выполнен (модели недоступны)")
         
