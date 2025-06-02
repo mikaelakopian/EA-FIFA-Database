@@ -218,20 +218,20 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     const timeSinceLastPong = now - lastPongTime.current;
     const timeSinceConnectionAttempt = now - connectionAttemptTime.current;
 
-    // Если WebSocket не подключен или не отвечает на ping более 60 секунд
+    // Если WebSocket не подключен или не отвечает на ping более 90 секунд (увеличено для стабильности)
     if (!wsRef.current || 
         wsRef.current.readyState !== WebSocket.OPEN || 
-        timeSinceLastPong > 60000) {
+        timeSinceLastPong > 90000) {
       
       console.warn('WebSocket connection unhealthy, forcing reconnection...', {
         hasWebSocket: !!wsRef.current,
         readyState: wsRef.current?.readyState,
-        timeSinceLastPong,
-        timeSinceConnectionAttempt
+        timeSinceLastPong: Math.round(timeSinceLastPong / 1000) + 's',
+        timeSinceConnectionAttempt: Math.round(timeSinceConnectionAttempt / 1000) + 's'
       });
       
       // Принудительно переподключаемся, если прошло достаточно времени с последней попытки
-      if (timeSinceConnectionAttempt > 5000) {
+      if (timeSinceConnectionAttempt > 3000) {
         forceReconnect();
       }
     }
@@ -330,6 +330,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         if (pingIntervalRef.current) {
           clearInterval(pingIntervalRef.current);
         }
+        // Start ping interval to keep connection alive
         pingIntervalRef.current = setInterval(() => {
           if (ws.readyState === WebSocket.OPEN) {
             try {
@@ -337,7 +338,15 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
               console.debug('Sent ping to server');
             } catch (e) {
               console.debug('Error sending ping:', e);
+              // If we can't send ping, the connection is likely broken
+              if (isMounted.current) {
+                console.warn('Failed to send ping, forcing reconnection...');
+                forceReconnect();
+              }
             }
+          } else if (isMounted.current) {
+            console.warn('WebSocket not open during ping attempt, forcing reconnection...');
+            forceReconnect();
           }
         }, 20000); // Send ping every 20 seconds
       };
@@ -348,15 +357,27 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         try {
           const data: ProgressData = JSON.parse(event.data);
           
-          // Handle pong messages
+          // Handle pong messages from server
           if (data.type === 'pong') {
             lastPongTime.current = Date.now();
             console.debug('Received pong from server');
             return;
           }
           
-          // Ignore ping and connected messages
-          if (data.type === 'ping' || data.type === 'connected') {
+          // Handle ping messages from server and respond with pong
+          if (data.type === 'ping') {
+            try {
+              ws.send(JSON.stringify({ type: 'pong' }));
+              console.debug('Received ping from server, sent pong');
+            } catch (e) {
+              console.debug('Error sending pong to server:', e);
+            }
+            return;
+          }
+          
+          // Ignore connected messages
+          if (data.type === 'connected') {
+            lastPongTime.current = Date.now(); // Update last response time
             return;
           }
 
@@ -468,8 +489,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
         // Более агрессивное переподключение
         if (reconnectAttempts.current < maxReconnectAttempts && isMounted.current) {
-          // Уменьшенная задержка для более быстрого переподключения
-          const delay = Math.min(Math.pow(1.5, reconnectAttempts.current) * 1000, 10000); // Max 10 seconds
+          // Меньшая задержка для более быстрого переподключения
+          const delay = Math.min(Math.pow(1.3, reconnectAttempts.current) * 500, 5000); // Макс 5 секунд, начиная с 500мс
           console.log(`🔄 Attempting to reconnect in ${delay}ms... (attempt ${reconnectAttempts.current + 1}/${maxReconnectAttempts})`);
           
           if (reconnectTimeoutRef.current) {
@@ -483,14 +504,14 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
             }
           }, delay);
         } else if (reconnectAttempts.current >= maxReconnectAttempts) {
-          console.error('❌ Max reconnection attempts reached. Will retry in 30 seconds...');
-          // Сбрасываем счетчик и пытаемся снова через 30 секунд
+          console.error('❌ Max reconnection attempts reached. Will retry in 15 seconds...');
+          // Сбрасываем счетчик и пытаемся снова через 15 секунд
           setTimeout(() => {
             if (isMounted.current) {
               reconnectAttempts.current = 0;
               connectWebSocket();
             }
-          }, 30000);
+          }, 15000);
         }
       };
 
@@ -506,7 +527,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       
       // Retry connection after delay
       if (reconnectAttempts.current < maxReconnectAttempts && isMounted.current) {
-        const delay = Math.min(Math.pow(1.5, reconnectAttempts.current) * 1000, 10000);
+        const delay = Math.min(Math.pow(1.3, reconnectAttempts.current) * 500, 5000);
+        console.log(`🔄 Will retry connection in ${delay}ms due to error...`);
         if (reconnectTimeoutRef.current) {
           clearTimeout(reconnectTimeoutRef.current);
         }
@@ -557,7 +579,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     }, 30000); // Каждые 30 секунд
 
     // Устанавливаем интервал для проверки состояния соединения
-    connectionCheckIntervalRef.current = setInterval(checkConnectionHealth, 15000); // Каждые 15 секунд
+    connectionCheckIntervalRef.current = setInterval(checkConnectionHealth, 10000); // Каждые 10 секунд для более активной проверки
 
     // Обработка видимости страницы для переподключения WebSocket
     const handleVisibilityChange = () => {

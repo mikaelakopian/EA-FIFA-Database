@@ -15,7 +15,13 @@ import {
   Chip,
   Badge,
   Pagination,
-  Tooltip
+  Tooltip,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
@@ -74,6 +80,12 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
   const [page, setPage] = useState(1);
   const [sortConfig, setSortConfig] = useState<SortConfig>(null);
   const [saving, setSaving] = useState(false);
+  
+  // Modal states
+  const {isOpen: isSuccessOpen, onOpen: onSuccessOpen, onClose: onSuccessClose} = useDisclosure();
+  const {isOpen: isErrorOpen, onOpen: onErrorOpen, onClose: onErrorClose} = useDisclosure();
+  const [modalMessage, setModalMessage] = useState<string>('');
+  const [modalTitle, setModalTitle] = useState<string>('');
   
   const rowsPerPage = 20;
 
@@ -182,13 +194,17 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
       }
 
       const result = await response.json();
-      alert(`✅ ${result.message}`);
+      setModalTitle('Рейтинги лиг сохранены успешно');
+      setModalMessage(result.message || 'Рейтинги лиг были сохранены на сервер.');
+      onSuccessOpen();
       
     } catch (err) {
       console.error("Error saving league ratings:", err);
       const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
       setError(`Failed to save league ratings: ${errorMessage}`);
-      alert(`❌ Failed to save league ratings: ${errorMessage}`);
+      setModalTitle('Ошибка сохранения рейтингов');
+      setModalMessage(errorMessage);
+      onErrorOpen();
     } finally {
       setSaving(false);
     }
@@ -1212,6 +1228,36 @@ export default function LeaguesRating({ onClose }: LeaguesRatingProps) {
           </Table>
         </CardBody>
       </Card>
+
+      {/* Success Modal */}
+      <Modal isOpen={isSuccessOpen} onClose={onSuccessClose}>
+        <ModalContent>
+          <ModalHeader className="flex flex-col gap-1">{modalTitle}</ModalHeader>
+          <ModalBody>
+            <p>{modalMessage}</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" variant="light" onPress={onSuccessClose}>
+              Закрыть
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      {/* Error Modal */}
+      <Modal isOpen={isErrorOpen} onClose={onErrorClose}>
+        <ModalContent>
+          <ModalHeader className="flex flex-col gap-1 text-danger">{modalTitle}</ModalHeader>
+          <ModalBody>
+            <p className="text-danger">{modalMessage}</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" variant="light" onPress={onErrorClose}>
+              Закрыть
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </div>
   );
 }

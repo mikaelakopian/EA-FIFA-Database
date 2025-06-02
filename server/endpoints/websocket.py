@@ -252,43 +252,63 @@ async def websocket_main(websocket: WebSocket):
         # Клиенты должны получать только новые сообщения прогресса
         
         last_ping = time.time()
+        ping_interval = 25  # Send ping every 25 seconds
+        last_server_ping = time.time()
         
         while True:
             try:
-                # Ждем сообщения от клиента с таймаутом
-                message = await asyncio.wait_for(websocket.receive_text(), timeout=30.0)
+                # Calculate time until next ping
+                time_since_last_server_ping = time.time() - last_server_ping
+                timeout = max(1.0, ping_interval - time_since_last_server_ping)
                 
-                # Обработка ping от клиента
+                # Ждем сообщения от клиента с динамическим таймаутом
+                message = await asyncio.wait_for(websocket.receive_text(), timeout=timeout)
+                
+                # Обработка сообщений от клиента
                 try:
                     data = json.loads(message)
                     if data.get("type") == "ping":
                         await websocket.send_text(json.dumps({"type": "pong"}))
                         last_ping = time.time()
+                        logger.debug("Received ping from client, sent pong")
+                    elif data.get("type") == "pong":
+                        last_ping = time.time()
+                        logger.debug("Received pong from client")
                 except json.JSONDecodeError:
+                    # Игнорируем некорректный JSON
                     pass
                     
             except asyncio.TimeoutError:
-                # Проверяем, не слишком ли давно был последний ping
-                if time.time() - last_ping > 60:
-                    logger.warning("No ping received for 60 seconds, closing connection")
+                # Время для отправки ping от сервера
+                current_time = time.time()
+                
+                # Проверяем, не слишком ли давно был последний ответ от клиента
+                if current_time - last_ping > 90:  # Увеличено до 90 секунд
+                    logger.warning(f"No response from client for {current_time - last_ping:.1f} seconds, closing connection")
                     break
                     
                 # Отправляем ping для поддержания соединения
-                try:
-                    await asyncio.wait_for(
-                        websocket.send_text(json.dumps({"type": "ping"})),
-                        timeout=5.0
-                    )
-                except asyncio.TimeoutError:
-                    logger.warning("Timeout sending ping, closing connection")
-                    break
-                except Exception:
-                    break
+                if current_time - last_server_ping >= ping_interval:
+                    try:
+                        await asyncio.wait_for(
+                            websocket.send_text(json.dumps({"type": "ping"})),
+                            timeout=10.0  # Увеличенный таймаут для отправки
+                        )
+                        last_server_ping = current_time
+                        logger.debug("Sent ping to client")
+                    except asyncio.TimeoutError:
+                        logger.warning("Timeout sending ping to client, closing connection")
+                        break
+                    except Exception as e:
+                        logger.warning(f"Error sending ping to client: {e}")
+                        break
                     
     except WebSocketDisconnect:
         logger.info("WebSocket disconnected normally")
     except Exception as e:
         logger.error(f"WebSocket error: {type(e).__name__}: {e}")
+    except asyncio.CancelledError:
+        logger.info("WebSocket connection was cancelled")
     finally:
         # Удаляем соединение с блокировкой
         with connections_lock:
@@ -299,9 +319,10 @@ async def websocket_main(websocket: WebSocket):
         
         # Закрываем соединение, если оно еще открыто
         try:
-            await websocket.close()
-        except Exception:
-            pass
+            if websocket.client_state != websocket.client_state.DISCONNECTED:
+                await websocket.close(code=1000, reason="Server cleanup")
+        except Exception as e:
+            logger.debug(f"Error closing websocket: {e}")
 
 # Rate limiter for progress messages
 _last_progress_time = {}

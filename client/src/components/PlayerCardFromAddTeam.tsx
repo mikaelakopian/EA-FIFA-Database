@@ -1,5 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Card, CardBody, Image, Badge, Tooltip } from "@heroui/react";
+import { useState, useEffect } from "react";
+import { 
+  Card, 
+  CardBody, 
+  Image, 
+  Dropdown, 
+  DropdownTrigger, 
+  DropdownMenu, 
+  DropdownItem, 
+  Popover, 
+  PopoverTrigger, 
+  PopoverContent, 
+  Button 
+} from "@heroui/react";
 import { Icon } from "@iconify/react";
 
 // Position mappings based on db_positions.json
@@ -408,18 +420,21 @@ export default function PlayerCardFromAddTeam({
 
 
   return (
-    <Card
-      shadow="sm"
-      radius="lg"
-      className={`transition-all duration-200 ${
-        isCurrentPlayer 
-          ? "border border-success-400 bg-white dark:bg-content1" 
-          : displayStatus === "saved"
-          ? "border border-success-200 bg-white dark:bg-content1"
-          : "border border-default-200 bg-white dark:bg-content1"
-      }`}
-      disableRipple
-    >
+    <Dropdown backdrop="blur">
+      <DropdownTrigger>
+        <div className="w-full">
+          <Card
+            shadow="sm"
+            radius="lg"
+            className={`transition-all duration-200 cursor-pointer hover:scale-105 ${
+              isCurrentPlayer 
+                ? "border border-success-400 bg-white dark:bg-content1" 
+                : displayStatus === "saved"
+                ? "border border-success-200 bg-white dark:bg-content1"
+                : "border border-default-200 bg-white dark:bg-content1"
+            }`}
+            disableRipple
+          >
       <CardBody className="p-0 relative h-[92px] overflow-visible">
         <div className="flex h-full w-full">
           {/* Left column with position on top and number on bottom - even more compact width */}
@@ -489,11 +504,9 @@ export default function PlayerCardFromAddTeam({
             
             {/* Info icon at bottom */}
             <div className="flex items-center">
-              <Tooltip content={`View ${displayPlayerName} details`}>
-                <button className="w-5 h-5 bg-default-200 dark:bg-default-700 rounded-full flex items-center justify-center transition-colors hover:bg-default-300">
-                  <Icon icon="lucide:info" className="text-default-500 w-3 h-3" />
-                </button>
-              </Tooltip>
+              <div className="w-5 h-5 bg-default-200 dark:bg-default-700 rounded-full flex items-center justify-center">
+                <Icon icon="lucide:info" className="text-default-500 w-3 h-3" />
+              </div>
             </div>
           </div>
           
@@ -514,6 +527,168 @@ export default function PlayerCardFromAddTeam({
         </div>
       </CardBody>
     </Card>
+        </div>
+      </DropdownTrigger>
+      
+      <DropdownMenu 
+        aria-label={`Actions for ${displayPlayerName}`}
+        variant="flat"
+        disableAnimation
+      >
+        <DropdownItem
+          key="info"
+          isReadOnly
+          className="p-0"
+          textValue={`Player info for ${displayPlayerName}`}
+        >
+          <Popover placement="right" backdrop="blur">
+            <PopoverTrigger>
+              <div className="flex items-center gap-2 p-2 w-full hover:bg-default-100 rounded-lg cursor-pointer">
+                <Icon icon="lucide:info" className="h-4 w-4" />
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={`http://localhost:8000/images/flags/${displayNationId}`}
+                    alt={displayPlayerNationality}
+                    className="w-5 h-3 object-cover rounded-sm"
+                  />
+                  <span className="font-medium">{displayPlayerName}</span>
+                </div>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="p-4 space-y-4">
+                {/* Header */}
+                <div className="flex items-center gap-3 border-b border-default-200 pb-3">
+                  <div className="relative">
+                    <Image
+                      src={`http://localhost:8000/images/flags/${displayNationId}`}
+                      alt={displayPlayerNationality}
+                      className="w-10 h-7 object-cover rounded-md"
+                    />
+                    <div className="absolute -bottom-1 -right-1">
+                      <Image
+                        src={currentTeam.teamlogo}
+                        alt={currentTeam.teamname}
+                        className="w-4 h-4 object-contain border-2 border-white rounded-full bg-white shadow-md"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">{displayPlayerName}</h3>
+                    <p className="text-sm text-default-500">Player Information</p>
+                  </div>
+                </div>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-primary-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className={`w-4 h-4 ${getPositionColorClass(displayPlayerPosition)} rounded-sm flex items-center justify-center`}>
+                        <span className="text-white text-xs font-bold">{displayPlayerPosition}</span>
+                      </div>
+                      <span className="text-sm font-medium">Position</span>
+                    </div>
+                    <p className="text-xl font-bold text-primary">{displayPlayerPosition}</p>
+                    <p className="text-xs text-default-500">{player?.position || basePlayerData?.position || "Unknown"}</p>
+                  </div>
+                  
+                  <div className="bg-secondary-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon icon="lucide:hash" className="h-4 w-4 text-secondary" />
+                      <span className="text-sm font-medium">Number</span>
+                    </div>
+                    <p className="text-xl font-bold text-secondary">{displayPlayerNumber}</p>
+                    <p className="text-xs text-default-500">jersey number</p>
+                  </div>
+                  
+                  <div className="bg-warning-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Image
+                        src={`http://localhost:8000/images/flags/${displayNationId}`}
+                        alt={displayPlayerNationality}
+                        className="w-4 h-3 object-cover rounded-sm"
+                      />
+                      <span className="text-sm font-medium">Nation</span>
+                    </div>
+                    <p className="text-sm font-bold text-warning">{displayPlayerNationality}</p>
+                    <p className="text-xs text-default-500">nationality</p>
+                  </div>
+                  
+                  {displayOverallRating !== undefined && (
+                    <div className="bg-success-50 p-3 rounded-lg">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon icon="lucide:star" className="h-4 w-4 text-success" />
+                        <span className="text-sm font-medium">Rating</span>
+                      </div>
+                      <p className="text-xl font-bold text-success">{displayOverallRating}</p>
+                      <p className="text-xs text-default-500">overall rating</p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Team Info */}
+                <div className="pt-2 border-t border-default-200">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Image
+                      src={currentTeam.teamlogo}
+                      alt={currentTeam.teamname}
+                      className="w-5 h-5 object-contain"
+                    />
+                    <span className="font-medium text-sm">{currentTeam.teamname}</span>
+                  </div>
+                  {currentTeam.team_url && (
+                    <Button
+                      as="a"
+                      href={currentTeam.team_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="sm"
+                      color="primary"
+                      variant="flat"
+                      className="w-full"
+                      endContent={<Icon icon="lucide:external-link" className="h-3 w-3" />}
+                    >
+                      View Team on Transfermarkt
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </DropdownItem>
+        
+        {basePlayerData?.player_url && (
+          <DropdownItem
+            key="transfermarkt"
+            startContent={<Icon icon="lucide:external-link" className="h-4 w-4" />}
+            description="View player profile on Transfermarkt"
+            textValue="View on Transfermarkt"
+            onPress={() => window.open(basePlayerData.player_url, '_blank')}
+          >
+            View on Transfermarkt
+          </DropdownItem>
+        )}
+        
+        <DropdownItem
+          key="status"
+          startContent={
+            <div className={`w-3 h-3 rounded-full ${
+              displayStatus === 'saved' ? 'bg-success-500' :
+              displayStatus === 'saving' ? 'bg-warning-500' :
+              displayStatus === 'error' ? 'bg-danger-500' :
+              'bg-default-400'
+            }`} />
+          }
+          description={`Current processing status: ${displayStatus}`}
+          color={displayStatus === 'error' ? 'danger' : displayStatus === 'saved' ? 'success' : 'default'}
+          variant="flat"
+          isReadOnly
+          textValue={`Status: ${displayStatus}`}
+        >
+          Status: {displayStatus.charAt(0).toUpperCase() + displayStatus.slice(1)}
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
 }
 
