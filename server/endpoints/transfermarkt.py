@@ -1928,6 +1928,12 @@ def get_enhanced_process_status():
 def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
     """
     Parse teams from a Transfermarkt league page with WebSocket progress updates
+    
+    Supports two table formats:
+    1. Full format (7+ columns): logo, name, squad, age, foreigners, avg_market_value, total_market_value
+    2. Basic format (5-6 columns): logo, name, squad, age, foreigners (no market values)
+    
+    Market value fields will be set to "N/A" for basic format tables.
     """
     try:
         # Send initial progress
@@ -2035,7 +2041,8 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                     })
                     
                     cells = tr.find_all("td", recursive=False)
-                    if len(cells) < 7:  # Need at least 7 columns
+                    # Need at least 5 columns (logo, name, squad, age, foreigners) for minimum parsing
+                    if len(cells) < 5:
                         continue
                     
                     # Extract team name and link (second cell) first to get team_id
@@ -2126,17 +2133,25 @@ def parse_transfermarkt_league_teams(league_url: str) -> List[Dict[str, Any]]:
                     except (ValueError, TypeError):
                         foreigners = 0
                     
-                    # Extract average market value (sixth cell)
-                    avg_market_value = cells[5].get_text(strip=True)
-                    
-                    # Extract total market value (seventh cell)
-                    total_market_value_cell = cells[6]
-                    total_market_value_link = total_market_value_cell.find("a")
+                    # Extract market value data (if available)
+                    avg_market_value = ""
                     total_market_value = ""
-                    if total_market_value_link:
-                        total_market_value = total_market_value_link.get_text(strip=True)
+                    
+                    # Check if we have market value columns (6+ columns)
+                    if len(cells) >= 7:
+                        # Full structure with market values (Premier Liga format)
+                        avg_market_value = cells[5].get_text(strip=True)
+                        
+                        total_market_value_cell = cells[6]
+                        total_market_value_link = total_market_value_cell.find("a")
+                        if total_market_value_link:
+                            total_market_value = total_market_value_link.get_text(strip=True)
+                        else:
+                            total_market_value = total_market_value_cell.get_text(strip=True)
                     else:
-                        total_market_value = total_market_value_cell.get_text(strip=True)
+                        # Limited structure without market values (Druga Liga format)
+                        avg_market_value = "N/A"
+                        total_market_value = "N/A"
                     
                     # team_id already extracted above
                     
