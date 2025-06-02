@@ -10,7 +10,8 @@ import {
   Popover, 
   PopoverTrigger, 
   PopoverContent, 
-  Button 
+  Button,
+  Chip 
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
@@ -296,6 +297,32 @@ const getNationId = (nationality: string): string => {
   return NATION_MAPPINGS[nationality] || "211";
 };
 
+// Function to format market value for better display
+const formatMarketValue = (value: string): string => {
+  if (!value || value === "-" || value === "" || value.toLowerCase() === "n/a") {
+    return "N/A";
+  }
+  
+  // If it's already formatted (contains currency symbols), return as is
+  if (value.includes('€') || value.includes('$') || value.includes('m') || value.includes('k')) {
+    return value;
+  }
+  
+  // Try to parse as number and format
+  const numValue = parseFloat(value.replace(/[^0-9.]/g, ''));
+  if (isNaN(numValue)) {
+    return value; // Return original if can't parse
+  }
+  
+  if (numValue >= 1000000) {
+    return `€${(numValue / 1000000).toFixed(1)}m`;
+  } else if (numValue >= 1000) {
+    return `€${(numValue / 1000).toFixed(0)}k`;
+  } else {
+    return `€${numValue.toFixed(0)}`;
+  }
+};
+
 interface PlayerSaveStatus {
   name: string;
   status: "pending" | "saving" | "saved" | "error";
@@ -385,6 +412,53 @@ export default function PlayerCardFromAddTeam({
   const displayPlayerPosition = getPositionAbbreviation(player?.position || basePlayerData?.position || "CM");
   const displayPlayerNationality = basePlayerData?.nationality || "Unknown";
   const displayNationId = getNationId(displayPlayerNationality);
+  
+  // Debug log to see actual basePlayerData structure for first few players
+  if (playerIndex < 5 && basePlayerData) {
+    console.log(`[PlayerCard Debug] Player ${playerIndex} "${basePlayerData.name}" basePlayerData:`, {
+      name: basePlayerData.name,
+      value: basePlayerData.value,
+      player_profile_url: basePlayerData.player_profile_url,
+      player_url: basePlayerData.player_url,
+      player_id: basePlayerData.player_id,
+      link: basePlayerData.link,
+      href: basePlayerData.href,
+      url: basePlayerData.url, // Check if the old field name is still being used
+      allKeys: Object.keys(basePlayerData),
+      fullData: basePlayerData
+    });
+  }
+
+  // Create Transfermarkt URL if we have player ID
+  const createTransfermarktUrl = (playerData: any) => {
+    if (playerData?.player_profile_url) {
+      return playerData.player_profile_url;
+    }
+    if (playerData?.player_url) {
+      return playerData.player_url;
+    }
+    if (playerData?.url) {
+      // Check for the old field name that was previously used
+      return playerData.url.startsWith('http') ? playerData.url : `https://www.transfermarkt.com${playerData.url}`;
+    }
+    if (playerData?.href) {
+      return playerData.href.startsWith('http') ? playerData.href : `https://www.transfermarkt.com${playerData.href}`;
+    }
+    if (playerData?.link) {
+      return playerData.link.startsWith('http') ? playerData.link : `https://www.transfermarkt.com${playerData.link}`;
+    }
+    if (playerData?.player_id || playerData?.id) {
+      // Create URL from player ID if available
+      const playerId = playerData.player_id || playerData.id;
+      const playerName = (playerData.name || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+      return `https://www.transfermarkt.com/${playerName}/profil/spieler/${playerId}`;
+    }
+    return null;
+  };
+
+  const playerTransfermarktUrl = createTransfermarktUrl(basePlayerData);
+  
+  const displayPlayerValue = formatMarketValue(basePlayerData?.value || basePlayerData?.market_value_eur || basePlayerData?.market_value || "-");
 
   // Helper functions for colors
   const getRatingColorClass = (rating?: number): string => {
@@ -502,11 +576,19 @@ export default function PlayerCardFromAddTeam({
               )}
             </div>
             
-            {/* Info icon at bottom */}
+            {/* Player market value at bottom */}
             <div className="flex items-center">
-              <div className="w-5 h-5 bg-default-200 dark:bg-default-700 rounded-full flex items-center justify-center">
-                <Icon icon="lucide:info" className="text-default-500 w-3 h-3" />
-              </div>
+              <Chip 
+                size="sm" 
+                color="success" 
+                variant="flat"
+                classNames={{
+                  base: "h-5 min-h-5",
+                  content: "px-1 py-0 text-xs font-semibold"
+                }}
+              >
+                {displayPlayerValue !== "-" ? displayPlayerValue : "N/A"}
+              </Chip>
             </div>
           </div>
           
@@ -580,7 +662,7 @@ export default function PlayerCardFromAddTeam({
                 </div>
                 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className={`grid gap-3 ${displayOverallRating !== undefined ? 'grid-cols-2' : 'grid-cols-2'}`}>
                   <div className="bg-primary-50 p-3 rounded-lg">
                     <div className="flex items-center gap-2 mb-1">
                       <div className={`w-4 h-4 ${getPositionColorClass(displayPlayerPosition)} rounded-sm flex items-center justify-center`}>
@@ -614,14 +696,23 @@ export default function PlayerCardFromAddTeam({
                     <p className="text-xs text-default-500">nationality</p>
                   </div>
                   
+                  <div className="bg-success-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon icon="lucide:euro" className="h-4 w-4 text-success-600" />
+                      <span className="text-sm font-medium">Market Value</span>
+                    </div>
+                    <p className="text-sm font-bold text-success-600">{displayPlayerValue !== "-" ? displayPlayerValue : "Not available"}</p>
+                    <p className="text-xs text-default-500">transfermarkt</p>
+                  </div>
+                  
                   {displayOverallRating !== undefined && (
-                    <div className="bg-success-50 p-3 rounded-lg">
+                    <div className="bg-purple-50 p-3 rounded-lg col-span-2">
                       <div className="flex items-center gap-2 mb-1">
-                        <Icon icon="lucide:star" className="h-4 w-4 text-success" />
-                        <span className="text-sm font-medium">Rating</span>
+                        <Icon icon="lucide:star" className="h-4 w-4 text-purple-600" />
+                        <span className="text-sm font-medium">Overall Rating</span>
                       </div>
-                      <p className="text-xl font-bold text-success">{displayOverallRating}</p>
-                      <p className="text-xs text-default-500">overall rating</p>
+                      <p className="text-xl font-bold text-purple-600">{displayOverallRating}</p>
+                      <p className="text-xs text-default-500">FIFA/FC rating</p>
                     </div>
                   )}
                 </div>
@@ -636,10 +727,10 @@ export default function PlayerCardFromAddTeam({
                     />
                     <span className="font-medium text-sm">{currentTeam.teamname}</span>
                   </div>
-                  {currentTeam.team_url && (
+                  {playerTransfermarktUrl && (
                     <Button
                       as="a"
-                      href={currentTeam.team_url}
+                      href={playerTransfermarktUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       size="sm"
@@ -648,7 +739,7 @@ export default function PlayerCardFromAddTeam({
                       className="w-full"
                       endContent={<Icon icon="lucide:external-link" className="h-3 w-3" />}
                     >
-                      View Team on Transfermarkt
+                      View Player on Transfermarkt
                     </Button>
                   )}
                 </div>
@@ -657,13 +748,13 @@ export default function PlayerCardFromAddTeam({
           </Popover>
         </DropdownItem>
         
-        {basePlayerData?.player_url && (
+        {playerTransfermarktUrl && (
           <DropdownItem
             key="transfermarkt"
             startContent={<Icon icon="lucide:external-link" className="h-4 w-4" />}
             description="View player profile on Transfermarkt"
             textValue="View on Transfermarkt"
-            onPress={() => window.open(basePlayerData.player_url, '_blank')}
+            onPress={() => window.open(playerTransfermarktUrl, '_blank')}
           >
             View on Transfermarkt
           </DropdownItem>
