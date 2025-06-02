@@ -18,6 +18,8 @@ from .playernames import initialize_playernames_file
 from .PlayerParametersPredictionsModel import enhance_player_data_with_predictions
 # Import player attributes calculation functionality  
 from .PlayerAttributesCalculationModel import generate_player_attributes, calculate_balance
+# Import player overall rating and potential calculation
+from .PlayerOverallPotentialRating import calculate_player_rating_from_league_id, get_rating_breakdown_details, calculate_overall_rating_and_potential, get_league_info_from_id
 
 router = APIRouter()
 
@@ -475,7 +477,7 @@ def map_transfermarkt_position_to_fifa(tm_position: str) -> Dict[str, str]:
     # Default to CM (14) if position not found
     return {"preferredposition1": "14", "preferredposition2": "-1", "preferredposition3": "-1", "preferredposition4": "-1"}
 
-async def save_players_to_project(project_name: str, players_data: List[Dict[str, Any]], team_id: str, team_name: str = "") -> Dict[str, Any]:
+async def save_players_to_project(project_name: str, players_data: List[Dict[str, Any]], team_id: str, team_name: str = "", league_id: str = None) -> Dict[str, Any]:
     """Save player data to project's players.json file with progress tracking"""
     if not project_name:
         return {"status": "error", "message": "Project name is required"}
@@ -528,6 +530,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "operation": "add_teams",
                 "current_team": team_name,
                 "current_player": player_name,
+                "current_category": "💾 Saving team players",
                 "message": f"Saving player {i+1}/{len(players_data)}: {player_name}",
                 "players_processing_progress": players_processing_progress,
                 "player_index": i,
@@ -569,11 +572,22 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
             jerseyname_id = lastname_id if lastname_id != 0 else firstname_id
             
             players_processing_progress[player_key]["progress"] = 70
-            players_processing_progress[player_key]["message"] = "Calculating skill attributes..."
+            players_processing_progress[player_key]["message"] = "Calculating player ratings..."
             
-            # Generate target overall rating for player
-            overall_rating = random.randint(60, 75)
-            potential_rating = random.randint(overall_rating + 5, 85)
+            # Calculate realistic overall rating and potential based on league, market value, and player attributes
+            # First get league info from ID
+            league_country, league_division = get_league_info_from_id(league_id, project_name) if league_id else ("Unknown", "1")
+            
+            # Use the same function as in rating breakdown for consistency
+            overall_rating, potential_rating = calculate_overall_rating_and_potential(
+                player_data=tm_player,
+                league_country=league_country,
+                league_division=league_division,
+                player_age=None  # Will be parsed inside the function
+            )
+            
+            # Debug logging for rating calculation
+            print(f"    [RATING CALC] {player_name}: League={league_country}({league_division}), Rating={overall_rating}, Potential={potential_rating}")
             
             # Use our calculation model to generate attributes based on position and overall rating
             calculated_attributes = generate_player_attributes(
@@ -581,6 +595,15 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 target_overall=overall_rating,
                 international_reputation=random.randint(1, 3)
             )
+            
+            # IMPORTANT: Override the calculated overall_rating to use our precise calculation
+            # instead of the approximation from the attributes model
+            original_calculated_rating = calculated_attributes.get('overall_rating', 'None')
+            calculated_attributes['overall_rating'] = overall_rating
+            
+            # Debug logging for rating consistency
+            if original_calculated_rating != overall_rating:
+                print(f"    [RATING SYNC] Player {player_name}: Precise={overall_rating}, AttributeModel={original_calculated_rating} -> Using Precise")
             
             # Create base player data with calculated attributes
             player_data = {
@@ -750,8 +773,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "smallsidedshoetypecode": str(random.randint(400, 600)),
             }
             
-            # Update the actual overall rating from our calculation
-            overall_rating = calculated_attributes.get('overall_rating', overall_rating)
+            # overall_rating already set correctly above, no need to update it
             
             
             players_processing_progress[player_key]["progress"] = 75
@@ -767,6 +789,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "operation": "add_teams",
                 "current_team": team_name,
                 "current_player": player_name,
+                "current_category": "💾 Saving team players",
                 "player_index": i,
                 "total_players": len(players_data),
                 "player_overall_rating": overall_rating,
@@ -795,6 +818,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                         "operation": "add_teams",
                         "current_team": team_name,
                         "current_player": player_name,
+                        "current_category": "💾 Saving team players",
                         "message": f"Downloading photo for {player_name}",
                         "players_processing_progress": players_processing_progress
                     })
@@ -816,6 +840,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                                 "operation": "add_teams",
                                 "current_team": team_name,
                                 "current_player": player_name,
+                                "current_category": "💾 Saving team players",
                                 "message": f"Analyzing photo for {player_name} with AI...",
                                 "players_processing_progress": players_processing_progress
                             })
@@ -854,6 +879,7 @@ async def save_players_to_project(project_name: str, players_data: List[Dict[str
                 "operation": "add_teams",
                 "current_team": team_name,
                 "current_player": player_name,
+                "current_category": "💾 Saving team players",
                 "player_index": i,
                 "total_players": len(players_data),
                 "player_overall_rating": overall_rating,
@@ -972,3 +998,68 @@ async def process_team_players(
         traceback.print_exc()
         # Return a generic error to the client
         raise HTTPException(status_code=500, detail=f"Internal server error processing team players: {str(e)}")
+
+@router.post("/players/rating-breakdown", tags=["players"])
+async def get_player_rating_breakdown(request: Dict[str, Any]):
+    """Get detailed breakdown of how a player's rating was calculated"""
+    try:
+        # Extract data from the request body
+        player_data = request.get("player_data", {})
+        league_id = request.get("league_id")
+        project_id = request.get("project_id")
+        
+        # Check if we have an existing rating to use instead of recalculating
+        existing_rating = request.get("existing_rating")
+        
+        # Debug logging to see what we received
+        print(f"[RATING BREAKDOWN DEBUG] Received request:")
+        print(f"  - league_id: {league_id} (type: {type(league_id)})")
+        print(f"  - project_id: {project_id} (type: {type(project_id)})")
+        print(f"  - player_name: {player_data.get('player_name')}")
+        print(f"  - existing_rating: {existing_rating} (type: {type(existing_rating)})")
+        
+        breakdown = get_rating_breakdown_details(
+            player_data=player_data,
+            league_id=league_id,
+            project_id=project_id,
+            existing_rating=existing_rating
+        )
+        return {"status": "success", "breakdown": breakdown}
+    except Exception as e:
+        print(f"[ERROR] Error calculating rating breakdown: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error calculating rating breakdown: {str(e)}")
+
+@router.post("/players/calculate-rating", tags=["players"])
+async def calculate_player_rating(request: Dict[str, Any]):
+    """Calculate current rating for a player using the rating calculation function"""
+    try:
+        # Extract data from the request body
+        player_data = request.get("player_data", {})
+        league_id = request.get("league_id")
+        project_id = request.get("project_id")
+        
+        # Debug logging to see what we received
+        print(f"[CALCULATE RATING DEBUG] Received request:")
+        print(f"  - league_id: {league_id} (type: {type(league_id)})")
+        print(f"  - project_id: {project_id} (type: {type(project_id)})")
+        print(f"  - player_name: {player_data.get('player_name')}")
+        
+        # Calculate the rating using the same function used in breakdown
+        # First get league info from ID
+        league_country, league_division = get_league_info_from_id(league_id, project_id) if league_id else ("Unknown", "1")
+        
+        overall_rating, potential_rating = calculate_overall_rating_and_potential(
+            player_data=player_data,
+            league_country=league_country,
+            league_division=league_division,
+            player_age=None  # Will be parsed inside the function
+        )
+        
+        return {
+            "status": "success", 
+            "overall_rating": overall_rating,
+            "potential_rating": potential_rating
+        }
+    except Exception as e:
+        print(f"[ERROR] Error calculating player rating: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error calculating player rating: {str(e)}")

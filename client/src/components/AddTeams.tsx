@@ -473,6 +473,17 @@ export default function AddTeams({
     if (data.team_data) {
       setTeamData(data.team_data);
       
+      // Debug log to show actual team data structure
+      Object.entries(data.team_data).forEach(([teamName, teamInfo]) => {
+        if (teamInfo.parsed_players_for_table && teamInfo.parsed_players_for_table.length > 0) {
+          console.log(`[AddTeams Debug] Team "${teamName}" parsed_players_for_table sample:`, {
+            firstPlayer: teamInfo.parsed_players_for_table[0],
+            allKeys: Object.keys(teamInfo.parsed_players_for_table[0] || {}),
+            totalPlayers: teamInfo.parsed_players_for_table.length
+          });
+        }
+      });
+      
       // Initialize player save status for teams with player data
       Object.entries(data.team_data).forEach(([teamName, teamInfo]) => {
         if (teamInfo.parsed_players_for_table && !playerSaveStatus[teamName]) {
@@ -700,8 +711,7 @@ export default function AddTeams({
   }
 
   const isShowingPlayerSaveDetails = (progressData?.current_category?.toLowerCase().includes('saving') && 
-                                     progressData?.current_category?.toLowerCase().includes('player')) ||
-                                     progressData?.current_processing_player &&
+                                     progressData?.current_category?.toLowerCase().includes('player')) &&
                                      currentTeam;
 
   return (
@@ -1030,6 +1040,8 @@ export default function AddTeams({
                                   isCurrentPlayer={isCurrentPlayer}
                                   displayOverallRating={displayOverallRating}
                                   displayStatus={displayStatus}
+                                  leagueId={leagueId}
+                                  projectId={projectId}
                                 />
                               );
                             })}
@@ -1038,16 +1050,30 @@ export default function AddTeams({
                       </Card>
                     )}
 
-                    {/* Players - Show when not saving OR when complete */}
-                    {currentTeamData.parsed_players_for_table && 
-                     currentTeamData.parsed_players_for_table.length > 0 && 
-                     (!isShowingPlayerSaveDetails || isComplete) && (
+                    {/* Players - Show ONLY when complete OR when not saving players */}
+                    {(() => {
+                      const shouldShow = currentTeamData.parsed_players_for_table && 
+                                       currentTeamData.parsed_players_for_table.length > 0 && 
+                                       (isComplete || !isShowingPlayerSaveDetails);
+                      
+                      if (currentTeam && currentTeamData.parsed_players_for_table?.length > 0) {
+                        console.log(`[Players Display] Team: ${currentTeam.teamname}`, {
+                          shouldShow,
+                          isShowingPlayerSaveDetails,
+                          isComplete,
+                          playerSaveStatusLength: playerSaveStatus[currentTeam.teamname]?.length || 0,
+                          currentCategory: progressData?.current_category
+                        });
+                      }
+                      
+                      return shouldShow;
+                    })() && (
                       <Card>
                         <CardBody className="p-2">
                           <h5 className="font-semibold text-sm mb-2 flex items-center gap-1">
                             <Icon icon="lucide:users" className="w-3 h-3" />
                             Players ({currentTeamData.parsed_players_for_table.length})
-                            {isComplete && <Chip size="sm" color="success" variant="flat" className="ml-2 h-4"><span className="text-[10px]">Final Data</span></Chip>}
+                            {(isComplete || (!isShowingPlayerSaveDetails && playerSaveStatus[currentTeam.teamname]?.length > 0)) && <Chip size="sm" color="success" variant="flat" className="ml-2 h-4"><span className="text-[10px]">Final Data</span></Chip>}
                           </h5>
                           <div className="grid gap-2 auto-rows-[96px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
                             {currentTeamData.parsed_players_for_table.map((player: any, idx: number) => {
@@ -1058,7 +1084,13 @@ export default function AddTeams({
                               const savedRating = savedPlayerRatings[currentTeam.teamname]?.[idx];
                               const displayOverallRating = savedRating ?? savedPlayerData?.overall_rating ?? player.overall_rating; // Prioritize savedRating, then playerSaveStatus, then original
                               
-                              const isSaved = savedPlayerData?.status === 'saved';
+                              // Player is considered saved if:
+                              // 1. Process is complete, OR
+                              // 2. Player status is explicitly 'saved', OR  
+                              // 3. We have saved rating data (means player was processed)
+                              const isSaved = isComplete || 
+                                            savedPlayerData?.status === 'saved' || 
+                                            (savedRating !== undefined && !isShowingPlayerSaveDetails);
                               
                               // Унифицированные данные для отображения (так же как в первой карточке)
                               const displayPlayerName = player.name || 'Unknown Player';
@@ -1066,12 +1098,25 @@ export default function AddTeams({
                               // Debug logging
                               if (idx < 5) { // Only log first 5 players to avoid spam
                                 console.log(`[Final Player ${idx}] ${displayPlayerName}:`, {
+                                  isComplete,
+                                  isShowingPlayerSaveDetails,
                                   savedPlayerData,
                                   savedRating,
                                   displayOverallRating,
                                   isSaved,
                                   originalRating: player.overall_rating,
-                                  displayPlayerName
+                                  displayPlayerName,
+                                  leagueId,
+                                  projectId,
+                                  cardWillShow: currentTeamData.parsed_players_for_table && 
+                                              currentTeamData.parsed_players_for_table.length > 0 && 
+                                              (!isShowingPlayerSaveDetails || isComplete || playerSaveStatus[currentTeam.teamname]?.length > 0),
+                                  willPassToComponent: {
+                                    displayOverallRating,
+                                    displayStatus: isSaved ? 'saved' : 'pending',
+                                    leagueId,
+                                    projectId
+                                  }
                                 });
                               }
                               
@@ -1090,6 +1135,8 @@ export default function AddTeams({
                                   isCurrentPlayer={false}
                                   displayOverallRating={displayOverallRating}
                                   displayStatus={isSaved ? 'saved' : 'pending'}
+                                  leagueId={leagueId}
+                                  projectId={projectId}
                                 />
                               );
                             })}
