@@ -22,5 +22,13 @@
     "path": "projects/456",
     "created_at": "2025-05-30T22:20:18.770646",
     "updated_at": "2025-05-30T22:20:18.770646"
+  },
+  "new-project": {
+    "id": "new-project",
+    "name": "New Project",
+    "description": null,
+    "path": "projects/new-project",
+    "created_at": "2025-06-01T18:43:18.825033",
+    "updated_at": "2025-06-01T18:43:18.825033"
   }
 }

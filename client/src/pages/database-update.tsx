@@ -17,11 +17,13 @@ import { useState, useEffect } from "react";
 import { useProgress } from "../context/ProgressContext";
 import { Icon } from "@iconify/react";
 import TransfermarktPositions from "../components/DatabaseUpdateComponents/TransfermarktPositions";
+import LeaguesRating from "../components/DatabaseUpdateComponents/LeaguesRating";
 
 export function DatabaseUpdatePage() {
   const [alert, setAlert] = useState<null | { type: "success" | "error"; text: string }>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showPositionsDict, setShowPositionsDict] = useState(false);
+  const [showLeaguesRating, setShowLeaguesRating] = useState(false);
   
   // Используем глобальный контекст прогресса
   const { progresses, wsConnected, getActiveProcesses } = useProgress();
@@ -282,10 +284,14 @@ export function DatabaseUpdatePage() {
               aria-label="Действия с Базами Данных"
               onAction={(key) => {
                 if (key === "db_teams") setShowPositionsDict(true);
+                if (key === "db_leagues_rating") setShowLeaguesRating(true);
               }}
             >
               <DropdownItem key="db_teams">
                 Словарь позиций игроков
+              </DropdownItem>
+              <DropdownItem key="db_leagues_rating">
+                Рейтинг лиг
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -455,6 +461,8 @@ export function DatabaseUpdatePage() {
         <Spacer y={4} />
         {showPositionsDict ? (
           <TransfermarktPositions onClose={() => setShowPositionsDict(false)} />
+        ) : showLeaguesRating ? (
+          <LeaguesRating onClose={() => setShowLeaguesRating(false)} />
         ) : (
           <p>Основное содержимое страницы обновления базы данных...</p>
         )}

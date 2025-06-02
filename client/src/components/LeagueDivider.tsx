@@ -2413,7 +2413,7 @@ export default React.memo(function LeagueDivider({ league, isOpen, onClose, team
         onClose={() => setIsAddTeamsModalOpen(false)}
         selectedTeams={getSelectedTeamsForExport()}
         projectId={projectId}
-        leagueId={league?.leagueid || ""}
+        leagueId={league?.leagueid}
         onTeamsAdded={handleTeamsAdded} // This now correctly triggers local and parent refresh
       />
     </>

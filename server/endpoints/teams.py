@@ -278,7 +278,7 @@ async def _handle_cat_process_players(tm_team: TransfermarktTeam, new_team_id: s
                     "position": p.get("player_position", "N/A"), # Added position
                     "nationality": p.get("player_nationality", "N/A"), # Added nationality
                     "value": p.get("market_value_eur", "-"),
-                    "url": p.get("player_profile_url", "#")
+                    "player_profile_url": p.get("player_profile_url", "#")
                 }
                 for p in players_data
             ]
@@ -289,7 +289,7 @@ async def _handle_cat_process_players(tm_team: TransfermarktTeam, new_team_id: s
             if parsed_players_for_table:
                 print(f"        🔍 Sample table data (first 3):")
                 for i, player in enumerate(parsed_players_for_table[:3]):
-                    print(f"          {i+1}. {player['name']} - #{player['number']} - {player['position']} - {player['nationality']} - {player['value']}")
+                    print(f"          {i+1}. {player['name']} - #{player['number']} - {player['position']} - {player['nationality']} - {player['value']} - URL: {player.get('player_profile_url', 'N/A')}")
             
             # Store players data for later saving
             result = {
@@ -343,7 +343,7 @@ async def _handle_cat_save_players(tm_team: TransfermarktTeam, new_team_id: str,
     
     try:
         print(f"        💾 Saving {len(parsed_players_raw_data)} players to project '{project_name}'...")
-        save_result = await save_players_to_project(project_name, parsed_players_raw_data, new_team_id, tm_team.teamname)
+        save_result = await save_players_to_project(project_name, parsed_players_raw_data, new_team_id, tm_team.teamname, league_id)
         print(f"        📋 Save result: {save_result}")
         
         # Prepare player data with new IDs for tactics handler
