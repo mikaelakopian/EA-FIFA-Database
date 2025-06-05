@@ -15,6 +15,7 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import PlayerCardFromAddTeam from "./PlayerCardFromAddTeam";
+import FootballPitch from "./FootballPitch";
 
 interface TransfermarktTeam {
   teamname: string;
@@ -193,6 +194,11 @@ function AddTeams({
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [lastKnownPlayerIndex, setLastKnownPlayerIndex] = useState<{ [teamName: string]: number }>({});
   const [activePlayerState, setActivePlayerState] = useState<{ [teamName: string]: number | null }>({});
+  const [firstCardAnimationDelay, setFirstCardAnimationDelay] = useState<{ [teamName: string]: { delayedRating: number, timestamp: number } }>({});
+  const [firstCardAnimationState, setFirstCardAnimationState] = useState<{ [teamName: string]: { shouldAnimate: boolean, targetRating: number, triggered: boolean } }>({});
+  const [formationData, setFormationData] = useState<{ [teamName: string]: any }>({});
+  const [teamSheetData, setTeamSheetData] = useState<{ [teamName: string]: any }>({});
+  const [playerNames, setPlayerNames] = useState<{ [nameId: string]: string }>({});
 
 
   // Function to normalize step names for comparison
@@ -202,6 +208,98 @@ function AddTeams({
       .replace(/\s+/g, ' ')    // Normalize spaces
       .trim();
   };
+
+  // Function to create formation and teamsheet data for a team (integrated test formation logic)
+  const fetchFormationData = useCallback(async (teamName: string, teamId: string) => {
+    if (!projectId) {
+      console.log(`[Formation Fetch] No projectId available for ${teamName}`);
+      return;
+    }
+    
+    console.log(`[Formation Fetch] Creating formation data for ${teamName} (ID: ${teamId}), project: ${projectId}`);
+    
+    try {
+      // Always create formation data from team player data (previously test formation logic)
+      const currentTeamData = teamData[teamName];
+      
+      // Create formation data (4-4-2 formation)
+      const formationData = {
+        formationname: "4-4-2",
+        position0: "0", position1: "3", position2: "4", position3: "6", position4: "7",
+        position5: "12", position6: "13", position7: "15", position8: "16",
+        position9: "24", position10: "26",
+        offset0x: "0.5", offset0y: "0.015",
+        offset1x: "0.925", offset1y: "0.2",
+        offset2x: "0.7125", offset2y: "0.1606",
+        offset3x: "0.2875", offset3y: "0.1585",
+        offset4x: "0.075", offset4y: "0.2",
+        offset5x: "0.925", offset5y: "0.5875",
+        offset6x: "0.65", offset6y: "0.5125",
+        offset7x: "0.35", offset7y: "0.5125",
+        offset8x: "0.075", offset8y: "0.5875",
+        offset9x: "0.6", offset9y: "0.875",
+        offset10x: "0.39", offset10y: "0.875"
+      };
+      
+      // Create teamsheet data using all parsed players (expand to include all team players)
+      const teamSheetData: any = {
+        teamid: teamId
+      };
+      
+      // Add all available players from the team to the teamsheet
+      const maxPlayers = Math.min(currentTeamData?.parsed_players_for_table?.length || 0, 30); // Limit to 30 players max
+      
+      for (let i = 0; i < maxPlayers; i++) {
+        const playerKey = `playerid${i}`;
+        teamSheetData[playerKey] = currentTeamData?.parsed_players_for_table?.[i]?.playerid || (i + 1).toString();
+      }
+      
+      // Fill any remaining slots up to at least 22 players (11 starting + 11 subs) with default values
+      for (let i = maxPlayers; i < 22; i++) {
+        const playerKey = `playerid${i}`;
+        teamSheetData[playerKey] = (i + 1).toString();
+      }
+      
+      console.log(`[Formation Fetch] Created teamsheet with ${maxPlayers} real players and filled to 22 total players`);
+      
+      // Set the data in state
+      setFormationData(prev => ({ ...prev, [teamName]: formationData }));
+      setTeamSheetData(prev => ({ ...prev, [teamName]: teamSheetData }));
+      
+      console.log(`[Formation Fetch] Created formation data for ${teamName}`, {
+        playersCount: currentTeamData?.parsed_players_for_table?.length || 0,
+        firstPlayer: currentTeamData?.parsed_players_for_table?.[0],
+        playerNamesCount: Object.keys(playerNames).length,
+        hasPlayerNames: Object.keys(playerNames).length > 0,
+        formationData,
+        teamSheetData
+      });
+
+      // Fetch player names data for proper name display if not already loaded
+      if (Object.keys(playerNames).length === 0) {
+        const playerNamesUrl = `http://localhost:8000/playernames?project_id=${projectId}`;
+        console.log(`[Formation Fetch] Fetching player names from: ${playerNamesUrl}`);
+        const playerNamesResponse = await fetch(playerNamesUrl);
+        
+        if (playerNamesResponse.ok) {
+          const playerNamesData = await playerNamesResponse.json();
+          console.log(`[Formation Fetch] Got ${playerNamesData.length} player names`);
+          
+          // Convert array to object with nameid as key
+          const playerNamesMap: { [nameId: string]: string } = {};
+          playerNamesData.forEach((playerName: any) => {
+            playerNamesMap[playerName.nameid] = playerName.name;
+          });
+          
+          setPlayerNames(playerNamesMap);
+        } else {
+          console.error(`[Formation Fetch] Player names API error:`, playerNamesResponse.status, playerNamesResponse.statusText);
+        }
+      }
+    } catch (error) {
+      console.error(`[Formation Fetch] Error creating formation data for ${teamName}:`, error);
+    }
+  }, [projectId, playerNames, teamData]);
 
   // Connect to WebSocket when modal opens
   useEffect(() => {
@@ -353,6 +451,26 @@ function AddTeams({
           ...prev,
           [data.current_team!]: data.player_index!
         }));
+        
+        // ULTRAFIX: Trigger animation for first player
+        if (data.player_index === 0 && data.player_overall_rating !== undefined) {
+          const teamName = data.current_team;
+          setFirstCardAnimationState(prev => {
+            const currentState = prev[teamName];
+            if (!currentState || !currentState.triggered) {
+              console.log(`🎬 [EXTERNAL ANIMATION] Triggering animation for first player: ${data.player_overall_rating}`);
+              return {
+                ...prev,
+                [teamName]: {
+                  shouldAnimate: true,
+                  targetRating: data.player_overall_rating,
+                  triggered: true
+                }
+              };
+            }
+            return prev;
+          });
+        }
       }
     } else if (data.current_team && 
                (!data.current_category?.includes('💾 Saving team players') || 
@@ -551,6 +669,9 @@ function AddTeams({
           const team = selectedTeams.find(t => t.team_id === teamId);
           if (team) {
             delete newIndex[team.teamname];
+            // Fetch formation data for completed teams
+            console.log(`[Formation Data] Team ${team.teamname} completed, fetching formation data...`);
+            fetchFormationData(team.teamname, team.team_id);
           }
         });
         return newIndex;
@@ -639,6 +760,27 @@ function AddTeams({
             ...prev,
             [data.current_team as string]: Math.max(stepIndex, prev[data.current_team as string] || -1)
           }));
+
+          // Check if "🎯 Team formations and tactics" step just completed
+          const tacticsStepIndex = PROCESSING_STEPS_INFO.findIndex(s => s.name === "🎯 Team formations and tactics");
+          console.log(`[Step Progress] Current step: ${stepIndex}, Tactics step index: ${tacticsStepIndex}, Category: "${data.current_category}"`);
+          
+          if (stepIndex === tacticsStepIndex && data.current_team) {
+            const team = selectedTeams.find(t => t.teamname === data.current_team);
+            if (team) {
+              console.log(`[Formation Data] Tactics step completed for ${data.current_team}, fetching formation data...`);
+              fetchFormationData(data.current_team, team.team_id);
+            }
+          }
+          
+          // Also try to fetch formation data when we're one step past tactics
+          if (stepIndex === tacticsStepIndex + 1 && data.current_team) {
+            const team = selectedTeams.find(t => t.teamname === data.current_team);
+            if (team && !formationData[data.current_team]) {
+              console.log(`[Formation Data] One step past tactics, attempting fetch for ${data.current_team}...`);
+              fetchFormationData(data.current_team, team.team_id);
+            }
+          }
         }
       }
     }
@@ -656,7 +798,7 @@ function AddTeams({
       setError(data.message || 'An error occurred');
       setIsProcessing(false);
     }
-  }, [selectedTeams, completedTeams, progressData, savedPlayerRatings, playerSaveStatus, teamData, lastKnownPlayerIndex, activePlayerState, isComplete]);
+  }, [selectedTeams, completedTeams, progressData, savedPlayerRatings, playerSaveStatus, teamData, lastKnownPlayerIndex, activePlayerState, isComplete, fetchFormationData]);
 
   const startAddingTeams = useCallback(async () => {
     setIsProcessing(true);
@@ -670,6 +812,11 @@ function AddTeams({
     setPlayerSaveStatus({});
     setSavedPlayerRatings({});
     setActivePlayerState({});
+    setFirstCardAnimationDelay({});
+    setFirstCardAnimationState({});
+    setFormationData({});
+    setTeamSheetData({});
+    setPlayerNames({});
 
     try {
       const response = await fetch('http://localhost:8000/teams/add-from-transfermarkt', {
@@ -721,6 +868,11 @@ function AddTeams({
     setPlayerSaveStatus({});
     setSavedPlayerRatings({});
     setActivePlayerState({});
+    setFirstCardAnimationDelay({});
+    setFirstCardAnimationState({});
+    setFormationData({});
+    setTeamSheetData({});
+    setPlayerNames({});
     handleSuccessModalClose();
     
     onClose();
@@ -1193,8 +1345,54 @@ function AddTeams({
                               
                               // IMPORTANT: Always check all sources for rating data
                               const displayOverallRating = (() => {
-                                // 1. If this is the current player being processed, use the live rating
+                                // ULTRAFIX: For first player card (idx === 0), delay live rating to allow animation
+                                // 1. If this is the current player being processed, use the live rating (but delayed for first card)
                                 if (isCurrentPlayer && progressData?.player_overall_rating !== undefined) {
+                                  // For first card, check if we should delay the rating to allow animation
+                                  if (idx === 0) {
+                                    // Check if we have a saved rating already - if not, this might be the first time
+                                    const hasSavedRating = savedPlayerRatings[currentTeam.teamname]?.[idx] !== undefined;
+                                    if (!hasSavedRating) {
+                                      const teamName = currentTeam.teamname;
+                                      const currentTime = Date.now();
+                                      const delayedRating = progressData.player_overall_rating;
+                                      
+                                      // Store the delayed rating
+                                      setFirstCardAnimationDelay(prev => ({
+                                        ...prev,
+                                        [teamName]: { delayedRating, timestamp: currentTime }
+                                      }));
+                                      
+                                      console.log(`🎯 [FIRST CARD ANIMATION PROTECTION] Storing delayed rating ${delayedRating} for first card`);
+                                      
+                                      // Set timer to release the rating after animation time
+                                      setTimeout(() => {
+                                        setFirstCardAnimationDelay(prev => {
+                                          const entry = prev[teamName];
+                                          if (entry && entry.timestamp === currentTime) {
+                                            // This is still the current delayed rating, release it
+                                            console.log(`🎯 [FIRST CARD ANIMATION PROTECTION] Releasing delayed rating ${entry.delayedRating}`);
+                                            setSavedPlayerRatings(prevRatings => ({
+                                              ...prevRatings,
+                                              [teamName]: {
+                                                ...prevRatings[teamName] || {},
+                                                [idx]: entry.delayedRating
+                                              }
+                                            }));
+                                            
+                                            // Remove from delayed state
+                                            const newDelay = { ...prev };
+                                            delete newDelay[teamName];
+                                            return newDelay;
+                                          }
+                                          return prev;
+                                        });
+                                      }, 1500); // 1.5 seconds delay to allow animation
+                                      
+                                      // Don't return the live rating immediately - let it animate first
+                                      return undefined;
+                                    }
+                                  }
                                   return progressData.player_overall_rating;
                                 }
                                 
@@ -1233,11 +1431,41 @@ function AddTeams({
                                 return undefined;
                               })();
                               
-                              console.log(`[Card Render] Player ${idx} ${displayPlayerName}: status=${displayStatus}, rating=${displayOverallRating}, isCurrentPlayer=${isCurrentPlayer}`);
+                              // Enhanced debugging for first card animation protection
+                              if (idx === 0) {
+                                console.log(`🎯 [FIRST CARD RENDER] Player ${idx} ${displayPlayerName}:`, {
+                                  status: displayStatus,
+                                  rating: displayOverallRating,
+                                  isCurrentPlayer,
+                                  progressRating: progressData?.player_overall_rating,
+                                  savedRating: savedPlayerRatings[currentTeam.teamname]?.[idx],
+                                  hasSavedRating: savedPlayerRatings[currentTeam.teamname]?.[idx] !== undefined,
+                                  delayedState: firstCardAnimationDelay[currentTeam.teamname],
+                                  externalAnimationState: firstCardAnimationState[currentTeam.teamname],
+                                  willGetLiveRating: isCurrentPlayer && progressData?.player_overall_rating !== undefined
+                                });
+                              } else {
+                                console.log(`[Card Render] Player ${idx} ${displayPlayerName}: status=${displayStatus}, rating=${displayOverallRating}, isCurrentPlayer=${isCurrentPlayer}`);
+                              }
+                              
+                              // ULTRAFIX: Super-stable key for first player to prevent re-mounts
+                              const superStableKey = idx === 0 
+                                ? `FIRST-PLAYER-${currentTeam.team_id}-${basePlayerData?.name || player.name}`
+                                : `player-${currentTeam.teamname}-${basePlayerData?.name || player.name || idx}`;
+                              
+                              // ULTRAFIX: Animation complete callback for first card
+                              const onAnimationComplete = idx === 0 ? () => {
+                                console.log(`🎬 [EXTERNAL ANIMATION] First card animation completed, clearing state`);
+                                setFirstCardAnimationState(prev => {
+                                  const newState = { ...prev };
+                                  delete newState[currentTeam.teamname];
+                                  return newState;
+                                });
+                              } : undefined;
                               
                               return (
                                 <PlayerCardFromAddTeam
-                                  key={idx}
+                                  key={superStableKey}
                                   player={player}
                                   playerIndex={idx}
                                   currentTeam={currentTeam}
@@ -1248,6 +1476,8 @@ function AddTeams({
                                   displayStatus={displayStatus}
                                   leagueId={leagueId}
                                   projectId={projectId}
+                                  externalAnimationState={idx === 0 ? firstCardAnimationState[currentTeam.teamname] : undefined}
+                                  onAnimationComplete={onAnimationComplete}
                                 />
                               );
                             })}
@@ -1331,9 +1561,24 @@ function AddTeams({
                                 });
                               }
                               
+                              // ULTRAFIX: Super-stable key for first player to prevent re-mounts  
+                              const superStableKey = idx === 0
+                                ? `FIRST-PLAYER-${currentTeam.team_id}-${player.name}`
+                                : `player-${currentTeam.teamname}-${player.name || idx}`;
+                              
+                              // ULTRAFIX: Animation complete callback for first card
+                              const onAnimationComplete = idx === 0 ? () => {
+                                console.log(`🎬 [EXTERNAL ANIMATION] First card animation completed in Players section, clearing state`);
+                                setFirstCardAnimationState(prev => {
+                                  const newState = { ...prev };
+                                  delete newState[currentTeam.teamname];
+                                  return newState;
+                                });
+                              } : undefined;
+                              
                               return (
                                 <PlayerCardFromAddTeam
-                                  key={idx}
+                                  key={superStableKey}
                                   player={{
                                     name: displayPlayerName,
                                     status: isSaved ? 'saved' : 'pending',
@@ -1350,9 +1595,136 @@ function AddTeams({
                                   displayStatus={isSaved ? 'saved' : 'pending'}
                                   leagueId={leagueId}
                                   projectId={projectId}
+                                  externalAnimationState={idx === 0 ? firstCardAnimationState[currentTeam.teamname] : undefined}
+                                  onAnimationComplete={onAnimationComplete}
                                 />
                               );
                             })}
+                          </div>
+                        </CardBody>
+                      </Card>
+                    )}
+
+                    {/* Formation Visualization - Show when formation data is available */}
+                    {(() => {
+                      const shouldShowFormation = currentTeam && 
+                        formationData[currentTeam.teamname] && 
+                        teamSheetData[currentTeam.teamname] && 
+                        currentTeamData.parsed_players_for_table && 
+                        currentTeamData.parsed_players_for_table.length > 0 &&
+                        (isComplete || (!isShowingPlayerSaveDetails && teamStepProgress[currentTeam.teamname] > 10));
+                      
+                      if (currentTeam) {
+                        console.log(`[Formation Display Debug] Team: ${currentTeam.teamname}`, {
+                          shouldShowFormation,
+                          hasFormationData: !!formationData[currentTeam.teamname],
+                          hasTeamSheetData: !!teamSheetData[currentTeam.teamname],
+                          hasPlayerData: !!currentTeamData.parsed_players_for_table,
+                          isComplete,
+                          isShowingPlayerSaveDetails,
+                          teamStepProgress: teamStepProgress[currentTeam.teamname],
+                          stepProgressCondition: teamStepProgress[currentTeam.teamname] > 10,
+                          finalCondition: (isComplete || (!isShowingPlayerSaveDetails && teamStepProgress[currentTeam.teamname] > 10)),
+                          formationDataKeys: Object.keys(formationData),
+                          teamSheetDataKeys: Object.keys(teamSheetData),
+                          currentTeamId: currentTeam.team_id,
+                          hasTeamData: !!currentTeamData.teamid,
+                          playerNamesCount: Object.keys(playerNames).length
+                        });
+                        
+                        // Manual fetch attempt if data is missing but step progress indicates it should be available
+                        if (!formationData[currentTeam.teamname] && 
+                            !teamSheetData[currentTeam.teamname] && 
+                            teamStepProgress[currentTeam.teamname] > 10 && 
+                            currentTeamData.parsed_players_for_table) {
+                          console.log(`[Formation Display Debug] Attempting manual fetch for ${currentTeam.teamname}`);
+                          fetchFormationData(currentTeam.teamname, currentTeamData.teamid || currentTeam.team_id);
+                        }
+                      }
+                      
+                      return shouldShowFormation;
+                    })() && (
+                      <FootballPitch
+                        formation={formationData[currentTeam.teamname]}
+                        teamSheet={teamSheetData[currentTeam.teamname]}
+                        players={currentTeamData.parsed_players_for_table.map((p: any, idx: number) => {
+                          // Enhanced logging to debug field names
+                          const allKeys = Object.keys(p);
+                          const nameRelatedKeys = allKeys.filter(key => 
+                            key.toLowerCase().includes('name') || 
+                            key.toLowerCase().includes('first') || 
+                            key.toLowerCase().includes('last') ||
+                            key.toLowerCase().includes('common') ||
+                            key.toLowerCase().includes('jersey')
+                          );
+                          
+                          console.log(`[AddTeams] Mapping player ${idx} (${p.name || 'Unknown'}):`, {
+                            playerKeys: allKeys,
+                            nameRelatedKeys,
+                            // Check all possible name field variations
+                            name: p.name,
+                            commonname: p.commonname,
+                            firstnameid: p.firstnameid,
+                            lastnameid: p.lastnameid,
+                            firstname_id: p.firstname_id,
+                            lastname_id: p.lastname_id,
+                            first_name_id: p.first_name_id,
+                            last_name_id: p.last_name_id,
+                            jerseynumber: p.jerseynumber,
+                            jersey_number: p.jersey_number
+                          });
+                          
+                          return {
+                            playerid: p.playerid || p.player_id || p.id || idx.toString(),
+                            name: p.name,
+                            position: p.position,
+                            overall_rating: savedPlayerRatings[currentTeam.teamname]?.[idx] || p.overall_rating,
+                            potential: p.potential,
+                            commonname: p.commonname,
+                            // Try multiple field name variations for firstnameid/lastnameid
+                            firstnameid: p.firstnameid || p.firstname_id || p.first_name_id,
+                            lastnameid: p.lastnameid || p.lastname_id || p.last_name_id,
+                            jerseynumber: p.jerseynumber || p.jersey_number || p.shirtNumber || p.number || (idx + 1).toString()
+                          };
+                        })}
+                        teamName={currentTeam.teamname}
+                        playerNames={playerNames}
+                        projectId={projectId}
+                      />
+                    )}
+
+                    {/* Debug: Manual Formation Fetch Button */}
+                    {currentTeam && !isProcessing && (
+                      <Card className="mt-2">
+                        <CardBody className="p-2">
+                          <div className="flex items-center gap-2">
+                            <Button
+                              size="sm"
+                              color="primary"
+                              variant="flat"
+                              onPress={() => {
+                                console.log(`[Load Formation] Creating formation for ${currentTeam.teamname} (ID: ${currentTeamData.teamid || currentTeam.team_id})`);
+                                console.log(`[Load Formation] Current team data:`, {
+                                  teamName: currentTeam.teamname,
+                                  teamId: currentTeamData.teamid || currentTeam.team_id,
+                                  playersCount: currentTeamData.parsed_players_for_table?.length || 0,
+                                  projectId,
+                                  hasPlayerNames: Object.keys(playerNames).length > 0,
+                                  currentFormationData: formationData[currentTeam.teamname],
+                                  currentTeamSheetData: teamSheetData[currentTeam.teamname]
+                                });
+                                fetchFormationData(currentTeam.teamname, currentTeamData.teamid || currentTeam.team_id);
+                              }}
+                              startContent={<Icon icon="lucide:play" className="w-4 h-4" />}
+                            >
+                              Show Formation
+                            </Button>
+                            <span className="text-xs text-default-500">
+                              Debug: Step {teamStepProgress[currentTeam.teamname] || 0}, 
+                              Formation: {formationData[currentTeam.teamname] ? '✓' : '✗'}, 
+                              TeamSheet: {teamSheetData[currentTeam.teamname] ? '✓' : '✗'},
+                              Names: {Object.keys(playerNames).length > 0 ? `✓(${Object.keys(playerNames).length})` : '✗'}
+                            </span>
                           </div>
                         </CardBody>
                       </Card>
