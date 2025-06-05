@@ -278,7 +278,9 @@ async def _handle_cat_process_players(tm_team: TransfermarktTeam, new_team_id: s
                     "position": p.get("player_position", "N/A"), # Added position
                     "nationality": p.get("player_nationality", "N/A"), # Added nationality
                     "value": p.get("market_value_eur", "-"),
-                    "player_profile_url": p.get("player_profile_url", "#")
+                    "player_profile_url": p.get("player_profile_url", "#"),
+                    "date_of_birth_age": p.get("date_of_birth_age", "N/A"), # Added age data
+                    "age": p.get("date_of_birth_age", "N/A") # Also as 'age' for easier access
                 }
                 for p in players_data
             ]
@@ -289,7 +291,7 @@ async def _handle_cat_process_players(tm_team: TransfermarktTeam, new_team_id: s
             if parsed_players_for_table:
                 print(f"        🔍 Sample table data (first 3):")
                 for i, player in enumerate(parsed_players_for_table[:3]):
-                    print(f"          {i+1}. {player['name']} - #{player['number']} - {player['position']} - {player['nationality']} - {player['value']} - URL: {player.get('player_profile_url', 'N/A')}")
+                    print(f"          {i+1}. {player['name']} - #{player['number']} - {player['position']} - {player['nationality']} - Age: {player.get('age', 'N/A')} - {player['value']} - URL: {player.get('player_profile_url', 'N/A')}")
             
             # Store players data for later saving
             result = {

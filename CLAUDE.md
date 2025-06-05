@@ -42,8 +42,64 @@ npm run preview     # Preview production build
 ### Backend
 ```bash
 cd server
+# Activate virtual environment first
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate     # Windows
+
 pip install -r requirements.txt    # Install Python dependencies
 uvicorn server:app --reload       # Start development server with hot reload
+```
+
+## Запуск приложения
+
+### Запуск сервера (Backend)
+```bash
+cd server
+
+# Активируйте виртуальное окружение
+source venv/bin/activate  # Для Linux/Mac
+# или
+venv\Scripts\activate     # Для Windows
+
+# Установите зависимости (если еще не установлены)
+pip install -r requirements.txt
+
+# Запустите сервер
+uvicorn server:app --reload --host 0.0.0.0 --port 8000
+```
+Сервер будет доступен по адресу: http://localhost:8000
+
+### Запуск клиента (Frontend)
+```bash
+cd client
+# Установите зависимости (если еще не установлены)
+npm install
+
+# Запустите клиент в режиме разработки
+npm run dev
+```
+Клиент будет доступен по адресу: http://localhost:5173
+
+### Запуск в продакшн режиме
+
+#### Backend
+```bash
+cd server
+
+# Активируйте виртуальное окружение
+source venv/bin/activate  # Для Linux/Mac
+# или
+venv\Scripts\activate     # Для Windows
+
+uvicorn server:app --host 0.0.0.0 --port 8000
+```
+
+#### Frontend
+```bash
+cd client
+npm run build
+npm run preview
 ```
 
 ## Key API Endpoints

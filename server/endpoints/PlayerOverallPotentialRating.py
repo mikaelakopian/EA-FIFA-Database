@@ -28,6 +28,11 @@ def parse_player_age(player_data: Dict[str, Any], default_age: int = 25) -> int:
         Parsed age or default age
     """
     age_field = player_data.get("date_of_birth_age", "")
+    
+    # Also check for 'age' field as fallback
+    if not age_field:
+        age_field = player_data.get("age", "")
+    
     if age_field:
         try:
             # Try different formats
@@ -241,26 +246,120 @@ def get_position_rating_modifier(position: str) -> float:
     return position_modifiers.get(position.upper(), 1.0)
 
 
-def get_base_rating_from_market_value(market_value: float) -> float:
+def get_age_rating_modifier(age: int) -> float:
     """
-    Get base rating (BR) based on market value using detailed rating table
+    Get age-based modifier for base rating with minimal age influence
+    Market value is the primary factor, age has very minimal impact
     
-    Uses a comprehensive 55-tier rating system from 45 to 99 based on market value.
-    Examples:
-    - €300m+ : 99
-    - €100m+ : 95
-    - €50m+ : 88
-    - €10m+ : 78
-    - €1m+ : 68
-    - €500k+ : 65
-    - €350k+ : 63
-    - €250k+ : 63
-    - €200k+ : 62
-    - €50k+ : 55
-    - €2.5k+ : 46
-    - <€2.5k : 45
+    Args:
+        age: Player age
+        
+    Returns:
+        Age modifier multiplier (0.95 to 1.05) - very small range
     """
-    # Detailed rating table from highest to lowest
+    if age <= 15:
+        # Academy youth - minimal penalty
+        return 0.95
+    elif age == 16:
+        # Young academy - minimal penalty
+        return 0.96
+    elif age == 17:
+        # Late academy - minimal penalty
+        return 0.97
+    elif age == 18:
+        # First year professional - tiny penalty
+        return 0.98
+    elif age == 19:
+        # Young professional - tiny penalty
+        return 0.99
+    elif age == 20:
+        # Developing player - neutral
+        return 1.00
+    elif age == 21:
+        # Emerging talent - tiny bonus
+        return 1.01
+    elif age == 22:
+        # Young talent - tiny bonus
+        return 1.02
+    elif age == 23:
+        # Rising player - small bonus
+        return 1.03
+    elif age == 24:
+        # Pre-peak talent - small bonus
+        return 1.04
+    elif age == 25:
+        # Near peak - peak bonus
+        return 1.05
+    elif age == 26:
+        # Early peak - peak bonus
+        return 1.05
+    elif age == 27:
+        # Prime peak - peak bonus
+        return 1.05
+    elif age == 28:
+        # Absolute peak - peak bonus
+        return 1.05
+    elif age == 29:
+        # Late prime - peak bonus
+        return 1.05
+    elif age == 30:
+        # Late peak - small bonus
+        return 1.04
+    elif age == 31:
+        # Early decline - small bonus
+        return 1.03
+    elif age == 32:
+        # Gradual decline - tiny bonus
+        return 1.02
+    elif age == 33:
+        # Decline - tiny bonus
+        return 1.01
+    elif age == 34:
+        # Notable decline - neutral
+        return 1.00
+    elif age == 35:
+        # Veteran decline - tiny penalty
+        return 0.99
+    elif age == 36:
+        # Senior veteran - tiny penalty
+        return 0.98
+    elif age == 37:
+        # Late career - minimal penalty
+        return 0.97
+    elif age == 38:
+        # Very late career - minimal penalty
+        return 0.96
+    elif age == 39:
+        # End of career - minimal penalty
+        return 0.95
+    elif age == 40:
+        # Exceptional longevity - minimal penalty
+        return 0.95
+    else:
+        # Beyond typical career - minimal penalty
+        return 0.95
+
+
+def get_base_rating_from_market_value(market_value: float, age: int = 28) -> float:
+    """
+    Get base rating (BR) based on market value and age using detailed rating table
+    
+    Uses a comprehensive 55-tier rating system from 45 to 99 based on market value,
+    then applies age-based modifiers. Peak performance is at ages 26-30.
+    
+    Args:
+        market_value: Player market value in euros
+        age: Player age (default 28 - peak age)
+    
+    Examples:
+    - €300m+ at peak (28 years): 99
+    - €300m+ young (20 years): 99 * 0.80 = 79
+    - €50m+ at peak (28 years): 88
+    - €50m+ young (22 years): 88 * 0.85 = 75
+    - €1m+ at peak (28 years): 68
+    - €1m+ veteran (35 years): 68 * 0.85 = 58
+    """
+    # Detailed rating table from highest to lowest (peak performance values)
     rating_table = [
         (99, 300_000_000), (98, 200_000_000), (97, 150_000_000), (96, 125_000_000),
         (95, 100_000_000), (94, 93_750_000), (93, 87_500_000), (92, 75_000_000),
@@ -278,13 +377,31 @@ def get_base_rating_from_market_value(market_value: float) -> float:
         (47, 5_000), (46, 2_500), (45, 0)
     ]
     
-    # Find the appropriate rating for the market value
+    # Find the base rating for the market value (peak performance)
+    base_rating = 45.0
     for rating, min_value in rating_table:
         if market_value >= min_value:
-            return float(rating)
+            base_rating = float(rating)
+            break
     
-    # Fallback to minimum rating
-    return 45.0
+    # Special handling for players with zero market value
+    # Give them a slightly higher base rating based on age if they're young
+    if market_value == 0 and age <= 22:
+        if age <= 18:
+            base_rating = 50.0  # Young prospects
+        elif age <= 20:
+            base_rating = 48.0  # Developing players
+        elif age <= 22:
+            base_rating = 47.0  # Young talents
+    elif market_value == 0:
+        base_rating = 45.0  # Standard minimum for older players with no value
+    
+    # Apply age modifier
+    age_modifier = get_age_rating_modifier(age)
+    final_rating = base_rating * age_modifier
+    
+    # Ensure rating stays within reasonable bounds (but allow low ratings for young/old players)
+    return max(25.0, min(99.0, final_rating))
 
 
 def get_league_influence_coefficient(market_value: float) -> float:
@@ -311,31 +428,58 @@ def get_league_influence_coefficient(market_value: float) -> float:
     return max(0.0, min(1.0, lic))
 
 
-def get_age_potential_modifier(age: int) -> float:
+def get_age_potential_modifier(age: int, market_value: float = 0) -> int:
     """
-    Get age-based modifier for potential rating only
+    Get age-based modifier for potential rating that considers both age and market value
     
+    Args:
+        age: Player age
+        market_value: Player market value in euros
+        
     Returns:
-        Potential modifier (always >= 0)
+        Potential modifier as integer (always >= 0)
     """
+    # Base age modifiers
     if age <= 18:
         # Very young players - highest potential
-        return 10.0
+        base_modifier = 12
     elif age <= 21:
         # Young players - high potential
-        return 7.5
+        base_modifier = 8
+    elif age <= 23:
+        # Prime development age - good potential
+        base_modifier = 6
     elif age <= 25:
-        # Prime development age - moderate potential
-        return 4.0
-    elif age <= 28:
+        # Still developing - moderate potential
+        base_modifier = 4
+    elif age <= 27:
         # Peak years - low potential
-        return 1.5
+        base_modifier = 2
+    elif age <= 29:
+        # Late peak - minimal potential
+        base_modifier = 1
     elif age <= 32:
-        # Experienced - minimal potential
-        return 0.5
+        # Experienced - very minimal potential
+        base_modifier = 0
     else:
         # Veteran - no potential growth
-        return 0.0
+        base_modifier = 0
+    
+    # Market value bonus for young talents
+    # High value young players have more potential
+    if age <= 23 and market_value > 0:
+        if market_value >= 50_000_000:  # €50m+
+            base_modifier += 3
+        elif market_value >= 20_000_000:  # €20m+
+            base_modifier += 2
+        elif market_value >= 5_000_000:  # €5m+
+            base_modifier += 1
+    
+    # Reduce potential for older expensive players (they're already near peak)
+    if age >= 28 and market_value >= 30_000_000:
+        base_modifier = max(0, base_modifier - 1)
+    
+    return base_modifier
 
 
 def calculate_overall_rating_and_potential(
@@ -369,8 +513,12 @@ def calculate_overall_rating_and_potential(
     market_value_str = player_data.get("market_value_eur", player_data.get("value", "0"))
     market_value = parse_market_value(str(market_value_str))
     
-    # Get Base Rating (BR) from market value
-    base_rating = get_base_rating_from_market_value(market_value)
+    # Parse age if not provided (needed for base rating calculation)
+    if player_age is None:
+        player_age = parse_player_age(player_data)
+    
+    # Get Base Rating (BR) from market value and age
+    base_rating = get_base_rating_from_market_value(market_value, player_age)
     
     # Get League Rating (LR)
     if league_country:
@@ -387,12 +535,8 @@ def calculate_overall_rating_and_potential(
     league_component = ((base_rating + league_rating) / 2) * league_influence_coefficient
     final_rating = br_component + league_component
     
-    # Parse age if not provided
-    if player_age is None:
-        player_age = parse_player_age(player_data)
-    
-    # Calculate potential (add age-based potential modifier)
-    age_potential_mod = get_age_potential_modifier(player_age)
+    # Calculate potential (add age-based potential modifier with market value consideration)
+    age_potential_mod = get_age_potential_modifier(player_age, market_value)
     potential = final_rating + age_potential_mod
     
     # Ensure ratings are within FIFA bounds
@@ -427,18 +571,18 @@ def get_rating_breakdown_details(
     market_value_str = player_data.get("market_value_eur", player_data.get("value", "0"))
     market_value = parse_market_value(str(market_value_str))
     
-    # Get Base Rating (BR) from market value
-    base_rating = get_base_rating_from_market_value(market_value)
+    # Parse age if not provided (needed for base rating calculation)
+    if player_age is None:
+        player_age = parse_player_age(player_data)
+    
+    # Get Base Rating (BR) from market value and age
+    base_rating = get_base_rating_from_market_value(market_value, player_age)
     
     # Get League Rating (LR)
     league_rating = get_league_average_rating(league_country, league_division, league_ratings)
     
     # Get League Influence Coefficient (LIC)
     league_influence_coefficient = get_league_influence_coefficient(market_value)
-    
-    # Parse age if not provided
-    if player_age is None:
-        player_age = parse_player_age(player_data)
     
     # Calculate the rating using the new formula for breakdown display
     calculated_overall_rating, calculated_potential_rating = calculate_overall_rating_and_potential(
@@ -453,14 +597,20 @@ def get_rating_breakdown_details(
     league_component = ((base_rating + league_rating) / 2) * league_influence_coefficient
     final_rating = br_component + league_component
     
-    # Calculate potential modifier
-    age_potential_mod = get_age_potential_modifier(player_age)
+    # Calculate potential modifier with market value
+    age_potential_mod = get_age_potential_modifier(player_age, market_value)
+    
+    # Calculate base rating details for breakdown
+    base_rating_peak = base_rating / get_age_rating_modifier(player_age)  # What the rating would be at peak
+    age_modifier = get_age_rating_modifier(player_age)
     
     return {
         "overall_rating": calculated_overall_rating,
         "potential_rating": calculated_potential_rating,
         "breakdown": {
             "base_rating": base_rating,
+            "base_rating_peak": base_rating_peak,
+            "age_modifier": age_modifier,
             "league_rating": league_rating,
             "league_country": league_country,
             "league_division": league_division,
@@ -474,9 +624,19 @@ def get_rating_breakdown_details(
             "age_potential_mod": age_potential_mod,
             "components": [
                 {
+                    "name": "Базовый рейтинг на пике",
+                    "value": round(base_rating_peak, 1),
+                    "description": f"Рейтинг для стоимости {market_value_str} в возрасте 26-30 лет"
+                },
+                {
+                    "name": "Возрастной модификатор",
+                    "value": f"×{age_modifier:.2f}",
+                    "description": f"Возраст {player_age} лет (пик: 26-30 лет)"
+                },
+                {
                     "name": "Базовый рейтинг (BR)",
                     "value": round(base_rating, 1),
-                    "description": f"На основе рыночной стоимости {market_value_str}"
+                    "description": f"{round(base_rating_peak, 1)} × {age_modifier:.2f} = {round(base_rating, 1)}"
                 },
                 {
                     "name": "Рейтинг лиги (LR)",
@@ -643,8 +803,8 @@ if __name__ == "__main__":
         league_division="3"
     )
     
-    print(f"Young Talent (€50k, Poland 3rd div) - Overall: {overall1}, Potential: {potential1}")
-    print(f"  BR: {get_base_rating_from_market_value(50000)}, LIC: {get_league_influence_coefficient(50000):.3f}")
+    print(f"Young Talent (€50k, Poland 3rd div, age 19) - Overall: {overall1}, Potential: {potential1}")
+    print(f"  BR (peak): {get_base_rating_from_market_value(50000, 28):.1f}, BR (age 19): {get_base_rating_from_market_value(50000, 19):.1f}, LIC: {get_league_influence_coefficient(50000):.3f}, Age Mod: {get_age_potential_modifier(19, 50000)}")
     
     # Example 2: Star in top league (low LIC)
     test_player2 = {
@@ -660,8 +820,8 @@ if __name__ == "__main__":
         league_division="1"
     )
     
-    print(f"Top Star (€50m, Premier League) - Overall: {overall2}, Potential: {potential2}")
-    print(f"  BR: {get_base_rating_from_market_value(50000000)}, LIC: {get_league_influence_coefficient(50000000):.3f}")
+    print(f"Top Star (€50m, Premier League, age 29) - Overall: {overall2}, Potential: {potential2}")
+    print(f"  BR (peak): {get_base_rating_from_market_value(50000000, 28):.1f}, BR (age 29): {get_base_rating_from_market_value(50000000, 29):.1f}, LIC: {get_league_influence_coefficient(50000000):.3f}, Age Mod: {get_age_potential_modifier(29, 50000000)}")
     
     # Example 3: Medium player in medium league (moderate LIC)
     test_player3 = {
@@ -677,5 +837,46 @@ if __name__ == "__main__":
         league_division="2"
     )
     
-    print(f"Medium Player (€2m, Serie B) - Overall: {overall3}, Potential: {potential3}")
-    print(f"  BR: {get_base_rating_from_market_value(2000000)}, LIC: {get_league_influence_coefficient(2000000):.3f}")
+    print(f"Medium Player (€2m, Serie B, age 34) - Overall: {overall3}, Potential: {potential3}")
+    print(f"  BR (peak): {get_base_rating_from_market_value(2000000, 28):.1f}, BR (age 34): {get_base_rating_from_market_value(2000000, 34):.1f}, LIC: {get_league_influence_coefficient(2000000):.3f}, Age Mod: {get_age_potential_modifier(34, 2000000)}")
+    
+    # Example 4: Young expensive talent
+    test_player4 = {
+        "player_name": "Young Star",
+        "market_value_eur": "€25,000,000",
+        "player_position": "CAM",
+        "date_of_birth_age": "Jan 15, 2002 (22)"
+    }
+    
+    overall4, potential4 = calculate_overall_rating_and_potential(
+        test_player4,
+        league_country="Spain",
+        league_division="1"
+    )
+    
+    print(f"Young Star (€25m, La Liga, age 22) - Overall: {overall4}, Potential: {potential4}")
+    print(f"  BR (peak): {get_base_rating_from_market_value(25000000, 28):.1f}, BR (age 22): {get_base_rating_from_market_value(25000000, 22):.1f}, LIC: {get_league_influence_coefficient(25000000):.3f}, Age Mod: {get_age_potential_modifier(22, 25000000)}")
+    
+    # Example 5: Same player at different ages
+    print("\n--- Age Impact Demonstration ---")
+    market_val = 10_000_000  # €10M player
+    for test_age in [18, 22, 25, 28, 31, 35]:
+        test_player = {
+            "player_name": f"Player at {test_age}",
+            "market_value_eur": f"€{market_val:,}",
+            "player_position": "CM",
+            "date_of_birth_age": f"Jan 1, {2024-test_age} ({test_age})"
+        }
+        
+        overall, potential = calculate_overall_rating_and_potential(
+            test_player,
+            league_country="England",
+            league_division="1"
+        )
+        
+        br_at_age = get_base_rating_from_market_value(market_val, test_age)
+        br_at_peak = get_base_rating_from_market_value(market_val, 28)
+        age_modifier = get_age_rating_modifier(test_age)
+        pot_modifier = get_age_potential_modifier(test_age, market_val)
+        
+        print(f"  Age {test_age}: Overall {overall}, Potential {potential} | BR: {br_at_peak:.0f} → {br_at_age:.0f} (×{age_modifier:.2f}) | Pot Mod: +{pot_modifier}")

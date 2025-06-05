@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, memo, useMemo, useCallback } from "react";
+import { useState, useEffect, useRef, memo, useCallback } from "react";
 import { 
   Card, 
   CardBody, 
@@ -11,7 +11,9 @@ import {
   PopoverTrigger, 
   PopoverContent, 
   Button,
-  Chip 
+  Chip,
+  Accordion,
+  AccordionItem
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
@@ -69,6 +71,37 @@ const POSITION_MAPPINGS: { [key: string]: string } = {
 const getPositionAbbreviation = (position: string): string => {
   if (!position) return "CM";
   return POSITION_MAPPINGS[position] || POSITION_MAPPINGS[position.toLowerCase()] || position.toUpperCase().slice(0, 3);
+};
+
+// Function to get age coefficient details
+const getAgeDetails = (age: number) => {
+  if (age <= 15) return { modifier: 0.95, category: "Academy youth", description: "Академия (до 15 лет)", color: "red" };
+  if (age === 16) return { modifier: 0.96, category: "Young academy", description: "Молодая академия", color: "red" };
+  if (age === 17) return { modifier: 0.97, category: "Late academy", description: "Поздняя академия", color: "red" };
+  if (age === 18) return { modifier: 0.98, category: "First year professional", description: "Первый профессиональный год", color: "orange" };
+  if (age === 19) return { modifier: 0.99, category: "Young professional", description: "Молодой профессионал", color: "orange" };
+  if (age === 20) return { modifier: 1.00, category: "Developing player", description: "Развивающийся игрок", color: "blue" };
+  if (age === 21) return { modifier: 1.01, category: "Emerging talent", description: "Восходящий талант", color: "green" };
+  if (age === 22) return { modifier: 1.02, category: "Young talent", description: "Молодой талант", color: "green" };
+  if (age === 23) return { modifier: 1.03, category: "Rising player", description: "Растущий игрок", color: "green" };
+  if (age === 24) return { modifier: 1.04, category: "Pre-peak talent", description: "Предпиковый талант", color: "green" };
+  if (age === 25) return { modifier: 1.05, category: "Near peak", description: "Близко к пику", color: "green" };
+  if (age === 26) return { modifier: 1.05, category: "Early peak", description: "Ранний пик", color: "green" };
+  if (age === 27) return { modifier: 1.05, category: "Prime peak", description: "Основной пик", color: "green" };
+  if (age === 28) return { modifier: 1.05, category: "Absolute peak", description: "Абсолютный пик", color: "green" };
+  if (age === 29) return { modifier: 1.05, category: "Late prime", description: "Поздний прайм", color: "green" };
+  if (age === 30) return { modifier: 1.04, category: "Late peak", description: "Поздний пик", color: "green" };
+  if (age === 31) return { modifier: 1.03, category: "Early decline", description: "Ранний спад", color: "green" };
+  if (age === 32) return { modifier: 1.02, category: "Gradual decline", description: "Постепенный спад", color: "green" };
+  if (age === 33) return { modifier: 1.01, category: "Decline", description: "Спад", color: "green" };
+  if (age === 34) return { modifier: 1.00, category: "Notable decline", description: "Заметный спад", color: "blue" };
+  if (age === 35) return { modifier: 0.99, category: "Veteran decline", description: "Ветеранский спад", color: "orange" };
+  if (age === 36) return { modifier: 0.98, category: "Senior veteran", description: "Старший ветеран", color: "orange" };
+  if (age === 37) return { modifier: 0.97, category: "Late career", description: "Поздняя карьера", color: "red" };
+  if (age === 38) return { modifier: 0.96, category: "Very late career", description: "Очень поздняя карьера", color: "red" };
+  if (age === 39) return { modifier: 0.95, category: "End of career", description: "Конец карьеры", color: "red" };
+  if (age === 40) return { modifier: 0.95, category: "Exceptional longevity", description: "Исключительное долголетие", color: "red" };
+  return { modifier: 0.95, category: "Beyond typical career", description: "За пределами типичной карьеры", color: "red" };
 };
 
 // Nation mappings based on tm_fifa_nation_map.json
@@ -355,157 +388,116 @@ interface PlayerCardFromAddTeamProps {
   displayStatus: "pending" | "saving" | "saved" | "error";
   leagueId?: string;
   projectId?: string;
+  externalAnimationState?: {
+    shouldAnimate: boolean;
+    targetRating: number;
+    triggered: boolean;
+  };
+  onAnimationComplete?: () => void;
 }
 
-// Improved animated counter with autonomous animation logic
-function useAnimatedCounter(end: number, duration: number = 1000, startDelay: number = 0) {
-  const [displayValue, setDisplayValue] = useState(1);
+function useAnimatedCounter(end: number | undefined, duration: number = 1000, startDelay: number = 0, onComplete?: () => void) {
+  const [displayValue, setDisplayValue] = useState(() => {
+    // Always start with 1 for animation
+    return 1;
+  });
   const [isAnimating, setIsAnimating] = useState(false);
   const animationRef = useRef<number | null>(null);
-  const startTimeRef = useRef<number>(0);
-  const startValueRef = useRef<number>(1);
   const previousEndRef = useRef<number | undefined>(undefined);
-  const hasAnimatedRef = useRef<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const mountedRef = useRef<boolean>(false);
-  const debugIdRef = useRef<string>(Math.random().toString(36).substr(2, 4));
-  const callCountRef = useRef<number>(0);
-  const lastCallTimeRef = useRef<number>(0);
-  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const pendingEndRef = useRef<number | null>(null);
+  const mountedRef = useRef(true);
+  const hasAnimatedRef = useRef(false);
 
-  // Mark as mounted to handle initial renders properly
   useEffect(() => {
-    mountedRef.current = true;
-    return () => {
-      mountedRef.current = false;
-    };
+    return () => { mountedRef.current = false; };
   }, []);
 
   useEffect(() => {
-    // Track call frequency and rapid calls
-    const now = performance.now();
-    const timeSinceLastCall = now - lastCallTimeRef.current;
-    callCountRef.current++;
-    lastCallTimeRef.current = now;
+    console.log(`🔄 [useAnimatedCounter] end=${end}, previousEnd=${previousEndRef.current}, displayValue=${displayValue}, isAnimating=${isAnimating}`);
     
-    // Debug logging for first element issues - add identifier to track specific instances
-    const debugId = debugIdRef.current;
-    const isRapidCall = timeSinceLastCall < 100; // Less than 100ms between calls
-    
-    console.log(`🚨 [useAnimatedCounter-${debugId}] CALL #${callCountRef.current} with end=${end}, previous=${previousEndRef.current}, displayValue=${displayValue}, mounted=${mountedRef.current}, timeSince=${timeSinceLastCall.toFixed(1)}ms, RAPID=${isRapidCall}`);
-
-    // Cancel any existing timeouts
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-    if (debounceTimeoutRef.current) {
-      clearTimeout(debounceTimeoutRef.current);
-      debounceTimeoutRef.current = null;
-    }
 
-    // Handle invalid or zero values - but don't animate
-    if (!end || end <= 1) {
-      console.log(`[useAnimatedCounter-${debugId}] Invalid end value: ${end}, setting displayValue to 1`);
-      if (mountedRef.current) {
+    // Handle undefined/invalid values
+    if (end === undefined || end === null || end <= 1) {
+      console.log(`❌ [useAnimatedCounter] Invalid/undefined end: ${end}`);
+      if (mountedRef.current && displayValue !== 1) {
         setDisplayValue(1);
         setIsAnimating(false);
       }
-      // Only update previousEndRef for 0 to track state, but not for undefined/null
-      if (end === 0) {
-        previousEndRef.current = end;
-      }
+      previousEndRef.current = end;
       return;
     }
 
-    // Check if this is a new rating that should trigger animation
+    // Check if this is a meaningful change that should trigger animation
+    const wasUndefined = previousEndRef.current === undefined;
     const isNewRating = previousEndRef.current !== end;
+    const shouldAnimate = wasUndefined || isNewRating;
     
-    console.log(`[useAnimatedCounter-${debugId}] isNewRating=${isNewRating}, previous=${previousEndRef.current}, new=${end}`);
-    
-    if (!isNewRating) {
-      // Same rating, no need to animate - but ensure we show the correct value
-      if (mountedRef.current && displayValue !== end) {
-        console.log(`[useAnimatedCounter-${debugId}] Same rating but different display, updating ${displayValue} -> ${end}`);
-        setDisplayValue(end);
-      }
-      if (mountedRef.current) {
-        setIsAnimating(false);
+    // CRITICAL FIX: Don't interrupt ongoing animation!
+    if (!shouldAnimate) {
+      // Only update display value if we're not currently animating
+      if (!isAnimating) {
+        if (mountedRef.current && displayValue !== end) {
+          setDisplayValue(end);
+        }
       }
       return;
     }
 
-    // Store pending end value for debouncing
-    pendingEndRef.current = end;
+    // Cancel any existing animation only if we're starting a new different animation
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
 
-    // Debounce rapid calls - wait for calls to settle before starting animation
-    const processAnimation = () => {
-      const finalEnd = pendingEndRef.current;
-      if (!finalEnd || finalEnd <= 1 || !mountedRef.current) return;
+    // CRITICAL FIX: Update previousEnd BEFORE starting animation to prevent re-triggers
+    previousEndRef.current = end;
 
-      // Cancel any existing animation
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-
-      // Update previous end value to track changes
-      previousEndRef.current = finalEnd;
-      console.log(`[useAnimatedCounter-${debugId}] DEBOUNCED: Starting animation from ${displayValue} to ${finalEnd}`);
-
-      // Start animation
-      const startAnimation = () => {
+    const startAnimation = () => {
+      if (!mountedRef.current) return;
+      
+      // When rating becomes available (undefined -> number) or changes, start from 1
+      // Otherwise start from current display value
+      const startValue = (wasUndefined || displayValue === 1) ? 1 : displayValue;
+      const startTime = performance.now();
+      
+      console.log(`🚀 [useAnimatedCounter] STARTING ANIMATION: ${startValue} → ${end}`);
+      setIsAnimating(true);
+      setDisplayValue(startValue);
+      hasAnimatedRef.current = true;
+      
+      const animate = (currentTime: number) => {
         if (!mountedRef.current) return;
         
-        console.log(`[useAnimatedCounter-${debugId}] Animation ACTUALLY starting: ${1} -> ${finalEnd}`);
-        setIsAnimating(true);
-        startTimeRef.current = performance.now();
-        startValueRef.current = 1;
-        setDisplayValue(1);
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = progress * (2 - progress); // easeOutQuad
+        const current = Math.round(startValue + (end - startValue) * easeProgress);
         
-        const animate = (currentTime: number) => {
-          if (!mountedRef.current) return;
-          
-          const elapsed = currentTime - startTimeRef.current;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Use smooth easing
-          const easeProgress = progress * (2 - progress); // easeOutQuad
-          const current = Math.round(startValueRef.current + (finalEnd - startValueRef.current) * easeProgress);
-          
-          setDisplayValue(current);
+        setDisplayValue(current);
 
-          if (progress < 1) {
-            animationRef.current = requestAnimationFrame(animate);
-          } else {
-            console.log(`[useAnimatedCounter-${debugId}] Animation COMPLETED: ${current} -> ${finalEnd}`);
-            if (mountedRef.current) {
-              setDisplayValue(finalEnd); // Ensure we end with exact value
-              setIsAnimating(false);
-            }
-            animationRef.current = null;
-            hasAnimatedRef.current = true;
+        if (progress < 1) {
+          animationRef.current = requestAnimationFrame(animate);
+        } else {
+          if (mountedRef.current) {
+            setDisplayValue(end);
+            setIsAnimating(false);
+            if (onComplete) onComplete();
           }
-        };
-
-        animationRef.current = requestAnimationFrame(animate);
+          animationRef.current = null;
+        }
       };
 
-      if (startDelay > 0) {
-        timeoutRef.current = setTimeout(startAnimation, startDelay);
-      } else {
-        startAnimation();
-      }
+      animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Debounce: wait for rapid calls to settle
-    const debounceDelay = isRapidCall ? 150 : 0; // 150ms debounce for rapid calls
-    if (debounceDelay > 0) {
-      console.log(`[useAnimatedCounter-${debugId}] RAPID CALL DETECTED - debouncing for ${debounceDelay}ms`);
-      debounceTimeoutRef.current = setTimeout(processAnimation, debounceDelay);
+    if (startDelay > 0) {
+      timeoutRef.current = setTimeout(startAnimation, startDelay);
     } else {
-      processAnimation();
+      startAnimation();
     }
 
     return () => {
@@ -513,16 +505,12 @@ function useAnimatedCounter(end: number, duration: number = 1000, startDelay: nu
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current);
-        debounceTimeoutRef.current = null;
-      }
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
         animationRef.current = null;
       }
     };
-  }, [end, duration, startDelay]);
+  }, [end, duration, startDelay, onComplete]);
 
   return { count: displayValue, isAnimating };
 }
@@ -563,13 +551,6 @@ async function fetchCalculatedRating(playerData: any, leagueId?: string, project
 // Function to fetch real rating breakdown from server
 async function fetchRatingBreakdown(playerData: any, leagueId?: string, projectId?: string, existingRating?: number) {
   try {
-    // Debug logging to see what values we're sending (can be removed in production)
-    console.log('[Rating Breakdown] Request data:', {
-      player_name: playerData?.name,
-      league_id: leagueId,
-      project_id: projectId,
-      existing_rating: existingRating
-    });
     
     const response = await fetch('http://localhost:8000/players/rating-breakdown', {
       method: 'POST',
@@ -597,12 +578,10 @@ async function fetchRatingBreakdown(playerData: any, leagueId?: string, projectI
     const result = await response.json();
     return result.breakdown;
   } catch (error) {
-    console.error('Error fetching rating breakdown:', error);
-    // Fallback to mock data
     return {
       breakdown: {
         components: [
-          { name: "Базовый рейтинг лиги", value: 65, description: "Данные недоступны (ошибка сервера)" },
+          { name: "Базовый рейтинг лиги", value: 65, description: "Данные недоступны" },
           { name: "Бонус за стоимость", value: 0, description: "Данные недоступны" },
           { name: "Множитель позиции", value: "×1.0", description: "Данные недоступны" },
           { name: "Модификатор возраста", value: 0, description: "Данные недоступны" },
@@ -622,35 +601,40 @@ function PlayerCardFromAddTeam({
   displayPotential,
   displayStatus,
   leagueId,
-  projectId
+  projectId,
+  externalAnimationState,
+  onAnimationComplete
 }: PlayerCardFromAddTeamProps) {
+
   const [isRatingBreakdownOpen, setIsRatingBreakdownOpen] = useState(false);
   const [ratingBreakdown, setRatingBreakdown] = useState<any>(null);
   const [isLoadingBreakdown, setIsLoadingBreakdown] = useState(false);
   const [calculatedRating, setCalculatedRating] = useState<number | undefined>(
     displayStatus === 'saved' ? displayOverallRating : undefined
   );
-  // Keep track of last valid rating to prevent disappearing
   const [lastValidRating, setLastValidRating] = useState<number | undefined>(undefined);
-  // Removed isLoadingRating state to prevent flickering
-  // Memoize expensive calculations
-  const displayPlayerName = useMemo(() => basePlayerData?.name || player?.name || "Unknown Player", [basePlayerData?.name, player?.name]);
-  const displayPlayerNumber = useMemo(() => basePlayerData?.number || (playerIndex !== undefined ? playerIndex + 1 : 1), [basePlayerData?.number, playerIndex]);
-  const displayPlayerPosition = useMemo(() => getPositionAbbreviation(player?.position || basePlayerData?.position || "CM"), [player?.position, basePlayerData?.position]);
-  const displayPlayerNationality = useMemo(() => basePlayerData?.nationality || "Unknown", [basePlayerData?.nationality]);
-  const displayNationId = useMemo(() => getNationId(displayPlayerNationality), [displayPlayerNationality]);
+  // Player display data
+  const displayPlayerName = basePlayerData?.name || player?.name || "Unknown Player";
+  const displayPlayerNumber = basePlayerData?.number || (playerIndex !== undefined ? playerIndex + 1 : 1);
+  const displayPlayerPosition = getPositionAbbreviation(player?.position || basePlayerData?.position || "CM");
+  const displayPlayerNationality = basePlayerData?.nationality || "Unknown";
+  const displayNationId = getNationId(displayPlayerNationality);
   
   // Update last valid rating when we have a rating from any source
   useEffect(() => {
     const bestRating = calculatedRating ?? displayOverallRating ?? player?.overall_rating;
     if (bestRating !== undefined && bestRating !== lastValidRating) {
       setLastValidRating(bestRating);
-      console.log(`[Rating Cache] Updated lastValidRating for ${displayPlayerName}: ${bestRating}`);
     }
   }, [calculatedRating, displayOverallRating, player?.overall_rating, lastValidRating, displayPlayerName]);
   
   // Use best available rating to prevent disappearing
   const currentRating = (() => {
+    // For first card, use external animation state if available
+    if (playerIndex === 0 && externalAnimationState?.shouldAnimate && externalAnimationState?.targetRating) {
+      return externalAnimationState.targetRating;
+    }
+    
     // Priority: calculatedRating > displayOverallRating > lastValidRating > player.overall_rating
     if (calculatedRating !== undefined) return calculatedRating;
     if (displayOverallRating !== undefined) return displayOverallRating;
@@ -658,6 +642,7 @@ function PlayerCardFromAddTeam({
     if (player?.overall_rating !== undefined) return player.overall_rating;
     return undefined;
   })();
+
   
   // Use best available potential from all sources
   const currentPotential = (() => {
@@ -683,8 +668,6 @@ function PlayerCardFromAddTeam({
       
       // Only try to fetch new calculation if we have all necessary data
       if (!basePlayerData || !leagueId || !projectId) {
-        // If we don't have league/project data, just use the displayOverallRating
-        console.log('[PlayerCard] Missing league/project data, using displayOverallRating only');
         return;
       }
       
@@ -694,7 +677,6 @@ function PlayerCardFromAddTeam({
           setCalculatedRating(result.overall_rating);
         }
       } catch (error) {
-        console.error('Failed to load calculated rating:', error);
         // Keep existing rating if calculation fails
       }
     };
@@ -722,18 +704,6 @@ function PlayerCardFromAddTeam({
     }
   }, [displayOverallRating, displayStatus]);
   
-  // Reduced debug logging to improve performance
-  if (playerIndex < 3 && basePlayerData && isCurrentPlayer) {
-    console.log(`[PlayerCard Debug] Player ${playerIndex} "${basePlayerData.name}":`, {
-      displayStatus,
-      displayOverallRating,
-      calculatedRating,
-      currentRating,
-      leagueId,
-      projectId,
-      willShowRating: (isCurrentPlayer || displayStatus === 'saved') && currentRating !== undefined
-    });
-  }
 
   // Create Transfermarkt URL if we have player ID
   const createTransfermarktUrl = (playerData: any) => {
@@ -764,7 +734,7 @@ function PlayerCardFromAddTeam({
 
   const playerTransfermarktUrl = createTransfermarktUrl(basePlayerData);
   
-  const displayPlayerValue = useMemo(() => formatMarketValue(basePlayerData?.value || basePlayerData?.market_value_eur || basePlayerData?.market_value || "-"), [basePlayerData?.value, basePlayerData?.market_value_eur, basePlayerData?.market_value]);
+  const displayPlayerValue = formatMarketValue(basePlayerData?.value || basePlayerData?.market_value_eur || basePlayerData?.market_value || "-");
 
   // Helper functions for colors with smooth transitions
   const getRatingColorClass = (rating?: number): string => {
@@ -827,67 +797,14 @@ function PlayerCardFromAddTeam({
     return "bg-yellow-500"; // default to yellow
   };
 
-  // Autonomous animation - triggers automatically when rating changes
-  const { count: animatedRating, isAnimating } = useAnimatedCounter(
-    currentRating ?? 0, // Use nullish coalescing to avoid issues with 0
-    1200, // Balanced duration for smooth animation
-    0     // No delay to prevent issues with fast updates
-  );
+  const animationCompleteCallback = playerIndex === 0 ? onAnimationComplete : undefined;
 
-  // Debug log for animation
-  if (isCurrentPlayer && isAnimating) {
-    console.log(`[Animation Debug] Player ${displayPlayerName}:`, {
-      isAnimating,
-      currentRating,
-      animatedRating,
-      displayStatus,
-      calculatedRating,
-      displayOverallRating,
-      lastValidRating
-    });
-  }
+  // Directly display the rating without animation
+  const displayRating = currentRating || 1;
 
-  // INTENSIVE DEBUG: Track all rating changes for first card
-  const firstCardDebugRef = useRef<{lastRating?: number, callCount: number, lastCall: number}>({callCount: 0, lastCall: 0});
-  
-  if (playerIndex === 0) {
-    const now = performance.now();
-    const timeSinceLastCall = now - firstCardDebugRef.current.lastCall;
-    firstCardDebugRef.current.callCount++;
-    firstCardDebugRef.current.lastCall = now;
-    
-    const ratingChanged = firstCardDebugRef.current.lastRating !== currentRating;
-    
-    console.log(`🔥 [INTENSIVE FIRST CARD DEBUG] Call #${firstCardDebugRef.current.callCount} Player ${displayPlayerName}:`, {
-      playerIndex,
-      isCurrentPlayer,
-      displayStatus,
-      currentRating,
-      animatedRating,
-      isAnimating,
-      displayOverallRating,
-      calculatedRating,
-      lastValidRating,
-      'passedToUseAnimatedCounter': currentRating ?? 0,
-      ratingChanged,
-      'lastRating': firstCardDebugRef.current.lastRating,
-      'timeSinceLastCall': `${timeSinceLastCall.toFixed(1)}ms`,
-      'rapidCall': timeSinceLastCall < 100
-    });
-    
-    firstCardDebugRef.current.lastRating = currentRating;
-  }
 
-  // Debug log for potential data (reduced verbosity)
-  if (playerIndex === 0 && currentPotential !== undefined) {
-    console.log(`[Potential Debug] Player ${displayPlayerName}:`, {
-      displayPotential,
-      currentPotential,
-      'willShowPotentialInPopover': currentPotential !== undefined
-    });
-  }
 
-  // Memoize the rating click handler
+
   const handleRatingClick = useCallback(async (e: React.MouseEvent) => {
     e.stopPropagation();
     
@@ -895,10 +812,8 @@ function PlayerCardFromAddTeam({
       setIsLoadingBreakdown(true);
       try {
         const breakdown = await fetchRatingBreakdown(basePlayerData, leagueId, projectId, currentRating);
-        console.log('[Rating Breakdown] Received data:', breakdown);
         setRatingBreakdown(breakdown);
       } catch (error) {
-        console.error('Failed to load rating breakdown:', error);
       } finally {
         setIsLoadingBreakdown(false);
       }
@@ -1007,38 +922,11 @@ function PlayerCardFromAddTeam({
           
           {/* Right: Rating square - clickable */}
           <div className="h-full flex items-start justify-end p-2">
-            {(() => {
-              // More comprehensive rating visibility logic
-              const hasAnyRating = currentRating !== undefined || 
-                                 calculatedRating !== undefined || 
-                                 displayOverallRating !== undefined ||
-                                 lastValidRating !== undefined;
-              
-              // Show rating if player is current, saved, or has any rating data
-              const shouldShowRating = hasAnyRating && (
-                isCurrentPlayer || 
-                displayStatus === 'saved' || 
-                displayStatus === 'saving' ||
-                (lastValidRating !== undefined)
-              );
-              
-              // Debug log for rating visibility
-              if (isCurrentPlayer || shouldShowRating || hasAnyRating) {
-                console.log(`[Rating Display] Player ${displayPlayerName}:`, {
-                  shouldShowRating,
-                  hasAnyRating,
-                  isCurrentPlayer,
-                  displayStatus,
-                  currentRating,
-                  calculatedRating,
-                  displayOverallRating,
-                  lastValidRating,
-                  animatedRating
-                });
-              }
-              
-              return shouldShowRating;
-            })() ? (
+            {currentRating !== undefined && (
+              isCurrentPlayer || 
+              displayStatus === 'saved' || 
+              displayStatus === 'saving'
+            ) ? (
               <Popover 
                 placement="left" 
                 backdrop="blur"
@@ -1050,46 +938,12 @@ function PlayerCardFromAddTeam({
                     className="w-10 h-10 rounded-md flex items-center justify-center cursor-pointer hover:scale-105 relative overflow-hidden"
                     onClick={handleRatingClick}
                     style={{
-                      backgroundColor: `rgb(${getRatingColorRGB(animatedRating)})`,
-                      transform: isAnimating ? 'scale(1.2) perspective(1000px) rotateY(15deg)' : 'scale(1)',
-                      transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.8s ease-out',
-                      boxShadow: isAnimating 
-                        ? `0 10px 30px rgba(${getRatingColorRGB(animatedRating)}, 0.5), 0 0 40px rgba(${getRatingColorRGB(animatedRating)}, 0.3)` 
-                        : '0 2px 8px rgba(0, 0, 0, 0.1)',
-                      willChange: 'transform, background-color, box-shadow'
+                      backgroundColor: `rgb(${getRatingColorRGB(displayRating)})`,
                     }}
                   >
-                    {/* Animated background pulse effect */}
-                    {isAnimating && (
-                      <div 
-                        className="absolute inset-0 bg-white opacity-20"
-                        style={{
-                          animation: 'pulse-wave 1s ease-out infinite',
-                          background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)'
-                        }}
-                      />
-                    )}
-                    
-                    {/* Rating number with smooth transitions */}
-                    <span 
-                      className="text-white text-lg font-bold relative z-10"
-                      style={{
-                        fontSize: isAnimating ? '1.3rem' : '1.125rem',
-                        transform: isAnimating ? 'scale(1.15)' : 'scale(1)',
-                        transition: 'all 0.5s ease-out',
-                        textShadow: isAnimating 
-                          ? '0 0 15px rgba(255,255,255,0.9), 0 0 25px rgba(255,255,255,0.6), 0 0 35px rgba(255,255,255,0.3)' 
-                          : '0 1px 3px rgba(0,0,0,0.5)',
-                        willChange: 'transform, font-size, text-shadow'
-                      }}
-                    >
-                      {(() => {
-                        // Track when rating actually changes in display for first card
-                        if (playerIndex === 0) {
-                          console.log(`🎭 [FIRST CARD DISPLAY] Showing: ${animatedRating}, isAnimating: ${isAnimating}, currentRating: ${currentRating}`);
-                        }
-                        return animatedRating;
-                      })()}
+                    {/* Rating number */}
+                    <span className="text-white text-lg font-bold">
+                      {displayRating}
                     </span>
                     
                     {/* Animated background pulse effect uses CSS-in-JS for keyframes */}
@@ -1120,25 +974,170 @@ function PlayerCardFromAddTeam({
                       <div className="space-y-2">
                         {/* Compact Rating Components */}
                         <div className="grid gap-1">
-                          {/* Base Rating (BR) */}
-                          <div className="flex items-center justify-between p-2 bg-content1 rounded-lg">
-                            <div className="flex items-center gap-2">
-                              <div className="w-5 h-5 bg-primary rounded flex items-center justify-center">
-                                <Icon icon="lucide:euro" className="h-3 w-3 text-white" />
-                              </div>
-                              <div>
-                                <div className="text-xs font-medium text-foreground">Базовый рейтинг</div>
-                                <div className="text-[10px] text-foreground-400">
-                                  {ratingBreakdown.breakdown?.market_value_str || 'N/A'}
+                          {/* Base Rating (BR) - Accordion with Details */}
+                          <Accordion 
+                            variant="splitted" 
+                            isCompact 
+                            className="px-0"
+                            itemClasses={{
+                              base: "py-0 px-0",
+                              title: "font-medium text-xs",
+                              trigger: "px-2 py-1 h-auto min-h-0",
+                              content: "text-xs pb-2 pt-1 px-2",
+                            }}
+                          >
+                            <AccordionItem
+                              key="base-rating"
+                              aria-label="Базовый рейтинг (BR)"
+                              title={
+                                <div className="flex items-center justify-between w-full">
+                                  <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5 bg-primary-600 rounded flex items-center justify-center">
+                                      <Icon icon="lucide:star" className="h-3 w-3 text-white" />
+                                    </div>
+                                    <div>
+                                      <div className="text-xs font-medium text-primary-900">Базовый рейтинг (BR)</div>
+                                      <div className="text-[10px] text-primary-700">
+                                        с учетом возраста
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <span className="text-lg font-bold text-primary-800">
+                                    {typeof ratingBreakdown.breakdown?.base_rating === 'number' 
+                                      ? Math.round(ratingBreakdown.breakdown.base_rating) 
+                                      : 'N/A'}
+                                  </span>
+                                </div>
+                              }
+                              className="bg-primary-100 border border-primary-300 rounded-lg"
+                            >
+                              <div className="space-y-3">
+                                {/* Formula explanation */}
+                                <div className="bg-primary-50 p-2 rounded border">
+                                  <div className="text-[10px] text-primary-600 font-medium mb-1">Формула расчета:</div>
+                                  <div className="text-[10px] text-primary-700 font-mono">
+                                    BR = Рейтинг на пике × Возрастной модификатор
+                                  </div>
+                                </div>
+                                
+                                {/* Peak Rating Details */}
+                                <div className="bg-amber-100 p-2 rounded-lg border border-amber-300">
+                                  <div className="flex items-center justify-between mb-2">
+                                    <div className="flex items-center gap-2">
+                                      <div className="w-4 h-4 bg-amber-600 rounded flex items-center justify-center">
+                                        <Icon icon="lucide:trending-up" className="h-2.5 w-2.5 text-white" />
+                                      </div>
+                                      <span className="text-xs font-medium text-amber-900">Рейтинг на пике</span>
+                                    </div>
+                                    <span className="text-sm font-bold text-amber-800">
+                                      {typeof ratingBreakdown.breakdown?.base_rating_peak === 'number' 
+                                        ? Math.round(ratingBreakdown.breakdown.base_rating_peak) 
+                                        : 'N/A'}
+                                    </span>
+                                  </div>
+                                  <p className="text-[10px] text-amber-700">
+                                    Максимальный рейтинг для рыночной стоимости {ratingBreakdown.breakdown?.market_value_str || 'N/A'} в возрасте 25-29 лет
+                                  </p>
+                                </div>
+
+                                {/* Age Modifier Details */}
+                                <div className={`p-2 rounded-lg border ${
+                                  ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier > 1.0
+                                    ? 'bg-green-100 border-green-300'
+                                    : ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier < 1.0
+                                    ? 'bg-red-100 border-red-300'
+                                    : 'bg-blue-100 border-blue-300'
+                                }`}>
+                                  <div className="flex items-center justify-between mb-2">
+                                    <div className="flex items-center gap-2">
+                                      <div className={`w-4 h-4 rounded flex items-center justify-center ${
+                                        ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier > 1.0
+                                          ? 'bg-green-600'
+                                          : ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier < 1.0
+                                          ? 'bg-red-600'
+                                          : 'bg-blue-600'
+                                      }`}>
+                                        <Icon icon="lucide:calendar" className="h-2.5 w-2.5 text-white" />
+                                      </div>
+                                      <span className={`text-xs font-medium ${
+                                        ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier > 1.0
+                                          ? 'text-green-900'
+                                          : ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier < 1.0
+                                          ? 'text-red-900'
+                                          : 'text-blue-900'
+                                      }`}>
+                                        {ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier > 1.0
+                                          ? 'Возрастной бонус'
+                                          : ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier < 1.0
+                                          ? 'Возрастной штраф'
+                                          : 'Возрастной модификатор'}
+                                      </span>
+                                    </div>
+                                    <span className={`text-sm font-bold ${
+                                      ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier > 1.0
+                                        ? 'text-green-800'
+                                        : ratingBreakdown.breakdown?.age_modifier && ratingBreakdown.breakdown.age_modifier < 1.0
+                                        ? 'text-red-800'
+                                        : 'text-blue-800'
+                                    }`}>
+                                      {ratingBreakdown.breakdown?.age_modifier 
+                                        ? `×${(ratingBreakdown.breakdown.age_modifier).toFixed(2)}`
+                                        : 'N/A'}
+                                    </span>
+                                  </div>
+                                  
+                                  {/* Current age details */}
+                                  {ratingBreakdown.breakdown?.player_age && (() => {
+                                    const ageDetails = getAgeDetails(ratingBreakdown.breakdown.player_age);
+                                    return (
+                                      <div className="space-y-2">
+                                        <div className="text-[10px]">
+                                          <strong>{ratingBreakdown.breakdown.player_age} лет</strong> - {ageDetails.description}
+                                        </div>
+                                        
+                                        {/* Age ranges summary */}
+                                        <div className="bg-default-50 p-2 rounded border space-y-1">
+                                          <div className="text-[10px] font-medium mb-1">Возрастные диапазоны:</div>
+                                          <div className="space-y-0.5 text-[9px]">
+                                            <div className="flex justify-between">
+                                              <span className="text-red-600">Академия (≤17):</span>
+                                              <span className="font-mono">×0.95-0.97</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                              <span className="text-orange-600">Молодые (18-19):</span>
+                                              <span className="font-mono">×0.98-0.99</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                              <span className="text-green-600">Пик (25-29):</span>
+                                              <span className="font-mono">×1.05</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                              <span className="text-blue-600">Нейтрально (20, 34):</span>
+                                              <span className="font-mono">×1.00</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                              <span className="text-red-600">Ветераны (37+):</span>
+                                              <span className="font-mono">×0.95-0.97</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    );
+                                  })()}
+                                </div>
+
+                                {/* Final calculation */}
+                                <div className="bg-primary-50 p-2 rounded border">
+                                  <div className="text-[10px] text-primary-600 font-medium mb-1">Итоговый расчет:</div>
+                                  <div className="text-[10px] text-primary-700 font-mono">
+                                    {typeof ratingBreakdown.breakdown?.base_rating_peak === 'number' && ratingBreakdown.breakdown?.age_modifier
+                                      ? `${Math.round(ratingBreakdown.breakdown.base_rating_peak)} × ${ratingBreakdown.breakdown.age_modifier.toFixed(2)} = ${Math.round(ratingBreakdown.breakdown.base_rating)}`
+                                      : 'Данные недоступны'}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <span className="text-sm font-bold text-primary">
-                              {typeof ratingBreakdown.breakdown?.base_rating === 'number' 
-                                ? Math.round(ratingBreakdown.breakdown.base_rating) 
-                                : 'N/A'}
-                            </span>
-                          </div>
+                            </AccordionItem>
+                          </Accordion>
 
                           {/* League Rating (LR) */}
                           <div className="flex items-center justify-between p-2 bg-content1 rounded-lg">
@@ -1185,8 +1184,13 @@ function PlayerCardFromAddTeam({
                             <Icon icon="lucide:calculator" className="h-3 w-3 text-warning-600" />
                             <span className="text-xs font-medium text-warning-800">Формула</span>
                           </div>
-                          <div className="font-mono text-[10px] text-warning-700 bg-warning-100 p-1.5 rounded border">
-                            FR = BR×(1-LIC) + ((BR+LR)÷2)×LIC
+                          <div className="space-y-1">
+                            <div className="font-mono text-[10px] text-warning-700 bg-warning-100 p-1.5 rounded border">
+                              BR = Пик × Возраст
+                            </div>
+                            <div className="font-mono text-[10px] text-warning-700 bg-warning-100 p-1.5 rounded border">
+                              FR = BR×(1-LIC) + ((BR+LR)÷2)×LIC
+                            </div>
                           </div>
                         </div>
 
@@ -1236,7 +1240,11 @@ function PlayerCardFromAddTeam({
                           <div className="flex items-start gap-2">
                             <Icon icon="lucide:info" className="h-3 w-3 text-default-500 mt-0.5 flex-shrink-0" />
                             <div className="text-[10px] text-default-600 leading-relaxed">
-                              <strong>Принцип:</strong> дорогие игроки меньше зависят от уровня лиги, дешёвые — больше
+                              <strong>Принципы:</strong><br/>
+                              • Рыночная стоимость - основной фактор<br/>
+                              • Пик способностей 25-29 лет (×1.05)<br/>
+                              • Возрастной диапазон: 0.95 - 1.05<br/>
+                              • Дорогие игроки меньше зависят от лиги
                             </div>
                           </div>
                         </div>
@@ -1297,108 +1305,143 @@ function PlayerCardFromAddTeam({
                 </div>
               </div>
             </PopoverTrigger>
-            <PopoverContent className="w-80">
-              <div className="p-4 space-y-4">
-                {/* Header */}
-                <div className="flex items-center gap-3 border-b border-default-200 pb-3">
+            <PopoverContent className="w-72">
+              <div className="p-3 space-y-3">
+                {/* Header - More Compact */}
+                <div className="flex items-center gap-2 border-b border-default-200 pb-2">
                   <div className="relative">
                     <Image
                       src={`http://localhost:8000/images/flags/${displayNationId}`}
                       alt={displayPlayerNationality}
-                      className="w-10 h-7 object-cover rounded-md"
+                      className="w-8 h-6 object-cover rounded-md"
                     />
                     <div className="absolute -bottom-1 -right-1">
                       <Image
                         src={currentTeam.teamlogo}
                         alt={currentTeam.teamname}
-                        className="w-4 h-4 object-contain border-2 border-white rounded-full bg-white shadow-md"
+                        className="w-3.5 h-3.5 object-contain border border-white rounded-full bg-white shadow-sm"
                       />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold">{displayPlayerName}</h3>
-                    <p className="text-sm text-default-500">Player Information</p>
+                    <h3 className="text-base font-bold leading-tight">{displayPlayerName}</h3>
+                    <p className="text-xs text-default-500">Player Information</p>
                   </div>
                 </div>
                 
-                {/* Stats Grid */}
-                <div className={`grid gap-3 ${displayStatus === 'saved' && currentRating !== undefined ? 'grid-cols-2' : 'grid-cols-2'}`}>
-                  <div className="bg-primary-50 p-3 rounded-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className={`w-4 h-4 ${getPositionColorClass(displayPlayerPosition)} rounded-sm flex items-center justify-center`}>
-                        <span className="text-white text-xs font-bold">{displayPlayerPosition}</span>
+                {/* Stats Grid - More Compact */}
+                <div className="grid gap-2 grid-cols-2">
+                  {/* Position - Special formatting for GK */}
+                  <div className={`${displayPlayerPosition === 'GK' ? 'bg-yellow-50' : 'bg-primary-50'} p-2 rounded-lg`}>
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <div className={`w-3.5 h-3.5 ${getPositionColorClass(displayPlayerPosition)} rounded-sm flex items-center justify-center`}>
+                        <span className="text-white text-[10px] font-bold">{displayPlayerPosition}</span>
                       </div>
-                      <span className="text-sm font-medium">Position</span>
+                      <span className="text-xs font-medium">Position</span>
                     </div>
-                    <p className="text-xl font-bold text-primary">{displayPlayerPosition}</p>
-                    <p className="text-xs text-default-500">{player?.position || basePlayerData?.position || "Unknown"}</p>
+                    <p className="text-lg font-bold text-primary">{displayPlayerPosition}</p>
+                    <p className="text-[10px] text-default-500 leading-tight">
+                      {displayPlayerPosition === 'GK' ? 'Goalkeeper' : (player?.position || basePlayerData?.position || "Unknown")}
+                    </p>
                   </div>
                   
-                  <div className="bg-secondary-50 p-3 rounded-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Icon icon="lucide:hash" className="h-4 w-4 text-secondary" />
-                      <span className="text-sm font-medium">Number</span>
+                  <div className="bg-secondary-50 p-2 rounded-lg">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <Icon icon="lucide:hash" className="h-3.5 w-3.5 text-secondary" />
+                      <span className="text-xs font-medium">Number</span>
                     </div>
-                    <p className="text-xl font-bold text-secondary">{displayPlayerNumber}</p>
-                    <p className="text-xs text-default-500">jersey number</p>
+                    <p className="text-lg font-bold text-secondary">{displayPlayerNumber}</p>
+                    <p className="text-[10px] text-default-500 leading-tight">jersey number</p>
                   </div>
                   
-                  <div className="bg-warning-50 p-3 rounded-lg">
-                    <div className="flex items-center gap-2 mb-1">
+                  <div className="bg-warning-50 p-2 rounded-lg">
+                    <div className="flex items-center gap-1.5 mb-0.5">
                       <Image
                         src={`http://localhost:8000/images/flags/${displayNationId}`}
                         alt={displayPlayerNationality}
-                        className="w-4 h-3 object-cover rounded-sm"
+                        className="w-3.5 h-2.5 object-cover rounded-sm"
                       />
-                      <span className="text-sm font-medium">Nation</span>
+                      <span className="text-xs font-medium">Nation</span>
                     </div>
-                    <p className="text-sm font-bold text-warning">{displayPlayerNationality}</p>
-                    <p className="text-xs text-default-500">nationality</p>
+                    <p className="text-sm font-bold text-warning leading-tight">{displayPlayerNationality}</p>
+                    <p className="text-[10px] text-default-500 leading-tight">nationality</p>
                   </div>
                   
-                  <div className="bg-success-50 p-3 rounded-lg">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Icon icon="lucide:euro" className="h-4 w-4 text-success-600" />
-                      <span className="text-sm font-medium">Market Value</span>
+                  <div className="bg-info-50 p-2 rounded-lg">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <Icon icon="lucide:calendar" className="h-3.5 w-3.5 text-info-600" />
+                      <span className="text-xs font-medium">Age</span>
                     </div>
-                    <p className="text-sm font-bold text-success-600">{displayPlayerValue !== "-" ? displayPlayerValue : "Not available"}</p>
-                    <p className="text-xs text-default-500">transfermarkt</p>
+                    <p className="text-lg font-bold text-info-600">{(() => {
+                      const ageField = basePlayerData?.age || basePlayerData?.date_of_birth_age || "";
+                      if (!ageField || ageField === "N/A" || ageField === "") return "?";
+                      
+                      // Extract age from format like "Jan 2, 2004 (21)"
+                      const ageMatch = ageField.match(/\((\d+)\)/);
+                      if (ageMatch) {
+                        return ageMatch[1];
+                      }
+                      
+                      // Try to extract just numbers if it's a direct age
+                      const directAge = ageField.match(/^\d+$/);
+                      if (directAge) {
+                        return directAge[0];
+                      }
+                      
+                      // If there's any number in the string, extract it
+                      const anyNumber = ageField.match(/\d+/);
+                      if (anyNumber) {
+                        return anyNumber[0];
+                      }
+                      
+                      return "?";
+                    })()}</p>
+                    <p className="text-[10px] text-default-500 leading-tight">years old</p>
+                  </div>
+                  
+                  <div className="bg-success-50 p-2 rounded-lg">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <Icon icon="lucide:euro" className="h-3.5 w-3.5 text-success-600" />
+                      <span className="text-xs font-medium">Market Value</span>
+                    </div>
+                    <p className="text-sm font-bold text-success-600 leading-tight">{displayPlayerValue !== "-" ? displayPlayerValue : "N/A"}</p>
+                    <p className="text-[10px] text-default-500 leading-tight">transfermarkt</p>
                   </div>
                   
                   {(currentRating !== undefined || currentPotential !== undefined) && (
-                    <div className="bg-purple-50 p-3 rounded-lg col-span-2">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon icon="lucide:star" className="h-4 w-4 text-purple-600" />
-                        <span className="text-sm font-medium">Player Ratings</span>
+                    <div className="bg-purple-50 p-2 rounded-lg">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <Icon icon="lucide:star" className="h-3.5 w-3.5 text-purple-600" />
+                        <span className="text-xs font-medium">Player Ratings</span>
                       </div>
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3">
                         {currentRating !== undefined && (
                           <div className="flex flex-col items-center">
-                            <p className="text-2xl font-bold text-purple-600">{currentRating}</p>
-                            <p className="text-xs text-default-500">Overall</p>
+                            <p className="text-lg font-bold text-purple-600">{currentRating}</p>
+                            <p className="text-[10px] text-default-500 leading-tight">Overall</p>
                           </div>
                         )}
                         {currentPotential !== undefined && (
                           <div className="flex flex-col items-center">
-                            <p className="text-2xl font-bold text-pink-600">{currentPotential}</p>
-                            <p className="text-xs text-default-500">Potential</p>
+                            <p className="text-lg font-bold text-pink-600">{currentPotential}</p>
+                            <p className="text-[10px] text-default-500 leading-tight">Potential</p>
                           </div>
                         )}
                       </div>
-                      <p className="text-xs text-default-500 mt-2">FIFA/FC ratings</p>
+                      <p className="text-[10px] text-default-500 mt-1 leading-tight">FIFA/FC ratings</p>
                     </div>
                   )}
                 </div>
                 
-                {/* Team Info */}
-                <div className="pt-2 border-t border-default-200">
-                  <div className="flex items-center gap-2 mb-2">
+                {/* Team Info - More Compact */}
+                <div className="pt-1.5 border-t border-default-200">
+                  <div className="flex items-center gap-1.5 mb-1.5">
                     <Image
                       src={currentTeam.teamlogo}
                       alt={currentTeam.teamname}
-                      className="w-5 h-5 object-contain"
+                      className="w-4 h-4 object-contain"
                     />
-                    <span className="font-medium text-sm">{currentTeam.teamname}</span>
+                    <span className="font-medium text-xs">{currentTeam.teamname}</span>
                   </div>
                   {playerTransfermarktUrl && (
                     <Button
@@ -1409,10 +1452,10 @@ function PlayerCardFromAddTeam({
                       size="sm"
                       color="primary"
                       variant="flat"
-                      className="w-full"
-                      endContent={<Icon icon="lucide:external-link" className="h-3 w-3" />}
+                      className="w-full h-7 text-xs"
+                      endContent={<Icon icon="lucide:external-link" className="h-2.5 w-2.5" />}
                     >
-                      View Player on Transfermarkt
+                      View on Transfermarkt
                     </Button>
                   )}
                 </div>
@@ -1456,26 +1499,19 @@ function PlayerCardFromAddTeam({
   );
 }
 
-// Memoize the component to prevent unnecessary re-renders
 export default memo(PlayerCardFromAddTeam, (prevProps, nextProps) => {
-  // Custom comparison function - more comprehensive
   return (
     prevProps.player.name === nextProps.player.name &&
     prevProps.player.status === nextProps.player.status &&
     prevProps.player.overall_rating === nextProps.player.overall_rating &&
-    prevProps.player.potential === nextProps.player.potential &&
     prevProps.playerIndex === nextProps.playerIndex &&
     prevProps.isCurrentPlayer === nextProps.isCurrentPlayer &&
     prevProps.displayOverallRating === nextProps.displayOverallRating &&
-    prevProps.displayPotential === nextProps.displayPotential &&
     prevProps.displayStatus === nextProps.displayStatus &&
-    prevProps.leagueId === nextProps.leagueId &&
-    prevProps.projectId === nextProps.projectId &&
     prevProps.currentTeam.team_id === nextProps.currentTeam.team_id &&
     prevProps.basePlayerData?.name === nextProps.basePlayerData?.name &&
     prevProps.basePlayerData?.value === nextProps.basePlayerData?.value &&
-    prevProps.basePlayerData?.position === nextProps.basePlayerData?.position &&
-    prevProps.basePlayerData?.potential === nextProps.basePlayerData?.potential
+    JSON.stringify(prevProps.externalAnimationState) === JSON.stringify(nextProps.externalAnimationState)
   );
 });
 
