@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo, useCallback, useMemo } from "react";
 import {
   Modal,
   ModalContent,
@@ -170,7 +170,7 @@ if (typeof document !== 'undefined') {
 }
 
 
-export default function AddTeams({
+function AddTeams({
   isOpen,
   onClose,
   selectedTeams,
@@ -191,6 +191,8 @@ export default function AddTeams({
   const previousProgressRef = useRef<number>(0);
   const [teamStepProgress, setTeamStepProgress] = useState<{ [teamName: string]: number }>({});
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [lastKnownPlayerIndex, setLastKnownPlayerIndex] = useState<{ [teamName: string]: number }>({});
+  const [activePlayerState, setActivePlayerState] = useState<{ [teamName: string]: number | null }>({});
 
 
   // Function to normalize step names for comparison
@@ -205,6 +207,11 @@ export default function AddTeams({
   useEffect(() => {
     if (!isOpen) return;
 
+    let pingInterval: NodeJS.Timeout | null = null;
+    let reconnectTimeout: NodeJS.Timeout | null = null;
+    let reconnectAttempts = 0;
+    const maxReconnectAttempts = 10;
+
     const connectWebSocket = () => {
       try {
         const ws = new WebSocket('ws://localhost:8000/ws');
@@ -212,11 +219,37 @@ export default function AddTeams({
 
         ws.onopen = () => {
           console.log('[AddTeams] WebSocket connected');
+          reconnectAttempts = 0; // Reset reconnect attempts on successful connection
+          
+          // Start sending pings every 20 seconds
+          pingInterval = setInterval(() => {
+            if (ws.readyState === WebSocket.OPEN) {
+              ws.send(JSON.stringify({ type: 'ping' }));
+              console.log('[AddTeams] Sent ping to server');
+            }
+          }, 20000);
         };
 
         ws.onmessage = (event) => {
           try {
             const data = JSON.parse(event.data);
+            
+            // Handle ping/pong for keep-alive
+            if (data.type === 'ping') {
+              ws.send(JSON.stringify({ type: 'pong' }));
+              console.log('[AddTeams] Received ping, sent pong');
+              return;
+            }
+            
+            if (data.type === 'pong') {
+              console.log('[AddTeams] Received pong from server');
+              return;
+            }
+            
+            if (data.type === 'connected') {
+              console.log('[AddTeams] WebSocket connection confirmed');
+              return;
+            }
             
             if (data.function_name === 'add_teams') {
               handleProgressUpdate(data);
@@ -226,8 +259,32 @@ export default function AddTeams({
           }
         };
 
-        ws.onclose = () => {
-          console.log('[AddTeams] WebSocket disconnected');
+        ws.onclose = (event) => {
+          console.log('[AddTeams] WebSocket disconnected:', event.code, event.reason);
+          
+          // Clear ping interval
+          if (pingInterval) {
+            clearInterval(pingInterval);
+            pingInterval = null;
+          }
+          
+          // Attempt to reconnect if modal is still open and we haven't exceeded max attempts
+          // Don't reconnect if the close was intentional (code 1000)
+          if (isOpen && reconnectAttempts < maxReconnectAttempts && event.code !== 1000) {
+            reconnectAttempts++;
+            const delay = Math.min(1000 * Math.pow(2, reconnectAttempts - 1), 30000); // Exponential backoff, max 30s
+            console.log(`[AddTeams] Attempting to reconnect in ${delay}ms (attempt ${reconnectAttempts}/${maxReconnectAttempts})`);
+            
+            reconnectTimeout = setTimeout(() => {
+              if (isOpen) { // Double-check modal is still open
+                connectWebSocket();
+              }
+            }, delay);
+          } else if (reconnectAttempts >= maxReconnectAttempts) {
+            console.error('[AddTeams] Max reconnection attempts reached');
+          } else if (event.code === 1000) {
+            console.log('[AddTeams] WebSocket closed normally');
+          }
         };
 
         ws.onerror = (error) => {
@@ -241,6 +298,15 @@ export default function AddTeams({
     connectWebSocket();
 
     return () => {
+      // Clear intervals and timeouts
+      if (pingInterval) {
+        clearInterval(pingInterval);
+      }
+      if (reconnectTimeout) {
+        clearTimeout(reconnectTimeout);
+      }
+      
+      // Close WebSocket
       if (wsRef.current) {
         wsRef.current.close();
         wsRef.current = null;
@@ -248,22 +314,11 @@ export default function AddTeams({
     };
   }, [isOpen]);
 
-  const handleProgressUpdate = (data: ProgressData) => {
-    console.log('[AddTeams] Progress update received:', {
-      type: data.type,
-      current: data.current,
-      total: data.total,
-      percentage: data.percentage,
-      current_category: data.current_category,
-      current_team: data.current_team,
-      completed_teams: data.completed_teams?.length || 0,
-      current_player: data.current_player,
-      player_index: data.player_index,
-      total_players: data.total_players,
-      player_overall_rating: data.player_overall_rating,
-      player_status: data.player_status,
-      current_processing_player: data.current_processing_player
-    });
+  const handleProgressUpdate = useCallback((data: ProgressData) => {
+    // Reduced logging for better performance
+    if (data.type === 'progress' && data.percentage && data.percentage % 10 === 0) {
+      console.log('[AddTeams] Progress:', data.percentage + '%');
+    }
     
     // Дебаг для сохранения игроков
     if (data.current_category?.includes('💾 Saving team players') && data.current_player) {
@@ -280,6 +335,33 @@ export default function AddTeams({
   
     if (data.current !== undefined) {
       setCurrentTeamIndex(data.current);
+    }
+
+    // Update last known player index
+    if (data.current_team && data.player_index !== undefined) {
+      setLastKnownPlayerIndex(prev => ({
+        ...prev,
+        [data.current_team!]: data.player_index!
+      }));
+    }
+
+    // Update active player state - more stable tracking
+    if (data.current_team && data.current_category?.includes('💾 Saving team players')) {
+      if (data.player_index !== undefined) {
+        // Set active player when we have a specific index
+        setActivePlayerState(prev => ({
+          ...prev,
+          [data.current_team!]: data.player_index!
+        }));
+      }
+    } else if (data.current_team && 
+               (!data.current_category?.includes('💾 Saving team players') || 
+                data.message?.includes('All') && data.message?.includes('players saved successfully'))) {
+      // Clear active player when not saving players or when all players are saved
+      setActivePlayerState(prev => ({
+        ...prev,
+        [data.current_team!]: null
+      }));
     }
 
     // Centralized capture of player ratings via player_index
@@ -406,7 +488,8 @@ export default function AddTeams({
                 teamPlayers[i] = {
                   ...teamPlayers[i],
                   status: 'saved',
-                  overall_rating: preservedRating
+                  overall_rating: preservedRating,
+                  potential: teamPlayers[i].potential
                 };
                 console.log(`[Player Update] Marked player ${i} as saved with preserved rating:`, preservedRating);
               }
@@ -416,7 +499,8 @@ export default function AddTeams({
           console.log('[Player Update] Final team players state:', teamPlayers.map(p => ({
             name: p.name, 
             status: p.status, 
-            rating: p.overall_rating
+            rating: p.overall_rating,
+            potential: p.potential
           })));
           
           return {
@@ -439,12 +523,15 @@ export default function AddTeams({
           ...player,
           status: 'saved' as const,
           // Ensure rating is from the definitive source
-          overall_rating: savedPlayerRatings[data.current_team!]?.[idx] ?? player.overall_rating
+          overall_rating: savedPlayerRatings[data.current_team!]?.[idx] ?? player.overall_rating,
+          // Preserve potential
+          potential: player.potential
         }));
         
         console.log('[Player Update] Finalized all players:', updatedPlayers.map(p => ({
           name: p.name,
-          rating: p.overall_rating
+          rating: p.overall_rating,
+          potential: p.potential
         })));
         
         return {
@@ -456,6 +543,18 @@ export default function AddTeams({
   
     if (data.completed_teams) {
       setCompletedTeams(new Set(data.completed_teams));
+      
+      // Reset last known player index for completed teams
+      setLastKnownPlayerIndex(prev => {
+        const newIndex = { ...prev };
+        data.completed_teams!.forEach(teamId => {
+          const team = selectedTeams.find(t => t.team_id === teamId);
+          if (team) {
+            delete newIndex[team.teamname];
+          }
+        });
+        return newIndex;
+      });
       
       // Mark completed teams with full step progress
       setTeamStepProgress(prev => {
@@ -557,9 +656,9 @@ export default function AddTeams({
       setError(data.message || 'An error occurred');
       setIsProcessing(false);
     }
-  };
+  }, [selectedTeams, completedTeams, progressData, savedPlayerRatings, playerSaveStatus, teamData, lastKnownPlayerIndex, activePlayerState, isComplete]);
 
-  const startAddingTeams = async () => {
+  const startAddingTeams = useCallback(async () => {
     setIsProcessing(true);
     setError(null);
     setIsComplete(false);
@@ -570,6 +669,7 @@ export default function AddTeams({
     setTeamStepProgress({});
     setPlayerSaveStatus({});
     setSavedPlayerRatings({});
+    setActivePlayerState({});
 
     try {
       const response = await fetch('http://localhost:8000/teams/add-from-transfermarkt', {
@@ -596,17 +696,17 @@ export default function AddTeams({
       setError(error instanceof Error ? error.message : 'Failed to add teams');
       setIsProcessing(false);
     }
-  };
+  }, [selectedTeams, projectId, leagueId]);
 
-  const handleSuccessModalClose = () => {
+  const handleSuccessModalClose = useCallback(() => {
     if (successTimerRef.current) {
       clearTimeout(successTimerRef.current);
       successTimerRef.current = null;
     }
     setShowSuccessModal(false);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (isProcessing) return;
     
     setIsProcessing(false);
@@ -620,12 +720,13 @@ export default function AddTeams({
     setTeamStepProgress({});
     setPlayerSaveStatus({});
     setSavedPlayerRatings({});
+    setActivePlayerState({});
     handleSuccessModalClose();
     
     onClose();
-  };
+  }, [isProcessing, handleSuccessModalClose, onClose]);
 
-  const getStepStatus = (stepIndex: number, currentTeam: TransfermarktTeam) => {
+  const getStepStatus = useCallback((stepIndex: number, currentTeam: TransfermarktTeam) => {
     const currentStep = progressData?.current_category;
     const isCurrentTeam = currentTeam.teamname === progressData?.current_team;
     
@@ -669,17 +770,23 @@ export default function AddTeams({
     if (stepIndex < effectiveStepIndex) return 'completed';
     if (stepIndex === effectiveStepIndex) return 'active';
     return 'pending';
-  };
+  }, [progressData, completedTeams, selectedTeams, teamStepProgress]);
 
-  const currentTeam = currentTeamIndex >= 0 && currentTeamIndex < selectedTeams.length 
-    ? selectedTeams[currentTeamIndex] 
-    : null;
+  const currentTeam = useMemo(() => 
+    currentTeamIndex >= 0 && currentTeamIndex < selectedTeams.length 
+      ? selectedTeams[currentTeamIndex] 
+      : null,
+    [currentTeamIndex, selectedTeams]
+  );
   
-  const currentTeamData = currentTeam ? teamData[currentTeam.teamname] || {} : {};
+  const currentTeamData = useMemo(() => 
+    currentTeam ? teamData[currentTeam.teamname] || {} : {},
+    [currentTeam, teamData]
+  );
   
-  // Calculate overall progress
-  const totalSteps = selectedTeams.length * PROCESSING_STEPS_INFO.length;
-  const completedSteps = completedTeams.size * PROCESSING_STEPS_INFO.length;
+  // Memoize expensive calculations
+  const totalSteps = useMemo(() => selectedTeams.length * PROCESSING_STEPS_INFO.length, [selectedTeams.length]);
+  const completedSteps = useMemo(() => completedTeams.size * PROCESSING_STEPS_INFO.length, [completedTeams.size]);
   
   let overallProgress = 0;
   
@@ -710,9 +817,11 @@ export default function AddTeams({
     previousProgressRef.current = overallProgress;
   }
 
-  const isShowingPlayerSaveDetails = (progressData?.current_category?.toLowerCase().includes('saving') && 
-                                     progressData?.current_category?.toLowerCase().includes('player')) &&
-                                     currentTeam;
+  const isShowingPlayerSaveDetails = currentTeam && 
+                                     progressData?.current_category?.toLowerCase().includes('saving') && 
+                                     progressData?.current_category?.toLowerCase().includes('player') &&
+                                     (progressData?.player_index !== undefined || progressData?.current_player) &&
+                                     !isComplete;
 
   return (
     <>
@@ -942,34 +1051,112 @@ export default function AddTeams({
                     </Card>
                   )}
                     {/* Player Save Progress - Show when saving players AND not complete */}
-                    {isShowingPlayerSaveDetails && currentTeam && !isComplete && (
+                    {(() => {
+                      const shouldShowSaving = isShowingPlayerSaveDetails && currentTeam && !isComplete;
+                      if (currentTeam) {
+                        console.log(`[Saving Players Display] Team: ${currentTeam.teamname}`, {
+                          shouldShowSaving,
+                          isShowingPlayerSaveDetails,
+                          isComplete,
+                          currentCategory: progressData?.current_category,
+                          playerIndex: progressData?.player_index,
+                          currentPlayer: progressData?.current_player
+                        });
+                      }
+                      return shouldShowSaving;
+                    })() && (
                       <Card>
                         <CardBody className="p-2">
                           <h5 className="font-semibold text-sm mb-2 flex items-center gap-2">
                             <Icon icon="lucide:save" className="w-4 h-4" />
                             Saving Players
-                            {progressData?.player_index !== undefined && (progressData?.total_players || currentTeamData.parsed_players_for_table?.length) && (
-                              <>
-                                <span className="text-xs font-normal text-default-500">
-                                  ({progressData.player_index + 1}/{progressData.total_players || currentTeamData.parsed_players_for_table?.length || 0})
+                            {/* Always show progress when saving players */}
+                            {(() => {
+                              const fallbackIndex = lastKnownPlayerIndex[currentTeam.teamname] || 0;
+                              const currentIndex = progressData?.player_index !== undefined ? progressData.player_index : fallbackIndex;
+                              const totalPlayers = progressData?.total_players || currentTeamData.parsed_players_for_table?.length || 0;
+                              
+                              if (totalPlayers > 0) {
+                                return (
+                                  <>
+                                    <span className="text-xs font-normal text-default-500">
+                                      ({currentIndex + 1}/{totalPlayers})
+                                    </span>
+                                    <Chip size="sm" color="primary" variant="flat" className="h-5 ml-1">
+                                      <span className="text-[10px]">
+                                        {`${Math.round(((currentIndex + 1) / totalPlayers) * 100)}%`}
+                                      </span>
+                                    </Chip>
+                                  </>
+                                );
+                              }
+                              return null;
+                            })()}
+                            {/* Always show current player info when saving */}
+                            {(() => {
+                              const currentPlayerName = progressData?.current_player || progressData?.current_processing_player;
+                              const fallbackIndex = lastKnownPlayerIndex[currentTeam.teamname] || 0;
+                              const currentIndex = progressData?.player_index !== undefined ? progressData.player_index : fallbackIndex;
+                              
+                              // Try multiple sources for rating
+                              const progressRating = progressData?.player_overall_rating;
+                              const savedRating = savedPlayerRatings[currentTeam.teamname]?.[currentIndex];
+                              const playerStatusRating = playerSaveStatus[currentTeam.teamname]?.[currentIndex]?.overall_rating;
+                              
+                              // Try to get rating from players processing progress  
+                              const playerKey = `${currentTeam.teamname}_${currentIndex}`;
+                              const processingRating = progressData?.players_processing_progress?.[playerKey]?.overall_rating;
+                              
+                              const fallbackRating = currentTeamData.parsed_players_for_table?.[currentIndex]?.overall_rating;
+                              
+                              const currentRating = progressRating || savedRating || playerStatusRating || processingRating || fallbackRating;
+                              
+                              // If no player name from progress, try to get from parsed players
+                              const fallbackPlayerName = currentTeamData.parsed_players_for_table?.[currentIndex]?.name;
+                              const displayPlayerName = currentPlayerName || fallbackPlayerName || `Player ${currentIndex + 1}`;
+                              
+                              // Debug log for header display
+                              console.log('[Saving Players Header]', {
+                                currentPlayerName,
+                                currentIndex,
+                                fallbackIndex,
+                                currentRating,
+                                fallbackPlayerName,
+                                displayPlayerName,
+                                totalPlayers: progressData?.total_players || currentTeamData.parsed_players_for_table?.length,
+                                indexSources: {
+                                  progressIndex: progressData?.player_index,
+                                  fallbackIndex,
+                                  finalIndex: currentIndex
+                                },
+                                ratingSources: {
+                                  progressRating,
+                                  savedRating,
+                                  playerStatusRating,
+                                  processingRating,
+                                  fallbackRating,
+                                  finalRating: currentRating,
+                                  playerKey
+                                },
+                                progressData: {
+                                  player_index: progressData?.player_index,
+                                  current_player: progressData?.current_player,
+                                  player_overall_rating: progressData?.player_overall_rating,
+                                  total_players: progressData?.total_players
+                                }
+                              });
+                              
+                              return (
+                                <span className="text-xs font-normal text-primary-600 animate-pulse">
+                                  • {displayPlayerName}
+                                  {(currentRating !== undefined && currentRating !== null) && (
+                                    <span className="ml-1 text-success-600 font-bold">
+                                      (OVR: {currentRating})
+                                    </span>
+                                  )}
                                 </span>
-                                <Chip size="sm" color="primary" variant="flat" className="h-5 ml-1">
-                                  <span className="text-[10px]">
-                                    {`${Math.round(((progressData.player_index + 1) / (progressData.total_players || currentTeamData.parsed_players_for_table?.length || 1)) * 100)}%`}
-                                  </span>
-                                </Chip>
-                              </>
-                            )}
-                            {(progressData?.current_player || progressData?.current_processing_player) && (
-                              <span className="text-xs font-normal text-primary-600 animate-pulse">
-                                • {progressData.current_player || progressData.current_processing_player}
-                                {progressData?.player_overall_rating && (
-                                  <span className="ml-1 text-success-600 font-bold">
-                                    (OVR: {progressData.player_overall_rating})
-                                  </span>
-                                )}
-                              </span>
-                            )}
+                              );
+                            })()}
                           </h5>
                           <div className="grid gap-2 auto-rows-[96px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
                             {(playerSaveStatus[currentTeam.teamname] || currentTeamData.parsed_players_for_table?.map((p: any) => ({
@@ -980,13 +1167,11 @@ export default function AddTeams({
                               // Получаем данные игрока из основной таблицы
                               const basePlayerData = currentTeamData.parsed_players_for_table?.[idx];
                               
-                              // ЧЕТКАЯ ЛОГИКА: Проверяем что это именно тот игрок, который сейчас обрабатывается
+                              // УЛУЧШЕННАЯ ЛОГИКА: Более стабильное определение текущего игрока
                               const isCurrentPlayer = Boolean(
-                                progressData && 
-                                progressData.current_team === currentTeam.teamname &&
-                                progressData.player_index === idx &&
-                                progressData.current_category?.includes('💾 Saving team players') &&
-                                progressData.current_player
+                                currentTeam &&
+                                activePlayerState[currentTeam.teamname] === idx &&
+                                progressData?.current_category?.includes('💾 Saving team players')
                               );
                               
                               // Дебаг логи только для текущего игрока
@@ -1028,6 +1213,26 @@ export default function AddTeams({
                                 return undefined;
                               })();
                               
+                              const displaySavingPotential = (() => {
+                                // 1. If this is the current player being processed, use the live potential
+                                if (isCurrentPlayer && progressData?.player_potential !== undefined) {
+                                  return progressData.player_potential;
+                                }
+                                
+                                // 2. Check the player save status data
+                                if (player.potential !== undefined) {
+                                  return player.potential;
+                                }
+                                
+                                // 3. Check base player data
+                                if (basePlayerData?.potential !== undefined) {
+                                  return basePlayerData.potential;
+                                }
+                                
+                                // 4. No potential available
+                                return undefined;
+                              })();
+                              
                               console.log(`[Card Render] Player ${idx} ${displayPlayerName}: status=${displayStatus}, rating=${displayOverallRating}, isCurrentPlayer=${isCurrentPlayer}`);
                               
                               return (
@@ -1039,6 +1244,7 @@ export default function AddTeams({
                                   basePlayerData={basePlayerData}
                                   isCurrentPlayer={isCurrentPlayer}
                                   displayOverallRating={displayOverallRating}
+                                  displayPotential={displaySavingPotential}
                                   displayStatus={displayStatus}
                                   leagueId={leagueId}
                                   projectId={projectId}
@@ -1054,7 +1260,7 @@ export default function AddTeams({
                     {(() => {
                       const shouldShow = currentTeamData.parsed_players_for_table && 
                                        currentTeamData.parsed_players_for_table.length > 0 && 
-                                       (isComplete || !isShowingPlayerSaveDetails);
+                                       (!isShowingPlayerSaveDetails || isComplete);
                       
                       if (currentTeam && currentTeamData.parsed_players_for_table?.length > 0) {
                         console.log(`[Players Display] Team: ${currentTeam.teamname}`, {
@@ -1062,7 +1268,9 @@ export default function AddTeams({
                           isShowingPlayerSaveDetails,
                           isComplete,
                           playerSaveStatusLength: playerSaveStatus[currentTeam.teamname]?.length || 0,
-                          currentCategory: progressData?.current_category
+                          currentCategory: progressData?.current_category,
+                          playerIndex: progressData?.player_index,
+                          currentPlayer: progressData?.current_player
                         });
                       }
                       
@@ -1073,7 +1281,7 @@ export default function AddTeams({
                           <h5 className="font-semibold text-sm mb-2 flex items-center gap-1">
                             <Icon icon="lucide:users" className="w-3 h-3" />
                             Players ({currentTeamData.parsed_players_for_table.length})
-                            {(isComplete || (!isShowingPlayerSaveDetails && playerSaveStatus[currentTeam.teamname]?.length > 0)) && <Chip size="sm" color="success" variant="flat" className="ml-2 h-4"><span className="text-[10px]">Final Data</span></Chip>}
+                            {isComplete && <Chip size="sm" color="success" variant="flat" className="ml-2 h-4"><span className="text-[10px]">Final Data</span></Chip>}
                           </h5>
                           <div className="grid gap-2 auto-rows-[96px]" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
                             {currentTeamData.parsed_players_for_table.map((player: any, idx: number) => {
@@ -1083,6 +1291,9 @@ export default function AddTeams({
                               // Get rating from separate storage first, then fallback to saved player data
                               const savedRating = savedPlayerRatings[currentTeam.teamname]?.[idx];
                               const displayOverallRating = savedRating ?? savedPlayerData?.overall_rating ?? player.overall_rating; // Prioritize savedRating, then playerSaveStatus, then original
+                              
+                              // Get potential from multiple sources
+                              const displayPotential = savedPlayerData?.potential ?? player.potential;
                               
                               // Player is considered saved if:
                               // 1. Process is complete, OR
@@ -1127,13 +1338,15 @@ export default function AddTeams({
                                     name: displayPlayerName,
                                     status: isSaved ? 'saved' : 'pending',
                                     position: savedPlayerData?.position || player.position || 'CM',
-                                    overall_rating: displayOverallRating
+                                    overall_rating: displayOverallRating,
+                                    potential: displayPotential
                                   }}
                                   playerIndex={idx}
                                   currentTeam={currentTeam}
                                   basePlayerData={player}
                                   isCurrentPlayer={false}
                                   displayOverallRating={displayOverallRating}
+                                  displayPotential={displayPotential}
                                   displayStatus={isSaved ? 'saved' : 'pending'}
                                   leagueId={leagueId}
                                   projectId={projectId}
@@ -1270,3 +1483,14 @@ export default function AddTeams({
     </>
   );
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export default memo(AddTeams, (prevProps, nextProps) => {
+  return (
+    prevProps.isOpen === nextProps.isOpen &&
+    prevProps.selectedTeams.length === nextProps.selectedTeams.length &&
+    prevProps.projectId === nextProps.projectId &&
+    prevProps.leagueId === nextProps.leagueId &&
+    JSON.stringify(prevProps.selectedTeams) === JSON.stringify(nextProps.selectedTeams)
+  );
+});
