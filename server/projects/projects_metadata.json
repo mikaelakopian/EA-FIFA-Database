@@ -1,34 +1,10 @@
 {
-  "ukraine": {
-    "id": "ukraine",
-    "name": "Ukraine",
+  "armenia": {
+    "id": "armenia",
+    "name": "Armenia",
     "description": null,
-    "path": "projects/ukraine",
-    "created_at": "2025-05-30T22:03:20.399479",
-    "updated_at": "2025-05-30T22:03:20.399479"
-  },
-  "123": {
-    "id": "123",
-    "name": "123",
-    "description": null,
-    "path": "projects/123",
-    "created_at": "2025-05-30T22:13:23.276320",
-    "updated_at": "2025-05-30T22:13:23.276320"
-  },
-  "456": {
-    "id": "456",
-    "name": "456",
-    "description": null,
-    "path": "projects/456",
-    "created_at": "2025-05-30T22:20:18.770646",
-    "updated_at": "2025-05-30T22:20:18.770646"
-  },
-  "new-project": {
-    "id": "new-project",
-    "name": "New Project",
-    "description": null,
-    "path": "projects/new-project",
-    "created_at": "2025-06-01T18:43:18.825033",
-    "updated_at": "2025-06-01T18:43:18.825033"
+    "path": "projects/armenia",
+    "created_at": "2025-06-06T23:19:31.206372",
+    "updated_at": "2025-06-06T23:19:31.206372"
   }
 }

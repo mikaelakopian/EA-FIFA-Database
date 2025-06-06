@@ -1,0 +1,5686 @@
+[
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":156,
+       "stadiumname":"Emirates Stadium",
+       "teamid":1,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":115,
+       "stadiumname":"Villa Park",
+       "teamid":2,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":496,
+       "stadiumname":"Ewood Park",
+       "teamid":3,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":4,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":28,
+       "stadiumname":"Stamford Bridge",
+       "teamid":5,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":265,
+       "stadiumname":"Goodison Park",
+       "teamid":7,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":432,
+       "stadiumname":"Elland Road",
+       "teamid":8,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":13,
+       "stadiumname":"Anfield",
+       "teamid":9,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":246,
+       "stadiumname":"Etihad Stadium",
+       "teamid":10,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":1,
+       "stadiumname":"Old Trafford",
+       "teamid":11,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":349,
+       "stadiumname":"Riverside Stadium",
+       "teamid":12,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":100,
+       "stadiumname":"St. James' Park",
+       "teamid":13,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":449,
+       "stadiumname":"The City Ground",
+       "teamid":14,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":337,
+       "stadiumname":"MATRADE Loftus Road Stadium",
+       "teamid":15,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":113,
+       "stadiumname":"St. Mary's Stadium",
+       "teamid":17,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":409,
+       "stadiumname":"Tottenham Hotspur Stadium",
+       "teamid":18,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":355,
+       "stadiumname":"London Stadium",
+       "teamid":19,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":21,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":9,
+       "stadiumname":"Signal Iduna Park",
+       "teamid":22,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":343,
+       "stadiumname":"BORUSSIA-PARK",
+       "teamid":23,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":447,
+       "stadiumname":"Europa-Park Stadion",
+       "teamid":25,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":27,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":41,
+       "stadiumname":"Volksparkstadion",
+       "teamid":28,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":29,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":423,
+       "stadiumname":"RheinEnergieStadion",
+       "teamid":31,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":12,
+       "stadiumname":"BayArena",
+       "teamid":32,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":33,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":30,
+       "stadiumname":"VELTINS-Arena",
+       "teamid":34,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":418,
+       "stadiumname":"MHPArena",
+       "teamid":36,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":413,
+       "stadiumname":"Weserstadion",
+       "teamid":38,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":247,
+       "stadiumname":"Allianz Stadium",
+       "teamid":45,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":48,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":50,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":52,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":54,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":482,
+       "stadiumname":"Bluenergy Stadium",
+       "teamid":55,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":57,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":58,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":62,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":488,
+       "stadiumname":"Stade Bollaert-Delelis",
+       "teamid":64,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":477,
+       "stadiumname":"Decathlon Arena",
+       "teamid":65,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":426,
+       "stadiumname":"Groupama Stadium",
+       "teamid":66,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":67,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":68,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":69,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":70,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":71,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":72,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":14,
+       "stadiumname":"Parc des Princes",
+       "teamid":73,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":74,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":76,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":77,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":480,
+       "stadiumname":"Celtic Park",
+       "teamid":78,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":80,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":81,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":82,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":83,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":479,
+       "stadiumname":"Ibrox Stadium",
+       "teamid":86,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":88,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":89,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":91,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":92,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":350,
+       "stadiumname":"Portman Road",
+       "teamid":94,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":335,
+       "stadiumname":"King Power Stadium",
+       "teamid":95,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":97,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":326,
+       "stadiumname":"Stadium of Light",
+       "teamid":106,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":327,
+       "stadiumname":"The Hawthorns",
+       "teamid":109,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":415,
+       "stadiumname":"Molineux Stadium",
+       "teamid":110,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":111,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":112,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":121,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":127,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":142,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":143,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":328,
+       "stadiumname":"Craven Cottage",
+       "teamid":144,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":149,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":454,
+       "stadiumname":"Sch\u00fccoArena",
+       "teamid":159,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":473,
+       "stadiumname":"Vonovia Ruhrstadion",
+       "teamid":160,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":162,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":474,
+       "stadiumname":"Sportpark Ronhof Thomas Sommer",
+       "teamid":165,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":135,
+       "stadiumname":"Olympiastadion",
+       "teamid":166,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":414,
+       "stadiumname":"MEWA ARENA",
+       "teamid":169,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":422,
+       "stadiumname":"Max-Morlock-Stadion",
+       "teamid":171,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":172,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":406,
+       "stadiumname":"Volkswagen Arena",
+       "teamid":175,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":180,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":181,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":189,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":191,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":205,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":206,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":209,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":210,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":211,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":217,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":29,
+       "stadiumname":"Orange V\u00e9lodrome",
+       "teamid":219,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":229,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":230,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":231,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":232,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":457,
+       "stadiumname":"Est\u00e1dio do SL Benfica",
+       "teamid":234,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":456,
+       "stadiumname":"Est\u00e1dio do Drag\u00e3o",
+       "teamid":236,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":486,
+       "stadiumname":"Est\u00e1dio Jos\u00e9 Alvalade",
+       "teamid":237,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":364,
+       "stadiumname":"C\u00edvitas METROPOLITANO",
+       "teamid":240,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":241,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":242,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":2,
+       "stadiumname":"Estadio Santiago Bernab\u00e9u",
+       "teamid":243,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":244,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":15,
+       "stadiumname":"Johan Cruijff ArenA",
+       "teamid":245,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":487,
+       "stadiumname":"De Kuip",
+       "teamid":246,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":463,
+       "stadiumname":"Philips Stadion",
+       "teamid":247,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":252,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":254,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":256,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":260,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":263,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":266,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":267,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":269,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":270,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":271,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":278,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":280,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":294,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":298,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":299,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":300,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":301,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":305,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":306,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":308,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":310,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":319,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":320,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":321,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":322,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":324,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":494,
+       "stadiumname":"RAMS Park",
+       "teamid":325,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":495,
+       "stadiumname":"\u00dclker Stadyumu",
+       "teamid":326,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":327,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":347,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":357,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":361,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":378,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":379,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":381,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":383,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":393,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":417,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":418,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":420,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":423,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":433,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":436,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":445,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":388,
+       "stadiumname":"Estadio San Mam\u00e9s",
+       "teamid":448,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":392,
+       "stadiumname":"Estadio Benito Villamar\u00edn",
+       "teamid":449,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":394,
+       "stadiumname":"Estadio ABANCA-Bala\u00eddos",
+       "teamid":450,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":393,
+       "stadiumname":"Stage Front Stadium",
+       "teamid":452,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":440,
+       "stadiumname":"Visit Mallorca Estadi",
+       "teamid":453,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":456,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":397,
+       "stadiumname":"Reale Arena",
+       "teamid":457,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":459,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":10,
+       "stadiumname":"Estadio Mestalla",
+       "teamid":461,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":427,
+       "stadiumname":"Estadio Jos\u00e9 Zorrilla",
+       "teamid":462,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":399,
+       "stadiumname":"Estadio de Mendizorroza",
+       "teamid":463,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":395,
+       "stadiumname":"Municipal de Ipurua",
+       "teamid":467,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":465,
+       "stadiumname":"Estadio Mart\u00ednez Valero",
+       "teamid":468,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":391,
+       "stadiumname":"Estadio de Gran Canaria",
+       "teamid":472,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":437,
+       "stadiumname":"Estadio El Sadar",
+       "teamid":479,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":429,
+       "stadiumname":"Estadio de Vallecas",
+       "teamid":480,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":389,
+       "stadiumname":"Ram\u00f3n S\u00e1nchez-Pizju\u00e1n",
+       "teamid":481,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":386,
+       "stadiumname":"Estadio de la Cer\u00e1mica",
+       "teamid":483,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":417,
+       "stadiumname":"Heinz von Heiden-Arena",
+       "teamid":485,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":487,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":489,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":492,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":503,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":506,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":517,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":523,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":526,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":531,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":537,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":543,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":563,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":567,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":568,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":573,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":576,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":580,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":598,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":262,
+       "stadiumname":"King Fahd Stadium",
+       "teamid":605,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":1,
+       "stadiumid":345,
+       "stadiumname":"King Abdullah Sports City",
+       "teamid":607,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":614,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":631,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":634,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":670,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":673,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":674,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":675,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":680,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":681,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":687,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":688,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":430,
+       "stadiumname":"Red Bull Arena (New Jersey)",
+       "teamid":689,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":691,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":693,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":694,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":695,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":696,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":161,
+       "stadiumname":"Dignity Health Sports Park",
+       "teamid":697,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":698,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":700,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":702,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":708,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":710,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":711,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":718,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":741,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":744,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":748,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":753,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":194,
+       "stadiumname":"_Eastpoint Arena (Football Ground)",
+       "teamid":819,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":820,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":822,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":834,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":837,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":873,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":894,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":896,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":897,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":898,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":900,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":918,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":919,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":922,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":980,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":982,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":1013,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":1035,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":1039,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":1041,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":1043,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":1048,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":155,
+       "stadiumname":"Wembley Stadium",
+       "teamid":1318,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":1328,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1330,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":194,
+       "stadiumname":"_Eastpoint Arena (Football Ground)",
+       "teamid":1331,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":1334,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":29,
+       "stadiumname":"Orange V\u00e9lodrome",
+       "teamid":1335,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":416,
+       "stadiumname":"Deutsche Bank Park",
+       "teamid":1337,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":1341,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":1343,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":194,
+       "stadiumname":"_Eastpoint Arena (Football Ground)",
+       "teamid":1352,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1353,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":457,
+       "stadiumname":"Est\u00e1dio do SL Benfica",
+       "teamid":1354,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":1355,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1356,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":1359,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":364,
+       "stadiumname":"C\u00edvitas METROPOLITANO",
+       "teamid":1362,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1363,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":1366,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":334,
+       "stadiumname":"Cardiff City Stadium",
+       "teamid":1367,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":264,
+       "stadiumname":"La Bombonera",
+       "teamid":1369,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":1386,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":161,
+       "stadiumname":"Dignity Health Sports Park",
+       "teamid":1387,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":1438,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1439,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1443,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1447,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1456,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1463,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1473,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":1474,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1477,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":1478,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":1480,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1516,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":1530,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1571,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":1572,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":1629,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1704,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1713,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1738,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":1744,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1745,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":1746,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1750,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1756,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1757,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1786,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1787,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1788,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":112,
+       "stadiumname":"Fratton Park",
+       "teamid":1790,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":329,
+       "stadiumname":"Carrow Road",
+       "teamid":1792,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1793,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":433,
+       "stadiumname":"Bramall Lane",
+       "teamid":1794,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":347,
+       "stadiumname":"Vicarage Road",
+       "teamid":1795,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":336,
+       "stadiumname":"Turf Moor",
+       "teamid":1796,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1797,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1798,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":330,
+       "stadiumname":"Selhurst Park",
+       "teamid":1799,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":497,
+       "stadiumname":"Coventry Building Society Arena",
+       "teamid":1800,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1801,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1802,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1803,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1804,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1805,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":331,
+       "stadiumname":"Stoke City FC Stadium",
+       "teamid":1806,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1807,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":340,
+       "stadiumname":"American Express Stadium",
+       "teamid":1808,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":1809,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1814,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":1815,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1816,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1819,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":416,
+       "stadiumname":"Deutsche Bank Park",
+       "teamid":1824,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":1826,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":438,
+       "stadiumname":"Stadion An der Alten F\u00f6rsterei",
+       "teamid":1831,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1832,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":1837,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":1842,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":1843,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":1848,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":396,
+       "stadiumname":"Estadio Ciutat de Val\u00e8ncia",
+       "teamid":1853,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":1854,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":390,
+       "stadiumname":"Coliseum",
+       "teamid":1860,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":481,
+       "stadiumname":"Power Horse Stadium",
+       "teamid":1861,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1862,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":1867,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1871,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1874,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":344,
+       "stadiumname":"M\u00e2s Monumental",
+       "teamid":1876,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":264,
+       "stadiumname":"La Bombonera",
+       "teamid":1877,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":1884,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1886,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":1887,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1888,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":1891,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":1896,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":1898,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":1900,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1903,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1904,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1905,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1906,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":1907,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1908,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1910,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1913,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1914,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":1915,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1917,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":491,
+       "stadiumname":"Ashton Gate",
+       "teamid":1919,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":460,
+       "stadiumname":"Kenilworth Road",
+       "teamid":1923,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1924,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":450,
+       "stadiumname":"Gtech Community Stadium",
+       "teamid":1925,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1926,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1928,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":1929,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1930,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1931,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":1932,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1933,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1934,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1935,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1936,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":1937,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1938,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":384,
+       "stadiumname":"Kirklees Stadium",
+       "teamid":1939,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1940,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":348,
+       "stadiumname":"Vitality Stadium",
+       "teamid":1943,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":1944,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":1947,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1951,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":332,
+       "stadiumname":"MKM Stadium",
+       "teamid":1952,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1958,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":333,
+       "stadiumname":"Swansea.com Stadium",
+       "teamid":1960,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":334,
+       "stadiumname":"Cardiff City Stadium",
+       "teamid":1961,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":1962,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":455,
+       "stadiumname":"Nuevo Mirandilla",
+       "teamid":1968,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":2014,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":2017,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":2041,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":2055,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":2056,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":10020,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":407,
+       "stadiumname":"PreZero Arena",
+       "teamid":10029,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":436,
+       "stadiumname":"Home Deluxe Arena",
+       "teamid":10030,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":10032,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":10846,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":15001,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":15009,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":15015,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":15040,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":15048,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":100081,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":100087,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":100135,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":100325,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":412,
+       "stadiumname":"WWK Arena",
+       "teamid":100409,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":100632,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":100634,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":100646,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":100757,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":100761,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":100804,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":100805,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":100851,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":100852,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":398,
+       "stadiumname":"Municipal de Butarque",
+       "teamid":100888,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":101014,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":101016,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":101020,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":101026,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":101028,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":101033,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":101037,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":101041,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":101047,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":260,
+       "stadiumname":"Donbass Arena",
+       "teamid":101059,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":101083,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":101084,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":441,
+       "stadiumname":"Estadio Presidente Per\u00f3n",
+       "teamid":101085,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":101088,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":101099,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":101100,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":101101,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":101103,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":101105,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":101108,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":101110,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":248,
+       "stadiumname":"BC Place",
+       "teamid":101112,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":15,
+       "stadiumname":"Johan Cruijff ArenA",
+       "teamid":105035,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":400,
+       "stadiumname":"Estadio de Montilivi",
+       "teamid":110062,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110069,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":110072,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":110075,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":110078,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":110081,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":442,
+       "stadiumname":"Estadio Libertadores de Am\u00e9rica",
+       "teamid":110093,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":110176,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":110178,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":110206,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110242,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110313,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":110321,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":475,
+       "stadiumname":"Millerntor-Stadion",
+       "teamid":110329,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":110373,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":110374,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":110395,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":110396,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":110404,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":110468,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":110500,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110501,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":110502,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":110532,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":110556,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":110580,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":110588,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":419,
+       "stadiumname":"D\u00fcsseldorf-Arena",
+       "teamid":110636,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110645,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":110676,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":110683,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":110697,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":110720,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":110724,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":110738,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":110740,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":110745,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":110746,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":110747,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":110749,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":110750,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":110751,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":110752,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":110765,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":110770,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":110776,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":110815,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":110827,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":439,
+       "stadiumname":"Estadio Nuevo Los C\u00e1rmenes",
+       "teamid":110832,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":428,
+       "stadiumname":"El Alcoraz",
+       "teamid":110839,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":110890,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":110908,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":110915,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":110953,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":110955,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":110968,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":110969,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":110974,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":110975,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":110978,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":110980,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":110981,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":110982,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":110986,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":110989,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":110990,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":110991,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":110998,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":111001,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111006,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111008,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":111010,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":111014,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111019,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":111020,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":111022,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":111052,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":111065,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":111083,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":111086,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":111088,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":111091,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":111092,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":111097,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":111111,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":111138,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":111139,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":435,
+       "stadiumname":"Providence Park",
+       "teamid":111140,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":341,
+       "stadiumname":"Lumen Field",
+       "teamid":111144,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":111235,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":111239,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":111273,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":111276,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":111325,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111326,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":111327,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":111328,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":111329,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":111339,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":111380,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111393,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":111395,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":111396,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":111397,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":111398,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":111399,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":111400,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":111433,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":111434,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":111462,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":111473,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":111527,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":111592,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":111594,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":111596,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":111629,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":111633,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":111651,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":111657,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":111659,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":111674,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":111701,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":111705,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":111706,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":111708,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":111710,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":111711,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":111715,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":111716,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":111722,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":111724,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":111766,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":111768,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":111769,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":111774,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":111779,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":111811,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":111817,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":111822,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":111928,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":111974,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":111993,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":112072,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112096,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":112115,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":112124,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":112126,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":112134,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":112139,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":112163,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":112168,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":420,
+       "stadiumname":"Red Bull Arena (Leipzig)",
+       "teamid":112172,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112180,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":112199,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112222,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":112224,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112254,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112258,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":112259,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112260,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":112264,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":345,
+       "stadiumname":"King Abdullah Sports City",
+       "teamid":112387,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112390,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112391,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112392,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112393,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112408,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":112427,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112428,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":112472,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":112493,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":112494,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":112513,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":112535,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":112540,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":112558,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":112584,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":112606,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":112615,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":112667,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":112670,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":112671,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112675,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":112689,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":112705,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":112713,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":183,
+       "stadiumname":"_Estadio El Medio",
+       "teamid":112716,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":112764,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":112809,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":112828,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":112853,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":112883,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":402,
+       "stadiumname":"Mercedes-Benz Stadium (Atlanta)",
+       "teamid":112885,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":112893,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":112908,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":112914,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":112965,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":112979,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":196,
+       "stadiumname":"_Stadion Hanguk",
+       "teamid":112985,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":458,
+       "stadiumname":"BMO Stadium",
+       "teamid":112996,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":155,
+       "stadiumname":"Wembley Stadium",
+       "teamid":113002,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":29,
+       "stadiumname":"Orange V\u00e9lodrome",
+       "teamid":113003,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":113004,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":194,
+       "stadiumname":"_Eastpoint Arena (Football Ground)",
+       "teamid":113007,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":113008,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":341,
+       "stadiumname":"Lumen Field",
+       "teamid":113009,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":113010,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":15,
+       "stadiumname":"Johan Cruijff ArenA",
+       "teamid":113011,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":364,
+       "stadiumname":"C\u00edvitas METROPOLITANO",
+       "teamid":113012,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":113018,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":113029,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":113037,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":113040,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":113044,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":113057,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":113060,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":113142,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":113146,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":113149,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":113154,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":113155,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":113217,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":113257,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":113297,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":113298,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":197,
+       "stadiumname":"_O Dromo",
+       "teamid":113299,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":228,
+       "stadiumname":"_Court Lane",
+       "teamid":113300,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":113301,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":113302,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":113378,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":113458,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":113459,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":113616,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":113746,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":113888,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":113926,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":113973,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":113974,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":113984,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":441,
+       "stadiumname":"Estadio Presidente Per\u00f3n",
+       "teamid":113996,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":114004,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":114019,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":114023,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":114046,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":114147,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":249,
+       "stadiumname":"_Molton Road (Sheldon Stadium)",
+       "teamid":114161,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":114162,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":114168,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":114326,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":26,
+       "stadiumname":"_Forest Park Stadium (Square Ground)",
+       "teamid":114385,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":114393,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":114510,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":114511,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":114549,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":114577,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":114580,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":114581,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":114604,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":114628,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":114640,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":114815,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":115202,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":115472,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":115486,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":115491,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":147,
+       "stadiumname":"_Stadion Europa",
+       "teamid":115530,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":115536,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":486,
+       "stadiumname":"Est\u00e1dio Jos\u00e9 Alvalade",
+       "teamid":115682,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":115841,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":115845,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":115891,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":261,
+       "stadiumname":"_Sanderson Park",
+       "teamid":115995,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":12,
+       "stadiumname":"BayArena",
+       "teamid":115996,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":416,
+       "stadiumname":"Deutsche Bank Park",
+       "teamid":115997,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":472,
+       "stadiumname":"StrongHER Stadium",
+       "teamid":115998,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":407,
+       "stadiumname":"PreZero Arena",
+       "teamid":115999,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":116000,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":116001,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":447,
+       "stadiumname":"Europa-Park Stadion",
+       "teamid":116002,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":423,
+       "stadiumname":"RheinEnergieStadion",
+       "teamid":116003,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":413,
+       "stadiumname":"Weserstadion",
+       "teamid":116004,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":182,
+       "stadiumname":"_Stadion 23. Maj",
+       "teamid":116005,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":156,
+       "stadiumname":"Emirates Stadium",
+       "teamid":116009,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":28,
+       "stadiumname":"Stamford Bridge",
+       "teamid":116010,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":409,
+       "stadiumname":"Tottenham Hotspur Stadium",
+       "teamid":116011,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":1,
+       "stadiumname":"Old Trafford",
+       "teamid":116012,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":340,
+       "stadiumname":"American Express Stadium",
+       "teamid":116013,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":355,
+       "stadiumname":"London Stadium",
+       "teamid":116014,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":115,
+       "stadiumname":"Villa Park",
+       "teamid":116015,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":265,
+       "stadiumname":"Goodison Park",
+       "teamid":116016,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":466,
+       "stadiumname":"Joie Stadium",
+       "teamid":116017,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":335,
+       "stadiumname":"King Power Stadium",
+       "teamid":116020,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":420,
+       "stadiumname":"Red Bull Arena (Leipzig)",
+       "teamid":116021,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":426,
+       "stadiumname":"Groupama Stadium",
+       "teamid":116033,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":14,
+       "stadiumname":"Parc des Princes",
+       "teamid":116034,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":116035,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":116036,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":116037,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":116039,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":116040,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":116042,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":116044,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":116263,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":247,
+       "stadiumname":"Allianz Stadium",
+       "teamid":116280,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":116282,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":229,
+       "stadiumname":"_Arena d'Oro",
+       "teamid":116292,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":116295,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":341,
+       "stadiumname":"Lumen Field",
+       "teamid":116300,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":435,
+       "stadiumname":"Providence Park",
+       "teamid":116302,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":116303,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":116304,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":116305,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":116306,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":116307,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":116308,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":178,
+       "stadiumname":"_Stadion Neder",
+       "teamid":116309,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":430,
+       "stadiumname":"Red Bull Arena (New Jersey)",
+       "teamid":116310,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":458,
+       "stadiumname":"BMO Stadium",
+       "teamid":116311,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":153,
+       "stadiumname":"_Aloha Park",
+       "teamid":116312,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":116323,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":192,
+       "stadiumname":"_El Libertador (La Bombastico)",
+       "teamid":116325,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":471,
+       "stadiumname":"Estadio Alfredo Di St\u00e9fano",
+       "teamid":116326,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":364,
+       "stadiumname":"C\u00edvitas METROPOLITANO",
+       "teamid":116327,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":388,
+       "stadiumname":"Estadio San Mam\u00e9s",
+       "teamid":116328,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":392,
+       "stadiumname":"Estadio Benito Villamar\u00edn",
+       "teamid":116330,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":395,
+       "stadiumname":"Municipal de Ipurua",
+       "teamid":116331,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":116332,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":396,
+       "stadiumname":"Estadio Ciutat de Val\u00e8ncia",
+       "teamid":116333,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":116334,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":397,
+       "stadiumname":"Reale Arena",
+       "teamid":116336,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":389,
+       "stadiumname":"Ram\u00f3n S\u00e1nchez-Pizju\u00e1n",
+       "teamid":116337,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":10,
+       "stadiumname":"Estadio Mestalla",
+       "teamid":116339,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":13,
+       "stadiumname":"Anfield",
+       "teamid":116343,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":116360,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":116361,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":116416,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":116417,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":116428,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":131110,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":131124,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":131125,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":131159,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":"_Estadio de las Artes",
+       "teamid":131161,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":195,
+       "stadiumname":"_Stadion Olympik",
+       "teamid":131173,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":131174,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":131271,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":457,
+       "stadiumname":"Est\u00e1dio do SL Benfica",
+       "teamid":131358,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":15,
+       "stadiumname":"Johan Cruijff ArenA",
+       "teamid":131359,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":131360,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":131361,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":131362,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":131363,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":131368,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":469,
+       "stadiumname":"_Longville Stadium",
+       "teamid":131388,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":439,
+       "stadiumname":"Estadio Nuevo Los C\u00e1rmenes",
+       "teamid":131391,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":131447,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":468,
+       "stadiumname":"_Oktigann Park",
+       "teamid":131459,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":35,
+       "stadiumname":"_Euro Park",
+       "teamid":131463,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":181,
+       "stadiumname":"_El Grandioso (El Monumento)",
+       "teamid":131474,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":131477,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":32,
+       "stadiumname":"_Crown Lane",
+       "teamid":131478,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":180,
+       "stadiumname":"_Ivy Lane",
+       "teamid":131487,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":193,
+       "stadiumname":"_Stadio Classico",
+       "teamid":131488,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":34,
+       "stadiumname":"_Town Park",
+       "teamid":131491,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":175,
+       "stadiumname":"_Arena del Centenario (Estadio del Pueblo)",
+       "teamid":131511,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":508,
+       "stadiumname":"_FC Rush Stadium",
+       "teamid":131524,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":508,
+       "stadiumname":"_FC Rush Stadium",
+       "teamid":131527,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":158,
+       "stadiumname":null,
+       "teamid":131680,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":1,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":131681,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":1,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":131682,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":176,
+       "stadiumname":"_Waldstadion (Fussballstadion)",
+       "teamid":131720,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":179,
+       "stadiumname":"_Stade Municipal",
+       "teamid":131724,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":330,
+       "stadiumname":"Selhurst Park",
+       "teamid":131725,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":393,
+       "stadiumname":"Stage Front Stadium",
+       "teamid":131733,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":149,
+       "stadiumname":"_Al Jayeed Stadium (Stade Kokoto)",
+       "teamid":131735,
+       "forcedhome":0
+    },
+    {
+       "swapcrowdplacement":0,
+       "stadiumid":33,
+       "stadiumname":"_Union Park (Euro Arena)",
+       "teamid":131739,
+       "forcedhome":0
+    }
+ ]
