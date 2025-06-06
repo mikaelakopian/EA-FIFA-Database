@@ -15,9 +15,11 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import DefaultLayout from "../layouts/default";
-import ProjectLeaguesPage from "./ProjectLeaguesPage";
 import ProjectTeamsPage from "./ProjectTeamsPage";
 import ProjectPlayersPage from "./ProjectPlayersPage";
+
+// Lazy load the ProjectLeaguesPage component
+const ProjectLeaguesPage = React.lazy(() => import("./ProjectLeaguesPage"));
 
 interface Project {
   id: string;
@@ -218,9 +220,10 @@ export default function ProjectPage() {
             <Tabs
               selectedKey={activeTab}
               onSelectionChange={(key) => setActiveTab(key as string)}
-              className="p-0" // Changed from p-3 to p-4 for more comfortable tab panel spacing
+              className="p-0"
               variant="underlined"
               aria-label="Project management tabs"
+              destroyInactiveTabPanel={false}
             >
               <Tab
                 key="overview"
@@ -346,21 +349,21 @@ export default function ProjectPage() {
                           <span>Database Setup</span>
                           <span>100%</span>
                         </div>
-                        <Progress value={100} color="success" />
+                        <Progress value={100} color="success" aria-label="Database Setup: 100% complete" />
                       </div>
                       <div>
                         <div className="flex justify-between text-sm mb-2">
                           <span>League Configuration</span>
                           <span>75%</span>
                         </div>
-                        <Progress value={75} color="primary" />
+                        <Progress value={75} color="primary" aria-label="League Configuration: 75% complete" />
                       </div>
                       <div>
                         <div className="flex justify-between text-sm mb-2">
                           <span>Team Data Import</span>
                           <span>60%</span>
                         </div>
-                        <Progress value={60} color="warning" />
+                        <Progress value={60} color="warning" aria-label="Team Data Import: 60% complete" />
                       </div>
                     </div>
                   </div>
@@ -400,7 +403,13 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <ProjectLeaguesPage projectId={id} />
+                <React.Suspense fallback={
+                  <div className="flex justify-center items-center min-h-[40vh]">
+                    <Spinner size="lg" label="Loading leagues..." />
+                  </div>
+                }>
+                  <ProjectLeaguesPage projectId={id} />
+                </React.Suspense>
               </Tab>
               <Tab
                 key="teams"
@@ -414,7 +423,7 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <ProjectTeamsPage teams={teams} />
+                <ProjectTeamsPage projectId={id} />
               </Tab>
               <Tab
                 key="players"
@@ -428,7 +437,7 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <ProjectPlayersPage players={players} />
+                <ProjectPlayersPage projectId={id} />
               </Tab>
             </Tabs>
           </CardBody>
