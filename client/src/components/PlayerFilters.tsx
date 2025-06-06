@@ -3,7 +3,6 @@ import {
   Input,
   Select,
   SelectItem,
-  Slider,
   Button,
   Card,
   CardBody,
@@ -11,6 +10,7 @@ import {
   Image,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { RangeSlider } from "./RangeSlider";
 
 interface PlayerFiltersProps {
   searchTerm: string;
@@ -52,7 +52,7 @@ const PLAYER_POSITIONS = [
   { id: "17", name: "ST", fullName: "Striker" },
 ];
 
-export default function PlayerFilters({
+export const PlayerFilters = ({
   searchTerm,
   onSearchChange,
   selectedTeam,
@@ -70,61 +70,16 @@ export default function PlayerFilters({
   countries,
   totalPlayers,
   filteredPlayers,
-}: PlayerFiltersProps) {
-  // Local state for sliders to make them responsive
-  const [localRatingRange, setLocalRatingRange] = React.useState<[number, number]>(ratingRange);
-  const [localAgeRange, setLocalAgeRange] = React.useState<[number, number]>(ageRange);
-  const debounceRef = React.useRef<NodeJS.Timeout>();
-  const ageDebounceRef = React.useRef<NodeJS.Timeout>();
-
-  // Update local ranges when external ranges change
-  React.useEffect(() => {
-    setLocalRatingRange(ratingRange);
-  }, [ratingRange]);
-
-  React.useEffect(() => {
-    setLocalAgeRange(ageRange);
-  }, [ageRange]);
-
-  // Debounced rating change handler
+}: PlayerFiltersProps) => {
   const handleRatingChange = (value: number | number[]) => {
     const newRange = value as [number, number];
-    setLocalRatingRange(newRange);
-
-    if (debounceRef.current) {
-      clearTimeout(debounceRef.current);
-    }
-
-    debounceRef.current = setTimeout(() => {
-      onRatingRangeChange(newRange);
-    }, 300);
+    onRatingRangeChange(newRange);
   };
 
-  // Debounced age change handler
   const handleAgeChange = (value: number | number[]) => {
     const newRange = value as [number, number];
-    setLocalAgeRange(newRange);
-
-    if (ageDebounceRef.current) {
-      clearTimeout(ageDebounceRef.current);
-    }
-
-    ageDebounceRef.current = setTimeout(() => {
-      onAgeRangeChange(newRange);
-    }, 300);
+    onAgeRangeChange(newRange);
   };
-
-  // Cleanup timeouts on unmount
-  React.useEffect(() => {
-    return () => {
-      if (debounceRef.current) {
-        clearTimeout(debounceRef.current);
-      }
-      if (ageDebounceRef.current) {
-        clearTimeout(ageDebounceRef.current);
-      }
-    };
-  }, []);
 
   const hasActiveFilters = 
     searchTerm || 
@@ -148,7 +103,7 @@ export default function PlayerFilters({
 
   return (
     <Card className="mb-6">
-      <CardBody className="space-y-4">
+        <CardBody className="space-y-4">
         <div className="flex items-center justify-between">
           <h4 className="text-lg font-semibold flex items-center gap-2">
             <Icon icon="lucide:filter" className="h-5 w-5" />
@@ -186,6 +141,7 @@ export default function PlayerFilters({
             startContent={<Icon icon="lucide:search" className="h-4 w-4 text-default-400" />}
             isClearable
             className="w-full"
+            aria-label="Search players by name"
           />
 
           {/* Filter by team */}
@@ -198,6 +154,7 @@ export default function PlayerFilters({
               onTeamChange(selected || "");
             }}
             className="w-full"
+            aria-label="Filter players by team"
             renderValue={(items) => {
               return items.map((item) => {
                 const team = teams.find(t => t.id === item.key);
@@ -244,6 +201,7 @@ export default function PlayerFilters({
               onPositionChange(selected || "");
             }}
             className="w-full"
+            aria-label="Filter players by position"
           >
             {PLAYER_POSITIONS.map((position) => (
               <SelectItem key={position.id} textValue={position.name}>
@@ -265,6 +223,7 @@ export default function PlayerFilters({
               onCountryChange(selected || "");
             }}
             className="w-full"
+            aria-label="Filter players by nationality"
             renderValue={(items) => {
               return items.map((item) => {
                 const country = countries.find(c => c.id === item.key);
@@ -308,44 +267,34 @@ export default function PlayerFilters({
           {/* Overall rating range slider */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              Overall Rating: {localRatingRange[0]} - {localRatingRange[1]}
+              Overall Rating: {ratingRange[0]} - {ratingRange[1]}
             </label>
-            <Slider
-              step={1}
-              minValue={0}
-              maxValue={100}
-              value={localRatingRange}
+            <RangeSlider
+              value={ratingRange}
               onChange={handleRatingChange}
-              className="w-full"
+              min={0}
+              max={100}
+              step={1}
               color="success"
-              showTooltip
-              tooltipProps={{
-                placement: "bottom",
-                color: "success",
-                content: `${localRatingRange[0]} - ${localRatingRange[1]}`,
-              }}
+              showTooltip={true}
+              label="Player overall rating range filter"
             />
           </div>
 
           {/* Age range slider */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              Age: {localAgeRange[0]} - {localAgeRange[1]}
+              Age: {ageRange[0]} - {ageRange[1]}
             </label>
-            <Slider
-              step={1}
-              minValue={16}
-              maxValue={45}
-              value={localAgeRange}
+            <RangeSlider
+              value={ageRange}
               onChange={handleAgeChange}
-              className="w-full"
+              min={16}
+              max={45}
+              step={1}
               color="primary"
-              showTooltip
-              tooltipProps={{
-                placement: "bottom",
-                color: "primary",
-                content: `${localAgeRange[0]} - ${localAgeRange[1]} years`,
-              }}
+              showTooltip={true}
+              label="Player age range filter"
             />
           </div>
         </div>
@@ -401,7 +350,7 @@ export default function PlayerFilters({
                 color="success"
                 onClose={() => onRatingRangeChange([0, 100])}
               >
-                Rating: {localRatingRange[0]}-{localRatingRange[1]}
+                Rating: {ratingRange[0]}-{ratingRange[1]}
               </Chip>
             )}
             {(ageRange[0] > 16 || ageRange[1] < 45) && (
@@ -411,7 +360,7 @@ export default function PlayerFilters({
                 color="primary"
                 onClose={() => onAgeRangeChange([16, 45])}
               >
-                Age: {localAgeRange[0]}-{localAgeRange[1]}
+                Age: {ageRange[0]}-{ageRange[1]}
               </Chip>
             )}
           </div>
@@ -419,4 +368,4 @@ export default function PlayerFilters({
       </CardBody>
     </Card>
   );
-} 
+};

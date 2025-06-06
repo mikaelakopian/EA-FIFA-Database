@@ -15,7 +15,7 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import TeamDivider from "../components/TeamDivider";
-import TeamFilters from "../components/TeamFilters";
+import { TeamFilters } from "../components/TeamFilters";
 
 interface Team {
   teamid: string;
@@ -76,7 +76,7 @@ interface ProjectTeamsPageProps {
   projectId?: string;
 }
 
-export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
+const ProjectTeamsPage: React.FC<ProjectTeamsPageProps> = ({ projectId }) => {
   const [teams, setTeams] = React.useState<Team[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [playerCounts, setPlayerCounts] = React.useState<{ [teamId: string]: number }>({});
@@ -297,14 +297,11 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
           `http://localhost:8000/teams?project_id=${projectId}` : 
           "http://localhost:8000/teams";
 
-        console.log("[DEBUG] projectId:", projectId);
-        console.log("[DEBUG] teamsUrl:", teamsUrl);
 
         const teamsResponse = await fetch(teamsUrl);
 
         if (teamsResponse.ok) {
           const teamsData = await teamsResponse.json();
-          console.log("Total teams from API:", teamsData.length);
           setTeams(teamsData);
         } else {
           console.error("Failed to fetch teams data");
@@ -328,12 +325,10 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
           `http://localhost:8000/nations?project_id=${projectId}` : 
           "http://localhost:8000/nations";
 
-        console.log("[DEBUG] Loading nations:", nationsUrl);
 
         const nationsResponse = await fetch(nationsUrl);
         if (nationsResponse.ok) {
           const nationsData: Nation[] = await nationsResponse.json();
-          console.log("Nations loaded:", nationsData.length);
           
           // Convert array to object with nationid as key
           const nationsMap: { [nationId: string]: Nation } = {};
@@ -343,7 +338,7 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
           
           setNations(nationsMap);
         } else {
-          console.error("Failed to fetch nations");
+          console.error("Failed to fetch nations:", nationsResponse.status, nationsResponse.statusText);
         }
       } catch (error) {
         console.error("Error fetching nations:", error);
@@ -366,13 +361,11 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
           `http://localhost:8000/teamplayerlinks?project_id=${projectId}` : 
           "http://localhost:8000/teamplayerlinks";
 
-        console.log("[DEBUG] Loading player counts:", teamPlayerLinksUrl);
 
         const teamPlayerLinksResponse = await fetch(teamPlayerLinksUrl);
 
         if (teamPlayerLinksResponse.ok) {
           const teamPlayerLinksData = await teamPlayerLinksResponse.json();
-          console.log("Total team-player links:", teamPlayerLinksData.length);
           
           // Calculate player counts per team
           const playerCountsMap: { [teamId: string]: number } = {};
@@ -384,7 +377,6 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
             playerCountsMap[teamId]++;
           });
           
-          console.log("Player counts loaded for", Object.keys(playerCountsMap).length, "teams");
           setPlayerCounts(playerCountsMap);
         } else {
           console.error("Failed to fetch player counts");
@@ -418,7 +410,6 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
           `http://localhost:8000/leagues?project_id=${projectId}` : 
           "http://localhost:8000/leagues";
 
-        console.log("[DEBUG] Loading league info:", leagueTeamLinksUrl, leaguesUrl);
 
         const [leagueTeamLinksResponse, leaguesResponse, restOfWorldResponse] = await Promise.all([
           fetch(leagueTeamLinksUrl),
@@ -436,9 +427,6 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
             restOfWorldTeamsData = await restOfWorldResponse.json();
           }
           
-          console.log("League-team links:", leagueTeamLinksData.length);
-          console.log("Leagues:", leaguesData.length);
-          console.log("Rest of world teams:", restOfWorldTeamsData.length);
           
           // Create rest of world teams mapping
           const restOfWorldTeamsMap: { [teamId: string]: string } = {};
@@ -469,7 +457,6 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
             }
           });
           
-          console.log("Team leagues loaded for", Object.keys(teamIdToLeague).length, "teams");
           setTeamLeagues(teamIdToLeague);
         } else {
           console.error("Failed to fetch league information");
@@ -644,6 +631,7 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
       </div>
       
       <TeamFilters
+        key="team-filters"
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
         selectedLeague={selectedLeague}
@@ -838,6 +826,7 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
             onChange={handlePageChange}
             showControls
             color="success"
+            aria-label="Teams table pagination"
           />
         </div>
       )}
@@ -851,4 +840,6 @@ export default function ProjectTeamsPage({ projectId }: ProjectTeamsPageProps) {
       />
     </div>
   );
-} 
+};
+
+export default ProjectTeamsPage; 

@@ -1,15 +1,14 @@
-import React from "react";
 import {
   Input,
   Select,
   SelectItem,
-  Slider,
   Button,
   Card,
   CardBody,
   Chip,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { RangeSlider } from "./RangeSlider";
 
 interface TeamFiltersProps {
   searchTerm: string;
@@ -27,7 +26,8 @@ interface TeamFiltersProps {
   filteredTeams: number;
 }
 
-export default function TeamFilters({
+
+export const TeamFilters = ({
   searchTerm,
   onSearchChange,
   selectedLeague,
@@ -41,40 +41,12 @@ export default function TeamFilters({
   countries,
   totalTeams,
   filteredTeams,
-}: TeamFiltersProps) {
-  // Local state for slider to make it responsive
-  const [localRatingRange, setLocalRatingRange] = React.useState<[number, number]>(ratingRange);
-  const debounceRef = React.useRef<NodeJS.Timeout>();
-
-  // Update local range when external range changes
-  React.useEffect(() => {
-    setLocalRatingRange(ratingRange);
-  }, [ratingRange]);
-
-  // Debounced rating change handler
+}: TeamFiltersProps) => {
+  // Simple rating change handler
   const handleRatingChange = (value: number | number[]) => {
     const newRange = value as [number, number];
-    setLocalRatingRange(newRange);
-
-    // Clear previous timeout
-    if (debounceRef.current) {
-      clearTimeout(debounceRef.current);
-    }
-
-    // Set new timeout for debounced update
-    debounceRef.current = setTimeout(() => {
-      onRatingRangeChange(newRange);
-    }, 300); // 300ms delay
+    onRatingRangeChange(newRange);
   };
-
-  // Cleanup timeout on unmount
-  React.useEffect(() => {
-    return () => {
-      if (debounceRef.current) {
-        clearTimeout(debounceRef.current);
-      }
-    };
-  }, []);
 
   const hasActiveFilters = searchTerm || selectedLeague || selectedCountry || ratingRange[0] > 0 || ratingRange[1] < 100;
 
@@ -89,64 +61,84 @@ export default function TeamFilters({
   };
 
   return (
-    <Card className="mb-6">
-      <CardBody className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h4 className="text-lg font-semibold flex items-center gap-2">
-            <Icon icon="lucide:filter" className="h-5 w-5" />
-            Filters & Search
-          </h4>
-          <div className="flex items-center gap-3">
-            <Chip 
-              color={filteredTeams === totalTeams ? "default" : "primary"} 
-              variant="flat"
-              size="sm"
-            >
-              {filteredTeams} of {totalTeams} teams
-            </Chip>
-            {hasActiveFilters && (
-              <Button
-                size="sm"
+      <Card className="mb-6">
+        <CardBody className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h4 className="text-lg font-semibold flex items-center gap-2">
+              <Icon icon="lucide:filter" className="h-5 w-5" />
+              Filters & Search
+            </h4>
+            <div className="flex items-center gap-3">
+              <Chip 
+                color={filteredTeams === totalTeams ? "default" : "primary"} 
                 variant="flat"
-                color="warning"
-                startContent={<Icon icon="lucide:x" className="h-4 w-4" />}
-                onPress={onClearFilters}
+                size="sm"
               >
-                Clear
-              </Button>
-            )}
+                {filteredTeams} of {totalTeams} teams
+              </Chip>
+              {hasActiveFilters && (
+                <Button
+                  size="sm"
+                  variant="flat"
+                  color="warning"
+                  startContent={<Icon icon="lucide:x" className="h-4 w-4" />}
+                  onPress={onClearFilters}
+                >
+                  Clear
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Search by team name */}
-          <Input
-            label="Search teams"
-            placeholder="Enter team name..."
-            value={searchTerm}
-            onValueChange={onSearchChange}
-            startContent={<Icon icon="lucide:search" className="h-4 w-4 text-default-400" />}
-            isClearable
-            className="w-full"
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Search by team name */}
+            <Input
+              label="Search teams"
+              placeholder="Enter team name..."
+              value={searchTerm}
+              onValueChange={onSearchChange}
+              startContent={<Icon icon="lucide:search" className="h-4 w-4 text-default-400" />}
+              isClearable
+              className="w-full"
+              aria-label="Search teams by name"
+            />
 
-          {/* Filter by league */}
-          <Select
-            label="League"
-            placeholder="All leagues"
-            selectedKeys={selectedLeague ? [selectedLeague] : []}
-            onSelectionChange={(keys) => {
-              const selected = Array.from(keys)[0] as string;
-              onLeagueChange(selected || "");
-            }}
-            className="w-full"
-            renderValue={(items) => {
-              return items.map((item) => {
-                const league = leagues.find(l => l.id === item.key);
-                if (!league) return <span key={item.key}>{item.textValue}</span>;
-                
-                return (
-                  <div key={item.key} className="flex items-center gap-2">
+            {/* Filter by league */}
+            <Select
+              label="League"
+              placeholder="All leagues"
+              selectedKeys={selectedLeague ? [selectedLeague] : []}
+              onSelectionChange={(keys) => {
+                const selected = Array.from(keys)[0] as string;
+                onLeagueChange(selected || "");
+              }}
+              className="w-full"
+              aria-label="Filter teams by league"
+              renderValue={(items) => {
+                return items.map((item) => {
+                  const league = leagues.find(l => l.id === item.key);
+                  if (!league) return <span key={item.key}>{item.textValue}</span>;
+                  
+                  return (
+                    <div key={item.key} className="flex items-center gap-2">
+                      <img
+                        src={getLeagueLogoUrl(league.id)}
+                        alt={`${league.name} logo`}
+                        className="w-5 h-5 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                      <span className="truncate">{league.name}</span>
+                    </div>
+                  );
+                });
+              }}
+            >
+              {leagues.map((league) => (
+                <SelectItem 
+                  key={league.id}
+                  startContent={
                     <img
                       src={getLeagueLogoUrl(league.id)}
                       alt={`${league.name} logo`}
@@ -155,48 +147,49 @@ export default function TeamFilters({
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
-                    <span className="truncate">{league.name}</span>
-                  </div>
-                );
-              });
-            }}
-          >
-            {leagues.map((league) => (
-              <SelectItem 
-                key={league.id}
-                startContent={
-                  <img
-                    src={getLeagueLogoUrl(league.id)}
-                    alt={`${league.name} logo`}
-                    className="w-5 h-5 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                }
-              >
-                {league.name}
-              </SelectItem>
-            ))}
-          </Select>
+                  }
+                >
+                  {league.name}
+                </SelectItem>
+              ))}
+            </Select>
 
-          {/* Filter by country */}
-          <Select
-            label="Country"
-            placeholder="All countries"
-            selectedKeys={selectedCountry ? [selectedCountry] : []}
-            onSelectionChange={(keys) => {
-              const selected = Array.from(keys)[0] as string;
-              onCountryChange(selected || "");
-            }}
-            className="w-full"
-            renderValue={(items) => {
-              return items.map((item) => {
-                const country = countries.find(c => c.id === item.key);
-                if (!country) return <span key={item.key}>{item.textValue}</span>;
-                
-                return (
-                  <div key={item.key} className="flex items-center gap-2">
+            {/* Filter by country */}
+            <Select
+              label="Country"
+              placeholder="All countries"
+              selectedKeys={selectedCountry ? [selectedCountry] : []}
+              onSelectionChange={(keys) => {
+                const selected = Array.from(keys)[0] as string;
+                onCountryChange(selected || "");
+              }}
+              className="w-full"
+              aria-label="Filter teams by country"
+              renderValue={(items) => {
+                return items.map((item) => {
+                  const country = countries.find(c => c.id === item.key);
+                  if (!country) return <span key={item.key}>{item.textValue}</span>;
+                  
+                  return (
+                    <div key={item.key} className="flex items-center gap-2">
+                      <img
+                        src={getCountryFlagUrl(country.id)}
+                        alt={`${country.name} flag`}
+                        className="w-5 h-3 object-cover rounded-sm"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                      <span className="truncate">{country.name}</span>
+                    </div>
+                  );
+                });
+              }}
+            >
+              {countries.map((country) => (
+                <SelectItem 
+                  key={country.id}
+                  startContent={
                     <img
                       src={getCountryFlagUrl(country.id)}
                       alt={`${country.name} flag`}
@@ -205,101 +198,80 @@ export default function TeamFilters({
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
-                    <span className="truncate">{country.name}</span>
-                  </div>
-                );
-              });
-            }}
-          >
-            {countries.map((country) => (
-              <SelectItem 
-                key={country.id}
-                startContent={
-                  <img
-                    src={getCountryFlagUrl(country.id)}
-                    alt={`${country.name} flag`}
-                    className="w-5 h-3 object-cover rounded-sm"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                }
-              >
-                {country.name}
-              </SelectItem>
-            ))}
-          </Select>
+                  }
+                >
+                  {country.name}
+                </SelectItem>
+              ))}
+            </Select>
 
-          {/* Rating range slider */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">
-              Overall Rating: {localRatingRange[0]} - {localRatingRange[1]}
-            </label>
-            <Slider
-              step={1}
-              minValue={0}
-              maxValue={100}
-              value={localRatingRange}
-              onChange={handleRatingChange}
-              className="w-full"
-              color="success"
-              showTooltip
-              tooltipProps={{
-                placement: "bottom",
-                color: "success",
-                content: `${localRatingRange[0]} - ${localRatingRange[1]}`,
-              }}
-            />
+            {/* Rating range slider */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">
+                Overall Rating: {ratingRange[0]} - {ratingRange[1]}
+              </label>
+              <div className="w-full">
+                <RangeSlider
+                  value={ratingRange}
+                  onChange={handleRatingChange}
+                  min={0}
+                  max={100}
+                  step={1}
+                  color="success"
+                  showTooltip={true}
+                  label="Team overall rating range filter"
+                />
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Active filters display */}
-        {hasActiveFilters && (
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-default-200">
-            <span className="text-sm text-default-600 self-center">Active filters:</span>
-            {searchTerm && (
-              <Chip
-                size="sm"
-                variant="flat"
-                color="primary"
-                onClose={() => onSearchChange("")}
-              >
-                Name: {searchTerm}
-              </Chip>
-            )}
-            {selectedLeague && (
-              <Chip
-                size="sm"
-                variant="flat"
-                color="secondary"
-                onClose={() => onLeagueChange("")}
-              >
-                League: {leagues.find(l => l.id === selectedLeague)?.name}
-              </Chip>
-            )}
-            {selectedCountry && (
-              <Chip
-                size="sm"
-                variant="flat"
-                color="warning"
-                onClose={() => onCountryChange("")}
-              >
-                Country: {countries.find(c => c.id === selectedCountry)?.name}
-              </Chip>
-            )}
-            {(ratingRange[0] > 0 || ratingRange[1] < 100) && (
-              <Chip
-                size="sm"
-                variant="flat"
-                color="success"
-                onClose={() => onRatingRangeChange([0, 100])}
-              >
-                Rating: {localRatingRange[0]}-{localRatingRange[1]}
-              </Chip>
-            )}
-          </div>
-        )}
-      </CardBody>
-    </Card>
+          {/* Active filters display */}
+          {hasActiveFilters && (
+            <div className="flex flex-wrap gap-2 pt-2 border-t border-default-200">
+              <span className="text-sm text-default-600 self-center">Active filters:</span>
+              {searchTerm && (
+                <Chip
+                  size="sm"
+                  variant="flat"
+                  color="primary"
+                  onClose={() => onSearchChange("")}
+                >
+                  Name: {searchTerm}
+                </Chip>
+              )}
+              {selectedLeague && (
+                <Chip
+                  size="sm"
+                  variant="flat"
+                  color="secondary"
+                  onClose={() => onLeagueChange("")}
+                >
+                  League: {leagues.find(l => l.id === selectedLeague)?.name}
+                </Chip>
+              )}
+              {selectedCountry && (
+                <Chip
+                  size="sm"
+                  variant="flat"
+                  color="warning"
+                  onClose={() => onCountryChange("")}
+                >
+                  Country: {countries.find(c => c.id === selectedCountry)?.name}
+                </Chip>
+              )}
+              {(ratingRange[0] > 0 || ratingRange[1] < 100) && (
+                <Chip
+                  size="sm"
+                  variant="flat"
+                  color="success"
+                  onClose={() => onRatingRangeChange([0, 100])}
+                >
+                  Rating: {ratingRange[0]}-{ratingRange[1]}
+                </Chip>
+              )}
+            </div>
+          )}
+        </CardBody>
+      </Card>
   );
-} 
+};

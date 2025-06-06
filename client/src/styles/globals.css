@@ -82,3 +82,71 @@
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* Player card rating animation */
+@keyframes pulse-wave {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Custom slider styles */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #17C964;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+  z-index: 2;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.range-slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #17C964;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  pointer-events: all;
+  border: none;
+}
+
+.range-slider::-moz-range-track {
+  background: transparent;
+  border: none;
+}
+
+/* For WebKit browsers */
+.range-slider::-webkit-slider-track {
+  background: transparent;
+  border: none;
+}
