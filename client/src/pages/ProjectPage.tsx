@@ -69,6 +69,7 @@ export default function ProjectPage() {
   const [activeTab, setActiveTab] = React.useState("overview");
   const [exporting, setExporting] = React.useState(false);
   const [tabLoading, setTabLoading] = React.useState<{[key: string]: boolean}>({});
+  const [tabsReady, setTabsReady] = React.useState<{[key: string]: boolean}>({ overview: true });
 
   // Ref to track if we're already fetching data
   const isFetching = React.useRef(false);
@@ -180,20 +181,85 @@ export default function ProjectPage() {
     }
   };
 
-  // Loading component for tabs
+  // Function to handle when a tab component is ready
+  const handleTabReady = (tabKey: string) => {
+    console.log(`Tab ${tabKey} is ready`);
+    setTabLoading(prev => ({ ...prev, [tabKey]: false }));
+    setTabsReady(prev => ({ ...prev, [tabKey]: true }));
+  };
+
+  // Loading component for tabs with smooth transitions
   const TabLoadingState = ({ title }: { title: string }) => (
-    <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
-      <CircularProgress 
-        size="lg" 
-        color="primary"
-        aria-label={`Loading ${title}...`}
-      />
-      <div className="text-center space-y-2">
-        <p className="text-lg font-medium text-default-700">Loading {title}...</p>
-        <p className="text-sm text-default-500">Please wait while we prepare your data</p>
+    <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-6 transition-all duration-500 ease-in-out">
+      <div className="relative">
+        <CircularProgress 
+          size="lg" 
+          color="primary"
+          aria-label={`Loading ${title}...`}
+          className="transform transition-transform duration-300 hover:scale-105"
+        />
+        <div className="absolute inset-0 rounded-full bg-primary/5 animate-pulse" />
+      </div>
+      <div className="text-center space-y-3 max-w-sm">
+        <p className="text-xl font-semibold text-default-700 transition-all duration-300">
+          Loading {title}...
+        </p>
+        <p className="text-sm text-default-500 leading-relaxed transition-all duration-300">
+          Please wait while we prepare your data
+        </p>
+        <div className="flex justify-center space-x-1 mt-4">
+          <div className="h-1 w-1 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+          <div className="h-1 w-1 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+          <div className="h-1 w-1 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+        </div>
       </div>
     </div>
   );
+
+  // Wrapper component to track when child components are ready
+  const TabContentWrapper = ({ 
+    children, 
+    tabKey, 
+    fallback 
+  }: { 
+    children: React.ReactNode; 
+    tabKey: string; 
+    fallback: React.ReactNode;
+  }) => {
+    const [isReady, setIsReady] = React.useState(tabsReady[tabKey] || false);
+
+    React.useEffect(() => {
+      // If tab is already ready, don't show loading
+      if (tabsReady[tabKey]) {
+        setIsReady(true);
+        return;
+      }
+
+      // Only show loading if this tab was just activated and isn't ready
+      if (tabLoading[tabKey]) {
+        const timer = setTimeout(() => {
+          setIsReady(true);
+          handleTabReady(tabKey);
+        }, 1200);
+
+        return () => clearTimeout(timer);
+      } else {
+        // If not loading, show content immediately
+        setIsReady(true);
+      }
+    }, [tabKey, tabLoading[tabKey], tabsReady[tabKey]]);
+
+    // Show loading only if we're actively loading this tab and it's not ready
+    if (tabLoading[tabKey] && !isReady) {
+      return <>{fallback}</>;
+    }
+
+    return (
+      <div className="animate-in fade-in slide-in-from-bottom-2 duration-500">
+        {children}
+      </div>
+    );
+  };
 
   if (loading) {
     return (
@@ -239,19 +305,30 @@ export default function ProjectPage() {
               onSelectionChange={(key) => {
                 const tabKey = key as string;
                 setActiveTab(tabKey);
-                // Set loading state for heavy tabs
-                if (tabKey !== "overview" && !tabLoading[tabKey]) {
+                
+                // Set loading state for heavy tabs that haven't been loaded yet
+                if (tabKey !== "overview" && !tabsReady[tabKey]) {
                   setTabLoading(prev => ({ ...prev, [tabKey]: true }));
-                  // Simulate realistic loading time then remove loading state
+                  
+                  // Ensure loading state is cleared after reasonable time
                   setTimeout(() => {
-                    setTabLoading(prev => ({ ...prev, [tabKey]: false }));
-                  }, 800);
+                    if (!tabsReady[tabKey]) {
+                      handleTabReady(tabKey);
+                    }
+                  }, 2000); // Fallback timeout
                 }
               }}
               className="p-0"
               variant="underlined"
               aria-label="Project management tabs"
               destroyInactiveTabPanel={false}
+              classNames={{
+                base: "w-full",
+                tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider transition-all duration-300",
+                cursor: "w-full bg-primary transition-all duration-300",
+                tab: "max-w-fit px-0 h-12 transition-all duration-300",
+                tabContent: "group-data-[selected=true]:text-primary transition-all duration-300"
+              }}
             >
               <Tab
                 key="overview"
@@ -262,7 +339,7 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <div className="space-y-6 pt-0"> {/* Changed from space-y-4 pt-3 to space-y-6 pt-4 for better vertical rhythm */}
+                <div className="space-y-6 pt-0 animate-in fade-in slide-in-from-bottom-2 duration-500"> {/* Changed from space-y-4 pt-3 to space-y-6 pt-4 for better vertical rhythm */}
                   {/* Project Header */}
                   <div className="relative overflow-hidden rounded-xl bg-content1">
                     <div className={`absolute inset-0 bg-gradient-to-r ${gradients[0]} opacity-10`} />
@@ -431,9 +508,10 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                {tabLoading.leagues ? (
-                  <TabLoadingState title="Leagues" />
-                ) : (
+                <TabContentWrapper 
+                  tabKey="leagues" 
+                  fallback={<TabLoadingState title="Leagues" />}
+                >
                   <React.Suspense fallback={
                     <div className="flex justify-center items-center min-h-[40vh]">
                       <Spinner size="lg" label="Loading leagues..." />
@@ -441,7 +519,7 @@ export default function ProjectPage() {
                   }>
                     <ProjectLeaguesPage projectId={id} />
                   </React.Suspense>
-                )}
+                </TabContentWrapper>
               </Tab>
               <Tab
                 key="teams"
@@ -455,9 +533,10 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                {tabLoading.teams ? (
-                  <TabLoadingState title="Teams" />
-                ) : (
+                <TabContentWrapper 
+                  tabKey="teams" 
+                  fallback={<TabLoadingState title="Teams" />}
+                >
                   <React.Suspense fallback={
                     <div className="flex justify-center items-center min-h-[40vh]">
                       <Spinner size="lg" label="Loading teams..." />
@@ -465,7 +544,7 @@ export default function ProjectPage() {
                   }>
                     <ProjectTeamsPageLazy projectId={id} />
                   </React.Suspense>
-                )}
+                </TabContentWrapper>
               </Tab>
               <Tab
                 key="players"
@@ -479,9 +558,10 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                {tabLoading.players ? (
-                  <TabLoadingState title="Players" />
-                ) : (
+                <TabContentWrapper 
+                  tabKey="players" 
+                  fallback={<TabLoadingState title="Players" />}
+                >
                   <React.Suspense fallback={
                     <div className="flex justify-center items-center min-h-[40vh]">
                       <Spinner size="lg" label="Loading players..." />
@@ -489,7 +569,7 @@ export default function ProjectPage() {
                   }>
                     <ProjectPlayersPageLazy projectId={id} />
                   </React.Suspense>
-                )}
+                </TabContentWrapper>
               </Tab>
             </Tabs>
           </CardBody>
