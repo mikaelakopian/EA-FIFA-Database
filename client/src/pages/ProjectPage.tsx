@@ -11,15 +11,16 @@ import {
   BreadcrumbItem,
   Divider,
   Progress,
-  Badge
+  Badge,
+  CircularProgress
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import DefaultLayout from "../layouts/default";
-import ProjectTeamsPage from "./ProjectTeamsPage";
-import ProjectPlayersPage from "./ProjectPlayersPage";
 
-// Lazy load the ProjectLeaguesPage component
+// Lazy load components for better performance
 const ProjectLeaguesPage = React.lazy(() => import("./ProjectLeaguesPage"));
+const ProjectTeamsPageLazy = React.lazy(() => import("./ProjectTeamsPage"));
+const ProjectPlayersPageLazy = React.lazy(() => import("./ProjectPlayersPage"));
 
 interface Project {
   id: string;
@@ -67,6 +68,7 @@ export default function ProjectPage() {
   const [loading, setLoading] = React.useState(true);
   const [activeTab, setActiveTab] = React.useState("overview");
   const [exporting, setExporting] = React.useState(false);
+  const [tabLoading, setTabLoading] = React.useState<{[key: string]: boolean}>({});
 
   // Ref to track if we're already fetching data
   const isFetching = React.useRef(false);
@@ -178,6 +180,21 @@ export default function ProjectPage() {
     }
   };
 
+  // Loading component for tabs
+  const TabLoadingState = ({ title }: { title: string }) => (
+    <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
+      <CircularProgress 
+        size="lg" 
+        color="primary"
+        aria-label={`Loading ${title}...`}
+      />
+      <div className="text-center space-y-2">
+        <p className="text-lg font-medium text-default-700">Loading {title}...</p>
+        <p className="text-sm text-default-500">Please wait while we prepare your data</p>
+      </div>
+    </div>
+  );
+
   if (loading) {
     return (
       <DefaultLayout>
@@ -219,7 +236,18 @@ export default function ProjectPage() {
           <CardBody className="p-1">
             <Tabs
               selectedKey={activeTab}
-              onSelectionChange={(key) => setActiveTab(key as string)}
+              onSelectionChange={(key) => {
+                const tabKey = key as string;
+                setActiveTab(tabKey);
+                // Set loading state for heavy tabs
+                if (tabKey !== "overview" && !tabLoading[tabKey]) {
+                  setTabLoading(prev => ({ ...prev, [tabKey]: true }));
+                  // Simulate realistic loading time then remove loading state
+                  setTimeout(() => {
+                    setTabLoading(prev => ({ ...prev, [tabKey]: false }));
+                  }, 800);
+                }
+              }}
               className="p-0"
               variant="underlined"
               aria-label="Project management tabs"
@@ -403,13 +431,17 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <React.Suspense fallback={
-                  <div className="flex justify-center items-center min-h-[40vh]">
-                    <Spinner size="lg" label="Loading leagues..." />
-                  </div>
-                }>
-                  <ProjectLeaguesPage projectId={id} />
-                </React.Suspense>
+                {tabLoading.leagues ? (
+                  <TabLoadingState title="Leagues" />
+                ) : (
+                  <React.Suspense fallback={
+                    <div className="flex justify-center items-center min-h-[40vh]">
+                      <Spinner size="lg" label="Loading leagues..." />
+                    </div>
+                  }>
+                    <ProjectLeaguesPage projectId={id} />
+                  </React.Suspense>
+                )}
               </Tab>
               <Tab
                 key="teams"
@@ -423,7 +455,17 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <ProjectTeamsPage projectId={id} />
+                {tabLoading.teams ? (
+                  <TabLoadingState title="Teams" />
+                ) : (
+                  <React.Suspense fallback={
+                    <div className="flex justify-center items-center min-h-[40vh]">
+                      <Spinner size="lg" label="Loading teams..." />
+                    </div>
+                  }>
+                    <ProjectTeamsPageLazy projectId={id} />
+                  </React.Suspense>
+                )}
               </Tab>
               <Tab
                 key="players"
@@ -437,7 +479,17 @@ export default function ProjectPage() {
                   </div>
                 }
               >
-                <ProjectPlayersPage projectId={id} />
+                {tabLoading.players ? (
+                  <TabLoadingState title="Players" />
+                ) : (
+                  <React.Suspense fallback={
+                    <div className="flex justify-center items-center min-h-[40vh]">
+                      <Spinner size="lg" label="Loading players..." />
+                    </div>
+                  }>
+                    <ProjectPlayersPageLazy projectId={id} />
+                  </React.Suspense>
+                )}
               </Tab>
             </Tabs>
           </CardBody>
