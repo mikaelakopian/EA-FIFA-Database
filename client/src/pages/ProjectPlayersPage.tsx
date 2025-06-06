@@ -15,7 +15,7 @@ import {
   Progress,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import PlayerFilters from "../components/PlayerFilters";
+import { PlayerFilters } from "../components/PlayerFilters";
 import { useProgress } from "../context/ProgressContext";
 
 interface Player {
