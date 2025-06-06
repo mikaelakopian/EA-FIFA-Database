@@ -71,6 +71,17 @@ export const PlayerFilters = ({
   totalPlayers,
   filteredPlayers,
 }: PlayerFiltersProps) => {
+  const [localRatingRange, setLocalRatingRange] = React.useState<[number, number]>(ratingRange);
+  const [localAgeRange, setLocalAgeRange] = React.useState<[number, number]>(ageRange);
+
+  React.useEffect(() => {
+    setLocalRatingRange(ratingRange);
+  }, [ratingRange]);
+
+  React.useEffect(() => {
+    setLocalAgeRange(ageRange);
+  }, [ageRange]);
+
   const handleRatingChange = (value: number | number[]) => {
     const newRange = value as [number, number];
     onRatingRangeChange(newRange);
@@ -79,6 +90,14 @@ export const PlayerFilters = ({
   const handleAgeChange = (value: number | number[]) => {
     const newRange = value as [number, number];
     onAgeRangeChange(newRange);
+  };
+
+  const handleLocalRatingChange = (value: [number, number]) => {
+    setLocalRatingRange(value);
+  };
+
+  const handleLocalAgeChange = (value: [number, number]) => {
+    setLocalAgeRange(value);
   };
 
   const hasActiveFilters = 
@@ -267,11 +286,12 @@ export const PlayerFilters = ({
           {/* Overall rating range slider */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              Overall Rating: {ratingRange[0]} - {ratingRange[1]}
+              Overall Rating: {localRatingRange[0]} - {localRatingRange[1]}
             </label>
             <RangeSlider
               value={ratingRange}
               onChange={handleRatingChange}
+              onLocalChange={handleLocalRatingChange}
               min={0}
               max={100}
               step={1}
@@ -284,11 +304,12 @@ export const PlayerFilters = ({
           {/* Age range slider */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">
-              Age: {ageRange[0]} - {ageRange[1]}
+              Age: {localAgeRange[0]} - {localAgeRange[1]}
             </label>
             <RangeSlider
               value={ageRange}
               onChange={handleAgeChange}
+              onLocalChange={handleLocalAgeChange}
               min={16}
               max={45}
               step={1}
@@ -350,7 +371,7 @@ export const PlayerFilters = ({
                 color="success"
                 onClose={() => onRatingRangeChange([0, 100])}
               >
-                Rating: {ratingRange[0]}-{ratingRange[1]}
+                Rating: {localRatingRange[0]}-{localRatingRange[1]}
               </Chip>
             )}
             {(ageRange[0] > 16 || ageRange[1] < 45) && (
@@ -360,7 +381,7 @@ export const PlayerFilters = ({
                 color="primary"
                 onClose={() => onAgeRangeChange([16, 45])}
               >
-                Age: {ageRange[0]}-{ageRange[1]}
+                Age: {localAgeRange[0]}-{localAgeRange[1]}
               </Chip>
             )}
           </div>

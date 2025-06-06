@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Input,
   Select,
@@ -42,10 +43,20 @@ export const TeamFilters = ({
   totalTeams,
   filteredTeams,
 }: TeamFiltersProps) => {
+  const [localRatingRange, setLocalRatingRange] = React.useState<[number, number]>(ratingRange);
+
+  React.useEffect(() => {
+    setLocalRatingRange(ratingRange);
+  }, [ratingRange]);
+
   // Simple rating change handler
   const handleRatingChange = (value: number | number[]) => {
     const newRange = value as [number, number];
     onRatingRangeChange(newRange);
+  };
+
+  const handleLocalRatingChange = (value: [number, number]) => {
+    setLocalRatingRange(value);
   };
 
   const hasActiveFilters = searchTerm || selectedLeague || selectedCountry || ratingRange[0] > 0 || ratingRange[1] < 100;
@@ -208,12 +219,13 @@ export const TeamFilters = ({
             {/* Rating range slider */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">
-                Overall Rating: {ratingRange[0]} - {ratingRange[1]}
+                Overall Rating: {localRatingRange[0]} - {localRatingRange[1]}
               </label>
               <div className="w-full">
                 <RangeSlider
                   value={ratingRange}
                   onChange={handleRatingChange}
+                  onLocalChange={handleLocalRatingChange}
                   min={0}
                   max={100}
                   step={1}
@@ -266,7 +278,7 @@ export const TeamFilters = ({
                   color="success"
                   onClose={() => onRatingRangeChange([0, 100])}
                 >
-                  Rating: {ratingRange[0]}-{ratingRange[1]}
+                  Rating: {localRatingRange[0]}-{localRatingRange[1]}
                 </Chip>
               )}
             </div>
