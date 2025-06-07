@@ -93,17 +93,14 @@ interface FootballPitchProps {
 
 const POSITION_NAMES: { [key: string]: string } = {
   "0": "GK",   // Goalkeeper
-  "3": "LB",   // Left Back
-  "4": "CB",   // Center Back
-  "6": "CB",   // Center Back
-  "7": "RB",   // Right Back
+  "3": "RB",   // Right Back
+  "5": "CB",   // Center Back
+  "7": "LB",   // Left Back
   "10": "CDM", // Central Defensive Midfielder
-  "12": "LM",  // Left Midfielder
-  "13": "CM",  // Central Midfielder
-  "15": "CM",  // Central Midfielder
-  "16": "RM",  // Right Midfielder
-  "24": "ST",  // Striker
-  "26": "ST",  // Striker
+  "12": "RM",  // Right Midfielder
+  "14": "CM",  // Central Midfielder
+  "16": "LM",  // Left Midfielder
+  "25": "ST",  // Striker
 };
 
 const POSITION_COLORS: { [key: string]: string } = {
@@ -163,6 +160,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
         // Create a map of relevant players
         const playersMap: { [playerid: string]: DetailedPlayer } = {};
         playerIds.forEach(playerId => {
+          if (!playerId) return;
           const player = allPlayers.find(p => p.playerid === playerId);
           if (player) {
             playersMap[playerId] = player;
@@ -250,9 +248,9 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
       }
     }
     
-    // Final fallback
-    console.log(`[FootballPitch] Using final fallback name for player ${targetPlayerId}`);
-    return player.name || `Player ${targetPlayerId}`;
+    // Final fallback - only return real names, not fake ones
+    console.log(`[FootballPitch] No real name data found for player ${targetPlayerId}`);
+    return player.name && player.name.trim() && !player.name.startsWith('Player ') ? player.name : '';
   };
 
   // Enhanced helper function to get jersey number using detailed database data
@@ -288,10 +286,9 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
       }
     }
     
-    // Generate number based on position (like real football)
-    const generatedNumber = (index + 1).toString();
-    console.log(`[FootballPitch] Using generated jersey number: ${generatedNumber}`);
-    return generatedNumber;
+    // No real jersey number found - return empty string instead of generating fake one
+    console.log(`[FootballPitch] No real jersey number found for player ${targetPlayerId}`);
+    return '';
   };
 
   // Enhanced helper function to get player overall rating using detailed database data
@@ -334,105 +331,114 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
     return map;
   }, {} as { [key: string]: Player });
 
-  // Get starting 11 players from teamsheet
+  // Get starting 11 players from teamsheet - only real players
   const startingEleven = [];
   for (let i = 0; i <= 10; i++) {
     const playerIdKey = `playerid${i}` as keyof TeamSheetData;
     const playerId = teamSheet[playerIdKey];
     if (playerId && playerId !== "-1") {
       const player = playerMap[playerId];
-      const positionKey = `position${i}` as keyof FormationData;
-      const offsetXKey = `offset${i}x` as keyof FormationData;
-      const offsetYKey = `offset${i}y` as keyof FormationData;
+      const detailedPlayer = detailedPlayers[playerId];
       
-      const positionId = formation[positionKey];
-      const positionName = positionId ? POSITION_NAMES[positionId] || "CM" : "CM";
-      
-      const actualPlayer = player || { 
-        playerid: playerId, 
-        name: `Player ${playerId}`, 
-        overall_rating: 65,
-        firstnameid: '',
-        lastnameid: '',
-        commonname: ''
-      };
-      
-      const enhancedOverallRating = getPlayerOverallRating(actualPlayer, playerId);
-      const enhancedPotential = getPlayerPotential(actualPlayer, playerId);
-      const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
-      const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
+      // Only include players that exist in either the players array OR detailed players from database
+      if (player || detailedPlayer) {
+        const positionKey = `position${i}` as keyof FormationData;
+        const offsetXKey = `offset${i}x` as keyof FormationData;
+        const offsetYKey = `offset${i}y` as keyof FormationData;
+        
+        const positionId = formation[positionKey];
+        const positionName = positionId ? POSITION_NAMES[positionId] || "CM" : "CM";
+        
+        // Use real player data, prioritizing the players array, then detailed data
+        const actualPlayer = player || {
+          playerid: playerId,
+          name: '',
+          overall_rating: undefined,
+          firstnameid: detailedPlayer?.firstnameid || '',
+          lastnameid: detailedPlayer?.lastnameid || '',
+          commonname: detailedPlayer?.commonnameid || ''
+        };
+        
+        const enhancedOverallRating = getPlayerOverallRating(actualPlayer, playerId);
+        const enhancedPotential = getPlayerPotential(actualPlayer, playerId);
+        const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
+        const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
 
-      startingEleven.push({
-        index: i,
-        player: {
-          ...actualPlayer,
-          overall_rating: enhancedOverallRating || actualPlayer.overall_rating,
-          potential: enhancedPotential || actualPlayer.potential
-        },
-        position: positionName,
-        x: parseFloat(formation[offsetXKey] || "0.5") * 100, // Convert to percentage
-        y: (1 - parseFloat(formation[offsetYKey] || "0.5")) * 100, // Invert Y and convert to percentage
-        playerName: enhancedPlayerName,
-        jerseyNumber: enhancedJerseyNumber,
-      });
-      
-      console.log(`[FootballPitch] Player ${i}: ID ${playerId}, found: ${!!player}, position: ${positionName}, coords: (${formation[offsetXKey]}, ${formation[offsetYKey]})`);
+        // Only add if we have meaningful data (name and rating)
+        if (enhancedPlayerName && enhancedPlayerName.trim() && enhancedOverallRating) {
+          startingEleven.push({
+            index: i,
+            player: {
+              ...actualPlayer,
+              overall_rating: enhancedOverallRating,
+              potential: enhancedPotential || enhancedOverallRating
+            },
+            position: positionName,
+            x: parseFloat(formation[offsetXKey] || "0.5") * 100, // Convert to percentage
+            y: (1 - parseFloat(formation[offsetYKey] || "0.5")) * 100, // Invert Y and convert to percentage
+            playerName: enhancedPlayerName,
+            jerseyNumber: enhancedJerseyNumber,
+          });
+          
+          console.log(`[FootballPitch] Player ${i}: ID ${playerId}, real data found, position: ${positionName}, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
+        } else {
+          console.log(`[FootballPitch] Player ${i}: ID ${playerId}, insufficient real data (name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}), skipping`);
+        }
+      } else {
+        console.log(`[FootballPitch] Player ${i}: ID ${playerId}, no real player data found, skipping`);
+      }
     } else {
       console.log(`[FootballPitch] Player ${i}: No player ID or invalid ID`);
     }
   }
 
-  // Get substitutes (players 11 and beyond - bench players)
+  // Get substitutes (players 11 and beyond - bench players) - only real players
   const substitutes = [];
   
-  // Look for all players beyond the starting 11
-  for (let i = 11; i <= 30; i++) { // Increased range to search for more players
+  // Look for all players beyond the starting 11 in teamsheet
+  for (let i = 11; i <= 30; i++) {
     const playerIdKey = `playerid${i}` as keyof TeamSheetData;
     const playerId = teamSheet[playerIdKey];
     if (playerId && playerId !== "-1") {
       const player = playerMap[playerId];
-      const actualPlayer = player || { 
-        playerid: playerId, 
-        name: `Player ${playerId}`, 
-        overall_rating: 65,
-        firstnameid: '',
-        lastnameid: '',
-        commonname: ''
-      };
+      const detailedPlayer = detailedPlayers[playerId];
       
-      // Enhance substitute data with database information
-      const enhancedSubstitute = {
-        ...actualPlayer,
-        overall_rating: getPlayerOverallRating(actualPlayer, playerId) || actualPlayer.overall_rating,
-        potential: getPlayerPotential(actualPlayer, playerId) || actualPlayer.potential,
-        enhancedName: getPlayerName(actualPlayer, playerId),
-        enhancedJerseyNumber: getJerseyNumber(actualPlayer, i, playerId)
-      };
-      
-      substitutes.push(enhancedSubstitute);
-    }
-  }
-  
-  // If we don't have enough substitutes from teamsheet, add remaining players from the original players array
-  if (substitutes.length < 5 && players.length > 11) {
-    console.log(`[FootballPitch] Only found ${substitutes.length} substitutes from teamsheet, adding from players array`);
-    
-    const usedPlayerIds = new Set(startingEleven.map(p => p.player.playerid));
-    const substitutePlayerIds = new Set(substitutes.map(s => s.playerid));
-    
-    players.slice(11).forEach((player, index) => {
-      if (!usedPlayerIds.has(player.playerid) && !substitutePlayerIds.has(player.playerid) && substitutes.length < 11) {
-        const enhancedSubstitute = {
-          ...player,
-          overall_rating: getPlayerOverallRating(player) || player.overall_rating,
-          potential: getPlayerPotential(player) || player.potential,
-          enhancedName: getPlayerName(player),
-          enhancedJerseyNumber: getJerseyNumber(player, index + 11)
+      // Only include players that exist in either the players array OR detailed players from database
+      if (player || detailedPlayer) {
+        // Use real player data, prioritizing the players array, then detailed data
+        const actualPlayer = player || {
+          playerid: playerId,
+          name: '',
+          overall_rating: undefined,
+          firstnameid: detailedPlayer?.firstnameid || '',
+          lastnameid: detailedPlayer?.lastnameid || '',
+          commonname: detailedPlayer?.commonnameid || ''
         };
         
-        substitutes.push(enhancedSubstitute);
+        const enhancedOverallRating = getPlayerOverallRating(actualPlayer, playerId);
+        const enhancedPotential = getPlayerPotential(actualPlayer, playerId);
+        const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
+        const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
+        
+        // Only add if we have meaningful data (name and rating)
+        if (enhancedPlayerName && enhancedPlayerName.trim() && enhancedOverallRating) {
+          const enhancedSubstitute = {
+            ...actualPlayer,
+            overall_rating: enhancedOverallRating,
+            potential: enhancedPotential || enhancedOverallRating,
+            enhancedName: enhancedPlayerName,
+            enhancedJerseyNumber: enhancedJerseyNumber
+          };
+          
+          substitutes.push(enhancedSubstitute);
+          console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, real data found, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
+        } else {
+          console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, insufficient real data, skipping`);
+        }
+      } else {
+        console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, no real player data found, skipping`);
       }
-    });
+    }
   }
 
   console.log(`[FootballPitch] Found ${substitutes.length} substitute players:`, {
@@ -510,7 +516,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
                       {playerData.player.potential && (
                         <div className="text-xs">POT: {playerData.player.potential}</div>
                       )}
-                      {detailedPlayers[teamSheet[`playerid${playerData.index}`]] && (
+                      {teamSheet[`playerid${playerData.index}` as keyof TeamSheetData] && detailedPlayers[teamSheet[`playerid${playerData.index}` as keyof TeamSheetData] as string] && (
                         <div className="text-xs text-success-500 mt-1">
                           Enhanced data loaded ✓
                         </div>
@@ -531,7 +537,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-2 border-white ${
                       POSITION_COLORS[playerData.position] || "bg-gray-500"
                     }`}>
-                      {playerData.jerseyNumber}
+                      {playerData.jerseyNumber || '?'}
                     </div>
                     <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-[8px] font-bold text-white text-center whitespace-nowrap bg-black/70 px-1 rounded max-w-20 truncate">
                       {playerData.playerName.split(' ').pop()} {/* Show last name only */}
@@ -581,7 +587,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
                       <div className={`w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-xs ${
                         POSITION_COLORS[playerData.position] || "bg-gray-500"
                       }`}>
-                        {playerData.jerseyNumber}
+                        {playerData.jerseyNumber || '?'}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="font-medium text-xs truncate">
@@ -609,7 +615,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
                   Substitutes ({substitutes.length})
                 </h4>
                 <div className="space-y-1">
-                  {substitutes.map((player, index) => {
+                  {substitutes.map((player) => {
                     // Use the enhanced data already computed
                     const subJerseyNumber = player.enhancedJerseyNumber;
                     const subPlayerName = player.enhancedName;
@@ -619,7 +625,7 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
                         className="flex items-center gap-2 p-2 bg-default-50 dark:bg-default-100 rounded-lg opacity-75"
                       >
                         <div className="w-6 h-6 rounded-full bg-default-300 text-default-700 font-bold text-xs flex items-center justify-center">
-                          {subJerseyNumber}
+                          {subJerseyNumber || '?'}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="font-medium text-xs truncate">

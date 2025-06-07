@@ -39,38 +39,38 @@ class MentalitiesInput(BaseModel):
 
 FORMATION_442 = OrderedDict([
     ("offset6x", "0.65"), ("offset5y", "0.5875"), ("pos0role", "4161"),
-    ("position10", "26"), ("offset10x", "0.39"), ("offset2x", "0.7125"),
+    ("position10", "25"), ("offset10x", "0.39"), ("offset2x", "0.7125"),
     ("defenders", "4"), ("pos6role", "21185"), ("formationname", "4-4-2"),
-    ("offset2y", "0.1606"), ("position6", "13"), ("offensiverating", "2"),
-    ("offset6y", "0.5125"), ("position8", "16"), ("pos8role", "25669"),
+    ("offset2y", "0.1606"), ("position6", "16"), ("offensiverating", "2"),
+    ("offset6y", "0.5125"), ("position8", "12"), ("pos8role", "25669"),
     ("offset7x", "0.35"), ("pos4role", "8386"), ("offset3x", "0.2875"),
     ("pos7role", "21185"), ("offset8x", "0.075"), ("offset10y", "0.875"),
     ("offset3y", "0.1585"), ("pos2role", "12737"), ("pos1role", "8386"),
-    ("pos10role", "38213"), ("offset4x", "0.075"), ("position5", "12"),
+    ("pos10role", "38213"), ("offset4x", "0.075"), ("position5", "14"),
     ("offset7y", "0.5125"), ("formationaudioid", "10"), ("offset0x", "0.5"),
     ("offset8y", "0.5875"), ("pos3role", "12802"), ("attackers", "2"),
-    ("offset9x", "0.6"), ("teamid", ""), ("position2", "4"),
+    ("offset9x", "0.6"), ("teamid", ""), ("position2", "5"),
     ("midfielders", "4"), ("formationid", "120"), ("offset5x", "0.925"),
     ("pos9role", "38405"), ("offset0y", "0.0175"), ("pos5role", "25669"),
     ("relativeformationid", "16"), ("offset1x", "0.925"), ("position4", "7"),
-    ("offset4y", "0.2"), ("offset9y", "0.875"), ("position3", "6"),
+    ("offset4y", "0.2"), ("offset9y", "0.875"), ("position3", "5"),
     ("formationfullnameid", "11"), ("offset1y", "0.2"), ("position0", "0"),
-    ("position9", "24"), ("position7", "15"), ("position1", "3")
+    ("position9", "25"), ("position7", "14"), ("position1", "3")
 ])
 
 TEAMDATA_442 = OrderedDict([
-    ("offset6x", "0.65"), ("offset5y", "0.5875"), ("position10", "26"),
+    ("offset6x", "0.65"), ("offset5y", "0.5875"), ("position10", "25"),
     ("offset10x", "0.39"), ("offset2x", "0.7125"), ("defensivedepth", "50"),
-    ("offset2y", "0.1606"), ("position6", "13"), ("offset6y", "0.5125"),
-    ("position8", "16"), ("offset7x", "0.35"), ("offset3x", "0.2875"),
+    ("offset2y", "0.1606"), ("position6", "16"), ("offset6y", "0.5125"),
+    ("position8", "12"), ("offset7x", "0.35"), ("offset3x", "0.2875"),
     ("offset8x", "0.075"), ("offset10y", "0.875"), ("offset3y", "0.1585"),
-    ("offset4x", "0.075"), ("position5", "12"), ("offset7y", "0.5125"),
+    ("offset4x", "0.075"), ("position5", "14"), ("offset7y", "0.5125"),
     ("offset0x", "0.5"), ("offset8y", "0.5875"), ("offset9x", "0.6"),
-    ("teamid", ""), ("position2", "4"), ("offset5x", "0.925"),
+    ("teamid", ""), ("position2", "5"), ("offset5x", "0.925"),
     ("offset0y", "0.0175"), ("offset1x", "0.925"), ("position4", "7"),
-    ("offset4y", "0.2"), ("offset9y", "0.875"), ("position3", "6"),
+    ("offset4y", "0.2"), ("offset9y", "0.875"), ("position3", "5"),
     ("formationfullnameid", "11"), ("offset1y", "0.2"), ("position0", "0"),
-    ("position9", "24"), ("position7", "15"), ("position1", "3")
+    ("position9", "25"), ("position7", "14"), ("position1", "3")
 ])
 
 TEAMSHEET_BASE = OrderedDict([
@@ -102,25 +102,25 @@ TEAMSHEET_BASE = OrderedDict([
 MENTALITY_ACTIVE_442 = OrderedDict([
     ("offset6x", "0.65"), ("tactic_name", ""), ("offset5y", "0.5875"),
     ("pos0role", "4161"), ("playerid0", "-1"), ("playerid9", "-1"),
-    ("position10", "26"), ("offset10x", "0.39"), ("offset2x", "0.7125"),
+    ("position10", "25"), ("offset10x", "0.39"), ("offset2x", "0.7125"),
     ("pos6role", "21185"), ("defensivedepth", "50"), ("offset2y", "0.1606"),
-    ("playerid1", "-1"), ("position6", "13"), ("playerid7", "-1"),
-    ("offset6y", "0.5125"), ("position8", "16"), ("pos8role", "25669"),
+    ("playerid1", "-1"), ("position6", "16"), ("playerid7", "-1"),
+    ("offset6y", "0.5125"), ("position8", "12"), ("pos8role", "25669"),
     ("offset7x", "0.35"), ("pos4role", "8386"), ("playerid6", "-1"),
     ("buildupplay", "1"), ("playerid5", "-1"), ("offset3x", "0.2875"),
     ("pos7role", "21185"), ("sourceformationid", "0"), ("offset8x", "0.075"),
     ("offset10y", "0.875"), ("offset3y", "0.1585"), ("playerid8", "-1"),
     ("pos2role", "12737"), ("pos1role", "8386"), ("pos10role", "38213"),
-    ("playerid2", "-1"), ("offset4x", "0.075"), ("position5", "12"),
+    ("playerid2", "-1"), ("offset4x", "0.075"), ("position5", "14"),
     ("offset7y", "0.5125"), ("formationaudioid", "10"), ("offset0x", "0.5"),
     ("offset8y", "0.5875"), ("pos3role", "12802"), ("offset9x", "0.6"),
-    ("playerid4", "-1"), ("teamid", ""), ("position2", "4"),
+    ("playerid4", "-1"), ("teamid", ""), ("position2", "5"),
     ("offset5x", "0.925"), ("pos9role", "38405"), ("playerid3", "-1"),
     ("offset0y", "0.0175"), ("pos5role", "25669"), ("offset1x", "0.925"),
     ("position4", "7"), ("offset4y", "0.2"), ("offset9y", "0.875"),
-    ("position3", "6"), ("formationfullnameid", "11"), ("mentalityid", ""),
+    ("position3", "5"), ("formationfullnameid", "11"), ("mentalityid", ""),
     ("playerid10", "-1"), ("offset1y", "0.2"), ("position0", "0"),
-    ("position9", "24"), ("position7", "15"), ("position1", "3")
+    ("position9", "25"), ("position7", "14"), ("position1", "3")
 ])
 
 MENTALITY_INACTIVE = OrderedDict([
