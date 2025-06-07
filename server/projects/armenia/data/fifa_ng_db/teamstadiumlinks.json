@@ -5703,5 +5703,12 @@
     "stadiumname": "_Town Park",
     "teamid": 131742,
     "forcedhome": 0
+  },
+  {
+    "swapcrowdplacement": 0,
+    "stadiumid": 34,
+    "stadiumname": "_Town Park",
+    "teamid": 131743,
+    "forcedhome": 0
   }
 ]

@@ -117,11 +117,12 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
   console.log(`[FootballPitch] Rendering for team: ${teamName}`, {
     formation: formation?.formationname || 'unknown',
     playersCount: players.length,
-    teamSheetPlayerIds: Object.keys(teamSheet).filter(key => key.startsWith('playerid')).slice(0, 11).map(key => teamSheet[key]),
+    teamSheetPlayerIds: Object.keys(teamSheet).filter(key => key.startsWith('playerid')).slice(0, 11).map(key => ({ key, id: teamSheet[key] })),
     firstFewPlayers: players.slice(0, 3).map(p => ({ id: p.playerid, name: p.name })),
     hasPlayerNames: Object.keys(playerNames).length > 0,
     projectId,
-    detailedPlayersCount: Object.keys(detailedPlayers).length
+    detailedPlayersCount: Object.keys(detailedPlayers).length,
+    teamSheetTeamId: teamSheet.teamid
   });
 
   // Fetch detailed player information from the database
@@ -331,11 +332,14 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
     return map;
   }, {} as { [key: string]: Player });
 
-  // Get starting 11 players from teamsheet - only real players
+  // Get starting 11 players from teamsheet - use EXACT data from teamsheet without resorting
   const startingEleven = [];
   for (let i = 0; i <= 10; i++) {
     const playerIdKey = `playerid${i}` as keyof TeamSheetData;
     const playerId = teamSheet[playerIdKey];
+    
+    console.log(`[FootballPitch] Processing position ${i}: playerid=${playerId}`);
+    
     if (playerId && playerId !== "-1") {
       const player = playerMap[playerId];
       const detailedPlayer = detailedPlayers[playerId];
@@ -364,6 +368,14 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
         const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
         const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
 
+        console.log(`[FootballPitch] Player ${i} data:`, {
+          playerId,
+          enhancedPlayerName,
+          enhancedOverallRating,
+          positionName,
+          enhancedJerseyNumber
+        });
+
         // Only add if we have meaningful data (name and rating)
         if (enhancedPlayerName && enhancedPlayerName.trim() && enhancedOverallRating) {
           startingEleven.push({
@@ -380,15 +392,15 @@ function FootballPitch({ formation, teamSheet, players, teamName, playerNames = 
             jerseyNumber: enhancedJerseyNumber,
           });
           
-          console.log(`[FootballPitch] Player ${i}: ID ${playerId}, real data found, position: ${positionName}, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
+          console.log(`[FootballPitch] ✅ Added player ${i}: ID ${playerId}, position: ${positionName}, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
         } else {
-          console.log(`[FootballPitch] Player ${i}: ID ${playerId}, insufficient real data (name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}), skipping`);
+          console.log(`[FootballPitch] ❌ Skipping player ${i}: ID ${playerId}, insufficient real data (name: '${enhancedPlayerName}', rating: ${enhancedOverallRating})`);
         }
       } else {
-        console.log(`[FootballPitch] Player ${i}: ID ${playerId}, no real player data found, skipping`);
+        console.log(`[FootballPitch] ❌ Player ${i}: ID ${playerId}, no real player data found in players array or detailed players`);
       }
     } else {
-      console.log(`[FootballPitch] Player ${i}: No player ID or invalid ID`);
+      console.log(`[FootballPitch] Position ${i}: No player assigned (playerid=${playerId})`);
     }
   }
 

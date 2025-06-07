@@ -1647,7 +1647,7 @@ function AddTeams({
                       <FootballPitch
                         formation={formationData[currentTeam.teamname]}
                         teamSheet={teamSheetData[currentTeam.teamname]}
-                        players={currentTeamData.parsed_players_for_table.map((p: any, idx: number) => {
+                        players={(teamData[currentTeam.teamname]?.parsed_players_for_table || currentTeamData.parsed_players_for_table || []).map((p: any, idx: number) => {
                           // Enhanced logging to debug field names
                           const allKeys = Object.keys(p);
                           const nameRelatedKeys = allKeys.filter(key => 
