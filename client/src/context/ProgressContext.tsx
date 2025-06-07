@@ -109,7 +109,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   // Функция для ручной очистки всех процессов
   const clearAllProgress = () => {
-    console.log('Clearing all progress data');
     setProgresses([]);
     localStorage.removeItem('activeProgresses');
   };
@@ -149,7 +148,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         });
         
         if (cleanProgresses.length !== parsed.length) {
-          console.log('Cleaned up old processes from localStorage');
           if (cleanProgresses.length === 0) {
             localStorage.removeItem('activeProgresses');
           } else {
@@ -184,10 +182,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         });
         
         if (activeProgresses.length > 0) {
-          console.log('Restored active progresses from localStorage:', activeProgresses);
           setProgresses(activeProgresses);
         } else {
-          console.log('No active progresses found in localStorage');
           localStorage.removeItem('activeProgresses');
         }
       }
@@ -239,7 +235,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   // Принудительное переподключение
   const forceReconnect = useCallback(() => {
-    console.log('Force reconnecting WebSocket...');
     
     // Сбрасываем счетчик попыток для немедленного переподключения
     reconnectAttempts.current = 0;
@@ -303,7 +298,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         wsRef.current = null;
       }
 
-      console.log(`Creating new WebSocket connection... (attempt ${reconnectAttempts.current + 1}/${maxReconnectAttempts})`);
       const ws = new WebSocket('ws://localhost:8000/ws');
       wsRef.current = ws;
 
@@ -320,7 +314,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         
         if (!isMounted.current) return;
         
-        console.log('✅ WebSocket connected successfully');
         setWsConnected(true);
         reconnectAttempts.current = 0;
         isReconnecting.current = false;
@@ -335,7 +328,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           if (ws.readyState === WebSocket.OPEN) {
             try {
               ws.send(JSON.stringify({ type: 'ping' }));
-              console.debug('Sent ping to server');
             } catch (e) {
               console.debug('Error sending ping:', e);
               // If we can't send ping, the connection is likely broken
@@ -360,7 +352,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           // Handle pong messages from server
           if (data.type === 'pong') {
             lastPongTime.current = Date.now();
-            console.debug('Received pong from server');
             return;
           }
           
@@ -368,9 +359,7 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
           if (data.type === 'ping') {
             try {
               ws.send(JSON.stringify({ type: 'pong' }));
-              console.debug('Received ping from server, sent pong');
             } catch (e) {
-              console.debug('Error sending pong to server:', e);
             }
             return;
           }
@@ -381,7 +370,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
             return;
           }
 
-          console.log('Received WebSocket message:', data);
 
           setProgresses(prev => {
             const processId = getProcessId(data);
@@ -471,7 +459,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         
         if (!isMounted.current) return;
 
-        console.log('❌ WebSocket disconnected', event.code, event.reason);
         setWsConnected(false);
         wsRef.current = null;
         isReconnecting.current = false;
@@ -491,7 +478,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         if (reconnectAttempts.current < maxReconnectAttempts && isMounted.current) {
           // Меньшая задержка для более быстрого переподключения
           const delay = Math.min(Math.pow(1.3, reconnectAttempts.current) * 500, 5000); // Макс 5 секунд, начиная с 500мс
-          console.log(`🔄 Attempting to reconnect in ${delay}ms... (attempt ${reconnectAttempts.current + 1}/${maxReconnectAttempts})`);
           
           if (reconnectTimeoutRef.current) {
             clearTimeout(reconnectTimeoutRef.current);
@@ -528,7 +514,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       // Retry connection after delay
       if (reconnectAttempts.current < maxReconnectAttempts && isMounted.current) {
         const delay = Math.min(Math.pow(1.3, reconnectAttempts.current) * 500, 5000);
-        console.log(`🔄 Will retry connection in ${delay}ms due to error...`);
         if (reconnectTimeoutRef.current) {
           clearTimeout(reconnectTimeoutRef.current);
         }
@@ -571,7 +556,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         
         if (activeProgresses.length !== current.length ||
             JSON.stringify(activeProgresses) !== JSON.stringify(current)) {
-          console.log('Periodic cleanup: updating progresses');
           return activeProgresses;
         }
         return current;
@@ -584,11 +568,9 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     // Обработка видимости страницы для переподключения WebSocket
     const handleVisibilityChange = () => {
       if (!document.hidden && isMounted.current) {
-        console.log('Page became visible, checking WebSocket connection...');
         // Проверяем соединение через небольшую задержку
         setTimeout(() => {
           if (isMounted.current && (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN)) {
-            console.log('WebSocket not connected, forcing reconnection...');
             forceReconnect();
           }
         }, 1000);
@@ -598,10 +580,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     // Обработка фокуса окна
     const handleWindowFocus = () => {
       if (isMounted.current) {
-        console.log('Window focused, checking WebSocket connection...');
         setTimeout(() => {
           if (isMounted.current && (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN)) {
-            console.log('WebSocket not connected after focus, forcing reconnection...');
             forceReconnect();
           }
         }, 500);
@@ -611,10 +591,8 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     // Обработка онлайн/оффлайн статуса
     const handleOnline = () => {
       if (isMounted.current) {
-        console.log('Network came online, checking WebSocket connection...');
         setTimeout(() => {
           if (isMounted.current && (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN)) {
-            console.log('WebSocket not connected after coming online, forcing reconnection...');
             forceReconnect();
           }
         }, 2000);

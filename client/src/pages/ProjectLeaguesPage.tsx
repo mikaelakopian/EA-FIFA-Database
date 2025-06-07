@@ -136,10 +136,6 @@ export default function ProjectLeaguesPage({ projectId }: ProjectLeaguesPageProp
 
         const originalLeaguesUrl = "http://localhost:8000/leagues/original"; // Always load original file
 
-        console.log("[DEBUG] projectId:", projectId);
-        console.log("[DEBUG] leaguesUrl:", leaguesUrl);
-        console.log("[DEBUG] leagueTeamLinksUrl:", leagueTeamLinksUrl);
-        console.log("[DEBUG] originalLeaguesUrl:", originalLeaguesUrl);
 
         const [leaguesResponse, leagueTeamLinksResponse, originalLeaguesResponse] = await Promise.all([
           fetch(leaguesUrl),
@@ -152,9 +148,6 @@ export default function ProjectLeaguesPage({ projectId }: ProjectLeaguesPageProp
           const leagueTeamLinksData = await leagueTeamLinksResponse.json();
           const originalLeaguesData = await originalLeaguesResponse.json();
           
-          console.log("Total leagues from API:", leaguesData.length);
-          console.log("Total league-team links:", leagueTeamLinksData.length);
-          console.log("Total original leagues:", originalLeaguesData.length);
           
           // Create set of original league IDs
           const originalLeagueIds = new Set<string>(originalLeaguesData.map((league: League) => league.leagueid));
@@ -170,8 +163,6 @@ export default function ProjectLeaguesPage({ projectId }: ProjectLeaguesPageProp
             teamCountsMap[leagueId]++;
           });
           
-          console.log("Team counts per league:", teamCountsMap);
-          console.log("Original league IDs:", originalLeagueIds);
           
           setLeagues(leaguesData);
           setTeamCounts(teamCountsMap);

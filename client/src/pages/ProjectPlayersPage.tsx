@@ -133,17 +133,29 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
   const [loadingPlayerNames, setLoadingPlayerNames] = React.useState(false);
   const [isLazyLoading, setIsLazyLoading] = React.useState(false);
   
-  // Overall progress tracking
-  const [overallProgress, setOverallProgress] = React.useState<{
-    stage: string;
+  // Enhanced progress tracking with multiple stages
+  const [progressState, setProgressState] = React.useState<{
+    stage: 'idle' | 'database_loading' | 'data_transfer' | 'processing' | 'completed' | 'error';
     percentage: number;
     message: string;
     isActive: boolean;
+    substages: {
+      database: { percentage: number; status: 'pending' | 'active' | 'completed' };
+      transfer: { percentage: number; status: 'pending' | 'active' | 'completed' };
+      processing: { percentage: number; status: 'pending' | 'active' | 'completed' };
+    };
+    startTime?: number;
+    estimatedTotal?: number;
   }>({
     stage: 'idle',
     percentage: 0,
     message: '',
-    isActive: false
+    isActive: false,
+    substages: {
+      database: { percentage: 0, status: 'pending' },
+      transfer: { percentage: 0, status: 'pending' },
+      processing: { percentage: 0, status: 'pending' }
+    }
   });
   
   // Filter states
@@ -175,6 +187,7 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
     bytesReceived?: number;
   }>({});
 
+
   // Refs to track fetch status
   const isFetching = React.useRef(false);
   const teamsFetched = React.useRef(false);
@@ -183,10 +196,14 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
 
   // Get progress context for monitoring lazy loading
   const { progresses } = useProgress();
-  const serverProgress = progresses.find(p => 
-    p.function_name === 'load_players_lazy' && 
-    (p.status === 'processing' || p.status === 'starting')
-  );
+  const serverProgress = React.useMemo(() => {
+    return progresses.find(p => 
+      p.function_name === 'load_players_lazy' && 
+      (p.status === 'processing' || p.status === 'starting' || p.status === 'completed')
+    );
+  }, [progresses]);
+
+
 
   // Update loading statistics
   React.useEffect(() => {
@@ -216,97 +233,183 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
     }
   }, [serverProgress]);
 
-  // Calculate overall loading progress with more detailed info
+  // Enhanced progress calculation with realistic stages
   React.useEffect(() => {
+    const now = Date.now();
+    
     if (serverProgress) {
-      const serverPercentage = serverProgress.percentage || 0;
       const current = serverProgress.current || 0;
-      const total = serverProgress.total || 0;
+      const total = serverProgress.total || 1;
       
       if (serverProgress.status === 'starting') {
-        setOverallProgress({
-          stage: 'server',
-          percentage: 0,
-          message: 'Initializing player data loading...',
-          isActive: true
+        setProgressState({
+          stage: 'database_loading',
+          percentage: 5,
+          message: 'Initializing database connection...',
+          isActive: true,
+          substages: {
+            database: { percentage: 5, status: 'active' },
+            transfer: { percentage: 0, status: 'pending' },
+            processing: { percentage: 0, status: 'pending' }
+          },
+          startTime: now,
+          estimatedTotal: total
         });
       } else if (serverProgress.status === 'processing') {
-        // Server loading is 60% of total progress
-        const progressPercent = Math.min(60, (serverPercentage * 0.6));
+        // Database loading: 5% to 60% (55% range)
+        const dbPercent = Math.min(60, 5 + (current / total) * 55);
         
-        let message = `Loading players from database... ${current}/${total}`;
+        let message = `Loading from database: ${current.toLocaleString()}/${total.toLocaleString()}`;
         if (loadingStats.playersPerSecond && loadingStats.playersPerSecond > 0) {
-          message += ` (${Math.round(loadingStats.playersPerSecond)}/s`;
-          if (loadingStats.estimatedTimeRemaining && loadingStats.estimatedTimeRemaining > 0) {
-            const eta = Math.round(loadingStats.estimatedTimeRemaining);
-            message += `, ETA: ${eta}s`;
-          }
-          message += ')';
+          message += ` (${Math.round(loadingStats.playersPerSecond)}/s)`;
         }
         
-        setOverallProgress({
-          stage: 'server',
-          percentage: progressPercent,
+        setProgressState(prev => ({
+          ...prev,
+          stage: 'database_loading',
+          percentage: Math.max(prev.percentage, dbPercent),
           message,
-          isActive: true
-        });
-      }
-    } else if (players.length > 0) {
-      // Calculate client-side progress
-      let clientProgress = 60; // Server part is done
-      let additionalDataLoaded = 0;
-      const stages = [];
-      
-      // Check what additional data is loaded
-      if (Object.keys(nations).length > 0) {
-        additionalDataLoaded += 10;
-        stages.push('countries');
-      }
-      if (Object.keys(playerNames).length > 0) {
-        additionalDataLoaded += 15;
-        stages.push('player names');
-      }
-      if (Object.keys(teams).length > 0 && Object.keys(teamPlayerLinks).length > 0) {
-        additionalDataLoaded += 15;
-        stages.push('teams');
-      }
-      
-      const totalProgress = clientProgress + additionalDataLoaded;
-      
-      if (totalProgress < 100) {
-        let message = 'Processing player data...';
-        if (loadingNations) message = 'Loading country data...';
-        else if (loadingPlayerNames) message = 'Loading player names...';
-        else if (loadingTeams) message = 'Loading team data...';
+          substages: {
+            database: { percentage: Math.min(100, (current / total) * 100), status: 'active' },
+            transfer: { percentage: 0, status: 'pending' },
+            processing: { percentage: 0, status: 'pending' }
+          }
+        }));
+      } else if (serverProgress.status === 'completed') {
+        console.log("Database loading completed, players.length:", players.length);
         
-        setOverallProgress({
-          stage: 'client',
-          percentage: totalProgress,
-          message,
-          isActive: true
-        });
-      } else {
-        setOverallProgress({
+        if (players.length > 0) {
+          // Data already received - jump to completed
+          setProgressState({
+            stage: 'completed',
+            percentage: 100,
+            message: `Successfully loaded ${players.length.toLocaleString()} players`,
+            isActive: true,
+            substages: {
+              database: { percentage: 100, status: 'completed' },
+              transfer: { percentage: 100, status: 'completed' },
+              processing: { percentage: 100, status: 'completed' }
+            },
+            startTime: progressState.startTime,
+            estimatedTotal: total
+          });
+          
+          setTimeout(() => {
+            setProgressState(prev => ({ ...prev, isActive: false }));
+          }, 2000);
+        } else {
+          // Database complete, waiting for data transfer
+          setProgressState(prev => ({
+            ...prev,
+            stage: 'data_transfer',
+            percentage: 65,
+            message: 'Database ready, transferring data...',
+            substages: {
+              database: { percentage: 100, status: 'completed' },
+              transfer: { percentage: 10, status: 'active' },
+              processing: { percentage: 0, status: 'pending' }
+            }
+          }));
+        }
+      }
+    } else if (isLazyLoading && !serverProgress) {
+      // HTTP request initiated
+      setProgressState({
+        stage: 'data_transfer',
+        percentage: 2,
+        message: 'Initiating data request...',
+        isActive: true,
+        substages: {
+          database: { percentage: 0, status: 'pending' },
+          transfer: { percentage: 5, status: 'active' },
+          processing: { percentage: 0, status: 'pending' }
+        },
+        startTime: now
+      });
+    } else if (players.length > 0) {
+      // Data received and processed - complete regardless of other states
+      if (progressState.stage !== 'completed' || progressState.percentage < 100) {
+        console.log("Completing progress - players loaded:", players.length);
+        setProgressState(prev => ({
+          ...prev,
           stage: 'completed',
           percentage: 100,
-          message: `Successfully loaded ${players.length} players with ${stages.join(', ')} data`,
-          isActive: false
-        });
+          message: `Successfully loaded ${players.length.toLocaleString()} players`,
+          isActive: true,
+          substages: {
+            database: { percentage: 100, status: 'completed' },
+            transfer: { percentage: 100, status: 'completed' },
+            processing: { percentage: 100, status: 'completed' }
+          }
+        }));
         
-        // Hide progress after 3 seconds
+        // Hide progress after 3 seconds when data is fully loaded
         setTimeout(() => {
-          setOverallProgress(prev => ({ ...prev, isActive: false }));
+          setProgressState(prev => ({ ...prev, isActive: false }));
         }, 3000);
       }
-    } else if (!isLazyLoading && !serverProgress) {
-      setOverallProgress({
-        stage: 'idle',
-        percentage: 0,
-        message: '',
-        isActive: false
-      });
+    } else if (!isLazyLoading && !serverProgress && players.length === 0) {
+      // No loading, no players - idle state
+      if (progressState.stage !== 'idle') {
+        setProgressState(prev => ({
+          ...prev,
+          stage: 'idle',
+          percentage: 0,
+          message: '',
+          isActive: false
+        }));
+      }
     }
-  }, [serverProgress, players.length, nations, playerNames, teams, teamPlayerLinks, loadingNations, loadingPlayerNames, loadingTeams, isLazyLoading, loadingStats]);
+  }, [serverProgress, players.length, isLazyLoading, loadingStats]);
+
+  // Effect to handle data transfer progress simulation
+  React.useEffect(() => {
+    if (progressState.stage === 'data_transfer' && progressState.substages.transfer.status === 'active') {
+      const interval = setInterval(() => {
+        setProgressState(prev => {
+          if (prev.stage !== 'data_transfer' || players.length > 0) {
+            clearInterval(interval);
+            return prev;
+          }
+          
+          const newTransferPercent = Math.min(90, prev.substages.transfer.percentage + 10);
+          const newOverallPercent = 65 + (newTransferPercent / 100) * 25; // 65% to 90%
+          
+          return {
+            ...prev,
+            percentage: newOverallPercent,
+            message: 'Transferring player data...',
+            substages: {
+              ...prev.substages,
+              transfer: { percentage: newTransferPercent, status: 'active' }
+            }
+          };
+        });
+      }, 500);
+
+      return () => clearInterval(interval);
+    }
+  }, [progressState.stage, progressState.substages.transfer.status, players.length]);
+
+  // Timeout for data transfer - if data doesn't arrive within 15 seconds, show error
+  React.useEffect(() => {
+    if (progressState.stage === 'data_transfer') {
+      const timeoutId = setTimeout(() => {
+        if (players.length === 0 && progressState.stage === 'data_transfer') {
+          console.error("Timeout: Data not received after 15 seconds");
+          setProgressState(prev => ({
+            ...prev,
+            stage: 'error',
+            percentage: 0,
+            message: 'Data transfer timeout - please retry',
+            isActive: false
+          }));
+        }
+      }, 15000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [progressState.stage, players.length]);
 
   // Helper functions (memoized for better performance)
   const getPlayerName = React.useCallback((player: Player): string => {
@@ -441,7 +544,7 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
     const teamSet = new Set<string>();
     const teamsList: Array<{ id: string; name: string }> = [];
     
-    Object.entries(teamPlayerLinks).forEach(([playerId, teamId]) => {
+    Object.entries(teamPlayerLinks).forEach(([, teamId]) => {
       if (teamId && !teamSet.has(teamId) && teams[teamId]) {
         teamSet.add(teamId);
         teamsList.push({ id: teamId, name: teams[teamId].teamname });
@@ -492,30 +595,154 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
 
   // Function to start lazy loading
   const startLazyLoading = async () => {
-    if (isLazyLoading || overallProgress.isActive || isFetching.current) return;
+    if (isLazyLoading || isFetching.current) return;
 
+    // Reset progress state at the beginning
+    setProgressState({
+      stage: 'data_transfer',
+      percentage: 1,
+      message: 'Initializing player data loading...',
+      isActive: true,
+      substages: {
+        database: { percentage: 0, status: 'pending' },
+        transfer: { percentage: 1, status: 'active' },
+        processing: { percentage: 0, status: 'pending' }
+      },
+      startTime: Date.now()
+    });
+    
     setIsLazyLoading(true);
     isFetching.current = true;
+    setLoadingStats({}); // Reset loading stats
 
     try {
       const playersUrl = projectId ? 
         `http://localhost:8000/players/lazy?project_id=${projectId}&batch_size=1000` : 
         "http://localhost:8000/players/lazy?batch_size=1000";
 
-      console.log("[DEBUG] Starting lazy loading:", playersUrl);
-
+      console.log("Starting lazy loading from:", playersUrl);
+      
+      // Update progress to show transfer starting
+      setProgressState(prev => ({
+        ...prev,
+        stage: 'data_transfer',
+        percentage: 70,
+        message: 'Requesting player data from server...',
+        substages: {
+          database: { percentage: 100, status: 'completed' },
+          transfer: { percentage: 20, status: 'active' },
+          processing: { percentage: 0, status: 'pending' }
+        }
+      }));
+      
       const playersResponse = await fetch(playersUrl);
+      
+      // Update progress to show data received
+      setProgressState(prev => ({
+        ...prev,
+        percentage: 85,
+        message: 'Data received, preparing...',
+        substages: {
+          database: { percentage: 100, status: 'completed' },
+          transfer: { percentage: 80, status: 'active' },
+          processing: { percentage: 0, status: 'pending' }
+        }
+      }));
+      
       if (playersResponse.ok) {
         const playersData = await playersResponse.json();
-        console.log("Lazy loading completed, total players:", playersData.length);
-        setPlayers(playersData);
+        console.log("Received players data:", playersData ? playersData.length : 0, "players");
+        
+        if (playersData && Array.isArray(playersData)) {
+          console.log("Players state updated with", playersData.length, "players");
+          
+          // Start processing phase when data is received
+          setProgressState(prev => ({
+            ...prev,
+            stage: 'processing',
+            percentage: 90,
+            message: `Processing ${playersData.length.toLocaleString()} players...`,
+            substages: {
+              database: { percentage: 100, status: 'completed' },
+              transfer: { percentage: 100, status: 'completed' },
+              processing: { percentage: 10, status: 'active' }
+            }
+          }));
+          
+          // Simulate processing with incremental updates
+          let processingProgress = 10;
+          const processingInterval = setInterval(() => {
+            processingProgress += 20;
+            
+            if (processingProgress >= 100) {
+              clearInterval(processingInterval);
+              
+              // Set players data and complete
+              setPlayers(playersData);
+              setProgressState(prev => ({
+                ...prev,
+                stage: 'completed',
+                percentage: 100,
+                message: `Successfully loaded ${playersData.length.toLocaleString()} players`,
+                substages: {
+                  database: { percentage: 100, status: 'completed' },
+                  transfer: { percentage: 100, status: 'completed' },
+                  processing: { percentage: 100, status: 'completed' }
+                }
+              }));
+              
+              // Hide progress after 2 seconds
+              setTimeout(() => {
+                setProgressState(prev => ({ ...prev, isActive: false }));
+              }, 2000);
+            } else {
+              // Update processing progress
+              setProgressState(prev => ({
+                ...prev,
+                percentage: 90 + (processingProgress / 100) * 10, // 90% to 100%
+                message: `Processing players... ${Math.round(processingProgress)}%`,
+                substages: {
+                  ...prev.substages,
+                  processing: { percentage: processingProgress, status: 'active' }
+                }
+              }));
+            }
+          }, 200); // Update every 200ms
+        } else {
+          console.error("Invalid players data format:", typeof playersData);
+          setProgressState(prev => ({
+            ...prev,
+            stage: 'error',
+            percentage: 0,
+            message: 'Invalid data format received',
+            isActive: false
+          }));
+        }
       } else {
         console.error("Failed to start lazy loading:", playersResponse.status, playersResponse.statusText);
         const errorText = await playersResponse.text();
         console.error("Error details:", errorText);
+        
+        // Show error state
+        setProgressState(prev => ({
+          ...prev,
+          stage: 'error',
+          percentage: 0,
+          message: 'Failed to load players',
+          isActive: false
+        }));
       }
     } catch (error) {
       console.error("Error starting lazy loading:", error);
+      
+      // Show error state
+      setProgressState(prev => ({
+        ...prev,
+        stage: 'error',
+        percentage: 0,
+        message: 'Error loading players',
+        isActive: false
+      }));
     } finally {
       setIsLazyLoading(false);
       isFetching.current = false;
@@ -524,11 +751,39 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
 
   // Load players on component mount or project change
   React.useEffect(() => {
+    console.log("Players effect triggered, players.length:", players.length, "isFetching:", isFetching.current);
     // Auto-start lazy loading when component mounts
     if (!isFetching.current && players.length === 0) {
       startLazyLoading();
     }
   }, [projectId]);
+
+  // Debug effect to track players state changes and force completion
+  React.useEffect(() => {
+    console.log("Players state changed:", players.length, "players loaded");
+    
+    // If we have players but progress is not completed, force completion
+    if (players.length > 0 && (progressState.stage !== 'completed' || progressState.percentage < 100)) {
+      console.log("Force completing progress due to players state change");
+      setProgressState(prev => ({
+        ...prev,
+        stage: 'completed',
+        percentage: 100,
+        message: `Successfully loaded ${players.length.toLocaleString()} players`,
+        isActive: true,
+        substages: {
+          database: { percentage: 100, status: 'completed' },
+          transfer: { percentage: 100, status: 'completed' },
+          processing: { percentage: 100, status: 'completed' }
+        }
+      }));
+      
+      // Hide after 2 seconds
+      setTimeout(() => {
+        setProgressState(prev => ({ ...prev, isActive: false }));
+      }, 2000);
+    }
+  }, [players.length, progressState.stage, progressState.percentage]);
 
   // Load nations data
   React.useEffect(() => {
@@ -543,12 +798,10 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           `http://localhost:8000/nations?project_id=${projectId}` : 
           "http://localhost:8000/nations";
 
-        console.log("[DEBUG] Loading nations:", nationsUrl);
 
         const nationsResponse = await fetch(nationsUrl);
         if (nationsResponse.ok) {
           const nationsData: Nation[] = await nationsResponse.json();
-          console.log("Nations loaded:", nationsData.length);
           
           // Convert array to object with nationid as key
           const nationsMap: { [nationId: string]: Nation } = {};
@@ -583,12 +836,10 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           `http://localhost:8000/playernames?project_id=${projectId}` : 
           "http://localhost:8000/playernames";
 
-        console.log("[DEBUG] Loading player names:", playerNamesUrl);
 
         const playerNamesResponse = await fetch(playerNamesUrl);
         if (playerNamesResponse.ok) {
           const playerNamesData: PlayerName[] = await playerNamesResponse.json();
-          console.log("Player names loaded:", playerNamesData.length);
           
           // Convert array to object with nameid as key
           const playerNamesMap: { [nameId: string]: string } = {};
@@ -629,7 +880,6 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           `http://localhost:8000/teams?project_id=${projectId}` : 
           "http://localhost:8000/teams";
 
-        console.log("[DEBUG] Loading team data:", teamPlayerLinksUrl, teamsUrl);
 
         const [teamPlayerLinksResponse, teamsResponse] = await Promise.all([
           fetch(teamPlayerLinksUrl),
@@ -640,8 +890,6 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           const teamPlayerLinksData = await teamPlayerLinksResponse.json();
           const teamsData = await teamsResponse.json();
           
-          console.log("Team-player links:", teamPlayerLinksData.length);
-          console.log("Teams:", teamsData.length);
           
           // Create player to team mapping
           const playerTeamMap: { [playerId: string]: string } = {};
@@ -710,6 +958,7 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
                 <>
                   {filteredPlayers.length} players • Page {currentPage} of {totalPages}
                   <span className="text-default-600"> • {players.length} total loaded</span>
+                  <span className="text-primary-600"> • Progress: {progressState.isActive ? 'Active' : 'Inactive'}</span>
                   {(searchTerm || selectedTeam || selectedPosition || selectedCountry || 
                     ratingRange[0] > 0 || ratingRange[1] < 100 || 
                     ageRange[0] > 16 || ageRange[1] < 45) && (
@@ -724,9 +973,10 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
                     <span className="text-primary-600"> • Updating...</span>
                   )}
                 </>
-              ) : overallProgress.isActive ? (
+              ) : progressState.isActive ? (
                 <>
-                  Loading player data...
+                  {progressState.stage === 'database_loading' ? 'Loading player data from database...' : 
+                   progressState.stage === 'data_transfer' ? 'Transferring player data...' : 'Loading player data...'}
                   {loadingStats.playersPerSecond && loadingStats.playersPerSecond > 0 && (
                     <span className="text-primary-600"> • {Math.round(loadingStats.playersPerSecond)} players/s</span>
                   )}
@@ -756,10 +1006,22 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
                 startContent={<Icon icon="lucide:refresh-cw" className="h-4 w-4" />}
                 onPress={() => {
                   setPlayers([]);
+                  setLoadingStats({});
+                  setProgressState({
+                    stage: 'idle',
+                    percentage: 0,
+                    message: '',
+                    isActive: false,
+                    substages: {
+                      database: { percentage: 0, status: 'pending' },
+                      transfer: { percentage: 0, status: 'pending' },
+                      processing: { percentage: 0, status: 'pending' }
+                    }
+                  });
                   isFetching.current = false;
-                  startLazyLoading();
+                  setTimeout(() => startLazyLoading(), 100);
                 }}
-                isDisabled={overallProgress.isActive}
+                isDisabled={progressState.isActive}
               >
                 Reload
               </Button>
@@ -767,57 +1029,56 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           </div>
         </div>
 
-        {/* Progress Bar under Player Management */}
-        {overallProgress.isActive && (
-          <div className="mb-6 p-4 bg-warning-50 border border-warning-200 rounded-lg">
+        {/* Simplified Progress Bar */}
+        {progressState.isActive && (
+          <div className="mb-6 p-4 border border-warning-200 rounded-lg">
             <div className="flex items-center justify-between gap-4 mb-3">
-              <div className="flex items-center gap-3 flex-1">
+              <div className="flex items-center gap-3">
                 <Icon 
-                  icon={overallProgress.percentage >= 100 ? "lucide:check-circle" : "lucide:loader-2"} 
-                  className={`h-4 w-4 text-warning-600 ${overallProgress.percentage < 100 ? 'animate-spin' : ''}`}
+                  icon={progressState.percentage >= 100 ? "lucide:check-circle" : "lucide:loader-2"} 
+                  className={`h-4 w-4 ${progressState.percentage >= 100 ? 'text-success-600' : 'text-warning-600 animate-spin'}`}
                 />
-                <div className="flex items-center gap-3 flex-1">
-                  <span className="text-sm font-medium text-default-800">Loading Players</span>
-                  <Chip 
-                    color={overallProgress.percentage >= 100 ? "success" : "warning"} 
-                    variant="flat" 
-                    size="sm"
-                    className="text-xs font-mono"
-                  >
-                    {overallProgress.percentage.toFixed(1)}%
-                  </Chip>
-                  {loadingStats.playersPerSecond && loadingStats.playersPerSecond > 0 && (
-                    <Chip color="primary" variant="flat" size="sm" className="text-xs">
-                      {Math.round(loadingStats.playersPerSecond)}/s
-                    </Chip>
-                  )}
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-default-800">
+                    Loading Players
+                  </span>
+                  <span className="text-xs text-default-500">
+                    {progressState.message}
+                  </span>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="text-xs text-default-600 truncate max-w-64">
-                  {overallProgress.message}
-                </span>
-                {overallProgress.stage === 'server' && serverProgress?.current && serverProgress?.total && (
-                  <span className="text-xs text-default-500 font-mono whitespace-nowrap">
-                    {serverProgress.current}/{serverProgress.total}
+              <div className="flex items-center gap-2">
+                <Chip 
+                  color={progressState.percentage >= 100 ? "success" : "warning"} 
+                  variant="flat" 
+                  size="sm"
+                  className="text-xs font-mono font-bold"
+                >
+                  {progressState.percentage.toFixed(1)}%
+                </Chip>
+                {loadingStats.playersPerSecond && loadingStats.playersPerSecond > 0 && (
+                  <Chip color="secondary" variant="flat" size="sm" className="text-xs">
+                    {Math.round(loadingStats.playersPerSecond)}/s
+                  </Chip>
+                )}
+                {serverProgress?.current && serverProgress?.total && (
+                  <span className="text-xs text-default-500 font-mono">
+                    {serverProgress.current.toLocaleString()}/{serverProgress.total.toLocaleString()}
                   </span>
                 )}
               </div>
             </div>
-            
-            <div className="flex items-center gap-2">
+
+            {/* Single Progress Bar */}
+            <div className="space-y-2">
               <Progress
-                value={overallProgress.percentage}
-                color={overallProgress.percentage >= 100 ? "success" : "warning"}
+                value={progressState.percentage}
+                color={progressState.percentage >= 100 ? "success" : "warning"}
                 className="flex-1"
-                size="sm"
+                size="md"
+                aria-label="Loading progress"
               />
-              <span className="text-xs text-default-500 font-mono min-w-12 text-right">
-                {overallProgress.stage === 'server' ? 'DB' : 
-                 overallProgress.stage === 'client' ? 'UI' : 
-                 overallProgress.stage === 'completed' ? 'Done' : ''}
-              </span>
             </div>
           </div>
         )}
@@ -846,7 +1107,7 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
           </>
         )}
 
-        {players.length === 0 && !overallProgress.isActive ? (
+        {players.length === 0 && !progressState.isActive ? (
           <div className="text-center py-12">
             <Icon icon="lucide:database-x" className="h-16 w-16 mx-auto text-default-300 mb-4" />
             <h3 className="text-xl font-semibold text-default-500 mb-2">No Players Data</h3>
@@ -859,14 +1120,26 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
               startContent={<Icon icon="lucide:refresh-cw" className="h-5 w-5" />}
               onPress={() => {
                 setPlayers([]);
+                setLoadingStats({});
+                setProgressState({
+                  stage: 'idle',
+                  percentage: 0,
+                  message: '',
+                  isActive: false,
+                  substages: {
+                    database: { percentage: 0, status: 'pending' },
+                    transfer: { percentage: 0, status: 'pending' },
+                    processing: { percentage: 0, status: 'pending' }
+                  }
+                });
                 isFetching.current = false;
-                startLazyLoading();
+                setTimeout(() => startLazyLoading(), 100);
               }}
             >
               Retry Loading
             </Button>
           </div>
-        ) : overallProgress.isActive ? (
+        ) : players.length === 0 && progressState.isActive ? (
           <div className="text-center py-12">
             <Icon icon="lucide:loader-2" className="h-12 w-12 mx-auto text-warning-500 mb-4 animate-spin" />
             <h3 className="text-lg font-semibold text-default-600 mb-2">Loading Players...</h3>
@@ -1013,6 +1286,7 @@ export default function ProjectPlayersPage({ projectId }: ProjectPlayersPageProp
                   onChange={handlePageChange}
                   showControls
                   color="warning"
+                  aria-label="Players table pagination"
                 />
               </div>
             )}

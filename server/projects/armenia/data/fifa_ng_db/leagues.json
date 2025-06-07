@@ -450,6 +450,21 @@
         "isinternationalleague": "0"
     },
     {
+        "leagueid": "332",
+        "leaguename": "Ukraine Premier Liga (1)",
+        "countryid": "49",
+        "level": "1",
+        "leaguetype": "0",
+        "iswomencompetition": "0",
+        "isinternationalleague": "0",
+        "iscompetitionscarfenabled": "2",
+        "isbannerenabled": "2",
+        "iscompetitionpoleflagenabled": "2",
+        "iscompetitioncrowdcardsenabled": "2",
+        "leaguetimeslice": "6",
+        "iswithintransferwindow": "0"
+    },
+    {
         "leaguetype": "0",
         "level": "1",
         "countryid": "183",

@@ -88,6 +88,7 @@ export default function LoadingProgressCard({
               color="warning"
               className="w-full"
               size="sm"
+              aria-label="Loading progress"
             />
           </div>
         </div>
@@ -145,6 +146,7 @@ export default function LoadingProgressCard({
             color="warning"
             className="w-full"
             size="md"
+            aria-label="Loading progress"
           />
         </div>
 

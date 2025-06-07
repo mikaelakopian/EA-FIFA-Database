@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Query, HTTPException, Body
+from fastapi.responses import JSONResponse
 from .utils import load_json_file, save_json_file
 from pydantic import BaseModel
 from typing import Optional
@@ -27,17 +28,20 @@ async def get_leagues(project_id: str = Query(None, description="Project ID to l
     
     if project_id:
         try:
-            return load_json_file(f'../projects/{project_id}/data/fifa_ng_db/leagues.json')
+            data = load_json_file(f'../projects/{project_id}/data/fifa_ng_db/leagues.json')
+            return JSONResponse(content=data, headers={"Content-Type": "application/json"})
         except HTTPException as e:
             if e.status_code != 404:
                 print(f"[ERROR] Error loading project leagues: {e.detail}")
     
-    return load_json_file('../fc25/data/fifa_ng_db/leagues.json')
+    data = load_json_file('../fc25/data/fifa_ng_db/leagues.json')
+    return JSONResponse(content=data, headers={"Content-Type": "application/json"})
 
 @router.get("/leagues/original", tags=["leagues"])
 async def get_original_leagues():
     """Get original leagues data from fc25 folder"""
-    return load_json_file('../fc25/data/fifa_ng_db/leagues.json')
+    data = load_json_file('../fc25/data/fifa_ng_db/leagues.json')
+    return JSONResponse(content=data, headers={"Content-Type": "application/json"})
 
 @router.get("/leagues/validate", tags=["leagues"])
 async def validate_league_combination(

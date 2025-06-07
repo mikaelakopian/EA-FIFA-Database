@@ -51,6 +51,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
     expose_headers=["*"],
+    max_age=3600,  # Cache preflight requests for 1 hour
 )
 
 # Add middleware to log all requests (but skip WebSocket)
@@ -63,6 +64,10 @@ async def log_requests(request: Request, call_next):
     logger.info(f"Incoming request: {request.method} {request.url}")
     
     response = await call_next(request)
+    
+    # Ensure JSON responses have proper Content-Type to prevent CORB
+    if response.headers.get("content-type", "").startswith("application/json"):
+        response.headers["X-Content-Type-Options"] = "nosniff"
     
     logger.info(f"Response status: {response.status_code}")
     return response
