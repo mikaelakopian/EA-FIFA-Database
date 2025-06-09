@@ -199,6 +199,9 @@ function AddTeams({
   const [formationData, setFormationData] = useState<{ [teamName: string]: any }>({});
   const [teamSheetData, setTeamSheetData] = useState<{ [teamName: string]: any }>({});
   const [playerNames, setPlayerNames] = useState<{ [nameId: string]: string }>({});
+  const [isLoadingFormationData, setIsLoadingFormationData] = useState<{ [teamName: string]: boolean }>({});
+  const [showFormation, setShowFormation] = useState<{ [teamName: string]: boolean }>({});
+  const [teamProcessingOrder, setTeamProcessingOrder] = useState<{ [teamName: string]: number }>({});
 
 
   // Function to normalize step names for comparison
@@ -209,71 +212,147 @@ function AddTeams({
       .trim();
   };
 
-  // Function to create formation and teamsheet data for a team (integrated test formation logic)
-  const fetchFormationData = useCallback(async (teamName: string, teamId: string) => {
+  // Function to fetch real formation and teamsheet data from the database
+  const fetchFormationData = useCallback(async (teamName: string, teamId: string, targetTeamId?: string, force: boolean = false) => {
+    // Prevent duplicate fetches for the same team, unless forced
+    if (!force && formationData[teamName] && teamSheetData[teamName]) {
+      // Check if the existing data is for the correct team
+      const existingTeamSheet = teamSheetData[teamName];
+      if (existingTeamSheet && targetTeamId && existingTeamSheet.teamid !== targetTeamId) {
+        console.log(`[Formation Fetch] Existing data is for wrong team (${existingTeamSheet.teamid} != ${targetTeamId}), forcing refresh`);
+        force = true;
+      } else {
+        console.log(`[Formation Fetch] Data already exists for ${teamName}, skipping fetch`);
+        return;
+      }
+    }
     if (!projectId) {
       console.log(`[Formation Fetch] No projectId available for ${teamName}`);
       return;
     }
     
-    console.log(`[Formation Fetch] Creating formation data for ${teamName} (ID: ${teamId}), project: ${projectId}`);
+    console.log(`[Formation Fetch] Fetching real formation data for ${teamName} (ID: ${teamId}), project: ${projectId}`);
     
     try {
-      // Always create formation data from team player data (previously test formation logic)
-      const currentTeamData = teamData[teamName];
-      
-      // Create formation data (4-4-2 formation)
-      const formationData = {
-        formationname: "4-4-2",
-        position0: "0", position1: "3", position2: "4", position3: "6", position4: "7",
-        position5: "12", position6: "13", position7: "15", position8: "16",
-        position9: "24", position10: "26",
-        offset0x: "0.5", offset0y: "0.015",
-        offset1x: "0.925", offset1y: "0.2",
-        offset2x: "0.7125", offset2y: "0.1606",
-        offset3x: "0.2875", offset3y: "0.1585",
-        offset4x: "0.075", offset4y: "0.2",
-        offset5x: "0.925", offset5y: "0.5875",
-        offset6x: "0.65", offset6y: "0.5125",
-        offset7x: "0.35", offset7y: "0.5125",
-        offset8x: "0.075", offset8y: "0.5875",
-        offset9x: "0.6", offset9y: "0.875",
-        offset10x: "0.39", offset10y: "0.875"
-      };
-      
-      // Create teamsheet data using all parsed players (expand to include all team players)
-      const teamSheetData: any = {
-        teamid: teamId
-      };
-      
-      // Add all available players from the team to the teamsheet
-      const maxPlayers = Math.min(currentTeamData?.parsed_players_for_table?.length || 0, 30); // Limit to 30 players max
-      
-      for (let i = 0; i < maxPlayers; i++) {
-        const playerKey = `playerid${i}`;
-        teamSheetData[playerKey] = currentTeamData?.parsed_players_for_table?.[i]?.playerid || (i + 1).toString();
+      // Fetch real formations data from the database
+      const formationsResponse = await fetch(`http://localhost:8000/projects/${projectId}/formations`);
+      if (!formationsResponse.ok) {
+        throw new Error(`Failed to fetch formations: ${formationsResponse.status}`);
       }
+      const formations = await formationsResponse.json();
       
-      // Fill any remaining slots up to at least 22 players (11 starting + 11 subs) with default values
-      for (let i = maxPlayers; i < 22; i++) {
-        const playerKey = `playerid${i}`;
-        teamSheetData[playerKey] = (i + 1).toString();
+      // Fetch real teamsheets data from the database  
+      const teamsheetsResponse = await fetch(`http://localhost:8000/projects/${projectId}/teamsheets`);
+      if (!teamsheetsResponse.ok) {
+        throw new Error(`Failed to fetch teamsheets: ${teamsheetsResponse.status}`);
       }
+      const teamsheets = await teamsheetsResponse.json();
       
-      console.log(`[Formation Fetch] Created teamsheet with ${maxPlayers} real players and filled to 22 total players`);
+      console.log(`[Formation Fetch] Received ${formations.length} formations and ${teamsheets.length} teamsheets`);
       
-      // Set the data in state
-      setFormationData(prev => ({ ...prev, [teamName]: formationData }));
-      setTeamSheetData(prev => ({ ...prev, [teamName]: teamSheetData }));
+      // Find the teamsheet for this specific team
+      // The key insight: we need to map the processing order to the correct teamsheet
+      console.log(`[Formation Fetch] Looking for teamsheet for ${teamName} (Transfermarkt ID: ${teamId})`);
+      console.log(`[Formation Fetch] Available teamsheets count: ${teamsheets.length}`);
+      console.log(`[Formation Fetch] First few teamsheet IDs:`, teamsheets.slice(0, 5).map(ts => ts.teamid));
       
-      console.log(`[Formation Fetch] Created formation data for ${teamName}`, {
-        playersCount: currentTeamData?.parsed_players_for_table?.length || 0,
-        firstPlayer: currentTeamData?.parsed_players_for_table?.[0],
-        playerNamesCount: Object.keys(playerNames).length,
-        hasPlayerNames: Object.keys(playerNames).length > 0,
-        formationData,
-        teamSheetData
+      // Use targetTeamId if provided (from tactics.py), otherwise try to get from teamData
+      const currentTeamData = teamData[teamName] || {};
+      const fifaTeamId = currentTeamData.teamid;
+      
+      // Priority: use targetTeamId (from parameter) > fifaTeamId (from teamData)
+      const finalSearchTeamId = targetTeamId || fifaTeamId;
+      
+      console.log(`[Formation Fetch] Search info for ${teamName}:`, {
+        targetTeamId,
+        fifaTeamId,
+        finalSearchTeamId,
+        transfermarktTeamId: teamId,
+        teamDataExists: !!currentTeamData.teamid,
+        totalTeamsheets: teamsheets.length,
+        totalFormations: formations.length,
+        searchingForTeamId: finalSearchTeamId,
+        teamsheetsWith131789: teamsheets.filter((ts: any) => ts.teamid === "131789").length,
+        formationsWith131789: formations.filter((f: any) => f.teamid === "131789").length
       });
+      
+      // Try direct match with search team ID first (targetTeamId or fifaTeamId or uiFifaTeamId)
+      let teamSheet = finalSearchTeamId ? teamsheets.find((sheet: any) => sheet.teamid === finalSearchTeamId) : null;
+      
+      if (teamSheet) {
+        console.log(`[Formation Fetch] ✅ Found teamsheet by final search team ID ${finalSearchTeamId}`);
+      } else if (finalSearchTeamId) {
+        console.warn(`[Formation Fetch] ❌ Could not find teamsheet with final search team ID ${finalSearchTeamId}`);
+      }
+      
+      // If teamSheet not found by correct ID, create an empty one and return
+      if (!teamSheet) {
+        console.error(`[Formation Fetch] ❌ TeamSheet not found for team ${teamName} with ID ${finalSearchTeamId}`);
+        console.log(`[Formation Fetch] Available teamsheet IDs:`, teamsheets.slice(0, 20).map((ts: any) => ts.teamid));
+        
+        // Create a basic empty teamsheet
+        const defaultTeamSheet: any = { teamid: finalSearchTeamId || teamId };
+        for (let i = 0; i < 22; i++) {
+          defaultTeamSheet[`playerid${i}`] = "-1";
+        }
+        setTeamSheetData(prev => ({ ...prev, [teamName]: defaultTeamSheet }));
+        setFormationData(prev => ({ ...prev, [teamName]: null })); // No formation data
+        return;
+      }
+      
+      // Find the formation data (use first formation as default, or find team-specific one)
+      let formationData = formations[0]; // Default to first formation
+      
+      // Try to find a specific formation for this team or use the default formation
+      // Priority: finalSearchTeamId (should be the correct FIFA team ID)
+      const teamSpecificFormation = formations.find((formation: any) => 
+        formation.teamid === finalSearchTeamId
+      );
+      if (teamSpecificFormation) {
+        formationData = teamSpecificFormation;
+        console.log(`[Formation Fetch] Found specific formation for team ${finalSearchTeamId}:`, {
+          formationTeamId: teamSpecificFormation.teamid,
+          formationName: teamSpecificFormation.formationname,
+          searchedId: finalSearchTeamId
+        });
+      } else {
+        console.warn(`[Formation Fetch] No specific formation found for team ${finalSearchTeamId}, using default`);
+        console.log(`[Formation Fetch] Available formation team IDs:`, formations.slice(0, 20).map((f: any) => f.teamid));
+      }
+      
+      console.log(`[Formation Fetch] Using formation: ${formationData.formationname} for team ${teamName}`, {
+        formationData: {
+          name: formationData.formationname,
+          positions: [0,1,2,3,4,5,6,7,8,9,10].map(i => ({
+            position: formationData[`position${i}`],
+            x: formationData[`offset${i}x`],
+            y: formationData[`offset${i}y`]
+          }))
+        },
+        teamSheet: {
+          teamid: teamSheet.teamid,
+          players: [0,1,2,3,4,5,6,7,8,9,10].map(i => ({
+            index: i,
+            playerid: teamSheet[`playerid${i}`]
+          }))
+        }
+      });
+      
+      // Set the real data in state
+      // IMPORTANT: Also store the actual FIFA teamid that will be used by FootballPitch
+      const modifiedTeamSheet = { 
+        ...teamSheet, 
+        originalTeamId: teamSheet.teamid, 
+        transfermarktTeamId: teamId,
+        fifaTeamId: finalSearchTeamId || fifaTeamId || teamSheet.teamid // Store the FIFA team ID for reference
+      };
+      
+      setFormationData(prev => ({ ...prev, [teamName]: formationData }));
+      setTeamSheetData(prev => ({ ...prev, [teamName]: modifiedTeamSheet }));
+      
+      console.log(`[Formation Fetch] ✅ Successfully loaded formation and teamsheet for ${teamName}`);
+      console.log(`[Formation Fetch] Team mapping: Transfermarkt ID ${teamId} -> FIFA teamid ${teamSheet.teamid} (fifaTeamId: ${fifaTeamId})`);
+      console.log(`[Formation Fetch] TeamSheet playerid0:`, teamSheet.playerid0);
 
       // Fetch player names data for proper name display if not already loaded
       if (Object.keys(playerNames).length === 0) {
@@ -297,9 +376,36 @@ function AddTeams({
         }
       }
     } catch (error) {
-      console.error(`[Formation Fetch] Error creating formation data for ${teamName}:`, error);
+      console.error(`[Formation Fetch] Error fetching real formation data for ${teamName}:`, error);
+      // Fallback to creating basic data if API calls fail
+      console.log(`[Formation Fetch] Creating fallback data for ${teamName}`);
+      const fallbackFormation = {
+        formationname: "4-4-2",
+        position0: "0", position1: "3", position2: "5", position3: "5", position4: "7",
+        position5: "12", position6: "14", position7: "14", position8: "16",
+        position9: "25", position10: "25",
+        offset0x: "0.5", offset0y: "0.015",
+        offset1x: "0.925", offset1y: "0.2",
+        offset2x: "0.7125", offset2y: "0.1606",
+        offset3x: "0.2875", offset3y: "0.1585",
+        offset4x: "0.075", offset4y: "0.2",
+        offset5x: "0.925", offset5y: "0.5875",
+        offset6x: "0.65", offset6y: "0.5125",
+        offset7x: "0.35", offset7y: "0.5125",
+        offset8x: "0.075", offset8y: "0.5875",
+        offset9x: "0.6", offset9y: "0.875",
+        offset10x: "0.39", offset10y: "0.875"
+      };
+      
+      const fallbackTeamSheet: any = { teamid: teamId };
+      for (let i = 0; i < 22; i++) {
+        fallbackTeamSheet[`playerid${i}`] = "-1";
+      }
+      
+      setFormationData(prev => ({ ...prev, [teamName]: fallbackFormation }));
+      setTeamSheetData(prev => ({ ...prev, [teamName]: fallbackTeamSheet }));
     }
-  }, [projectId, playerNames, teamData]);
+  }, [projectId, playerNames, formationData, teamSheetData, selectedTeams, completedTeams, teamProcessingOrder]);
 
   // Connect to WebSocket when modal opens
   useEffect(() => {
@@ -463,7 +569,7 @@ function AddTeams({
                 ...prev,
                 [teamName]: {
                   shouldAnimate: true,
-                  targetRating: data.player_overall_rating,
+                  targetRating: data.player_overall_rating!,
                   triggered: true
                 }
               };
@@ -671,7 +777,16 @@ function AddTeams({
             delete newIndex[team.teamname];
             // Fetch formation data for completed teams
             console.log(`[Formation Data] Team ${team.teamname} completed, fetching formation data...`);
-            fetchFormationData(team.teamname, team.team_id);
+            console.log(`[Formation Data] Context: completed teams callback, selectedTeams count: ${selectedTeams.length}`);
+            // Pass the FIFA team ID from current team data (this is the correct one from tactics.py)
+            const currentTeamData = teamData[team.teamname] || {};
+            const targetTeamId = currentTeamData.teamid;
+            console.log(`[Formation Data] Calling with FIFA team ID: ${targetTeamId} for team ${team.teamname}`, {
+              teamData: currentTeamData,
+              teamDataKeys: Object.keys(teamData),
+              allTeamDataEntries: Object.entries(teamData).map(([name, data]) => ({ name, teamid: data.teamid }))
+            });
+            fetchFormationData(team.teamname, team.team_id, targetTeamId);
           }
         });
         return newIndex;
@@ -761,26 +876,26 @@ function AddTeams({
             [data.current_team as string]: Math.max(stepIndex, prev[data.current_team as string] || -1)
           }));
 
-          // Check if "🎯 Team formations and tactics" step just completed
-          const tacticsStepIndex = PROCESSING_STEPS_INFO.findIndex(s => s.name === "🎯 Team formations and tactics");
-          console.log(`[Step Progress] Current step: ${stepIndex}, Tactics step index: ${tacticsStepIndex}, Category: "${data.current_category}"`);
+          // Check if "🔁 Transfers" step just completed
+          const transfersStepIndex = PROCESSING_STEPS_INFO.findIndex(s => s.name === "🔁 Transfers");
+          console.log(`[Step Progress] Current step: ${stepIndex}, Transfers step index: ${transfersStepIndex}, Category: "${data.current_category}"`);
           
-          if (stepIndex === tacticsStepIndex && data.current_team) {
+          if (stepIndex === transfersStepIndex && data.current_team) {
             const team = selectedTeams.find(t => t.teamname === data.current_team);
             if (team) {
-              console.log(`[Formation Data] Tactics step completed for ${data.current_team}, fetching formation data...`);
-              fetchFormationData(data.current_team, team.team_id);
+              console.log(`[Formation Data] Transfers step completed for ${data.current_team}, fetching formation data...`);
+              console.log(`[Formation Data] Context: transfers step callback, selectedTeams count: ${selectedTeams.length}`);
+              // Automatically fetch formation data when transfers step is completed
+              setTimeout(() => {
+                // Pass the FIFA team ID from current team data (this is the correct one from tactics.py)
+                const currentTeamData = teamData[data.current_team!] || {};
+                const targetTeamId = currentTeamData.teamid;
+                console.log(`[Formation Data] Transfers step - calling with FIFA team ID: ${targetTeamId} for team ${data.current_team}`);
+                fetchFormationData(data.current_team!, team.team_id, targetTeamId);
+              }, 500); // Small delay to ensure all data is processed
             }
           }
           
-          // Also try to fetch formation data when we're one step past tactics
-          if (stepIndex === tacticsStepIndex + 1 && data.current_team) {
-            const team = selectedTeams.find(t => t.teamname === data.current_team);
-            if (team && !formationData[data.current_team]) {
-              console.log(`[Formation Data] One step past tactics, attempting fetch for ${data.current_team}...`);
-              fetchFormationData(data.current_team, team.team_id);
-            }
-          }
         }
       }
     }
@@ -788,6 +903,9 @@ function AddTeams({
     if (data.status === 'completed') {
       setIsComplete(true);
       setIsProcessing(false);
+      
+      // Set current team to the last team to show its data
+      setCurrentTeamIndex(selectedTeams.length - 1);
       setShowSuccessModal(true);
       // Auto-close modal after 5 seconds
       successTimerRef.current = setTimeout(() => {
@@ -817,6 +935,16 @@ function AddTeams({
     setFormationData({});
     setTeamSheetData({});
     setPlayerNames({});
+    setIsLoadingFormationData({});
+    setShowFormation({});
+    
+    // Save the processing order of teams
+    const processingOrder: { [teamName: string]: number } = {};
+    selectedTeams.forEach((team, index) => {
+      processingOrder[team.teamname] = index;
+    });
+    setTeamProcessingOrder(processingOrder);
+    console.log(`[AddTeams] Team processing order saved:`, processingOrder);
 
     try {
       const response = await fetch('http://localhost:8000/teams/add-from-transfermarkt', {
@@ -873,6 +1001,9 @@ function AddTeams({
     setFormationData({});
     setTeamSheetData({});
     setPlayerNames({});
+    setIsLoadingFormationData({});
+    setShowFormation({});
+    setTeamProcessingOrder({});
     handleSuccessModalClose();
     
     onClose();
@@ -924,12 +1055,24 @@ function AddTeams({
     return 'pending';
   }, [progressData, completedTeams, selectedTeams, teamStepProgress]);
 
-  const currentTeam = useMemo(() => 
-    currentTeamIndex >= 0 && currentTeamIndex < selectedTeams.length 
-      ? selectedTeams[currentTeamIndex] 
-      : null,
-    [currentTeamIndex, selectedTeams]
-  );
+  const currentTeam = useMemo(() => {
+    // If process is complete, show the last team (most recently processed)
+    if (isComplete && selectedTeams.length > 0) {
+      return selectedTeams[selectedTeams.length - 1];
+    }
+    
+    // During processing, show the current team based on index
+    if (currentTeamIndex >= 0 && currentTeamIndex < selectedTeams.length) {
+      return selectedTeams[currentTeamIndex];
+    }
+    
+    // Fallback: if no current team but we have teams, show the first one
+    if (selectedTeams.length > 0) {
+      return selectedTeams[0];
+    }
+    
+    return null;
+  }, [currentTeamIndex, selectedTeams, isComplete]);
   
   const currentTeamData = useMemo(() => 
     currentTeam ? teamData[currentTeam.teamname] || {} : {},
@@ -1605,136 +1748,147 @@ function AddTeams({
                       </Card>
                     )}
 
-                    {/* Formation Visualization - Show when formation data is available */}
-                    {(() => {
-                      const shouldShowFormation = currentTeam && 
-                        formationData[currentTeam.teamname] && 
-                        teamSheetData[currentTeam.teamname] && 
-                        currentTeamData.parsed_players_for_table && 
-                        currentTeamData.parsed_players_for_table.length > 0 &&
-                        (isComplete || (!isShowingPlayerSaveDetails && teamStepProgress[currentTeam.teamname] > 10));
+                    {/* Formation Visualization Button - Show when formation data can be loaded */}
+                    {currentTeam && (() => {
+                      // Show button after "🔁 Transfers" step is completed
+                      const transfersStepIndex = 14; // Index of "🔁 Transfers" step
+                      const teamProgress = teamStepProgress[currentTeam.teamname || ''] || -1;
+                      const transfersStepCompleted = teamProgress >= transfersStepIndex;
                       
-                      if (currentTeam) {
-                        console.log(`[Formation Display Debug] Team: ${currentTeam.teamname}`, {
-                          shouldShowFormation,
-                          hasFormationData: !!formationData[currentTeam.teamname],
-                          hasTeamSheetData: !!teamSheetData[currentTeam.teamname],
-                          hasPlayerData: !!currentTeamData.parsed_players_for_table,
-                          isComplete,
-                          isShowingPlayerSaveDetails,
-                          teamStepProgress: teamStepProgress[currentTeam.teamname],
-                          stepProgressCondition: teamStepProgress[currentTeam.teamname] > 10,
-                          finalCondition: (isComplete || (!isShowingPlayerSaveDetails && teamStepProgress[currentTeam.teamname] > 10)),
-                          formationDataKeys: Object.keys(formationData),
-                          teamSheetDataKeys: Object.keys(teamSheetData),
-                          currentTeamId: currentTeam.team_id,
-                          hasTeamData: !!currentTeamData.teamid,
-                          playerNamesCount: Object.keys(playerNames).length
-                        });
-                        
-                        // Manual fetch attempt if data is missing but step progress indicates it should be available
-                        if (!formationData[currentTeam.teamname] && 
-                            !teamSheetData[currentTeam.teamname] && 
-                            teamStepProgress[currentTeam.teamname] > 10 && 
-                            currentTeamData.parsed_players_for_table) {
-                          console.log(`[Formation Display Debug] Attempting manual fetch for ${currentTeam.teamname}`);
-                          fetchFormationData(currentTeam.teamname, currentTeamData.teamid || currentTeam.team_id);
+                      const canShowFormation = transfersStepCompleted;
+                      const hasFormationData = formationData[currentTeam.teamname] && 
+                        teamSheetData[currentTeam.teamname];
+                      
+                      if (!canShowFormation) return null;
+                      
+                      const fifaTeamId = teamSheetData[currentTeam.teamname]?.originalTeamId;
+                      const transfermarktTeamId = currentTeam.team_id;
+                      
+                      console.log(`[Formation Display Debug] Team: ${currentTeam.teamname}`, {
+                        canShowFormation,
+                        hasFormationData,
+                        teamProgress,
+                        transfersStepIndex,
+                        transfersStepCompleted,
+                        transfermarktTeamId,
+                        fifaTeamId,
+                        teamIdToPass: fifaTeamId || transfermarktTeamId,
+                        formationDataKeys: Object.keys(formationData),
+                        teamSheetDataKeys: Object.keys(teamSheetData),
+                        playerNamesCount: Object.keys(playerNames).length,
+                        showFormationState: showFormation[currentTeam.teamname],
+                        isLoadingFormation: isLoadingFormationData[currentTeam.teamname],
+                        WILL_PASS_TO_FOOTBALL_PITCH: {
+                          teamId: fifaTeamId || transfermarktTeamId,
+                          teamSheetData: teamSheetData[currentTeam.teamname],
+                          actualFifaTeamId: teamSheetData[currentTeam.teamname]?.teamid,
+                          originalTeamIdFromMapping: teamSheetData[currentTeam.teamname]?.originalTeamId
                         }
-                      }
+                      });
                       
-                      return shouldShowFormation;
-                    })() && (
-                      <FootballPitch
-                        formation={formationData[currentTeam.teamname]}
-                        teamSheet={teamSheetData[currentTeam.teamname]}
-                        players={(teamData[currentTeam.teamname]?.parsed_players_for_table || currentTeamData.parsed_players_for_table || []).map((p: any, idx: number) => {
-                          // Enhanced logging to debug field names
-                          const allKeys = Object.keys(p);
-                          const nameRelatedKeys = allKeys.filter(key => 
-                            key.toLowerCase().includes('name') || 
-                            key.toLowerCase().includes('first') || 
-                            key.toLowerCase().includes('last') ||
-                            key.toLowerCase().includes('common') ||
-                            key.toLowerCase().includes('jersey')
-                          );
-                          
-                          console.log(`[AddTeams] Mapping player ${idx} (${p.name || 'Unknown'}):`, {
-                            playerKeys: allKeys,
-                            nameRelatedKeys,
-                            // Check all possible name field variations
-                            name: p.name,
-                            commonname: p.commonname,
-                            firstnameid: p.firstnameid,
-                            lastnameid: p.lastnameid,
-                            firstname_id: p.firstname_id,
-                            lastname_id: p.lastname_id,
-                            first_name_id: p.first_name_id,
-                            last_name_id: p.last_name_id,
-                            jerseynumber: p.jerseynumber,
-                            jersey_number: p.jersey_number
-                          });
-                          
-                          return {
-                            playerid: p.playerid || p.player_id || p.id || idx.toString(),
-                            name: p.name,
-                            position: p.position,
-                            overall_rating: savedPlayerRatings[currentTeam.teamname]?.[idx] || p.overall_rating,
-                            potential: p.potential,
-                            commonname: p.commonname,
-                            // Try multiple field name variations for firstnameid/lastnameid
-                            firstnameid: p.firstnameid || p.firstname_id || p.first_name_id,
-                            lastnameid: p.lastnameid || p.lastname_id || p.last_name_id,
-                            jerseynumber: p.jerseynumber || p.jersey_number || p.shirtNumber || p.number || (idx + 1).toString()
-                          };
-                        })}
-                        teamName={currentTeam.teamname}
-                        playerNames={playerNames}
-                        projectId={projectId}
-                      />
-                    )}
-
-                    {/* Debug: Manual Formation Fetch Button */}
-                    {currentTeam && !isProcessing && (
-                      <Card className="mt-2">
-                        <CardBody className="p-2">
-                          <div className="flex items-center gap-2">
-                            <Button
-                              size="sm"
-                              color="primary"
-                              variant="flat"
-                              onPress={() => {
-                                console.log(`[Load Formation] Creating formation for ${currentTeam.teamname} (ID: ${currentTeamData.teamid || currentTeam.team_id})`);
-                                console.log(`[Load Formation] Current team data:`, {
-                                  teamName: currentTeam.teamname,
-                                  teamId: currentTeamData.teamid || currentTeam.team_id,
-                                  playersCount: currentTeamData.parsed_players_for_table?.length || 0,
-                                  projectId,
-                                  hasPlayerNames: Object.keys(playerNames).length > 0,
-                                  currentFormationData: formationData[currentTeam.teamname],
-                                  currentTeamSheetData: teamSheetData[currentTeam.teamname]
-                                });
-                                fetchFormationData(currentTeam.teamname, currentTeamData.teamid || currentTeam.team_id);
-                              }}
-                              startContent={<Icon icon="lucide:play" className="w-4 h-4" />}
-                            >
-                              Show Formation
-                            </Button>
-                            <span className="text-xs text-default-500">
-                              Debug: Step {teamStepProgress[currentTeam.teamname] || 0}, 
-                              Formation: {formationData[currentTeam.teamname] ? '✓' : '✗'}, 
-                              TeamSheet: {teamSheetData[currentTeam.teamname] ? '✓' : '✗'},
-                              Names: {Object.keys(playerNames).length > 0 ? `✓(${Object.keys(playerNames).length})` : '✗'}
-                            </span>
+                      return (
+                      <Card>
+                        <CardBody className="p-4">
+                          <div className="flex items-center justify-between mb-4">
+                            <h5 className="font-semibold text-sm flex items-center gap-2">
+                              <Icon icon="lucide:map" className="w-4 h-4" />
+                              Team Formation
+                            </h5>
+                            <div className="flex items-center gap-2">
+                              {hasFormationData && showFormation[currentTeam.teamname] && (
+                                <Button
+                                  size="sm"
+                                  color="danger"
+                                  variant="flat"
+                                  onClick={() => setShowFormation(prev => ({ ...prev, [currentTeam.teamname]: false }))}
+                                  startContent={<Icon icon="lucide:eye-off" className="w-4 h-4" />}
+                                >
+                                  Hide Formation
+                                </Button>
+                              )}
+                              {!showFormation[currentTeam.teamname] && (
+                                <Button
+                                  size="sm"
+                                  color="primary"
+                                  variant="flat"
+                                  isLoading={isLoadingFormationData[currentTeam.teamname]}
+                                  onClick={async () => {
+                                    if (!hasFormationData) {
+                                      // Fetch formation data first
+                                      console.log(`[Formation Data] Manual fetch button clicked for ${currentTeam.teamname}, selectedTeams count: ${selectedTeams.length}`);
+                                      setIsLoadingFormationData(prev => ({ ...prev, [currentTeam.teamname]: true }));
+                                      try {
+                                        // Pass the FIFA team ID from current team data (this is the correct one from tactics.py)
+                                        const targetTeamId = currentTeamData.teamid;
+                                        console.log(`[Formation Data] Manual fetch - calling with FIFA team ID: ${targetTeamId} for team ${currentTeam.teamname}`, {
+                                          currentTeamData,
+                                          teamDataKeys: Object.keys(teamData),
+                                          currentTeamTransfermarktId: currentTeam.team_id
+                                        });
+                                        await fetchFormationData(currentTeam.teamname, currentTeam.team_id, targetTeamId, true); // Force refresh
+                                      } finally {
+                                        setIsLoadingFormationData(prev => ({ ...prev, [currentTeam.teamname]: false }));
+                                      }
+                                    }
+                                    setShowFormation(prev => ({ ...prev, [currentTeam.teamname]: true }));
+                                  }}
+                                  startContent={<Icon icon="lucide:eye" className="w-4 h-4" />}
+                                >
+                                  Show Formation
+                                </Button>
+                              )}
+                            </div>
                           </div>
+                          
+                          {/* Formation Visualization - Show when button is clicked and data is available */}
+                          {showFormation[currentTeam.teamname] && hasFormationData && (
+                            <FootballPitch
+                              key={`${currentTeam.team_id}-${currentTeam.teamname}-${currentTeamData.teamid || 'no-fifa-id'}`} // Force re-render on team change and ensure unique key per FIFA team
+                              formation={formationData[currentTeam.teamname]}
+                              teamSheet={teamSheetData[currentTeam.teamname]}
+                              players={[]} // Empty array since FootballPitch now uses detailedPlayers from database instead
+                              teamName={currentTeam.teamname}
+                              playerNames={playerNames}
+                              projectId={projectId}
+                              teamId={currentTeamData.teamid || currentTeam.team_id} // Pass FIFA team ID from team data, not Transfermarkt ID
+                              displayTeamId={currentTeamData.teamid} // Use the correct FIFA team ID from team data
+                            />
+                          )}
+                          
+                          {/* Loading state */}
+                          {isLoadingFormationData[currentTeam.teamname] && (
+                            <div className="flex items-center justify-center p-8">
+                              <div className="flex items-center gap-2">
+                                <Icon icon="lucide:loader-2" className="w-4 h-4 animate-spin" />
+                                <span className="text-sm text-default-500">Loading formation data...</span>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* No data message */}
+                          {showFormation[currentTeam.teamname] && !hasFormationData && !isLoadingFormationData[currentTeam.teamname] && (
+                            <div className="flex items-center justify-center p-8">
+                              <div className="text-center">
+                                <Icon icon="lucide:alert-circle" className="w-8 h-8 text-warning mx-auto mb-2" />
+                                <p className="text-sm text-default-500">Formation data not available for this team</p>
+                              </div>
+                            </div>
+                          )}
                         </CardBody>
                       </Card>
-                    )}
+                      );
+                    })()}
+
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center h-full text-default-400">
                     <Icon icon="lucide:file-text" className="w-12 h-12 mb-2" />
-                    <p className="text-sm">No team selected</p>
-                    <p className="text-xs">Start processing to see team details</p>
+                    <p className="text-sm">
+                      {isComplete ? "All teams processed successfully" : "No team selected"}
+                    </p>
+                    <p className="text-xs">
+                      {isComplete ? "Click on any team above to view details" : "Start processing to see team details"}
+                    </p>
                   </div>
                 )}
             </div>

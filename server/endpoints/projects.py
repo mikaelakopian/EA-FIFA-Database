@@ -202,7 +202,7 @@ def create_project_directory(project_id: str) -> Path:
         )
 
 # API Endpoints
-@router.post("/projects", response_model=ProjectResponse, status_code=status.HTTP_201_CREATED, tags=["projects"])
+@router.post("/", response_model=ProjectResponse, status_code=status.HTTP_201_CREATED, tags=["projects"])
 async def create_project(project_data: CreateProjectRequest):
     """Create a new project by copying the FC25 data directory"""
     
@@ -230,7 +230,7 @@ async def create_project(project_data: CreateProjectRequest):
     
     return ProjectResponse(**project_info)
 
-@router.get("/projects", response_model=ProjectListResponse, tags=["projects"])
+@router.get("/", response_model=ProjectListResponse, tags=["projects"])
 async def list_projects():
     """List all projects"""
     metadata = load_projects_metadata()
@@ -244,7 +244,7 @@ async def list_projects():
         total=len(projects)
     )
 
-@router.get("/projects/{project_id}", response_model=ProjectResponse, tags=["projects"])
+@router.get("/{project_id}", response_model=ProjectResponse, tags=["projects"])
 async def get_project(project_id: str):
     """Get a specific project by ID"""
     metadata = load_projects_metadata()
@@ -257,7 +257,7 @@ async def get_project(project_id: str):
     
     return ProjectResponse(**metadata[project_id])
 
-@router.delete("/projects/{project_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["projects"])
+@router.delete("/{project_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["projects"])
 async def delete_project(project_id: str):
     """Delete a project and its data"""
     metadata = load_projects_metadata()
@@ -285,7 +285,7 @@ async def delete_project(project_id: str):
     
     return None
 
-@router.put("/projects/{project_id}", response_model=ProjectResponse, tags=["projects"])
+@router.put("/{project_id}", response_model=ProjectResponse, tags=["projects"])
 async def update_project(project_id: str, project_data: CreateProjectRequest):
     """Update project metadata (name and description only)"""
     metadata = load_projects_metadata()
@@ -307,7 +307,7 @@ async def update_project(project_id: str, project_data: CreateProjectRequest):
     
     return ProjectResponse(**project_info)
 
-@router.get("/projects/{project_name}/export-data", tags=["projects"])
+@router.get("/{project_name}/export-data", tags=["projects"])
 async def export_project_data(project_name: str, background_tasks: BackgroundTasks):
     """
     Exports the project's 'data' folder after converting JSON files to TXT (TSV).
@@ -379,5 +379,48 @@ async def export_project_data(project_name: str, background_tasks: BackgroundTas
         # Clean up the temp dir if an error occurs *before* returning the response
         shutil.rmtree(temp_dir_path_str, ignore_errors=True)
         # Re-raise the exception or handle it (e.g., return an error response)
-        print(f"Error during export process: {e}") # Log the error
-        raise HTTPException(status_code=500, detail=f"Error during data export: {e}")
+        raise HTTPException(status_code=500, detail=f"Error exporting project data: {str(e)}")
+
+@router.get("/{project_id}/formations")
+async def get_project_formations(project_id: str):
+    """Get formations data for a specific project"""
+    try:
+        project_dir = PROJECTS_DIR / project_id / "data" / "fifa_ng_db"
+        formations_file = project_dir / "formations.json"
+        
+        if not formations_file.exists():
+            raise HTTPException(status_code=404, detail=f"Formations file not found for project {project_id}")
+            
+        with open(formations_file, 'r', encoding='utf-8') as f:
+            formations_data = json.load(f)
+            
+        return formations_data
+        
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Formations data not found for project {project_id}")
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=500, detail=f"Invalid JSON format in formations file for project {project_id}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving formations data: {str(e)}")
+
+@router.get("/{project_id}/teamsheets")
+async def get_project_teamsheets(project_id: str):
+    """Get teamsheets data for a specific project"""
+    try:
+        project_dir = PROJECTS_DIR / project_id / "data" / "fifa_ng_db"
+        teamsheets_file = project_dir / "default_teamsheets.json"
+        
+        if not teamsheets_file.exists():
+            raise HTTPException(status_code=404, detail=f"Teamsheets file not found for project {project_id}")
+            
+        with open(teamsheets_file, 'r', encoding='utf-8') as f:
+            teamsheets_data = json.load(f)
+            
+        return teamsheets_data
+        
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Teamsheets data not found for project {project_id}")
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=500, detail=f"Invalid JSON format in teamsheets file for project {project_id}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error retrieving teamsheets data: {str(e)}")

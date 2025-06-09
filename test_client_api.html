@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Player 300482 Client API</title>
+</head>
+<body>
+    <h1>Testing Player 300482 Client API</h1>
+    <div id="results"></div>
+
+    <script>
+        async function testPlayer300482() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                // Test 1: Load player names
+                console.log('1. Loading player names...');
+                const playerNamesResponse = await fetch('http://localhost:8000/playernames?project_id=armenia');
+                const playerNamesData = await playerNamesResponse.json();
+                console.log(`Got ${playerNamesData.length} player names`);
+                
+                // Convert to map
+                const playerNames = {};
+                playerNamesData.forEach(name => {
+                    playerNames[name.nameid] = name.name;
+                });
+                
+                // Check player 300482 names
+                const player300482Names = {
+                    firstname: playerNames['26751'],
+                    lastname: playerNames['42263']
+                };
+                console.log('Player 300482 names:', player300482Names);
+                
+                // Test 2: Load player data
+                console.log('2. Loading player data...');
+                const playersResponse = await fetch('http://localhost:8000/players/by-ids?project_id=armenia', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ player_ids: ['300482'] })
+                });
+                const playersData = await playersResponse.json();
+                console.log('Players data:', playersData);
+                
+                if (playersData.length > 0) {
+                    const player = playersData[0];
+                    
+                    // Test 3: Construct player name
+                    const firstName = playerNames[player.firstnameid] || '';
+                    const lastName = playerNames[player.lastnameid] || '';
+                    const fullName = `${firstName} ${lastName}`.trim();
+                    
+                    console.log('Constructed name:', fullName);
+                    
+                    // Display results
+                    results.innerHTML = `
+                        <h2>✅ Test Results:</h2>
+                        <p><strong>Player ID:</strong> ${player.playerid}</p>
+                        <p><strong>Name:</strong> ${fullName}</p>
+                        <p><strong>Overall Rating:</strong> ${player.overallrating}</p>
+                        <p><strong>Position:</strong> ${player.preferredposition1}</p>
+                        <p><strong>First Name ID:</strong> ${player.firstnameid} → "${firstName}"</p>
+                        <p><strong>Last Name ID:</strong> ${player.lastnameid} → "${lastName}"</p>
+                        <p><strong>Common Name ID:</strong> ${player.commonnameid} → "${playerNames[player.commonnameid] || ''}"</p>
+                        
+                        <h3>Expected behavior in FootballPitch:</h3>
+                        <p>✅ Player exists</p>
+                        <p>✅ Has valid name: "${fullName}"</p>
+                        <p>✅ Has valid rating: ${player.overallrating}</p>
+                        <p>✅ Should be displayed on position 10</p>
+                    `;
+                } else {
+                    results.innerHTML = '<h2>❌ Player 300482 not found</h2>';
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                results.innerHTML = `<h2>❌ Error: ${error.message}</h2>`;
+            }
+        }
+        
+        // Run test on page load
+        testPlayer300482();
+    </script>
+</body>
+</html>

@@ -465,6 +465,21 @@
         "iswithintransferwindow": "0"
     },
     {
+        "leagueid": "333",
+        "leaguename": "Ukraine Persha Liga (2)",
+        "countryid": "49",
+        "level": "2",
+        "leaguetype": "0",
+        "iswomencompetition": "0",
+        "isinternationalleague": "0",
+        "iscompetitionscarfenabled": "2",
+        "isbannerenabled": "2",
+        "iscompetitionpoleflagenabled": "2",
+        "iscompetitioncrowdcardsenabled": "2",
+        "leaguetimeslice": "6",
+        "iswithintransferwindow": "0"
+    },
+    {
         "leaguetype": "0",
         "level": "1",
         "countryid": "183",

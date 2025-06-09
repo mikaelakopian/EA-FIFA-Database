@@ -1,673 +1,618 @@
-import { memo, useState, useEffect } from "react";
-import { Card, CardBody, Chip, Avatar, Tooltip } from "@heroui/react";
+import { useState, useEffect, useMemo } from "react";
+import { Card, CardBody, Chip, Tooltip, Spinner } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
-interface Player {
-  playerid: string;
-  name?: string;
-  position?: string;
-  overall_rating?: number;
-  potential?: number;
-  commonname?: string;
-  firstnameid?: string;
-  lastnameid?: string;
-  jerseynumber?: string;
-}
-
-interface DetailedPlayer {
-  playerid: string;
-  firstnameid?: string;
-  lastnameid?: string;
-  commonnameid?: string;
-  overallrating?: string;
-  potential?: string;
-  preferredposition1?: string;
-  jerseynumber?: string;
-  height?: string;
-  weight?: string;
-  nationality?: string;
-  [key: string]: any;
-}
-
-interface FormationData {
-  formationname?: string;
-  position0?: string;
-  position1?: string;
-  position2?: string;
-  position3?: string;
-  position4?: string;
-  position5?: string;
-  position6?: string;
-  position7?: string;
-  position8?: string;
-  position9?: string;
-  position10?: string;
-  offset0x?: string;
-  offset0y?: string;
-  offset1x?: string;
-  offset1y?: string;
-  offset2x?: string;
-  offset2y?: string;
-  offset3x?: string;
-  offset3y?: string;
-  offset4x?: string;
-  offset4y?: string;
-  offset5x?: string;
-  offset5y?: string;
-  offset6x?: string;
-  offset6y?: string;
-  offset7x?: string;
-  offset7y?: string;
-  offset8x?: string;
-  offset8y?: string;
-  offset9x?: string;
-  offset9y?: string;
-  offset10x?: string;
-  offset10y?: string;
-}
-
-interface TeamSheetData {
-  playerid0?: string;
-  playerid1?: string;
-  playerid2?: string;
-  playerid3?: string;
-  playerid4?: string;
-  playerid5?: string;
-  playerid6?: string;
-  playerid7?: string;
-  playerid8?: string;
-  playerid9?: string;
-  playerid10?: string;
-  playerid11?: string; // Backup goalkeeper
-  [key: string]: string | undefined;
-}
-
 interface FootballPitchProps {
-  formation: FormationData;
-  teamSheet: TeamSheetData;
-  players: Player[];
+  formation: any; // Formation data from defaultteamdata.json
+  teamSheet: any; // Team sheet data from default_teamsheets.json
+  players: any[]; // Player data array (not used, using API instead)
   teamName: string;
-  playerNames?: { [nameId: string]: string };
+  playerNames: { [nameId: string]: string }; // Player names mapping
   projectId?: string;
+  teamId: string; // FIFA team ID
+  displayTeamId?: string; // Team ID to display in the header (from AddTeams)
 }
 
-const POSITION_NAMES: { [key: string]: string } = {
-  "0": "GK",   // Goalkeeper
-  "3": "RB",   // Right Back
-  "5": "CB",   // Center Back
-  "7": "LB",   // Left Back
-  "10": "CDM", // Central Defensive Midfielder
-  "12": "RM",  // Right Midfielder
-  "14": "CM",  // Central Midfielder
-  "16": "LM",  // Left Midfielder
-  "25": "ST",  // Striker
-};
+interface Player {
+  playerId: string;
+  nameid: string;
+  position: string;
+  overallrating: number;
+  preferredposition1: number;
+  age: number;
+  name?: string;
+}
 
-const POSITION_COLORS: { [key: string]: string } = {
-  "GK": "bg-yellow-500",
-  "LB": "bg-blue-500", "CB": "bg-blue-500", "RB": "bg-blue-500",
-  "CDM": "bg-green-500", "LM": "bg-green-500", "CM": "bg-green-500", "RM": "bg-green-500",
-  "ST": "bg-red-500",
-};
+interface PositionMapping {
+  [key: string]: string;
+}
 
-function FootballPitch({ formation, teamSheet, players, teamName, playerNames = {}, projectId }: FootballPitchProps) {
-  const [detailedPlayers, setDetailedPlayers] = useState<{ [playerid: string]: DetailedPlayer }>({});
-  const [isLoadingPlayers, setIsLoadingPlayers] = useState(false);
+const FootballPitch = ({ 
+  formation, 
+  teamSheet, 
+  teamName, 
+  playerNames, 
+  projectId, 
+  teamId,
+  displayTeamId 
+}: FootballPitchProps) => {
+  const [detailedPlayers, setDetailedPlayers] = useState<Player[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  console.log(`[FootballPitch] Rendering for team: ${teamName}`, {
-    formation: formation?.formationname || 'unknown',
-    playersCount: players.length,
-    teamSheetPlayerIds: Object.keys(teamSheet).filter(key => key.startsWith('playerid')).slice(0, 11).map(key => ({ key, id: teamSheet[key] })),
-    firstFewPlayers: players.slice(0, 3).map(p => ({ id: p.playerid, name: p.name })),
-    hasPlayerNames: Object.keys(playerNames).length > 0,
-    projectId,
-    detailedPlayersCount: Object.keys(detailedPlayers).length,
-    teamSheetTeamId: teamSheet.teamid
-  });
+  // Position mappings - all FIFA positions
+  const positionMapping: PositionMapping = useMemo(() => ({
+    "0": "GK",    // Вратарь
+    "1": "SW",    // Либеро/«свипер»
+    "2": "RWB",   // Правый латераль (wing-back)
+    "3": "RB",    // Правый защитник
+    "4": "RCB",   // Правый центральный защитник
+    "5": "CB",    // Центральный защитник
+    "6": "LCB",   // Левый центральный защитник
+    "7": "LB",    // Левый защитник
+    "8": "LWB",   // Левый латераль
+    "9": "RDM",   // Правый опорный полузащитник
+    "10": "CDM",  // Опорный (центр)
+    "11": "LDM",  // Левый опорный
+    "12": "RM",   // Правый полузащитник
+    "13": "LCM",  // Левый центральный хав
+    "14": "CM",   // Центральный полузащитник
+    "15": "RCM",  // Правый центральный хав
+    "16": "LM",   // Левый полузащитник
+    "17": "RAM",  // Правый атакующий полузащитник
+    "18": "CAM",  // Центральный атакующий полузащитник («десятка»)
+    "19": "LAM",  // Левый атакующий полузащитник
+    "20": "RF",   // Правый форвард/второй нападающий
+    "21": "CF",   // Центральный форвард (под нападающим)
+    "22": "LF",   // Левый форвард
+    "23": "RW",   // Правый вингер
+    "24": "RS",   // Правый наконечник атаки
+    "25": "ST",   // Центральный нападающий
+    "26": "LS",   // Левый наконечник
+    "27": "LW"    // Левый вингер
+  }), []);
 
-  // Fetch detailed player information from the database
+  // Fetch detailed player data from the API
   useEffect(() => {
-    const fetchDetailedPlayers = async () => {
-      if (!projectId || !teamSheet) {
-        console.log('[FootballPitch] Missing projectId or teamSheet, skipping detailed player fetch');
-        return;
-      }
+    if (!projectId) return;
 
-      // Get all player IDs from teamsheet (starting 11 + subs)
-      const playerIds = Object.keys(teamSheet)
-        .filter(key => key.startsWith('playerid'))
-        .map(key => teamSheet[key])
-        .filter(id => id && id !== "-1")
-        .slice(0, 22); // Get first 22 players (11 starting + 11 subs)
-
-      if (playerIds.length === 0) {
-        console.log('[FootballPitch] No valid player IDs found in teamsheet');
-        return;
-      }
-
-      console.log(`[FootballPitch] Fetching detailed data for ${playerIds.length} players:`, playerIds.slice(0, 5));
-      setIsLoadingPlayers(true);
-
+    const fetchPlayers = async () => {
+      setIsLoading(true);
+      setError(null);
+      
       try {
-        // Fetch all players for this project
-        const response = await fetch(`http://localhost:8000/players?project_id=${projectId}&limit=500`);
+        // CRITICAL FIX: Use the actual team ID from teamSheet if available
+        const actualTeamId = teamSheet?.teamid || displayTeamId || teamId;
+        
+        console.log(`[FootballPitch] Fetching players for team ${teamName}`, {
+          projectId,
+          teamId, // FIFA team ID for teamSheet matching
+          displayTeamId, // Team ID for API calls and display
+          actualTeamId, // The team ID we'll actually use
+          teamSheetTeamId: teamSheet?.teamid,
+          teamSheetFifaTeamId: teamSheet?.fifaTeamId,
+          teamSheetOriginalTeamId: teamSheet?.originalTeamId,
+          teamSheetTransfermarktTeamId: teamSheet?.transfermarktTeamId,
+          receivedTeamSheet: teamSheet ? {
+            teamid: teamSheet.teamid,
+            playerid0: teamSheet.playerid0,
+            playerid1: teamSheet.playerid1,
+            playerid2: teamSheet.playerid2
+          } : null
+        });
+        
+        // Get the list of specific player IDs from the team sheet for this team
+        const teamPlayerIds: string[] = [];
+        if (teamSheet) {
+          console.log(`[FootballPitch] TeamSheet validation:`, {
+            teamSheetTeamId: teamSheet.teamid,
+            originalTeamId: teamSheet.originalTeamId,
+            passedTeamId: teamId,
+            displayTeamId: displayTeamId,
+            actualTeamId: actualTeamId,
+            teamSheetTeamIdMatches: teamSheet.teamid === teamId,
+            originalTeamIdMatches: teamSheet.originalTeamId === teamId,
+            displayTeamIdMatches: teamSheet.teamid === displayTeamId,
+            actualTeamIdMatches: teamSheet.teamid === actualTeamId
+          });
+          
+          // SIMPLIFIED: If we have a teamSheet, use it (it should be the correct one from fetchFormationData)
+          // The AddTeams component is responsible for fetching the correct teamSheet
+          console.log(`[FootballPitch] Using teamSheet data for team ${teamSheet.teamid}, actual team: ${actualTeamId}`);
+          
+          // Collect all player IDs from positions 0-51 (including substitutes)
+          for (let i = 0; i <= 51; i++) {
+            const playerId = teamSheet[`playerid${i}`];
+            if (playerId && playerId !== "-1") {
+              teamPlayerIds.push(playerId);
+            }
+          }
+          console.log(`[FootballPitch] Found ${teamPlayerIds.length} players in teamSheet for team ${teamSheet.teamid}`);
+        }
+        
+        console.log(`[FootballPitch] Found ${teamPlayerIds.length} player IDs in teamsheet:`, teamPlayerIds.slice(0, 5));
+        
+        // Use the actual team ID from teamSheet for API call
+        console.log(`[FootballPitch] Making API call with team_id: ${actualTeamId}`);
+        
+        const response = await fetch(`http://localhost:8000/players?project_id=${projectId}&team_id=${actualTeamId}`);
+        
         if (!response.ok) {
           throw new Error(`Failed to fetch players: ${response.status}`);
         }
-
-        const allPlayers: DetailedPlayer[] = await response.json();
-        console.log(`[FootballPitch] Received ${allPlayers.length} players from API`);
-
-        // Create a map of relevant players
-        const playersMap: { [playerid: string]: DetailedPlayer } = {};
-        playerIds.forEach(playerId => {
-          if (!playerId) return;
-          const player = allPlayers.find(p => p.playerid === playerId);
-          if (player) {
-            playersMap[playerId] = player;
-            console.log(`[FootballPitch] Found detailed data for player ${playerId}:`, {
-              firstnameid: player.firstnameid,
-              lastnameid: player.lastnameid,
-              commonnameid: player.commonnameid,
-              overallrating: player.overallrating,
-              nationality: player.nationality
-            });
-          } else {
-            console.log(`[FootballPitch] No detailed data found for player ${playerId}`);
-          }
-        });
-
-        setDetailedPlayers(playersMap);
-        console.log(`[FootballPitch] Successfully loaded detailed data for ${Object.keys(playersMap).length} players`);
+        
+        const allPlayersData = await response.json();
+        console.log(`[FootballPitch] Received ${allPlayersData.length} total players from API`);
+        
+        // Filter players to only include those that are in this team's sheet
+        const filteredPlayers = teamPlayerIds.length > 0 
+          ? allPlayersData.filter((player: Player) => teamPlayerIds.includes(player.playerId))
+          : allPlayersData;
+        
+        console.log(`[FootballPitch] Filtered to ${filteredPlayers.length} players for team ${teamName} (teamid: ${actualTeamId})`);
+        
+        setDetailedPlayers(filteredPlayers);
       } catch (error) {
-        console.error('[FootballPitch] Error fetching detailed players:', error);
+        console.error(`[FootballPitch] Error fetching players:`, error);
+        setError(error instanceof Error ? error.message : 'Failed to fetch players');
       } finally {
-        setIsLoadingPlayers(false);
+        setIsLoading(false);
       }
     };
 
-    fetchDetailedPlayers();
-  }, [projectId, teamSheet]);
+    fetchPlayers();
+  }, [projectId, teamId, teamName, teamSheet, displayTeamId]);
 
-  // Enhanced helper function to get player name using detailed database data
-  const getPlayerName = (player: Player, playerId?: string): string => {
-    const targetPlayerId = playerId || player.playerid;
-    const detailedPlayer = detailedPlayers[targetPlayerId];
-    
-    console.log(`[FootballPitch] Getting name for player ${targetPlayerId}:`, {
-      hasDetailedPlayer: !!detailedPlayer,
-      detailedFirstNameId: detailedPlayer?.firstnameid,
-      detailedLastNameId: detailedPlayer?.lastnameid,
-      detailedCommonNameId: detailedPlayer?.commonnameid,
-      fallbackName: player.name,
-      hasPlayerNames: Object.keys(playerNames).length > 0,
-      commonname: player.commonname,
-      firstnameid: player.firstnameid,
-      lastnameid: player.lastnameid
-    });
-
-    // If we have detailed player data, use it first
-    if (detailedPlayer && Object.keys(playerNames).length > 0) {
-      // Try common name first if available
-      if (detailedPlayer.commonnameid && detailedPlayer.commonnameid !== "0") {
-        const commonName = playerNames[detailedPlayer.commonnameid];
-        if (commonName && commonName.trim()) {
-          console.log(`[FootballPitch] Using detailed commonname: ${commonName}`);
-          return commonName;
-        }
-      }
-      
-      // Construct name from detailed firstnameid/lastnameid
-      const firstName = detailedPlayer.firstnameid ? playerNames[detailedPlayer.firstnameid] : '';
-      const lastName = detailedPlayer.lastnameid ? playerNames[detailedPlayer.lastnameid] : '';
-      
-      if (firstName || lastName) {
-        const fullName = `${firstName || ''} ${lastName || ''}`.trim();
-        if (fullName) {
-          console.log(`[FootballPitch] Constructed name from detailed data: ${fullName} (${detailedPlayer.firstnameid}->${firstName}, ${detailedPlayer.lastnameid}->${lastName})`);
-          return fullName;
-        }
-      }
-    }
-
-    // Fallback to original logic if detailed data isn't available
-    // First priority: Use commonname if available
-    if (player.commonname && player.commonname.trim()) {
-      console.log(`[FootballPitch] Using fallback commonname: ${player.commonname}`);
-      return player.commonname;
-    }
-    
-    // Second priority: Construct name from playerNames lookup (original logic)
-    if (Object.keys(playerNames).length > 0 && (player.firstnameid || player.lastnameid)) {
-      const firstName = player.firstnameid ? playerNames[player.firstnameid] : '';
-      const lastName = player.lastnameid ? playerNames[player.lastnameid] : '';
-      
-      if (firstName || lastName) {
-        const fullName = `${firstName || ''} ${lastName || ''}`.trim();
-        console.log(`[FootballPitch] Constructed name from fallback data: ${fullName}`);
-        return fullName;
-      }
-    }
-    
-    // Final fallback - only return real names, not fake ones
-    console.log(`[FootballPitch] No real name data found for player ${targetPlayerId}`);
-    return player.name && player.name.trim() && !player.name.startsWith('Player ') ? player.name : '';
+  // Get player by ID from the detailed players data
+  const getPlayerById = (playerId: string): Player | null => {
+    if (playerId === "-1") return null;
+    return detailedPlayers.find(p => p.playerId === playerId) || null;
   };
 
-  // Enhanced helper function to get jersey number using detailed database data
-  const getJerseyNumber = (player: Player, index: number, playerId?: string): string => {
-    const targetPlayerId = playerId || player.playerid;
-    const detailedPlayer = detailedPlayers[targetPlayerId];
+  // Get player name from multiple sources
+  const getPlayerName = (player: Player | null): string => {
+    if (!player) return "";
     
-    console.log(`[FootballPitch] Getting jersey number for player ${targetPlayerId}:`, {
-      hasDetailedPlayer: !!detailedPlayer,
-      detailedJersey: detailedPlayer?.jerseynumber,
-      fallbackJersey: player.jerseynumber,
-      index,
-      allPlayerKeys: Object.keys(player)
+    // Try player names mapping first
+    if (player.nameid && playerNames[player.nameid]) {
+      return playerNames[player.nameid];
+    }
+    
+    // Fallback to name property if available
+    if (player.name) {
+      return player.name;
+    }
+    
+    return `Player ${player.playerId}`;
+  };
+
+  // Get position abbreviation
+  const getPositionAbbreviation = (positionId: string): string => {
+    return positionMapping[positionId] || "UN";
+  };
+
+  // Render starting XI (positions 0-10)
+  const renderStartingXI = () => {
+    const startingPlayers = [];
+    
+    // Debug logging for team sheet validation
+    console.log(`[FootballPitch] Rendering starting XI for team ${teamName}`, {
+      teamId,
+      teamSheetTeamId: teamSheet?.teamid,
+      teamSheetOriginalTeamId: teamSheet?.originalTeamId,
+      teamSheetMatches: teamSheet?.teamid === teamId || teamSheet?.originalTeamId === teamId,
+      formationExists: !!formation,
+      teamSheetExists: !!teamSheet,
+      detailedPlayersCount: detailedPlayers.length,
+      samplePlayerIds: teamSheet ? [
+        teamSheet.playerid0,
+        teamSheet.playerid1,
+        teamSheet.playerid2
+      ] : []
     });
     
-    // Check detailed player data first
-    if (detailedPlayer) {
-      const detailedJersey = detailedPlayer.jerseynumber;
-      if (detailedJersey && detailedJersey !== "-1" && detailedJersey !== "0" && parseInt(detailedJersey) > 0) {
-        console.log(`[FootballPitch] Using detailed jersey number: ${detailedJersey}`);
-        return detailedJersey.toString();
-      }
-    }
+    // Info: Log which team data we're using
+    const actualDisplayTeamId = teamSheet?.teamid || displayTeamId || teamId;
+    console.log(`[FootballPitch] Rendering formation for team ${actualDisplayTeamId}`, {
+      teamSheetTeamId: teamSheet?.teamid,
+      formationTeamId: formation?.teamid,
+      displayTeamId,
+      teamId,
+      actualDisplayTeamId
+    });
     
-    // Check various possible field names for jersey number in fallback player data
-    const jerseyFields = ['jerseynumber', 'jersey_number', 'shirtNumber', 'shirt_number', 'number'];
-    
-    for (const field of jerseyFields) {
-      const jerseyValue = (player as any)[field];
-      if (jerseyValue && jerseyValue !== "-1" && jerseyValue !== "0" && parseInt(jerseyValue) > 0) {
-        console.log(`[FootballPitch] Using fallback jersey number from ${field}: ${jerseyValue}`);
-        return jerseyValue.toString();
-      }
-    }
-    
-    // No real jersey number found - return empty string instead of generating fake one
-    console.log(`[FootballPitch] No real jersey number found for player ${targetPlayerId}`);
-    return '';
-  };
-
-  // Enhanced helper function to get player overall rating using detailed database data
-  const getPlayerOverallRating = (player: Player, playerId?: string): number | undefined => {
-    const targetPlayerId = playerId || player.playerid;
-    const detailedPlayer = detailedPlayers[targetPlayerId];
-    
-    // Try detailed player data first
-    if (detailedPlayer?.overallrating) {
-      const rating = parseInt(detailedPlayer.overallrating);
-      if (!isNaN(rating) && rating > 0) {
-        return rating;
-      }
-    }
-    
-    // Fallback to original player data
-    return player.overall_rating;
-  };
-
-  // Enhanced helper function to get player potential using detailed database data
-  const getPlayerPotential = (player: Player, playerId?: string): number | undefined => {
-    const targetPlayerId = playerId || player.playerid;
-    const detailedPlayer = detailedPlayers[targetPlayerId];
-    
-    // Try detailed player data first
-    if (detailedPlayer?.potential) {
-      const potential = parseInt(detailedPlayer.potential);
-      if (!isNaN(potential) && potential > 0) {
-        return potential;
-      }
-    }
-    
-    // Fallback to original player data
-    return player.potential;
-  };
-
-  // Create a map of playerid to player data for quick lookup
-  const playerMap = players.reduce((map, player) => {
-    map[player.playerid] = player;
-    return map;
-  }, {} as { [key: string]: Player });
-
-  // Get starting 11 players from teamsheet - use EXACT data from teamsheet without resorting
-  const startingEleven = [];
-  for (let i = 0; i <= 10; i++) {
-    const playerIdKey = `playerid${i}` as keyof TeamSheetData;
-    const playerId = teamSheet[playerIdKey];
-    
-    console.log(`[FootballPitch] Processing position ${i}: playerid=${playerId}`);
-    
-    if (playerId && playerId !== "-1") {
-      const player = playerMap[playerId];
-      const detailedPlayer = detailedPlayers[playerId];
+    for (let i = 0; i <= 10; i++) {
+      const playerId = teamSheet[`playerid${i}`];
+      const player = getPlayerById(playerId);
+      const positionId = formation[`position${i}`];
+      const xOffset = parseFloat(formation[`offset${i}x`]) * 100; // Convert to percentage
+      const yOffset = (1 - parseFloat(formation[`offset${i}y`])) * 100; // Invert Y coordinate so goalkeeper is at bottom
       
-      // Only include players that exist in either the players array OR detailed players from database
-      if (player || detailedPlayer) {
-        const positionKey = `position${i}` as keyof FormationData;
-        const offsetXKey = `offset${i}x` as keyof FormationData;
-        const offsetYKey = `offset${i}y` as keyof FormationData;
-        
-        const positionId = formation[positionKey];
-        const positionName = positionId ? POSITION_NAMES[positionId] || "CM" : "CM";
-        
-        // Use real player data, prioritizing the players array, then detailed data
-        const actualPlayer = player || {
-          playerid: playerId,
-          name: '',
-          overall_rating: undefined,
-          firstnameid: detailedPlayer?.firstnameid || '',
-          lastnameid: detailedPlayer?.lastnameid || '',
-          commonname: detailedPlayer?.commonnameid || ''
-        };
-        
-        const enhancedOverallRating = getPlayerOverallRating(actualPlayer, playerId);
-        const enhancedPotential = getPlayerPotential(actualPlayer, playerId);
-        const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
-        const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
-
-        console.log(`[FootballPitch] Player ${i} data:`, {
+      const playerName = getPlayerName(player);
+      const position = getPositionAbbreviation(positionId);
+      
+      // Debug logging for first few players
+      if (i < 3) {
+        console.log(`[FootballPitch] Player ${i}:`, {
           playerId,
-          enhancedPlayerName,
-          enhancedOverallRating,
-          positionName,
-          enhancedJerseyNumber
+          playerFound: !!player,
+          playerName,
+          position,
+          positionId,
+          xOffset,
+          yOffset,
+          fromTeamSheet: teamSheet?.teamid,
+          fromFormation: formation?.teamid,
+          expectedDisplayTeamId: actualDisplayTeamId
         });
-
-        // Only add if we have meaningful data (name and rating)
-        if (enhancedPlayerName && enhancedPlayerName.trim() && enhancedOverallRating) {
-          startingEleven.push({
-            index: i,
-            player: {
-              ...actualPlayer,
-              overall_rating: enhancedOverallRating,
-              potential: enhancedPotential || enhancedOverallRating
-            },
-            position: positionName,
-            x: parseFloat(formation[offsetXKey] || "0.5") * 100, // Convert to percentage
-            y: (1 - parseFloat(formation[offsetYKey] || "0.5")) * 100, // Invert Y and convert to percentage
-            playerName: enhancedPlayerName,
-            jerseyNumber: enhancedJerseyNumber,
-          });
-          
-          console.log(`[FootballPitch] ✅ Added player ${i}: ID ${playerId}, position: ${positionName}, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
-        } else {
-          console.log(`[FootballPitch] ❌ Skipping player ${i}: ID ${playerId}, insufficient real data (name: '${enhancedPlayerName}', rating: ${enhancedOverallRating})`);
-        }
-      } else {
-        console.log(`[FootballPitch] ❌ Player ${i}: ID ${playerId}, no real player data found in players array or detailed players`);
       }
-    } else {
-      console.log(`[FootballPitch] Position ${i}: No player assigned (playerid=${playerId})`);
-    }
-  }
-
-  // Get substitutes (players 11 and beyond - bench players) - only real players
-  const substitutes = [];
-  
-  // Look for all players beyond the starting 11 in teamsheet
-  for (let i = 11; i <= 30; i++) {
-    const playerIdKey = `playerid${i}` as keyof TeamSheetData;
-    const playerId = teamSheet[playerIdKey];
-    if (playerId && playerId !== "-1") {
-      const player = playerMap[playerId];
-      const detailedPlayer = detailedPlayers[playerId];
       
-      // Only include players that exist in either the players array OR detailed players from database
-      if (player || detailedPlayer) {
-        // Use real player data, prioritizing the players array, then detailed data
-        const actualPlayer = player || {
-          playerid: playerId,
-          name: '',
-          overall_rating: undefined,
-          firstnameid: detailedPlayer?.firstnameid || '',
-          lastnameid: detailedPlayer?.lastnameid || '',
-          commonname: detailedPlayer?.commonnameid || ''
-        };
-        
-        const enhancedOverallRating = getPlayerOverallRating(actualPlayer, playerId);
-        const enhancedPotential = getPlayerPotential(actualPlayer, playerId);
-        const enhancedPlayerName = getPlayerName(actualPlayer, playerId);
-        const enhancedJerseyNumber = getJerseyNumber(actualPlayer, i, playerId);
-        
-        // Only add if we have meaningful data (name and rating)
-        if (enhancedPlayerName && enhancedPlayerName.trim() && enhancedOverallRating) {
-          const enhancedSubstitute = {
-            ...actualPlayer,
-            overall_rating: enhancedOverallRating,
-            potential: enhancedPotential || enhancedOverallRating,
-            enhancedName: enhancedPlayerName,
-            enhancedJerseyNumber: enhancedJerseyNumber
-          };
-          
-          substitutes.push(enhancedSubstitute);
-          console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, real data found, name: ${enhancedPlayerName}, rating: ${enhancedOverallRating}`);
-        } else {
-          console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, insufficient real data, skipping`);
-        }
-      } else {
-        console.log(`[FootballPitch] Substitute ${i}: ID ${playerId}, no real player data found, skipping`);
-      }
+      startingPlayers.push(
+        <Tooltip
+          key={`starting-${i}`}
+          content={
+            <div className="p-2">
+              <div className="font-semibold">{playerName || "Empty Position"}</div>
+              <div className="text-xs text-default-500">
+                Position Slot: playerid{i}
+                <br />Formation Position: {position} (ID: {positionId})
+                <br />Player ID: {playerId}
+                {player && (
+                  <>
+                    <br />Overall: {player.overallrating}
+                    <br />Age: {player.age}
+                    <br />Preferred Position: {getPositionAbbreviation(player.preferredposition1?.toString() || "14")}
+                  </>
+                )}
+                <br />X: {xOffset.toFixed(1)}%, Y: {yOffset.toFixed(1)}%
+              </div>
+            </div>
+          }
+          placement="top"
+          showArrow
+        >
+          <div
+            className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-200 hover:scale-110 ${
+              player ? 'opacity-100' : 'opacity-50'
+            }`}
+            style={{
+              left: `${xOffset}%`,
+              top: `${yOffset}%`,
+            }}
+          >
+            <div className={`relative ${player ? 'hover:z-10' : ''}`}>
+              {/* Player circle */}
+              <div
+                className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                  player
+                    ? positionId === "0" // Goalkeeper
+                      ? 'bg-yellow-400 border-yellow-600 text-yellow-900'
+                      : 'bg-blue-500 border-blue-700 text-white'
+                    : 'bg-gray-300 border-gray-400 text-gray-600'
+                }`}
+              >
+                {position}
+              </div>
+              
+              {/* Player name and ID */}
+              {player && (
+                <div className="absolute top-9 left-1/2 transform -translate-x-1/2 bg-white/90 dark:bg-black/90 px-1 py-0.5 rounded text-[10px] font-medium whitespace-nowrap border shadow-sm">
+                  <div>{playerName}</div>
+                  <div className="text-[8px] text-gray-500">ID: {playerId}</div>
+                </div>
+              )}
+              
+              {/* Overall rating */}
+              {player && (
+                <div className="absolute -top-2 -right-1 bg-green-500 text-white text-[8px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                  {player.overallrating}
+                </div>
+              )}
+            </div>
+          </div>
+        </Tooltip>
+      );
     }
+    
+    return startingPlayers;
+  };
+
+  // Render substitutes (positions 11-51, only show filled positions)
+  const renderSubstitutes = () => {
+    const substitutes = [];
+    
+    for (let i = 11; i <= 51; i++) {
+      const playerId = teamSheet[`playerid${i}`];
+      
+      // Skip empty positions with "-1"
+      if (playerId === "-1") continue;
+      
+      const player = getPlayerById(playerId);
+      const playerName = player ? getPlayerName(player) : `Player ${playerId}`;
+      const position = player ? getPositionAbbreviation(player.preferredposition1?.toString() || "14") : "N/A";
+      
+      substitutes.push(
+        <Tooltip
+          key={`sub-${i}`}
+          content={
+            <div className="p-2">
+              <div className="font-semibold">{playerName}</div>
+              <div className="text-xs text-default-500">
+                Position: {position}
+                <br />Player ID: {playerId}
+                {player && (
+                  <>
+                    <br />Overall: {player.overallrating}
+                    <br />Age: {player.age}
+                  </>
+                )}
+                <br />Reserve #{i - 10}
+              </div>
+            </div>
+          }
+          placement="top"
+          showArrow
+        >
+          <div className="flex items-center gap-2 p-2 bg-zinc-800 rounded-lg hover:bg-zinc-700 cursor-pointer transition-colors">
+            <div className="w-6 h-6 rounded-full bg-orange-400 border-orange-600 border-2 flex items-center justify-center text-[10px] font-bold text-white">
+              {position}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-medium truncate">{playerName}</div>
+              <div className="text-xs text-default-500">Reserve #{i - 10} • ID: {playerId}</div>
+            </div>
+            {player && (
+              <Chip size="sm" color="success" variant="flat" className="text-[10px]">
+                {player.overallrating}
+              </Chip>
+            )}
+          </div>
+        </Tooltip>
+      );
+    }
+    
+    return substitutes;
+  };
+
+  if (isLoading) {
+    return (
+      <Card>
+        <CardBody className="p-8">
+          <div className="flex items-center justify-center gap-2">
+            <Spinner size="sm" />
+            <span className="text-sm text-default-500">Loading formation...</span>
+          </div>
+        </CardBody>
+      </Card>
+    );
   }
 
-  console.log(`[FootballPitch] Found ${substitutes.length} substitute players:`, {
-    teamSheetPlayerIds: Object.keys(teamSheet).filter(key => key.startsWith('playerid')).map(key => ({ key, id: teamSheet[key] })),
-    substitutePlayerIds: substitutes.map(s => ({ id: s.playerid, name: s.enhancedName })),
-    totalPlayersInArray: players.length,
-    startingElevenCount: startingEleven.length
+  if (error) {
+    return (
+      <Card>
+        <CardBody className="p-4">
+          <div className="flex items-center justify-center gap-2 text-danger">
+            <Icon icon="lucide:alert-circle" className="w-4 h-4" />
+            <span className="text-sm">{error}</span>
+          </div>
+        </CardBody>
+      </Card>
+    );
+  }
+
+  const formationName = formation?.formationname || "Unknown Formation";
+  
+  // Debug log to see exactly what formation and teamSheet we received
+  console.log(`[FootballPitch] Final data for rendering:`, {
+    teamName,
+    displayTeamId,
+    formationData: formation ? {
+      teamid: formation.teamid,
+      formationname: formation.formationname,
+      position0: formation.position0,
+      offset0x: formation.offset0x,
+      offset0y: formation.offset0y
+    } : null,
+    teamSheetData: teamSheet ? {
+      teamid: teamSheet.teamid,
+      playerid0: teamSheet.playerid0,
+      playerid1: teamSheet.playerid1,
+      playerid2: teamSheet.playerid2
+    } : null,
+    detailedPlayersCount: detailedPlayers.length
   });
-
+  
   return (
-    <Card className="w-full">
-      <CardBody className="p-4">
-        <div className="flex items-center gap-2 mb-4">
-          <Icon icon="lucide:map" className="w-5 h-5 text-primary" />
-          <h3 className="text-lg font-bold">
-            {formation.formationname || "4-4-2"} Formation
-          </h3>
-          <Chip size="sm" color="primary" variant="flat">
-            {teamName}
+    <div className="space-y-4">
+      {/* Formation Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Icon icon="lucide:users" className="w-4 h-4 text-primary" />
+          <span className="font-semibold text-sm">{formationName}</span>
+          <span className="text-xs text-default-500">• {teamName}</span>
+          <Chip size="sm" color="secondary" variant="flat" className="text-[10px]">
+            Team ID: {teamSheet?.teamid || displayTeamId || teamId}
           </Chip>
-          {isLoadingPlayers && (
-            <Chip size="sm" color="warning" variant="flat" className="animate-pulse">
-              Loading player data...
-            </Chip>
-          )}
-          {Object.keys(detailedPlayers).length > 0 && (
-            <Chip size="sm" color="success" variant="flat">
-              {Object.keys(detailedPlayers).length} players loaded
-            </Chip>
-          )}
         </div>
+        <div className="flex items-center gap-2">
+          <Chip size="sm" color="primary" variant="flat">
+            Основной состав
+          </Chip>
+          <Chip size="sm" color="warning" variant="flat">
+            Резерв: {renderSubstitutes().length} игроков
+          </Chip>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-3 gap-6">
-          {/* Football Pitch */}
-          <div className="col-span-2">
-            <div 
-              className="relative w-full aspect-[3/4] bg-gradient-to-b from-green-400 to-green-600 rounded-xl border-4 border-white shadow-lg overflow-hidden"
-              style={{
+      {/* Football Pitch */}
+      <Card>
+        <CardBody className="p-0">
+          <div className="relative w-full bg-green-950 rounded-lg overflow-hidden">
+            {/* Pitch background pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="w-full h-full" style={{
                 backgroundImage: `
                   linear-gradient(90deg, rgba(255,255,255,0.1) 50%, transparent 50%),
                   linear-gradient(rgba(255,255,255,0.1) 50%, transparent 50%)
                 `,
                 backgroundSize: '20px 20px'
-              }}
-            >
-              {/* Pitch markings */}
-              <div className="absolute inset-0">
-                {/* Center circle */}
-                <div className="absolute top-1/2 left-1/2 w-24 h-24 border-2 border-white rounded-full transform -translate-x-1/2 -translate-y-1/2 opacity-80"></div>
-                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-                
-                {/* Penalty areas */}
-                <div className="absolute top-0 left-1/2 w-20 h-16 border-2 border-white border-t-0 transform -translate-x-1/2 opacity-80"></div>
-                <div className="absolute bottom-0 left-1/2 w-20 h-16 border-2 border-white border-b-0 transform -translate-x-1/2 opacity-80"></div>
-                
-                {/* Goal areas */}
-                <div className="absolute top-0 left-1/2 w-12 h-8 border-2 border-white border-t-0 transform -translate-x-1/2 opacity-80"></div>
-                <div className="absolute bottom-0 left-1/2 w-12 h-8 border-2 border-white border-b-0 transform -translate-x-1/2 opacity-80"></div>
-                
-                {/* Center line */}
-                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white opacity-80 transform -translate-y-1/2"></div>
-              </div>
-
-              {/* Players */}
-              {startingEleven.map((playerData) => (
-                <Tooltip
-                  key={playerData.index}
-                  content={
-                    <div className="text-center">
-                      <div className="font-bold">{playerData.playerName}</div>
-                      <div className="text-xs text-default-500">{playerData.position} • #{playerData.jerseyNumber}</div>
-                      {playerData.player.overall_rating && (
-                        <div className="text-xs">OVR: {playerData.player.overall_rating}</div>
-                      )}
-                      {playerData.player.potential && (
-                        <div className="text-xs">POT: {playerData.player.potential}</div>
-                      )}
-                      {teamSheet[`playerid${playerData.index}` as keyof TeamSheetData] && detailedPlayers[teamSheet[`playerid${playerData.index}` as keyof TeamSheetData] as string] && (
-                        <div className="text-xs text-success-500 mt-1">
-                          Enhanced data loaded ✓
-                        </div>
-                      )}
-                    </div>
-                  }
-                  placement="top"
-                  delay={0}
-                  closeDelay={100}
-                >
-                  <div
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-200 hover:scale-110"
-                    style={{
-                      left: `${playerData.x}%`,
-                      top: `${playerData.y}%`,
-                    }}
-                  >
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-2 border-white ${
-                      POSITION_COLORS[playerData.position] || "bg-gray-500"
-                    }`}>
-                      {playerData.jerseyNumber || '?'}
-                    </div>
-                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-[8px] font-bold text-white text-center whitespace-nowrap bg-black/70 px-1 rounded max-w-20 truncate">
-                      {playerData.playerName.split(' ').pop()} {/* Show last name only */}
-                    </div>
-                  </div>
-                </Tooltip>
-              ))}
+              }} />
             </div>
-
-            {/* Formation Info */}
-            <div className="mt-4 grid grid-cols-4 gap-2 text-xs">
-              <div className="text-center">
-                <div className="w-4 h-4 bg-yellow-500 rounded-full mx-auto mb-1"></div>
-                <span>GK</span>
-              </div>
-              <div className="text-center">
-                <div className="w-4 h-4 bg-blue-500 rounded-full mx-auto mb-1"></div>
-                <span>DEF</span>
-              </div>
-              <div className="text-center">
-                <div className="w-4 h-4 bg-green-500 rounded-full mx-auto mb-1"></div>
-                <span>MID</span>
-              </div>
-              <div className="text-center">
-                <div className="w-4 h-4 bg-red-500 rounded-full mx-auto mb-1"></div>
-                <span>ATT</span>
+            
+            {/* Pitch dimensions - using 16:10 aspect ratio for better display */}
+            <div className="relative w-full" style={{ paddingBottom: '62.5%' }}>
+              {/* Pitch markings */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 100 62.5"
+                preserveAspectRatio="none"
+              >
+                {/* Outer boundary */}
+                <rect x="2" y="2" width="96" height="58.5" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                
+                {/* Center circle */}
+                <circle cx="50" cy="31.25" r="8" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                <circle cx="50" cy="31.25" r="0.5" fill="white" opacity="0.8" />
+                
+                {/* Center line - horizontal */}
+                <line x1="2" y1="31.25" x2="98" y2="31.25" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                
+                {/* Goal areas - bottom (home) and top (away) */}
+                <rect x="37.5" y="52" width="25" height="8.5" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                <rect x="37.5" y="2" width="25" height="8.5" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                
+                {/* Penalty areas - bottom (home) and top (away) */}
+                <rect x="25" y="45" width="50" height="15.5" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                <rect x="25" y="2" width="50" height="15.5" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                
+                {/* Penalty spots */}
+                <circle cx="50" cy="52" r="0.5" fill="white" opacity="0.8" />
+                <circle cx="50" cy="10.5" r="0.5" fill="white" opacity="0.8" />
+                
+                {/* Goals - bottom (home) and top (away) */}
+                <rect x="42.5" y="60.5" width="15" height="2" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+                <rect x="42.5" y="0" width="15" height="2" fill="none" stroke="white" strokeWidth="0.3" opacity="0.8" />
+              </svg>
+              
+              {/* Players on pitch */}
+              <div className="absolute inset-0">
+                {renderStartingXI()}
               </div>
             </div>
           </div>
+        </CardBody>
+      </Card>
 
-          {/* Starting XI & Substitutes */}
-          <div className="space-y-4">
-            {/* Starting XI */}
-            <div>
-              <h4 className="font-semibold mb-2 flex items-center gap-2">
-                <Icon icon="lucide:users" className="w-4 h-4" />
-                Starting XI
-              </h4>
-              <div className="space-y-1">
-                {startingEleven
-                  .sort((a, b) => a.index - b.index)
-                  .map((playerData) => (
-                    <div
-                      key={playerData.index}
-                      className="flex items-center gap-2 p-2 bg-default-50 dark:bg-default-100 rounded-lg"
-                    >
-                      <div className={`w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-xs ${
-                        POSITION_COLORS[playerData.position] || "bg-gray-500"
-                      }`}>
-                        {playerData.jerseyNumber || '?'}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-xs truncate">
-                          {playerData.playerName}
-                        </div>
-                        <div className="text-[10px] text-default-500 flex items-center gap-1">
-                          <span>{playerData.position}</span>
-                          {playerData.player.overall_rating && (
-                            <span className="text-primary font-bold">
-                              OVR: {playerData.player.overall_rating}
-                            </span>
+      {/* Starting XI List Section */}
+      <Card>
+        <CardBody className="p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Icon icon="lucide:users" className="w-4 h-4 text-primary" />
+            <span className="font-semibold text-sm">Основной состав</span>
+            <Chip size="sm" color="primary" variant="flat">
+              {(() => {
+                let filledCount = 0;
+                for (let i = 0; i <= 10; i++) {
+                  const playerId = teamSheet[`playerid${i}`];
+                  if (playerId && playerId !== "-1") {
+                    filledCount++;
+                  }
+                }
+                return filledCount;
+              })()} игроков
+            </Chip>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+            {(() => {
+              const startingPlayers = [];
+              for (let i = 0; i <= 10; i++) {
+                const playerId = teamSheet[`playerid${i}`];
+                
+                // Skip empty positions with "-1"
+                if (playerId === "-1") continue;
+                
+                const player = getPlayerById(playerId);
+                const positionId = formation[`position${i}`];
+                
+                const playerName = player ? getPlayerName(player) : `Player ${playerId}`;
+                const position = getPositionAbbreviation(positionId || "14");
+                
+                startingPlayers.push(
+                  <Tooltip
+                    key={`starter-list-${i}`}
+                    content={
+                      <div className="p-2">
+                        <div className="font-semibold">{playerName}</div>
+                        <div className="text-xs text-default-500">
+                          Position Slot: playerid{i}
+                          <br />Formation Position: {position} (ID: {positionId})
+                          <br />Player ID: {playerId}
+                          {player && (
+                            <>
+                              <br />Overall: {player.overallrating}
+                              <br />Age: {player.age}
+                              <br />Preferred Position: {getPositionAbbreviation(player.preferredposition1?.toString() || "14")}
+                            </>
                           )}
                         </div>
                       </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            {/* Substitutes */}
-            {substitutes.length > 0 && (
-              <div>
-                <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Icon icon="lucide:arrow-up-down" className="w-4 h-4" />
-                  Substitutes ({substitutes.length})
-                </h4>
-                <div className="space-y-1">
-                  {substitutes.map((player) => {
-                    // Use the enhanced data already computed
-                    const subJerseyNumber = player.enhancedJerseyNumber;
-                    const subPlayerName = player.enhancedName;
-                    return (
-                      <div
-                        key={player.playerid}
-                        className="flex items-center gap-2 p-2 bg-default-50 dark:bg-default-100 rounded-lg opacity-75"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-default-300 text-default-700 font-bold text-xs flex items-center justify-center">
-                          {subJerseyNumber || '?'}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="font-medium text-xs truncate">
-                            {subPlayerName}
-                          </div>
-                          <div className="text-[10px] text-default-500 flex items-center gap-1">
-                            <span>{player.position || "SUB"}</span>
-                            {player.overall_rating && (
-                              <span className="text-primary font-bold">
-                                OVR: {player.overall_rating}
-                              </span>
-                            )}
-                            {player.potential && (
-                              <span className="text-secondary font-bold ml-1">
-                                POT: {player.potential}
-                              </span>
-                            )}
-                          </div>
-                        </div>
+                    }
+                    placement="top"
+                    showArrow
+                  >
+                    <div className="flex items-center gap-2 p-2 bg-zinc-800 rounded-lg hover:bg-zinc-700 cursor-pointer transition-colors">
+                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-[10px] font-bold ${
+                        positionId === "0" // Goalkeeper
+                          ? 'bg-yellow-400 border-yellow-600 text-yellow-900'
+                          : 'bg-blue-500 border-blue-700 text-white'
+                      }`}>
+                        {position}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm font-medium truncate">{playerName}</div>
+                        <div className="text-xs text-default-500">Позиция #{i} • ID: {playerId}</div>
+                      </div>
+                      {player && (
+                        <Chip size="sm" color="success" variant="flat" className="text-[10px]">
+                          {player.overallrating}
+                        </Chip>
+                      )}
+                    </div>
+                  </Tooltip>
+                );
+              }
+              return startingPlayers;
+            })()}
           </div>
-        </div>
-      </CardBody>
-    </Card>
-  );
-}
+        </CardBody>
+      </Card>
 
-export default memo(FootballPitch);
+      {/* Substitutes Section - Always show all 41 reserve positions */}
+      <Card>
+        <CardBody className="p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Icon icon="lucide:users-2" className="w-4 h-4 text-warning" />
+            <span className="font-semibold text-sm">Резервный состав</span>
+            <Chip size="sm" color="warning" variant="flat">
+              {(() => {
+                let filledCount = 0;
+                for (let i = 11; i <= 51; i++) {
+                  const playerId = teamSheet[`playerid${i}`];
+                  if (playerId && playerId !== "-1") {
+                    filledCount++;
+                  }
+                }
+                return filledCount;
+              })()} игроков
+            </Chip>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+            {renderSubstitutes()}
+          </div>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
+
+export default FootballPitch;

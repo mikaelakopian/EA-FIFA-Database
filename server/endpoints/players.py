@@ -11,6 +11,7 @@ import requests
 from PIL import Image
 from io import BytesIO
 from pathlib import Path
+from pydantic import BaseModel
 # Import the new save function from teamplayerlinks endpoint
 from .teamplayerlinks import save_teamplayerlinks_with_jersey_numbers as save_tpl_extended
 from .playernames import initialize_playernames_file
@@ -22,6 +23,10 @@ from .PlayerAttributesCalculationModel import generate_player_attributes, calcul
 from .PlayerOverallPotentialRating import calculate_player_rating_from_league_id, get_rating_breakdown_details, calculate_overall_rating_and_potential, get_league_info_from_id
 
 router = APIRouter()
+
+# Request models
+class PlayerIdsRequest(BaseModel):
+    player_ids: List[str]
 
 # Cache for loaded data to avoid repeated file reads
 _players_cache = {}
@@ -205,7 +210,15 @@ def get_position_map():
 def get_cached_players(file_path: str):
     """Get players from cache or load from file"""
     if file_path not in _players_cache:
-        _players_cache[file_path] = load_json_file(file_path)
+        players = load_json_file(file_path)
+        print(f"[get_cached_players] Loaded {len(players)} players from {file_path}")
+        # Check if player 300482 is in the loaded data
+        player_300482_found = any(p.get('playerid') == '300482' for p in players)
+        print(f"[get_cached_players] Player 300482 found in loaded data: {player_300482_found}")
+        if player_300482_found:
+            p300482 = next(p for p in players if p.get('playerid') == '300482')
+            print(f"[get_cached_players] Player 300482 details: rating={p300482.get('overallrating')}, position={p300482.get('preferredposition1')}")
+        _players_cache[file_path] = players
     return _players_cache[file_path]
 
 def get_cached_teamplayerlinks(file_path: str):
@@ -280,6 +293,71 @@ async def clear_players_cache():
     _players_cache.clear()
     _teamplayerlinks_cache.clear()
     return {"message": "Players cache cleared successfully"}
+
+@router.post("/players/by-ids", tags=["players"])
+async def get_players_by_ids(
+    request: PlayerIdsRequest,
+    project_id: str = Query(None, description="Project ID to load players from")
+):
+    """Get specific players by their IDs"""
+    
+    player_ids = request.player_ids
+    print(f"[get_players_by_ids] Requested player IDs: {player_ids[:5]}... (total: {len(player_ids)})")
+    
+    # Determine file paths
+    if project_id:
+        try:
+            players_file = f'../projects/{project_id}/data/fifa_ng_db/players.json'
+        except:
+            players_file = '../fc25/data/fifa_ng_db/players.json'
+    else:
+        players_file = '../fc25/data/fifa_ng_db/players.json'
+    
+    try:
+        # Load all players
+        all_players = get_cached_players(players_file)
+        print(f"[get_players_by_ids] Total players loaded: {len(all_players)}")
+        
+        # Filter players by IDs
+        players_dict = {p['playerid']: p for p in all_players}
+        print(f"[get_players_by_ids] Players dict created with {len(players_dict)} entries")
+        
+        # Special check for player 300482
+        if "300482" in player_ids:
+            print(f"[get_players_by_ids] Player 300482 requested")
+            print(f"[get_players_by_ids] Player 300482 in players_dict: {'300482' in players_dict}")
+            
+        found_players = []
+        
+        for player_id in player_ids:
+            if player_id in players_dict:
+                found_players.append(players_dict[player_id])
+            else:
+                # Special debug for player 300482
+                if player_id == "300482":
+                    print(f"[get_players_by_ids] DEBUG: Player 300482 not found in players_dict")
+                    print(f"[get_players_by_ids] DEBUG: Checking if '300482' exists in dict keys...")
+                    print(f"[get_players_by_ids] DEBUG: First 10 player IDs in dict: {list(players_dict.keys())[:10]}")
+                    # Check if the ID exists with different formatting
+                    for pid in players_dict.keys():
+                        if "300482" in str(pid):
+                            print(f"[get_players_by_ids] DEBUG: Found similar ID: {pid}")
+        
+        print(f"[get_players_by_ids] Found {len(found_players)} out of {len(player_ids)} requested players")
+        if len(found_players) < len(player_ids):
+            missing_ids = [pid for pid in player_ids if pid not in players_dict]
+            print(f"[get_players_by_ids] Missing player IDs: {missing_ids}")
+        
+        return found_players
+        
+    except HTTPException as e:
+        if project_id and e.status_code == 404:
+            print(f"[WARNING] Project players not found, falling back to default")
+            # Retry with default files - need to pass request object
+            return await get_players_by_ids(request, None)
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/players/lazy", tags=["players"])
 async def get_players_lazy(
